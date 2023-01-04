@@ -1,0 +1,167 @@
+{{ 'section-testimonials-slider.css' | asset_url | stylesheet_tag }}
+<link async href="{{ 'swiper-bundle.min.css' | asset_url }}" rel="stylesheet">
+
+<div id="TestimonialsSlider-{{ section.id }}" class="testimonials-slider {% if section.settings.show_background %}testimonials-slider--with-background{% endif %}">
+  <div class="testimonials-slider__wrap page-width">
+    <div class="testimonials-slider__content">
+      {%- if section.settings.section_heading != blank -%}
+        <div class="testimonials-slider__section-heading">
+            <h2>{{ section.settings.section_heading }}</h2>
+        </div>
+      {%- endif -%}
+      <div class="testimonials-slider__swiper swiper">
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              <div id="block--{{ block.id }}" class="testimonials-slider__slide swiper-slide">
+                  <p class="testimonials-slider__testimonial-content">{{ block.settings.testimonial_content }}</p>
+                  <p class="testimonials-slider__testimonial-name">{{ block.settings.testimonial_name }}</p>
+              </div>
+            {%- endfor -%}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #WorkWith-{{ section.id }} .testimonials-slider__section-heading h2{
+      font-size: {{ section.settings.heading_font_size_mobile }}px;
+  }
+  @media (min-width: 750px){
+    #WorkWith-{{ section.id }} .testimonials-slider__section-heading h2{
+        font-size: {{ section.settings.heading_font_size_desktop }}px;
+    }
+  }
+
+  {%- for block in section.blocks -%}
+    #block--{{ block.id }} .testimonials-slider__testimonial-content{font-size:{{ block.settings.content_font_size_mobile }}px;}
+    #block--{{ block.id }} .testimonials-slider__testimonial-name{font-size:{{ block.settings.name_font_size_mobile }}px;}
+    
+    @media (min-width: 750px){
+      #block--{{ block.id }} .testimonials-slider__testimonial-content{font-size:{{ block.settings.content_font_size_desktop }}px;}
+      #block--{{ block.id }} .testimonials-slider__testimonial-name{font-size:{{ block.settings.name_font_size_desktop }}px;}
+    }
+  {%- endfor -%}
+</style>
+
+<script defer src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(){
+      var swiper = new Swiper(".testimonials-slider__swiper", {
+        slidesPerView: 1,
+        loop: false,
+        spaceBetween: 0,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+      });
+    });    
+</script>
+
+{% schema %}
+{
+  "name": "Testimonial slider",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Section heading"
+    },
+    {
+        "type": "range",
+        "id": "heading_font_size_mobile",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading font size - mobile",
+        "default": 38
+    },
+    {
+        "type": "range",
+        "id": "heading_font_size_desktop",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading font size - desktop",
+        "default": 59
+    },
+    {
+      "type": "checkbox",
+      "id": "show_background",
+      "label": "Show background",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "testimonial_content",
+          "label": "Testimonial"
+        },
+        {
+          "type": "range",
+          "id": "content_font_size_mobile",
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Content font size - mobile",
+          "default": 33
+        },
+        {
+          "type": "range",
+          "id": "content_font_size_desktop",
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "content font size - desktop",
+          "default": 69
+        },
+        {
+            "type": "text",
+            "id": "testimonial_name",
+            "label": "Name"
+        },
+        {
+          "type": "range",
+          "id": "name_font_size_mobile",
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Name font size - mobile",
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "name_font_size_desktop",
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Name font size - desktop",
+          "default": 24
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial slider",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,198 @@
+{{ 'section-icon-image-row.css' | asset_url | stylesheet_tag }}
+<style>
+  #icon-image-row-{{ section.id }} .icon-image-row__row{
+    flex: 0 0 {{ section.settings.icons_per_row_mobile }};
+    max-width: {{ section.settings.icons_per_row_mobile }};
+  }
+  #icon-image-row-{{ section.id }} .icon-image-row__row img{
+    width: {{ section.settings.icon_width_mobile }}px;
+    max-width: 100%;
+  }
+  @media (min-width:750px){
+    #icon-image-row-{{ section.id }} .icon-image-row__row img{
+      width: {{ section.settings.icon_width_desktop }}px;
+      max-width: 100%;
+    }
+    #icon-image-row-{{ section.id }} .icon-image-row__row{
+      flex: 0 0 {{ section.settings.icons_per_row_desktop }};
+      max-width: {{ section.settings.icons_per_row_desktop }};
+    }
+  }
+</style>
+<div id="icon-image-row-{{ section.id }}" class="icon-image-row">
+  <div class="icon-image-row__wrap page-width">
+    <div class="icon-image-row__content">
+        {%- if section.settings.section_heading != blank -%}
+        <div class="icon-image-row__section-heading">
+            <h2>{{ section.settings.section_heading }}</h2>
+        </div>
+        {%- endif -%}
+      <div class="icon-image-row__rows">
+        {%- for block in section.blocks -%}
+          <div class="icon-image-row__row">
+            {%- if block.settings.icon_light != blank -%}
+              <img
+                srcset="{%- if block.settings.icon_light.width >= 550 -%}{{ block.settings.icon_light | image_url: width: 550 }} 550w,{%- endif -%}
+                {%- if block.settings.icon_light.width >= 720 -%}{{ block.settings.icon_light | image_url: width: 720 }} 720w,{%- endif -%}
+                {%- if block.settings.icon_light.width >= 990 -%}{{ block.settings.icon_light | image_url: width: 990 }} 990w,{%- endif -%}
+                {%- if block.settings.icon_light.width >= 1100 -%}{{ block.settings.icon_light | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {{ block.settings.icon_light | image_url }} {{ block.settings.icon_light.width }}w"
+                src="{{ block.settings.icon_light | image_url: width: 1500 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {% if section.blocks.size == 1 %}calc({{ settings.page_width }}px - 100px){% else %}{{ settings.page_width | minus: 100 | times: 0.67 | round }}px{% endif %}, (min-width: 750px){% if section.blocks.size == 1 %} calc(100vw - 100px){% else %} 500px{% endif %}, calc(100vw - 30px)"
+                alt="{{ block.settings.icon_light.alt | escape }}"
+                loading="lazy"
+                width="{{ block.settings.icon_light.width }}"
+                height="{{ block.settings.icon_light.height }}"
+                class="icon-image-row__icon icon-image-row__icon--light"
+            >
+            {%- endif -%}
+            {%- if block.settings.icon_dark != blank -%}
+              <img
+                srcset="{%- if block.settings.icon_dark.width >= 550 -%}{{ block.settings.icon_dark | image_url: width: 550 }} 550w,{%- endif -%}
+                {%- if block.settings.icon_dark.width >= 720 -%}{{ block.settings.icon_dark | image_url: width: 720 }} 720w,{%- endif -%}
+                {%- if block.settings.icon_dark.width >= 990 -%}{{ block.settings.icon_dark | image_url: width: 990 }} 990w,{%- endif -%}
+                {%- if block.settings.icon_dark.width >= 1100 -%}{{ block.settings.icon_dark | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {{ block.settings.icon_dark | image_url }} {{ block.settings.icon_dark.width }}w"
+                src="{{ block.settings.icon_dark | image_url: width: 1500 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {% if section.blocks.size == 1 %}calc({{ settings.page_width }}px - 100px){% else %}{{ settings.page_width | minus: 100 | times: 0.67 | round }}px{% endif %}, (min-width: 750px){% if section.blocks.size == 1 %} calc(100vw - 100px){% else %} 500px{% endif %}, calc(100vw - 30px)"
+                alt="{{ block.settings.icon_dark.alt | escape }}"
+                loading="lazy"
+                width="{{ block.settings.icon_dark.width }}"
+                height="{{ block.settings.icon_dark.height }}"
+                class="icon-image-row__icon icon-image-row__icon--dark"
+            >
+            {%- endif -%}
+            {%- if block.settings.icon_heading != blank -%}
+              <div class="icon-image-row__icon-heading">
+                <p>{{ block.settings.icon_heading }}</p>
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Icon image row",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "textarea",
+        "id": "section_heading",
+        "label": "Section heading"
+    },
+    {
+      "type": "range",
+      "id": "icon_width_mobile",
+      "min": 20,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon max width - mobile",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "icon_width_desktop",
+      "min": 50,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon max width - desktop",
+      "default": 90
+    },
+    {
+        "type": "select",
+        "id": "icons_per_row_mobile",
+        "label": "Icons per row - mobile",
+        "options": [
+            {
+                "label": "1",
+                "value": "100%"
+            },
+            {
+                "label": "2",
+                "value": "50%"
+            },
+            {
+                "label": "3",
+                "value": "33.333%"
+            },
+            {
+                "label": "4",
+                "value": "25%"
+            },
+            {
+                "label": "5",
+                "value": "20%"
+            }
+        ],
+        "default": "50%"
+    },
+    {
+        "type": "select",
+        "id": "icons_per_row_desktop",
+        "label": "Icons per row - desktop",
+        "options": [
+            {
+                "label": "1",
+                "value": "100%"
+            },
+            {
+                "label": "2",
+                "value": "50%"
+            },
+            {
+                "label": "3",
+                "value": "33.333%"
+            },
+            {
+                "label": "4",
+                "value": "25%"
+            },
+            {
+                "label": "5",
+                "value": "20%"
+            }
+        ],
+        "default": "25%"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon_image",
+      "name": "Icon image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_light",
+          "label": "Icon - Light",
+         "info": "Icon when light mode is enabled"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_dark",
+          "label": "Icon - Dark",
+         "info": "Icon when dark mode is enabled"
+        },
+        {
+          "type": "text",
+          "id": "icon_heading",
+          "label": "Icon heading"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon image row",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

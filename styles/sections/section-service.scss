@@ -1,0 +1,173 @@
+// Light
+.service{
+    .service__wrap{
+        .service__content{
+            .service__images{
+                margin-top: 25px;
+                background: none !important;
+                background: linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 100%);
+                border-radius: 70px;
+                
+                @media (min-width: 750px){
+                    margin-top: 70px;
+                }
+                .service__images-overlay{
+                    
+                }
+
+                .service__image{
+                    position: relative;
+                    z-index: 1;
+                    overflow: hidden;
+
+                    &::before{
+                        position: absolute;
+                        content: "";
+                        background: linear-gradient(0deg, #f3f5f7 25%, rgba(243, 245, 247, 0) 40%);
+                        width: 100%;
+                        bottom: -2%;
+                        height: 750px;
+                        
+                        @media (min-width: 750px){
+                            bottom: -35%;
+                            height: 990px;
+                        }
+                        @media (min-width: 990px){
+                            bottom: -30%;
+                            height: 1200px;
+                        }
+                        @media (min-width: 1200px){
+                            bottom: -35%;
+                            height: 1600px;
+                        }
+
+                    }
+
+                    &.service__image--desktop{
+                        display: none;
+                        @media (min-width: 750px){
+                            display: block;
+                        }
+                    }
+                    &.service__image--mobile{
+                        display: block;
+                        @media (min-width: 750px){
+                            display: none;
+                        }
+                    }
+                    img{
+                        width: 100%;
+                        height: auto;
+                        display: block;
+                    }
+                }
+            }
+            .service__content{
+                margin-top: -150px;
+                padding: 15px 15px 40px 15px;
+                position: relative;
+                text-align: center;
+                border-radius: 5rem;
+                background: linear-gradient(180deg, #f3f5f7 8%, #fff 68.03%);
+                z-index: 1;
+
+                @media (min-width: 750px){
+                    margin-top: -100px;
+                    padding: 15px 30px 50px 30px;
+                }
+                @media (min-width: 990px){
+                    margin-top: -150px;
+                    padding: 15px 30px 50px 30px;
+                }
+                @media (min-width: 1200px){
+                    margin-top: -140px;
+                    padding: 15px 30px 50px 30px;
+                }
+
+                .service__content-subtitle{
+                    margin: 0;
+                    color: #FFBA03;
+                    // font-size: 18px;
+                    font-weight: 700;
+                    line-height: normal;
+
+                    @media (min-width: 750px){
+                        // font-size: 30px;
+                    }
+                }
+                .service__content-title{
+                    margin: 8px 0;
+                    // font-size: 38px;
+                    @media (min-width: 750px){
+                        // font-size: 68px;
+                        margin: 14px 0 ;
+                    }
+                }
+                .service__content-button{
+                    margin: 0;
+                    min-width: 244px;
+                    width: auto;
+                    min-height: 45px;
+                    height: auto;
+                    // font-size: 16px;
+                    font-weight: 700;
+                    color: #FFBA03;
+                    border-radius: 5rem;
+
+                    &::after,
+                    &::before{
+                        display: none;
+                    }
+                    
+                    @media (min-width: 750px){
+                        min-width: 380px;
+                        min-height: 70px;
+                        // font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Dark
+body.theme-dark-mode{
+    .service{
+        .service__wrap{
+            .service__content{
+                .service__images{
+                    .service__images-overlay{
+                        
+                    }
+
+                    .service__image{
+
+                        &::before{
+                            background: linear-gradient(0deg, #171717 25%, rgba(243, 245, 247, 0) 40%);
+
+                        }
+
+                        &.service__image--desktop{
+                        }
+                        &.service__image--mobile{
+                        }
+                        img{
+                        }
+                    }
+                }
+                .service__content{
+                    background: linear-gradient(180deg, #171717 8%, #000 68.03%);
+
+                    .service__content-subtitle{
+                    }
+                    .service__content-title{
+                    }
+                    .service__content-button{
+                        background-color: #FFBA03;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+}

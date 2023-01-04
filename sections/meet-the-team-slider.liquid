@@ -1,0 +1,409 @@
+{{ 'section-meet-the-team-slider.css' | asset_url | stylesheet_tag }}
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+/>
+
+<div id="MeetTheTeam-{{ section.id }}" class="meet-the-team-slider">
+  <div class="meet-the-team-slider__wrap page-width">
+    <div class="meet-the-team-slider__content">
+        <div class="meet-the-team-slider__section-heading">
+            <h2>{{ section.settings.section_heading }}</h2>
+            {%- if section.settings.section_subheading_url != blank -%}
+                <a href="{{ section.settings.section_subheading_url }}">
+            {%- endif -%}
+            <p>{{ section.settings.section_subheading }}</p>
+            {%- if section.settings.section_subheading_url != blank -%}
+                </a>
+            {%- endif -%}
+        </div>
+      <div class="meet-the-team-slider__slider swiper">
+        <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+            <style>
+                #block--{{ block.id }} .meet-the-team-slider__slide-name{
+                    font-size: {{ block.settings.name_font_size_mobile }};
+                }
+                #block--{{ block.id }} .meet-the-team-slider__slide-role{
+                    font-size: {{ block.settings.role_font_size_mobile }};
+                }
+                #block--{{ block.id }} .meet-the-team-slider__slide-heading{
+                    font-size: {{ block.settings.heading_font_size_mobile }};
+                }
+                #block--{{ block.id }} .meet-the-team-slider__slide-subheading{
+                    font-size: {{ block.settings.subheading_font_size_mobile }};
+                }
+                @media (min-width: 750px){
+                    #block--{{ block.id }} .meet-the-team-slider__slide-name{
+                        font-size: {{ block.settings.name_font_size_desktop }};
+                    }
+                    #block--{{ block.id }} .meet-the-team-slider__slide-role{
+                        font-size: {{ block.settings.role_font_size_desktop }};
+                    }
+                    #block--{{ block.id }} .meet-the-team-slider__slide-heading{
+                        font-size: {{ block.settings.heading_font_size_desktop }};
+                    }
+                    #block--{{ block.id }} .meet-the-team-slider__slide-subheading{
+                        font-size: {{ block.settings.subheading_font_size_desktop }};
+                    }
+                }
+            </style>
+            <div id="block--{{ bloci.id }}" class="meet-the-team-slider__slide swiper-slide">
+                <div class="meet-the-team-slider__slide-content">
+                    {%- if block.settings.name != blank -%}
+                    <p class="meet-the-team-slider__slide-name">{{ block.settings.name }}</p>
+                    {%- endif -%}
+                    {%- if block.settings.role != blank -%}
+                    <p class="meet-the-team-slider__slide-role">{{ block.settings.role }}</p>
+                    {%- endif -%}
+                    {%- if block.settings.image != blank -%}
+                    <img src="{{ block.settings.image | img_url: '240x' }}" class="meet-the-team-slider__image" loading="lazy" alt="{{ block.settings.image.alt }}">
+                    {%- endif -%}
+                    
+                    {%- if block.settings.heading1 != blank -%}
+                    <p class="meet-the-team-slider__slide-heading">{{ block.settings.heading1 }}</p>
+                    {%- endif -%}
+                    {%- if block.settings.subheading1 != blank -%}
+                    <p class="meet-the-team-slider__slide-subheading">{{ block.settings.subheading1 }}</p>
+                    {%- endif -%}
+
+                    {%- if block.settings.heading2 != blank -%}
+                    <p class="meet-the-team-slider__slide-heading">{{ block.settings.heading2 }}</p>
+                    {%- endif -%}
+                    {%- if block.settings.subheading2 != blank -%}
+                    <p class="meet-the-team-slider__slide-subheading">{{ block.settings.subheading2 }}</p>
+                    {%- endif -%}
+                    
+                    {%- if block.settings.heading3 != blank -%}
+                    <p class="meet-the-team-slider__slide-heading">{{ block.settings.heading3 }}</p>
+                    {%- endif -%}
+                    {%- if block.settings.subheading3 != blank -%}
+                    <p class="meet-the-team-slider__slide-subheading">{{ block.settings.subheading3 }}</p>
+                    {%- endif -%}
+                </div>
+            </div>
+            {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+    #MeetTheTeam-{{ section.id }} .meet-the-team-slider__section-heading h2{
+        font-size: {{ section.settings.heading_font_size_mobile }}px;
+    }
+    #MeetTheTeam-{{ section.id }} .meet-the-team-slider__section-heading p,
+    #MeetTheTeam-{{ section.id }} .meet-the-team-slider__section-heading a{
+        font-size: {{ section.settings.subheading_font_size_mobile }}px;
+    }
+
+    #MeetTheTeam-{{ section.id }} .meet-the-team-slider__slide{
+        /* flex: 0 0 {{ section.settings.per_row_mobile }};
+        max-width: {{ section.settings.per_row_mobile }}; */
+    }
+    @media (min-width: 750px){
+        #MeetTheTeam-{{ section.id }} .meet-the-team-slider__section-heading h2{
+            font-size: {{ section.settings.heading_font_size_desktop }}px;
+        }
+        #MeetTheTeam-{{ section.id }} .meet-the-team-slider__section-heading p,
+        #MeetTheTeam-{{ section.id }} .meet-the-team-slider__section-heading a{
+            font-size: {{ section.settings.subheading_font_size_desktop }}px;
+        }
+        #MeetTheTeam-{{ section.id }} .meet-the-team-slider__slide{
+            /* flex: 0 0 {{ section.settings.per_row_desktop }};
+            max-width: {{ section.settings.per_row_desktop }}; */
+        }
+    }
+</style>
+
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".meet-the-team-slider__slider", {
+      slidesPerView: {{ section.settings.per_row_mobile }},
+      spaceBetween: 10,
+      loop: true,
+      centeredSlides: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+          750: {
+            slidesPerView: {{ section.settings.per_row_desktop }},
+            spaceBetween: 15,
+            centeredSlides: false,
+          }
+        },
+    });
+</script>
+
+{% schema %}
+{
+  "name": "Meet the team Slider",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Section heading"
+    },
+    {
+        "type": "range",
+        "id": "heading_font_size_mobile",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading font size - Mobile",
+        "default": 38
+    },
+    {
+        "type": "range",
+        "id": "heading_font_size_desktop",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading font size - Desktop",
+        "default": 59
+    },
+    {
+        "type": "text",
+        "id": "section_subheading",
+        "label": "Section subheading"
+    },
+    {
+        "type": "range",
+        "id": "subheading_font_size_mobile",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Subheading font size - Mobile",
+        "default": 14
+    },
+    {
+        "type": "range",
+        "id": "subheading_font_size_desktop",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Subheading font size - Desktop",
+        "default": 25
+    },
+    {
+        "type": "url",
+        "id": "section_subheading_url",
+        "label": "Section subheading URL"
+    },
+    {
+        "type": "select",
+        "id": "per_row_mobile",
+        "label": "Team members per row - mobile",
+        "options": [
+            {
+                "label": "1",
+                "value": "1"
+            },
+            {
+                "label": "2",
+                "value": "2"
+            },
+            {
+                "label": "3",
+                "value": "3"
+            },
+            {
+                "label": "4",
+                "value": "4"
+            },
+            {
+                "label": "5",
+                "value": "5"
+            },
+            {
+                "label": "6",
+                "value": "6"
+            }
+        ],
+        "default": "2"
+    },
+    {
+        "type": "select",
+        "id": "per_row_desktop",
+        "label": "Team members per row - desktop",
+        "options": [
+            {
+                "label": "1",
+                "value": "1"
+            },
+            {
+                "label": "2",
+                "value": "2"
+            },
+            {
+                "label": "3",
+                "value": "3"
+            },
+            {
+                "label": "4",
+                "value": "4"
+            },
+            {
+                "label": "5",
+                "value": "5"
+            },
+            {
+                "label": "6",
+                "value": "6"
+            }
+        ],
+        "default": "4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "team_member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+            "type": "range",
+            "id": "name_font_size_mobile",
+            "min": 10,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Name font size - Mobile",
+            "default": 22
+        },
+        {
+            "type": "range",
+            "id": "name_font_size_desktop",
+            "min": 10,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Name font size - Desktop",
+            "default": 34
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role"
+        },
+        {
+            "type": "range",
+            "id": "role_font_size_mobile",
+            "min": 10,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Role font size - Mobile",
+            "default": 20
+        },
+        {
+            "type": "range",
+            "id": "role_font_size_desktop",
+            "min": 10,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Role font size - Desktop",
+            "default": 35
+        },
+        {
+            "type": "text",
+            "id": "heading1",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "subheading1",
+            "label": "Subheading"
+        },
+        {
+            "type": "text",
+            "id": "heading2",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "subheading2",
+            "label": "Subheading"
+        },
+        {
+            "type": "text",
+            "id": "heading3",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "subheading3",
+            "label": "Subheading"
+        },
+        {
+            "type": "range",
+            "id": "heading_font_size_mobile",
+            "min": 10,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Heading font size - Mobile",
+            "default": 18
+        },
+        {
+            "type": "range",
+            "id": "heading_font_size_desktop",
+            "min": 10,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Heading font size - Desktop",
+            "default": 26
+        },
+        {
+            "type": "range",
+            "id": "subheading_font_size_mobile",
+            "min": 10,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Subheading font size - Mobile",
+            "default": 18
+        },
+        {
+            "type": "range",
+            "id": "subheading_font_size_desktop",
+            "min": 10,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Subheading font size - Desktop",
+            "default": 18
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meet the team slider",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

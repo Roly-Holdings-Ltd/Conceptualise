@@ -1,0 +1,166 @@
+{{ 'section-service.css' | asset_url | stylesheet_tag }}
+
+<div id="Service-{{ section.id }}" class="service">
+  <div class="service__wrap page-width">
+    <div class="service__content">
+        <div class="service__images">
+            <div class="service__images-overlay"></div>
+            <div class="service__image service__image--desktop">
+                {%- if section.settings.image != blank -%}
+                    {{ section.settings.image | image_url: width: 1600 | image_tag:
+                        loading: 'lazy',
+                        width: section.settings.image.width,
+                        height: section.settings.image.width.height,
+                        sizes: section.settings.image.width,
+                        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+                        alt: section.settings.image.alt | escape
+                    }}
+                {%- endif -%}
+            </div>
+            <div class="service__image service__image--mobile">
+                {%- if section.settings.image_mobile != blank -%}
+                    {{ section.settings.image_mobile | image_url: width: 1600 | image_tag:
+                        loading: 'lazy',
+                        width: section.settings.image_mobile.width,
+                        height: section.settings.image_mobile.width.height,
+                        sizes: section.settings.image_mobile.width,
+                        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+                        alt: section.settings.image_mobile.alt | escape
+                    }}
+                {%- endif  -%}
+            </div>
+        </div>
+        <div class="service__content">
+            {%- if section.settings.subtitle != blank -%}
+            <p class="service__content-subtitle">{{ section.settings.subtitle  }}</p>
+            {%- endif -%}
+            {%- if section.settings.title != blank -%}
+                <h2 class="service__content-title">{{ section.settings.title }}</h2>
+            {%- endif -%}
+            {%- if section.settings.button_text != blank -%}
+                <a href="{{ section.settings.url }}" class="service__content-button button">{{ section.settings.button_text }}</a>
+            {%- endif -%}
+        </div>
+    </div>
+  </div>
+</div>
+<style>
+    #Service-{{ section.id }} .service__content .service__content-subtitle{ font-size: {{ section.settings.subtitle_font_size_mobile }}px; }
+    #Service-{{ section.id }} .service__content .service__content-title{ font-size: {{ section.settings.title_font_size_mobile }}px; }
+    #Service-{{ section.id }} .service__content .service__content-button{ font-size: {{ section.settings.button_font_size_mobile }}px; }
+    
+    @media (min-width:750px){
+        #Service-{{ section.id }} .service__content .service__content-subtitle{ font-size: {{ section.settings.subtitle_font_size_desktop }}px; }
+        #Service-{{ section.id }} .service__content .service__content-title{ font-size: {{ section.settings.title_font_size_desktop }}px; }
+        #Service-{{ section.id }} .service__content .service__content-button{ font-size: {{ section.settings.button_font_size_desktop }}px; }
+    }
+</style>
+
+{% schema %}
+{
+  "name": "Service Section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image - Desktop"
+    },
+    {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Image - Mobile"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+    },
+    {
+        "type": "range",
+        "id": "title_font_size_mobile",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Title font size - mobile",
+        "default": 38
+    },
+    {
+        "type": "range",
+        "id": "title_font_size_desktop",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Title font size - desktop",
+        "default": 68
+    },
+    {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+    },
+    {
+        "type": "range",
+        "id": "subtitle_font_size_mobile",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Subtitle font size - mobile",
+        "default": 18
+    },
+    {
+        "type": "range",
+        "id": "subtitle_font_size_desktop",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Subtitle font size - desktop",
+        "default": 30
+    },
+    {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+    },
+    {
+        "type": "url",
+        "id": "url",
+        "label": "Button URL"
+    },
+    {
+        "type": "range",
+        "id": "button_font_size_mobile",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Button font size - mobile",
+        "default": 16
+    },
+    {
+        "type": "range",
+        "id": "button_font_size_desktop",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Button font size - desktop",
+        "default": 24
+    }
+  ],
+  "blocks": [
+  ],
+  "presets": [
+    {
+      "name": "Service Section",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

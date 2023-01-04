@@ -1,0 +1,223 @@
+{{ 'section-rich-text-image-below.css' | asset_url | stylesheet_tag }}
+
+<div id="RichTextImageBelow-{{ section.id }}" class="rich-text-image-below">
+  <div class="rich-text-image-below__wrap page-width">
+    <div class="rich-text-image-below__content">
+      {%- if section.settings.section_heading != blank -%}
+      <div class="rich-text-image-below__section-heading">
+        <h2>{{ section.settings.section_heading }}</h2>
+      </div>
+      {%- endif -%}
+      <div class="rich-text-image-below__section-content">
+        {{ section.settings.content }}
+      </div>
+      {%- if section.settings.button_text != blank -%}
+      <div class="rich-text-image-below__button">
+        <a href="{{ section.settings.button_url }}" class="button">{{ section.settings.button_text }}</a>
+      </div>
+      {%- endif -%}
+    </div>
+    <div class="rich-text-image-below__image">
+        {%- if section.settings.image != blank -%}
+        <img
+            srcset="{%- if section.settings.image.width >= 550 -%}{{ section.settings.image | image_url: width: 550 }} 550w,{%- endif -%}
+            {%- if section.settings.image.width >= 720 -%}{{ section.settings.image | image_url: width: 720 }} 720w,{%- endif -%}
+            {%- if section.settings.image.width >= 990 -%}{{ section.settings.image | image_url: width: 990 }} 990w,{%- endif -%}
+            {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+            {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {%- if section.settings.image.width >= 2200 -%}{{ section.settings.image | image_url: width: 2200 }} 2200w,{%- endif -%}
+            {%- if section.settings.image.width >= 3000 -%}{{ section.settings.image | image_url: width: 3000 }} 3000w,{%- endif -%}
+            {{ section.settings.image | image_url }} {{ section.settings.image.width }}w"
+            src="{{ section.settings.image | image_url: width: 1500 }}"
+            sizes="(min-width: {{ settings.page_width }}px) {% if section.blocks.size == 1 %}calc({{ settings.page_width }}px - 100px){% else %}{{ settings.page_width | minus: 100 | times: 0.67 | round }}px{% endif %}, (min-width: 750px){% if section.blocks.size == 1 %} calc(100vw - 100px){% else %} 500px{% endif %}, calc(100vw - 30px)"
+            alt="{{ section.settings.image.alt | escape }}"
+            loading="lazy"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+            class="rich-text-image-below__image--light"
+        >
+        {%- endif -%}
+        {%- if section.settings.image_dark != blank -%}
+        <img
+            srcset="{%- if section.settings.image_dark.width >= 550 -%}{{ section.settings.image_dark | image_url: width: 550 }} 550w,{%- endif -%}
+            {%- if section.settings.image_dark.width >= 720 -%}{{ section.settings.image_dark | image_url: width: 720 }} 720w,{%- endif -%}
+            {%- if section.settings.image_dark.width >= 990 -%}{{ section.settings.image_dark | image_url: width: 990 }} 990w,{%- endif -%}
+            {%- if section.settings.image_dark.width >= 1100 -%}{{ section.settings.image_dark | image_url: width: 1100 }} 1100w,{%- endif -%}
+            {%- if section.settings.image_dark.width >= 1500 -%}{{ section.settings.image_dark | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {%- if section.settings.image_dark.width >= 2200 -%}{{ section.settings.image_dark | image_url: width: 2200 }} 2200w,{%- endif -%}
+            {%- if section.settings.image_dark.width >= 3000 -%}{{ section.settings.image_dark | image_url: width: 3000 }} 3000w,{%- endif -%}
+            {{ section.settings.image_dark | image_url }} {{ section.settings.image_dark.width }}w"
+            src="{{ section.settings.image_dark | image_url: width: 1500 }}"
+            sizes="(min-width: {{ settings.page_width }}px) {% if section.blocks.size == 1 %}calc({{ settings.page_width }}px - 100px){% else %}{{ settings.page_width | minus: 100 | times: 0.67 | round }}px{% endif %}, (min-width: 750px){% if section.blocks.size == 1 %} calc(100vw - 100px){% else %} 500px{% endif %}, calc(100vw - 30px)"
+            alt="{{ section.settings.image_dark.alt | escape }}"
+            loading="lazy"
+            width="{{ section.settings.image_dark.width }}"
+            height="{{ section.settings.image_dark.height }}"
+            class="rich-text-image-below__image--dark"
+        >
+        {%- endif -%}
+    </div>  
+  </div>
+</div>
+
+<style>
+    #RichTextImageBelow-{{ section.id }} .rich-text-image-below__section-heading h2{
+      font-size: {{ section.settings.heading_font_size_mobile }}px;
+    }
+    #RichTextImageBelow-{{ section.id }} .rich-text-image-below__section-content *,
+    #RichTextImageBelow-{{ section.id }} .rich-text-image-below__section-content{
+      font-size: {{ section.settings.content_font_size_mobile }}px;
+    }
+    #RichTextImageBelow-{{ section.id }} .rich-text-image-below__button a{
+      font-size: {{ section.settings.button_font_size_mobile }}px;
+    }
+    #RichTextImageBelow-{{ section.id }} .rich-text-image-below__image img{
+        max-width: {{ section.settings.image_width }}px;
+    }
+    @media (min-width: 750px){
+      #RichTextImageBelow-{{ section.id }} .rich-text-image-below__section-heading h2{
+        font-size: {{ section.settings.heading_font_size_desktop }}px;
+      }
+      #RichTextImageBelow-{{ section.id }} .rich-text-image-below__section-content *,
+      #RichTextImageBelow-{{ section.id }} .rich-text-image-below__section-content{
+        font-size: {{ section.settings.content_font_size_desktop }}px;
+      }
+      #RichTextImageBelow-{{ section.id }} .rich-text-image-below__button a{
+        font-size: {{ section.settings.button_font_size_desktop }}px;
+      }
+        #RichTextImageBelow-{{ section.id }} .rich-text-image-below__image img{
+            max-width: {{ section.settings.image_width_desktop }}px;
+        }
+    }
+</style>
+
+{% schema %}
+{
+  "name": "Rich text image below",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Section heading"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_mobile",
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading font size - mobile",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_desktop",
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading font size - desktop",
+      "default": 68
+    },
+    {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+    },
+    {
+      "type": "range",
+      "id": "content_font_size_mobile",
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Content font size - mobile",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "content_font_size_desktop",
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Content font size - desktop",
+      "default": 22
+    },
+    {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+    },
+    {
+        "type": "url",
+        "id": "url",
+        "label": "Button URL"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size_mobile",
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Button font size - mobile",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_font_size_desktop",
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Button font size - desktop",
+      "default": 24
+    },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "Image to show when light mode is enabled"
+    },
+    {
+        "type": "image_picker",
+        "id": "image_dark",
+        "label": "Image",
+        "info": "Image to show when dark mode is enabled"
+    },
+    {
+        "type": "range",
+        "id": "image_width",
+        "min": 200,
+        "max": 800,
+        "step": 10,
+        "unit": "px",
+        "label": "Image width - Mobile",
+        "default": 300
+    },
+    {
+        "type": "range",
+        "id": "image_width_desktop",
+        "min": 200,
+        "max": 800,
+        "step": 10,
+        "unit": "px",
+        "label": "Image width - Desktop",
+        "default": 500
+    }
+  ],
+  "blocks": [
+  ],
+  "presets": [
+    {
+      "name": "Rich text image below",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

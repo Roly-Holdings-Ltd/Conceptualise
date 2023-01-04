@@ -1,0 +1,135 @@
+{{ 'section-blog-head.css' | asset_url | stylesheet_tag }}
+
+<div id="BlogHead-{{ section.id }}" class="blog-head">
+  <div class="blog-head__wrap page-width">
+    <div class="blog-head__content">
+        <div class="blog-head__title">
+            {%- capture logo -%}
+                {%- if section.settings.logo_light != blank -%}
+                    {{ section.settings.logo_light | image_url: width: section.settings.width | image_tag:
+                        widths: '50, 100, 150, 200, 250, 300, 400, 500',
+                        alt: section.settings.logo_light.alt,
+                        class: "blog-head__logo blog-head__logo--light"
+                    }}
+                {%- endif -%}
+                {%- if section.settings.logo_dark != blank -%}
+                    {{ section.settings.logo_dark | image_url: width: section.settings.width | image_tag:
+                        widths: '50, 100, 150, 200, 250, 300, 400, 500',
+                        alt: section.settings.logo_dark.alt,
+                        class: "blog-head__logo blog-head__logo--dark"
+                    }}
+                {%- endif -%}
+            {%- endcapture -%}
+            <h1>
+                <span>{{ section.settings.title | replace: '[logo]', logo }}</span>
+            </h1>
+        </div>
+        <div class="blog-head__subtitle">
+            <p>{{ section.settings.subtitle }}</p>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+#BlogHead-{{ section.id }} .blog-head__title h1{
+    font-size: {{ section.settings.title_font_size_mobile }}px;
+}
+#BlogHead-{{ section.id }} .blog-head__title h1 img{
+    max-height: {{ section.settings.title_font_size_mobile }}px;
+}
+#BlogHead-{{ section.id }} .blog-head__subtitle p{
+    max-height: {{ section.settings.subtitle_font_size_mobile }}px;
+}
+@media (min-width:750px) {
+    #BlogHead-{{ section.id }} .blog-head__title h1{
+        font-size: {{ section.settings.title_font_size_desktop }}px;
+    }
+    #BlogHead-{{ section.id }} .blog-head__title h1 img{
+        max-height: {{ section.settings.title_font_size_desktop }}px;
+    }
+    #BlogHead-{{ section.id }} .blog-head__subtitle p{
+        max-height: {{ section.settings.subtitle_font_size_desktop }}px;
+    }
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Blog Head",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "info": "Add [logo] where you want the logo to go in the title. Make sure an image is selected in the below setting."
+    },
+    {
+        "type": "range",
+        "id": "title_font_size_mobile",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Title font size - mobile",
+        "default": 77
+    },
+    {
+        "type": "range",
+        "id": "title_font_size_desktop",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Title font size - desktop",
+        "default": 100
+    },
+    {
+        "type": "image_picker",
+        "id": "logo_light",
+        "label": "logo - light"
+    },
+    {
+        "type": "image_picker",
+        "id": "logo_dark",
+        "label": "logo - dark"
+    },
+    {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+    },
+    {
+        "type": "range",
+        "id": "subtitle_font_size_mobile",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Subtitle font size - mobile",
+        "default": 15
+    },
+    {
+        "type": "range",
+        "id": "subtitle_font_size_desktop",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Subtitle font size - desktop",
+        "default": 28
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Head",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

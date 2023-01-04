@@ -1,0 +1,173 @@
+{{ 'section-large-image-rows.css' | asset_url | stylesheet_tag }}
+<style>
+  #large-image-rows-{{ section.id }} .large-image-rows__row{
+    flex: 0 0 {{ section.settings.images_per_row_mobile }};
+    max-width: {{ section.settings.images_per_row_mobile }};
+  }
+  @media (min-width:750px){
+    #large-image-rows-{{ section.id }} .large-image-rows__row{
+      flex: 0 0 {{ section.settings.icons_per_row_desktop }};
+      max-width: {{ section.settings.icons_per_row_desktop }};
+    }
+  }
+</style>
+<div id="large-image-rows-{{ section.id }}" class="large-image-rows {% if section.settings.no_spacing %}large-image-rows--no-spacing{% endif %}">
+  <div class="large-image-rows__wrap {% unless section.settings.full_width_section %}page-width{% endunless %}">
+    <div class="large-image-rows__content">
+        {%- if section.settings.section_heading != blank -%}
+        <div class="large-image-rows__section-heading">
+            <h2>{{ section.settings.section_heading }}</h2>
+        </div>
+        {%- endif -%}
+      <div class="large-image-rows__rows">
+        {%- for block in section.blocks -%}
+          <div class="large-image-rows__row">
+            {%- if block.settings.image_url -%}
+            <a href="{{ block.settings.image_url }}">
+            {%- endif -%}
+            {%- if block.settings.image != blank -%}
+              <img
+                srcset="{%- if block.settings.image.width >= 550 -%}{{ block.settings.image | image_url: width: 550 }} 550w,{%- endif -%}
+                {%- if block.settings.image.width >= 720 -%}{{ block.settings.image | image_url: width: 720 }} 720w,{%- endif -%}
+                {%- if block.settings.image.width >= 990 -%}{{ block.settings.image | image_url: width: 990 }} 990w,{%- endif -%}
+                {%- if block.settings.image.width >= 1100 -%}{{ block.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {%- if block.settings.image.width >= 1500 -%}{{ block.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                {%- if block.settings.image.width >= 2200 -%}{{ block.settings.image | image_url: width: 2200 }} 2200w,{%- endif -%}
+                {%- if block.settings.image.width >= 3000 -%}{{ block.settings.image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                {{ block.settings.image | image_url }} {{ block.settings.image.width }}w"
+                src="{{ block.settings.image | image_url: width: 1500 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {% if section.blocks.size == 1 %}calc({{ settings.page_width }}px - 100px){% else %}{{ settings.page_width | minus: 100 | times: 0.67 | round }}px{% endif %}, (min-width: 750px){% if section.blocks.size == 1 %} calc(100vw - 100px){% else %} 500px{% endif %}, calc(100vw - 30px)"
+                alt="{{ block.settings.image.alt | escape }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+                class="large-image-rows__image"
+            >
+            {%- endif -%}
+            {%- if block.settings.image_url -%}
+            </a>  
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Large image rows",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width_section",
+      "label": "Make section full width?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "no_spacing",
+      "label": "Remove space between the images",
+      "default": false
+    },
+    {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Section heading"
+    },
+    {
+        "type": "select",
+        "id": "images_per_row_mobile",
+        "label": "Images per row - mobile",
+        "options": [
+            {
+                "label": "1",
+                "value": "100%"
+            },
+            {
+                "label": "2",
+                "value": "50%"
+            },
+            {
+                "label": "3",
+                "value": "33.333%"
+            },
+            {
+                "label": "4",
+                "value": "25%"
+            },
+            {
+                "label": "5",
+                "value": "20%"
+            }
+        ],
+        "default": "100%"
+    },
+    {
+        "type": "select",
+        "id": "icons_per_row_desktop",
+        "label": "Images per row - desktop",
+        "options": [
+            {
+                "label": "1",
+                "value": "100%"
+            },
+            {
+                "label": "2",
+                "value": "50%"
+            },
+            {
+                "label": "3",
+                "value": "33.333%"
+            },
+            {
+                "label": "4",
+                "value": "25%"
+            },
+            {
+                "label": "5",
+                "value": "20%"
+            }
+        ],
+        "default": "50%"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Button URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "image_url",
+          "label": "Image url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Large image rows",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

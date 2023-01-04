@@ -1,0 +1,148 @@
+// Light
+.work-with{
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    @media (min-width: 750px){
+        margin-top: 35px;
+        margin-bottom: 35px;
+    }
+    .work-with__wrap{
+        .work-with__content{
+
+            .work-with__section-heading{
+                margin-top: 10px;
+                margin-bottom: 30px;
+
+                @media (min-width: 750px){
+                    margin-top: 20px;
+                    margin-bottom: 60px;
+                }
+                h2{
+                    margin: 0;
+                    // font-size: 38px;
+                    text-align: center;
+
+                    @media (min-width: 750px){
+                        // font-size: 59px;
+                    }
+                }
+            }
+
+            .work-with__columns{
+                display: flex;
+
+                .work-with__column{
+                    max-width: 50%;
+                    flex: 50%;
+                    padding: 0 10px;
+
+                    @media (min-width: 750px){
+                        padding: 0 15px;
+                        max-width: 33.33%;
+                        flex: 33.33%;
+                    }
+
+                    &.work-with__column--1{
+                        .work-with__button{
+                            display: block;
+                            
+                            @media (min-width: 750px){
+                                display: none;
+                            }
+                        }
+                    }
+                    &.work-with__column--2{
+                        .work-with__button{
+                            display: none;
+                        }
+                    }
+                    &.work-with__column--3{
+                        display: none;
+                        @media (min-width: 750px){
+                            display: block;
+                        }
+                        .work-with__button{
+                            display: none;
+                            @media (min-width: 750px){
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .work-with__image{
+                        margin: 0 0 10px;
+                        
+                        @media (min-width: 750px){
+                            margin: 0 0 30px;
+                        }
+
+                        &.work-with__image--mobile-only{
+                            display: block;
+                            @media (min-width: 750px){
+                                display: none;
+                            }
+                        }
+                        
+                        img{
+                            display: block;
+                            width: 100%;
+                            height: auto;
+                            border-radius: 2rem;
+                            @media (min-width: 750px){
+                                border-radius: 5rem;
+                            }
+                        }
+                    }
+                    .work-with__button{
+                        position: relative;
+                        .work-with__button-image{
+
+                        }
+                        a{
+                            margin: auto;
+                            position: absolute;
+                            top: 50%;
+                            left: 10px;
+                            right: 15px;
+                            bottom: 0;
+                            display: flex;
+                            align-items: center;
+                            // font-size: 18px;
+                            color: #FFFFFF;
+                            font-weight: 700;
+                            line-height: normal;
+                            text-transform: uppercase;
+                            text-decoration: none;
+                            transform: translate(0%, -50%);
+
+                            @media (min-width: 750px){
+                                // font-size: 55px;
+                                left: 30px;
+                                right: 45px;
+                            }
+
+                            svg{
+                                width: 50px;
+                                @media (min-width: 750px){
+                                    width: 144px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+// Dark
+body.theme-dark-mode{
+    .work-with{
+        .work-with__wrap{
+            .work-with__content{
+            }
+        }
+    }
+}

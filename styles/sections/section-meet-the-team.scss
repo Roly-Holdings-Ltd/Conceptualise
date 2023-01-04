@@ -1,0 +1,173 @@
+// Light
+.meet-the-team{
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    @media (min-width: 750px){
+        margin-top: 35px;
+        margin-bottom: 35px;
+    }
+    .meet-the-team__wrap{
+        .meet-the-team__content{
+            padding: 20px 20px 30px 20px;
+            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+            border-radius: 5rem;
+
+            @media (min-width: 750px){
+                padding: 40px 40px 55px 40px;
+            }
+
+            .meet-the-team__section-heading{
+                margin-top: 10px;
+                margin-bottom: 30px;
+
+                @media (min-width: 750px){
+                    margin-top: 20px;
+                    margin-bottom: 60px;
+                }
+                h2{
+                    margin: 0;
+                    // font-size: 38px;
+                    text-align: center;
+
+                    @media (min-width: 750px){
+                        // font-size: 59px;
+                    }
+                }
+                p,a{
+                    margin: 0;
+                    // font-size: 14px;
+                    text-align: center;
+                    font-weight: 700;
+                        
+                    @media (min-width: 750px){
+                        // font-size: 25px;
+                    }
+                }
+                a{
+                    text-decoration: underline;
+                }
+            }
+
+            .meet-the-team__rows{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+
+                @media (min-width: 750px){
+                }
+
+                .meet-the-team__row{
+                    margin-bottom: 40px;
+                    padding: 0 15px;
+                    text-align: center;
+                    
+                    @media (min-width: 750px){
+                        padding: 0 15px;
+                    }
+
+                    .meet-the-team__image{
+                        margin: 0 auto 10px auto;
+                        width: 100%;
+                        max-width: 220px;
+                        height: auto;
+                        display: block;
+
+                        border-radius: 50%;
+                        border: 3px solid #ffffff;
+
+                        @media (min-width: 750px){
+                        }
+                    }
+
+                    p{
+                        font-weight: 700;
+                        margin: 0;
+                        line-height: normal;
+
+                        &.meet-the-team__row-name{
+                            margin-bottom: 5px;
+                            // font-size: 22px;
+                            color: #FFBA03;
+                            
+                            @media (min-width: 750px){
+                                // font-size: 34px;
+                            }
+                            &.meet-the-team__row-role{
+                                // font-size: 20px;
+                            
+                                @media (min-width: 750px){
+                                    // font-size: 35px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .meet-the-team__button{
+                margin-top: 40px;
+                text-align: center;
+
+                .button{
+                    margin: 0;
+                    width: 244px;
+                    height: 45px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: #FFBA03;
+                    border-radius: 5rem;
+    
+                    &::after,
+                    &::before{
+                        display: none;
+                    }
+                    
+                    @media (min-width: 750px){
+                        width: 380px;
+                        height: 70px;
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Dark
+body.theme-dark-mode{
+    .meet-the-team{
+        .meet-the-team__wrap{
+            .meet-the-team__content{
+                background: linear-gradient(180deg, #1F1F1F 0%, rgba(36, 36, 36, 0) 100%);
+
+                .meet-the-team__row{
+                    .meet-the-team__icon{
+
+                        &.meet-the-team__icon--light{
+                            display: none;
+                        }
+                        &.meet-the-team__icon--dark{
+                            display: block;
+                        }
+                    }
+                    .meet-the-team__statistic{
+                        p{
+                            &.meet-the-team__row-heading{
+                            }
+                            &.meet-the-team__row-subheading{
+                            }
+                            &.meet-the-team__row-content{
+                            }
+                        }
+                    }
+                }
+                .meet-the-team__button{
+                    .button{
+                        background-color: #FFBA03;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,194 @@
+{{ 'section-work-with.css' | asset_url | stylesheet_tag }}
+
+<style>
+    #WorkWith-{{ section.id }} .work-with__section-heading h2{
+        font-size: {{ section.settings.heading_font_size_mobile }}px;
+    }
+    #WorkWith-{{ section.id }} .work-with__button a{
+        font-size: {{ section.settings.button_font_size_mobile }}px;
+    }
+    @media (min-width: 750px){
+        #WorkWith-{{ section.id }} .work-with__section-heading h2{
+            font-size: {{ section.settings.heading_font_size_desktop }}px;
+        }
+        #WorkWith-{{ section.id }} .work-with__button a{
+            font-size: {{ section.settings.button_font_size_desktop }}px;
+        }
+    }
+</style>
+<div id="WorkWith-{{ section.id }}" class="work-with">
+  <div class="work-with__wrap page-width">
+    <div class="work-with__content">
+        <div class="work-with__section-heading">
+            <h2>{{ section.settings.section_heading }}</h2>
+        </div>
+        <div class="work-with__columns">
+            {% for block in section.blocks %}
+                <div class="work-with__column work-with__column--{{ forloop.index }}">
+                    {%- if block.settings.image1 != blank -%}
+                    <div class="work-with__image {% if block.settings.image1_mobile_only %} work-with__image--mobile-only{% endif %}">
+                        <img src="{{ block.settings.image1 | img_url: "480x" }}" loading="lazy" width="100%" height="100%">
+                    </div>
+                    {%- endif -%}
+                    {%- if block.settings.image2 != blank -%}
+                    <div class="work-with__image {% if block.settings.image2_mobile_only %} work-with__image--mobile-only{% endif %}">
+                        <img src="{{ block.settings.image2 | img_url: "480x" }}" loading="lazy" width="100%" height="100%">
+                    </div>
+                    {%- endif -%}
+                    {%- if block.settings.image3 != blank -%}
+                    <div class="work-with__image {% if block.settings.image3_mobile_only %} work-with__image--mobile-only{% endif %}">
+                        <img src="{{ block.settings.image3 | img_url: "480x" }}" loading="lazy" width="100%" height="100%">
+                    </div>
+                    {%- endif -%}
+                    {%- if block.settings.image4 != blank -%}
+                    <div class="work-with__image {% if block.settings.image4_mobile_only %} work-with__image--mobile-only{% endif %}">
+                        <img src="{{ block.settings.image4 | img_url: "480x" }}" loading="lazy" width="100%" height="100%">
+                    </div>
+                    {%- endif -%}
+                    {%- if section.settings.button_text != blank -%}
+                    <div class="work-with__button">
+                        {%- if section.settings.button_image != blank -%}
+                        <div class="work-with__button-image">
+                            <img src="{{ section.settings.button_image | img_url: "480x" }}" loading="lazy" width="100%" height="100%">
+                        </div>
+                        {%- endif -%}
+                        <a href="{{ section.settings.url }}">
+                            {{ section.settings.button_text }}
+                            <svg width="149" height="68" viewBox="0 0 149 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M147.182 37.182C148.939 35.4246 148.939 32.5754 147.182 30.818L118.544 2.18019C116.787 0.422836 113.938 0.422836 112.18 2.18019C110.423 3.93755 110.423 6.7868 112.18 8.54416L137.636 34L112.18 59.4558C110.423 61.2132 110.423 64.0624 112.18 65.8198C113.938 67.5772 116.787 67.5772 118.544 65.8198L147.182 37.182ZM0 38.5H144V29.5H0V38.5Z" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                    {%- endif -%}
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Work with",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Section heading"
+    },
+    {
+        "type": "range",
+        "id": "heading_font_size_mobile",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading font size - mobile",
+        "default": 38
+    },
+    {
+        "type": "range",
+        "id": "heading_font_size_desktop",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading font size - desktop",
+        "default": 59
+    },
+    {
+        "type": "text",
+        "id": "button_text",
+        "label": "Add Button Text"
+    },
+    {
+        "type": "url",
+        "id": "url",
+        "label": "Add Button URL"
+    },
+    {
+        "type": "image_picker",
+        "id": "button_image",
+        "label": "Button image"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size_mobile",
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "button font size - mobile",
+      "default": 18
+    },
+    {
+        "type": "range",
+        "id": "button_font_size_desktop",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "button font size - desktop",
+        "default": 55
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Image"
+        },
+        {
+            "type": "checkbox",
+            "id": "image1_mobile_only",
+            "label": "Show on mobile only?"
+        },
+        {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Image"
+        },
+        {
+            "type": "checkbox",
+            "id": "image2_mobile_only",
+            "label": "Show on mobile only?"
+        },
+        {
+            "type": "image_picker",
+            "id": "image3",
+            "label": "Image"
+        },
+        {
+            "type": "checkbox",
+            "id": "image3_mobile_only",
+            "label": "Show on mobile only?"
+        },
+        {
+            "type": "image_picker",
+            "id": "image4",
+            "label": "Image"
+        },
+        {
+            "type": "checkbox",
+            "id": "image4_mobile_only",
+            "label": "Show on mobile only?"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Work with",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

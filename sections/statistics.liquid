@@ -1,0 +1,208 @@
+{{ 'section-statistics.css' | asset_url | stylesheet_tag }}
+
+<div id="Statistics-{{ section.id }}" class="statistics">
+  <div class="statistics__wrap page-width">
+    <div class="statistics__content">
+      <div class="statistics__row">
+        {%- for block in section.blocks -%}
+        <style>
+          #block--{{ block.id }}.statistics__statistic .statistics__row-heading{font-size: {{ block.settings.heading_font_size_mobile }}px;}
+          #block--{{ block.id }}.statistics__statistic .statistics__row-subheading{font-size: {{ block.settings.subheading_font_size_mobile }}px;}
+          #block--{{ block.id }}.statistics__statistic .statistics__row-content{font-size: {{ block.settings.content_font_size_mobile }}px;}
+          @media (min-width: 750px){
+            #block--{{ block.id }}.statistics__statistic .statistics__row-heading{font-size: {{ block.settings.heading_font_size_desktop }}px;}
+            #block--{{ block.id }}.statistics__statistic .statistics__row-subheading{font-size: {{ block.settings.subheading_font_size_desktop }}px;}
+            #block--{{ block.id }}.statistics__statistic .statistics__row-content{font-size: {{ block.settings.content_font_size_desktop }}px;}
+          }
+        </style>
+          <div id="block--{{ block.id }}" class="statistics__statistic">
+            <p class="statistics__row-heading">{{ block.settings.heading }}</p>
+            <p class="statistics__row-subheading">{{ block.settings.subheading }}</p>
+            <p class="statistics__row-content">{{ block.settings.content }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+ #Statistics-{{ section.id }} .statistics__row .statistics__statistic{
+    flex: 0 0 {{ section.settings.statistics_per_row_mobile }};
+    max-width: {{ section.settings.statistics_per_row_mobile }};
+  }
+  @media (min-width:750px){
+   #Statistics-{{ section.id }} .statistics__row .statistics__statistic{
+      flex: 0 0 {{ section.settings.statistics_per_row_desktop }};
+      max-width: {{ section.settings.statistics_per_row_desktop }};
+    }
+  }
+</style>
+
+
+{% schema %}
+{
+  "name": "Statistics",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "statistics_per_row_mobile",
+      "label": "Statistics per row - mobile",
+      "options": [
+          {
+              "label": "1",
+              "value": "100%"
+          },
+          {
+              "label": "2",
+              "value": "50%"
+          },
+          {
+              "label": "3",
+              "value": "33.333%"
+          },
+          {
+              "label": "4",
+              "value": "25%"
+          },
+          {
+              "label": "5",
+              "value": "20%"
+          }
+      ],
+      "default": "50%"
+    },
+    {
+      "type": "select",
+      "id": "statistics_per_row_desktop",
+      "label": "Statistics per row - desktop",
+      "options": [
+          {
+              "label": "1",
+              "value": "100%"
+          },
+          {
+              "label": "2",
+              "value": "50%"
+          },
+          {
+              "label": "3",
+              "value": "33.333%"
+          },
+          {
+              "label": "4",
+              "value": "25%"
+          },
+          {
+              "label": "5",
+              "value": "20%"
+          }
+      ],
+      "default": "25%"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "statistic",
+      "name": "Statistics",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "range",
+          "id": "heading_font_size_mobile",
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Heading font size - mobile",
+          "default": 57
+        },
+        {
+          "type": "range",
+          "id": "heading_font_size_desktop",
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Heading font size - desktop",
+          "default": 68
+        },
+        {
+          "type": "header",
+          "content": "Subheading"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading"
+        },
+        {
+          "type": "range",
+          "id": "subheading_font_size_mobile",
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Subheading font size - mobile",
+          "default": 18
+        },
+        {
+          "type": "range",
+          "id": "subheading_font_size_desktop",
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Subheading font size - desktop",
+          "default": 20
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "content",
+          "label": "content"
+        },
+        {
+          "type": "range",
+          "id": "content_font_size_mobile",
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Content font size - mobile",
+          "default": 15
+        },
+        {
+          "type": "range",
+          "id": "content_font_size_desktop",
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Content font size - desktop",
+          "default": 16
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Statistics",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

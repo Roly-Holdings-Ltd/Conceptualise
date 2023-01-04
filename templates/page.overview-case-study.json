@@ -1,0 +1,139 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "16553730191364c529": {
+      "type": "page-head",
+      "blocks": {
+        "16553730190827f7a7-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Case Studies<\/p>",
+            "font_size_mobile": 29,
+            "font_size_desktop": 56
+          }
+        },
+        "16553730190827f7a7-1": {
+          "type": "text",
+          "settings": {
+            "text": "Bright ideas <span class=\"text--color-alt text--color-alt-yellow\">brought to life!<\/span>",
+            "font_size_mobile": 18,
+            "font_size_desktop": 24
+          }
+        }
+      },
+      "block_order": [
+        "16553730190827f7a7-0",
+        "16553730190827f7a7-1"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1655373253880d02f2": {
+      "type": "large-image-rows",
+      "blocks": {
+        "2386fd6b-d4ac-4c2b-bb6a-9ed33b748937": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Pura_Case-Study-08.jpg",
+            "image_url": "shopify:\/\/pages\/pura-case-study"
+          }
+        },
+        "1330cfe7-9857-46bd-84ab-8055039f180a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_123.png",
+            "image_url": "shopify:\/\/pages\/case-study"
+          }
+        },
+        "a55b918c-ecbc-43fe-baf9-53841a9fddbf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_22.png",
+            "image_url": "shopify:\/\/pages\/cheshire-fa-case-study"
+          }
+        },
+        "8c1e1f6a-8e0f-4066-aba9-5c00794048ac": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_704.png",
+            "image_url": "shopify:\/\/pages\/refsuite-case-study"
+          }
+        },
+        "82ff530b-d7bf-47bd-ba96-d6770728f6bd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/blfd-_453.jpg",
+            "image_url": "shopify:\/\/pages\/blfd-clothing-case-study"
+          }
+        },
+        "5af6b952-8034-4d92-a746-0c5dc12fd7e2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC_7376_e4165dce-75e8-4f1b-877c-d20b7ab2e4e4.jpg",
+            "image_url": "shopify:\/\/pages\/isweat®-case-study"
+          }
+        },
+        "5cb29c67-7a2e-4851-b1e8-85748c6dd523": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Ambient_Free_Range_Eggwhite.jpg",
+            "image_url": "shopify:\/\/pages\/twochicks-case-study"
+          }
+        }
+      },
+      "block_order": [
+        "2386fd6b-d4ac-4c2b-bb6a-9ed33b748937",
+        "1330cfe7-9857-46bd-84ab-8055039f180a",
+        "a55b918c-ecbc-43fe-baf9-53841a9fddbf",
+        "8c1e1f6a-8e0f-4066-aba9-5c00794048ac",
+        "82ff530b-d7bf-47bd-ba96-d6770728f6bd",
+        "5af6b952-8034-4d92-a746-0c5dc12fd7e2",
+        "5cb29c67-7a2e-4851-b1e8-85748c6dd523"
+      ],
+      "settings": {
+        "section_heading": "",
+        "images_per_row_mobile": "100%",
+        "icons_per_row_desktop": "50%",
+        "button_text": "",
+        "url": ""
+      }
+    },
+    "165537338259492a75": {
+      "type": "rich-text-with-image-below",
+      "settings": {
+        "section_heading": "TELL US ABOUT THE PROJECT YOU HAVE IN MIND",
+        "heading_font_size_mobile": 24,
+        "heading_font_size_desktop": 45,
+        "content": "<p>You can contact us by filling the contact form out below or by dropping us an email:<br\/><br\/><a href=\"mailto:info@conceptualise.com\" title=\"mailto:info@conceptualise.com\"><strong>info@conceptualise.com<\/strong><\/a><\/p>",
+        "content_font_size_mobile": 18,
+        "content_font_size_desktop": 22,
+        "button_text": "CONTACT FORM",
+        "url": "",
+        "button_font_size_mobile": 16,
+        "button_font_size_desktop": 24,
+        "image": "shopify:\/\/shop_images\/Sequence_01.gif",
+        "image_dark": "shopify:\/\/shop_images\/Sequence_01.gif",
+        "image_width": 300,
+        "image_width_desktop": 500
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16553730191364c529",
+    "1655373253880d02f2",
+    "165537338259492a75"
+  ]
+}

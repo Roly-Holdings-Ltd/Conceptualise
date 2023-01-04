@@ -1,0 +1,154 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "16553730191364c529": {
+      "type": "page-head",
+      "blocks": {
+        "16553730190827f7a7-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>What we do<\/p>",
+            "font_size_mobile": 29,
+            "font_size_desktop": 56
+          }
+        },
+        "16553730190827f7a7-1": {
+          "type": "text",
+          "settings": {
+            "text": "These are some of the brands we’ve <span class=\"text--color-alt text--color-alt-yellow\">helped become unstoppable.<\/span>",
+            "font_size_mobile": 18,
+            "font_size_desktop": 24
+          }
+        }
+      },
+      "block_order": [
+        "16553730190827f7a7-0",
+        "16553730190827f7a7-1"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1655373020de017f28": {
+      "type": "icon-image-row",
+      "blocks": {
+        "7aac0943-8ce7-4be7-82b8-add90ed9d2b9": {
+          "type": "icon_image",
+          "settings": {
+            "icon_light": "shopify:\/\/shop_images\/pura-logo.png",
+            "icon_dark": "shopify:\/\/shop_images\/pura-logo.png"
+          }
+        },
+        "46b19257-c988-4046-aa34-61e1f94be9a4": {
+          "type": "icon_image",
+          "settings": {
+            "icon_light": "shopify:\/\/shop_images\/1878-digital_1.png",
+            "icon_dark": "shopify:\/\/shop_images\/iSweat.Black.png"
+          }
+        },
+        "b77797d7-d3fa-4cc4-af4a-35daccac857a": {
+          "type": "icon_image",
+          "settings": {
+            "icon_light": "shopify:\/\/shop_images\/EB_LOGO_2.png",
+            "icon_dark": "shopify:\/\/shop_images\/EB_LOGO_2.png"
+          }
+        }
+      },
+      "block_order": [
+        "7aac0943-8ce7-4be7-82b8-add90ed9d2b9",
+        "46b19257-c988-4046-aa34-61e1f94be9a4",
+        "b77797d7-d3fa-4cc4-af4a-35daccac857a"
+      ],
+      "settings": {
+        "section_heading": "",
+        "icon_width_mobile": 102,
+        "icon_width_desktop": 160,
+        "icons_per_row_mobile": "50%",
+        "icons_per_row_desktop": "25%"
+      }
+    },
+    "1655373253880d02f2": {
+      "type": "large-image-rows",
+      "blocks": {
+        "2386fd6b-d4ac-4c2b-bb6a-9ed33b748937": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Pura_Case-Study-08.jpg",
+            "image_url": "shopify:\/\/pages\/pura-case-study"
+          }
+        },
+        "5af6b952-8034-4d92-a746-0c5dc12fd7e2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC_7376_e4165dce-75e8-4f1b-877c-d20b7ab2e4e4.jpg",
+            "image_url": "shopify:\/\/pages\/isweat®-case-study"
+          }
+        },
+        "82ff530b-d7bf-47bd-ba96-d6770728f6bd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/blfd-_453.jpg",
+            "image_url": "shopify:\/\/pages\/blfd-clothing-case-study"
+          }
+        },
+        "1330cfe7-9857-46bd-84ab-8055039f180a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_123.png",
+            "image_url": "shopify:\/\/pages\/case-study"
+          }
+        }
+      },
+      "block_order": [
+        "2386fd6b-d4ac-4c2b-bb6a-9ed33b748937",
+        "5af6b952-8034-4d92-a746-0c5dc12fd7e2",
+        "82ff530b-d7bf-47bd-ba96-d6770728f6bd",
+        "1330cfe7-9857-46bd-84ab-8055039f180a"
+      ],
+      "settings": {
+        "section_heading": "",
+        "images_per_row_mobile": "100%",
+        "icons_per_row_desktop": "50%",
+        "button_text": "",
+        "url": ""
+      }
+    },
+    "165537338259492a75": {
+      "type": "rich-text-with-image-below",
+      "settings": {
+        "section_heading": "TELL US ABOUT THE PROJECT YOU HAVE IN MIND",
+        "heading_font_size_mobile": 24,
+        "heading_font_size_desktop": 45,
+        "content": "<p>You can contact us by filling the contact form out below or by dropping us an email:<br\/><br\/><a href=\"mailto:info@conceptualise.com\" title=\"mailto:info@conceptualise.com\"><strong>info@conceptualise.com<\/strong><\/a><\/p>",
+        "content_font_size_mobile": 18,
+        "content_font_size_desktop": 22,
+        "button_text": "GET IN TOUCH",
+        "url": "shopify:\/\/pages\/contact-us",
+        "button_font_size_mobile": 16,
+        "button_font_size_desktop": 24,
+        "image": "shopify:\/\/shop_images\/Sequence_01.gif",
+        "image_dark": "shopify:\/\/shop_images\/Sequence_01.gif",
+        "image_width": 300,
+        "image_width_desktop": 500
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16553730191364c529",
+    "1655373020de017f28",
+    "1655373253880d02f2",
+    "165537338259492a75"
+  ]
+}

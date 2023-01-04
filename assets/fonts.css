@@ -1,0 +1,15 @@
+.otf@import url(//db.onlinewebfonts.com/c/13ab13418f633c1b0516fed6e30bedbc?family=Suisse+Int'l);
+
+@font-face {font-family: "Suisse Int'l"; src: url("//db.onlinewebfonts.com/t/13ab13418f633c1b0516fed6e30bedbc.eot"); src: url("//db.onlinewebfonts.com/t/13ab13418f633c1b0516fed6e30bedbc.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/13ab13418f633c1b0516fed6e30bedbc.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/13ab13418f633c1b0516fed6e30bedbc.woff") format("woff"), url("//db.onlinewebfonts.com/t/13ab13418f633c1b0516fed6e30bedbc.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/13ab13418f633c1b0516fed6e30bedbc.svg#Suisse Int'l") format("svg"); } 
+@font-face{
+  font-family:'SuisseIntl-Black';
+  src:url('SuisseIntl-Black.otf')
+}
+@font-face{
+  font-family:'SuisseIntl-Bold';
+  src:url('SuisseIntl-Bold.otf')
+}
+@font-face{
+  font-family:'SuisseIntl-Medium';
+  src:url('SuisseIntl-Medium.otf')
+}

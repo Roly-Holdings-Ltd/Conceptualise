@@ -1,0 +1,275 @@
+{{ 'section-meet-the-team.css' | asset_url | stylesheet_tag }}
+
+<div id="MeetTheTeam-{{ section.id }}" class="meet-the-team {% if section.settings.show_background %}meet-the-team--with-background{% endif %}">
+  <div class="meet-the-team__wrap page-width">
+    <div class="meet-the-team__content">
+        <div class="meet-the-team__section-heading">
+            <h2>{{ section.settings.section_heading }}</h2>
+            {%- if section.settings.section_subheading_url != blank -%}
+                <a href="{{ section.settings.section_subheading_url }}">
+            {%- endif -%}
+            <p>{{ section.settings.section_subheading }}</p>
+            {%- if section.settings.section_subheading_url != blank -%}
+                </a>
+            {%- endif -%}
+        </div>
+      <div class="meet-the-team__rows">
+        {%- for block in section.blocks -%}
+        <style>
+          #block--{{ block.id }}.meet-the-team__row .meet-the-team__row-name{
+            font-size: {{ section.settings.name_font_size_mobile }}px;
+          }
+          #block--{{ block.id }}.meet-the-team__row .meet-the-team__row-role{
+            font-size: {{ section.settings.role_font_size_mobile }}px;
+          }
+          @media (min-width: 750px){
+            #block--{{ block.id }}.meet-the-team__row .meet-the-team__row-name{
+              font-size: {{ section.settings.name_font_size_desktop }}px;
+            }
+            #block--{{ block.id }}.meet-the-team__row .meet-the-team__row-role{
+              font-size: {{ section.settings.role_font_size_desktop }}px;
+            }
+          }
+        </style>
+          <div id="block--{{ block.id }}" class="meet-the-team__row">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | img_url: '240x' }}" class="meet-the-team__image" loading="lazy" alt="{{ block.settings.image.alt }}">
+            {%- endif -%}
+            {%- if block.settings.name != blank -%}
+              <p class="meet-the-team__row-name">{{ block.settings.name }}</p>
+            {%- endif -%}
+            {%- if block.settings.role != blank -%}
+              <p class="meet-the-team__row-role">{{ block.settings.role }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  #MeetTheTeam-{{ section.id }} .meet-the-team__section-heading h2{
+    font-size: {{ section.settings.heading_font_size_mobile }}px;
+  }
+  #MeetTheTeam-{{ section.id }} .meet-the-team__section-heading p,
+  #MeetTheTeam-{{ section.id }} .meet-the-team__section-heading a{
+    font-size: {{ section.settings.subheading_font_size_mobile }}px;
+  }
+
+    #MeetTheTeam-{{ section.id }} .meet-the-team__row{
+        flex: 0 0 {{ section.settings.per_row_mobile }};
+        max-width: {{ section.settings.per_row_mobile }};
+    }
+    @media (min-width: 750px){
+      #MeetTheTeam-{{ section.id }} .meet-the-team__section-heading h2{
+        font-size: {{ section.settings.heading_font_size_desktop }}px;
+      }
+      #MeetTheTeam-{{ section.id }} .meet-the-team__section-heading p,
+      #MeetTheTeam-{{ section.id }} .meet-the-team__section-heading a{
+        font-size: {{ section.settings.subheading_font_size_desktop }}px;
+      }
+      #MeetTheTeam-{{ section.id }} .meet-the-team__row{
+          flex: 0 0 {{ section.settings.per_row_desktop }};
+          max-width: {{ section.settings.per_row_desktop }};
+      }
+    }
+</style>
+
+{% schema %}
+{
+  "name": "Meet the team",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_background",
+      "label": "Show background",
+      "default": false
+    },
+    {
+        "type": "textarea",
+        "id": "section_heading",
+        "label": "Section heading"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_mobile",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading font size - Mobile",
+      "default": 38
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_desktop",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading font size - Desktop",
+      "default": 59
+    },
+    {
+        "type": "text",
+        "id": "section_subheading",
+        "label": "Section subheading"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size_mobile",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Subheading font size - Mobile",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size_desktop",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Subheading font size - Desktop",
+      "default": 25
+    },
+    {
+        "type": "url",
+        "id": "section_subheading_url",
+        "label": "Section subheading URL"
+    },
+    {
+        "type": "select",
+        "id": "per_row_mobile",
+        "label": "Team members per row - mobile",
+        "options": [
+            {
+                "label": "1",
+                "value": "100%"
+            },
+            {
+                "label": "2",
+                "value": "50%"
+            },
+            {
+                "label": "3",
+                "value": "33.333%"
+            },
+            {
+                "label": "4",
+                "value": "25%"
+            },
+            {
+                "label": "5",
+                "value": "20%"
+            }
+        ],
+        "default": "50%"
+    },
+    {
+        "type": "select",
+        "id": "per_row_desktop",
+        "label": "Team members per row - desktop",
+        "options": [
+            {
+                "label": "1",
+                "value": "100%"
+            },
+            {
+                "label": "2",
+                "value": "50%"
+            },
+            {
+                "label": "3",
+                "value": "33.333%"
+            },
+            {
+                "label": "4",
+                "value": "25%"
+            },
+            {
+                "label": "5",
+                "value": "20%"
+            }
+        ],
+        "default": "20%"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "team_member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "range",
+          "id": "name_font_size_mobile",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Name font size - Mobile",
+          "default": 22
+        },
+        {
+          "type": "range",
+          "id": "name_font_size_desktop",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Name font size - Desktop",
+          "default": 34
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role"
+        },
+        {
+          "type": "range",
+          "id": "role_font_size_mobile",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Role font size - Mobile",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "role_font_size_desktop",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Role font size - Desktop",
+          "default": 35
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meet the team",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

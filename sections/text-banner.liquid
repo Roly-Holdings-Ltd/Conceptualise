@@ -1,0 +1,1180 @@
+{{ 'section-text-banner.css' | asset_url | stylesheet_tag }}
+
+<div id="Banner-{{ section.id }}" class="text-banner">
+  <div class="text-banner__content page-width">
+    <div class="text-banner__content-info">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+            {%- when 'content_text' -%}
+            <div id="block--{{ block.id }}" class="text-banner__content-info-row {% if block.settings.add_letter_spacing %}text-banner__content-info-row--spaced-letters{% endif %}">
+                <p>{{ block.settings.content_text }}</p>
+            </div>
+            {%- when 'content_text_heading' -%}          
+            <div id="block--{{ block.id }}" class="text-banner__content-info-row text-banner__content-info-row--top-{{block.settings.top_spacing}} text-banner__content-info-row--bottom-{{block.settings.bottom_spacing}}">
+                {%- if block.settings.image != blank and block.settings.image_position == 'before' -%}
+                    <!-- <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.image.alt }}"> -->
+                {%- endif -%}
+                <h1>{{ block.settings.content_heading_text }}</h1>
+                {%- if block.settings.image != blank and block.settings.image_position == 'after' -%}
+                    <!-- <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.image.alt }}"> -->
+                {%- endif -%}
+            </div>
+            {%- when 'content_button' -%}
+            <div id="block--{{ block.id }}" class="text-banner__content-info-row text-banner__content-info-row-button">
+                <a href="{{ block.settings.content_button_link }}" class="button">{{ block.settings.content_button_text }}</a>
+            </div>
+
+            {%- when 'statistics' -%}
+            <div id="block--{{ block.id }}" class="text-banner__statistics">
+                <div id="block--{{ block.id }}" class="text-banner__statistics-scroller">
+                    {%- if block.settings.statistic_1_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_1_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_1_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_1_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_2_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_2_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_2_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_2_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_3_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_3_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_3_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_3_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_4_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_4_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_4_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_4_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_5_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_5_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_5_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_5_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_6_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_6_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_6_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_6_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_7_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_7_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_7_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_7_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_8_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_8_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_8_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_8_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_1_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_1_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_1_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_1_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_2_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_2_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_2_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_2_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_3_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_3_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_3_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_3_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_4_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_4_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_4_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_4_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_5_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_5_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_5_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_5_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_6_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_6_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_6_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_6_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_7_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_7_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_7_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_7_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_8_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_8_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_8_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_8_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_1_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_1_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_1_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_1_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_2_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_2_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_2_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_2_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_3_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_3_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_3_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_3_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_4_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_4_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_4_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_4_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_5_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_5_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_5_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_5_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_6_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_6_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_6_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_6_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_7_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_7_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_7_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_7_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_8_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_8_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_8_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_8_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_1_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_1_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_1_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_1_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_2_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_2_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_2_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_2_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_3_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_3_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_3_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_3_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_4_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_4_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_4_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_4_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_5_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_5_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_5_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_5_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_6_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_6_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_6_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_6_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_7_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_7_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_7_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_7_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.statistic_8_heading != blank -%}
+                        <div class="text-banner__statistic">
+                            {%- if block.settings.statistic_8_subheading != blank -%}
+                                <p class="text-banner__statistic-subheading">{{ block.settings.statistic_8_subheading }}</p>
+                            {%- endif -%}
+                            <p class="text-banner__statistic-heading">{{ block.settings.statistic_8_heading }}</p>
+                        </div>
+                    {%- endif -%}
+                </div>
+            </div>
+
+            {%- when 'logo-row' -%}
+            <div class="text-banner__logo-row">
+                {%- if block.settings.logo1 != blank -%}
+                    <div class="text-banner__logo-row-logo">
+                        <img
+                            srcset="{%- if block.settings.logo1.width >= 165 -%}{{ block.settings.logo1 | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo1.width >= 360 -%}{{ block.settings.logo1 | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo1.width >= 535 -%}{{ block.settings.logo1 | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo1.width >= 750 -%}{{ block.settings.logo1 | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo1 | image_url }} {{ block.settings.logo1.width }}w"
+                            src="{{ block.settings.logo1 | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo1.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo1.width }}"
+                            height="{{ block.settings.logo1.height }}"
+                            class="text-banner__logo-row-logo--light"
+                        >
+                        {%- if block.settings.logo1_dark != blank -%}
+                        <img
+                            srcset="{%- if block.settings.logo1_dark.width >= 165 -%}{{ block.settings.logo1_dark | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo1_dark.width >= 360 -%}{{ block.settings.logo1_dark | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo1_dark.width >= 535 -%}{{ block.settings.logo1_dark | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo1_dark.width >= 750 -%}{{ block.settings.logo1_dark | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo1_dark | image_url }} {{ block.settings.logo1_dark.width }}w"
+                            src="{{ block.settings.logo1_dark | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo1_dark.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo1_dark.width }}"
+                            height="{{ block.settings.logo1_dark.height }}"
+                            class="text-banner__logo-row-logo--dark"
+                        >
+                        {%- endif -%}
+                    </div>
+                {%- endif -%}
+                {%- if block.settings.logo2 != blank -%}
+                    <div class="text-banner__logo-row-logo">
+                        <img
+                            srcset="{%- if block.settings.logo2.width >= 165 -%}{{ block.settings.logo2 | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo2.width >= 360 -%}{{ block.settings.logo2 | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo2.width >= 535 -%}{{ block.settings.logo2 | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo2.width >= 750 -%}{{ block.settings.logo2 | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo2 | image_url }} {{ block.settings.logo2.width }}w"
+                            src="{{ block.settings.logo2 | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo2.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo2.width }}"
+                            height="{{ block.settings.logo2.height }}"
+                            class="text-banner__logo-row-logo--light"
+                        >
+                        {%- if block.settings.logo2_dark != blank -%}
+                        <img
+                            srcset="{%- if block.settings.logo2_dark.width >= 165 -%}{{ block.settings.logo2_dark | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo2_dark.width >= 360 -%}{{ block.settings.logo2_dark | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo2_dark.width >= 535 -%}{{ block.settings.logo2_dark | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo2_dark.width >= 750 -%}{{ block.settings.logo2_dark | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo2_dark | image_url }} {{ block.settings.logo2_dark.width }}w"
+                            src="{{ block.settings.logo2_dark | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo2_dark.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo2_dark.width }}"
+                            height="{{ block.settings.logo2_dark.height }}"
+                            class="text-banner__logo-row-logo--dark"
+                        >
+                        {%- endif -%}
+                    </div>
+                {%- endif -%}
+                {%- if block.settings.logo3 != blank -%}
+                    <div class="text-banner__logo-row-logo">
+                        <img
+                            srcset="{%- if block.settings.logo3.width >= 165 -%}{{ block.settings.logo3 | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo3.width >= 360 -%}{{ block.settings.logo3 | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo3.width >= 535 -%}{{ block.settings.logo3 | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo3.width >= 750 -%}{{ block.settings.logo3 | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo3 | image_url }} {{ block.settings.logo3.width }}w"
+                            src="{{ block.settings.logo3 | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo3.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo3.width }}"
+                            height="{{ block.settings.logo3.height }}"
+                            class="text-banner__logo-row-logo--light"
+                        >
+                        {%- if block.settings.logo3_dark != blank -%}
+                        <img
+                            srcset="{%- if block.settings.logo3_dark.width >= 165 -%}{{ block.settings.logo3_dark | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo3_dark.width >= 360 -%}{{ block.settings.logo3_dark | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo3_dark.width >= 535 -%}{{ block.settings.logo3_dark | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo3_dark.width >= 750 -%}{{ block.settings.logo3_dark | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo3_dark | image_url }} {{ block.settings.logo3_dark.width }}w"
+                            src="{{ block.settings.logo3_dark | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo3_dark.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo3_dark.width }}"
+                            height="{{ block.settings.logo3_dark.height }}"
+                            class="text-banner__logo-row-logo--dark"
+                        >
+                        {%- endif -%}
+                    </div>
+                {%- endif -%}
+                {%- if block.settings.logo4 != blank -%}
+                    <div class="text-banner__logo-row-logo">
+                        <img
+                            srcset="{%- if block.settings.logo4.width >= 165 -%}{{ block.settings.logo4 | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo4.width >= 360 -%}{{ block.settings.logo4 | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo4.width >= 535 -%}{{ block.settings.logo4 | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo4.width >= 750 -%}{{ block.settings.logo4 | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo4 | image_url }} {{ block.settings.logo4.width }}w"
+                            src="{{ block.settings.logo4 | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo4.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo4.width }}"
+                            height="{{ block.settings.logo4.height }}"
+                            class="text-banner__logo-row-logo--light"
+                        >
+                        {%- if block.settings.logo4_dark != blank -%}
+                        <img
+                            srcset="{%- if block.settings.logo4_dark.width >= 165 -%}{{ block.settings.logo4_dark | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo4_dark.width >= 360 -%}{{ block.settings.logo4_dark | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo4_dark.width >= 535 -%}{{ block.settings.logo4_dark | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo4_dark.width >= 750 -%}{{ block.settings.logo4_dark | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo4_dark | image_url }} {{ block.settings.logo4_dark.width }}w"
+                            src="{{ block.settings.logo4_dark | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo4_dark.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo4_dark.width }}"
+                            height="{{ block.settings.logo4_dark.height }}"
+                            class="text-banner__logo-row-logo--dark"
+                        >
+                        {%- endif -%}
+                    </div>
+                {%- endif -%}
+                {%- if block.settings.logo5 != blank -%}
+                    <div class="text-banner__logo-row-logo">
+                        <img
+                            srcset="{%- if block.settings.logo5.width >= 165 -%}{{ block.settings.logo5 | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo5.width >= 360 -%}{{ block.settings.logo5 | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo5.width >= 535 -%}{{ block.settings.logo5 | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo5.width >= 750 -%}{{ block.settings.logo5 | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo5 | image_url }} {{ block.settings.logo5.width }}w"
+                            src="{{ block.settings.logo5 | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo5.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo5.width }}"
+                            height="{{ block.settings.logo5.height }}"
+                            class="text-banner__logo-row-logo--light"
+                        >
+                        {%- if block.settings.logo5_dark != blank -%}
+                        <img
+                            srcset="{%- if block.settings.logo5_dark.width >= 165 -%}{{ block.settings.logo5_dark | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo5_dark.width >= 360 -%}{{ block.settings.logo5_dark | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo5_dark.width >= 535 -%}{{ block.settings.logo5_dark | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo5_dark.width >= 750 -%}{{ block.settings.logo5_dark | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo5_dark | image_url }} {{ block.settings.logo5_dark.width }}w"
+                            src="{{ block.settings.logo5_dark | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo5_dark.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo5_dark.width }}"
+                            height="{{ block.settings.logo5_dark.height }}"
+                            class="text-banner__logo-row-logo--dark"
+                        >
+                        {%- endif -%}
+                    </div>
+                {%- endif -%}
+                {%- if block.settings.logo6 != blank -%}
+                    <div class="text-banner__logo-row-logo">
+                        <img
+                            srcset="{%- if block.settings.logo6.width >= 165 -%}{{ block.settings.logo6 | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo6.width >= 360 -%}{{ block.settings.logo6 | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo6.width >= 535 -%}{{ block.settings.logo6 | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo6.width >= 750 -%}{{ block.settings.logo6 | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo6 | image_url }} {{ block.settings.logo6.width }}w"
+                            src="{{ block.settings.logo6 | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo6.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo6.width }}"
+                            height="{{ block.settings.logo6.height }}"
+                            class="text-banner__logo-row-logo--light"
+                        >
+                        {%- if block.settings.logo6_dark != blank -%}
+                        <img
+                            srcset="{%- if block.settings.logo6_dark.width >= 165 -%}{{ block.settings.logo6_dark | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo6_dark.width >= 360 -%}{{ block.settings.logo6_dark | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo6_dark.width >= 535 -%}{{ block.settings.logo6_dark | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo6_dark.width >= 750 -%}{{ block.settings.logo6_dark | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo6_dark | image_url }} {{ block.settings.logo6_dark.width }}w"
+                            src="{{ block.settings.logo6_dark | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo6_dark.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo6_dark.width }}"
+                            height="{{ block.settings.logo6_dark.height }}"
+                            class="text-banner__logo-row-logo--dark"
+                        >
+                        {%- endif -%}
+                    </div>
+                {%- endif -%}
+                {%- if block.settings.logo7 != blank -%}
+                    <div class="text-banner__logo-row-logo">
+                        <img
+                            srcset="{%- if block.settings.logo7.width >= 165 -%}{{ block.settings.logo7 | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo7.width >= 360 -%}{{ block.settings.logo7 | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo7.width >= 535 -%}{{ block.settings.logo7 | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo7.width >= 750 -%}{{ block.settings.logo7 | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo7 | image_url }} {{ block.settings.logo7.width }}w"
+                            src="{{ block.settings.logo7 | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo7.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo7.width }}"
+                            height="{{ block.settings.logo7.height }}"
+                            class="text-banner__logo-row-logo--light"
+                        >
+                        {%- if block.settings.logo6_dark != blank -%}
+                        <img
+                            srcset="{%- if block.settings.logo7_dark.width >= 165 -%}{{ block.settings.logo7_dark | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo7_dark.width >= 360 -%}{{ block.settings.logo7_dark | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo7_dark.width >= 535 -%}{{ block.settings.logo7_dark | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo7_dark.width >= 750 -%}{{ block.settings.logo7_dark | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo7_dark | image_url }} {{ block.settings.logo7_dark.width }}w"
+                            src="{{ block.settings.logo7_dark | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo7_dark.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo7_dark.width }}"
+                            height="{{ block.settings.logo7_dark.height }}"
+                            class="text-banner__logo-row-logo--dark"
+                        >
+                        {%- endif -%}
+                    </div>
+                {%- endif -%}
+            </div>
+
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<style>
+{%- for block in section.blocks -%}
+    {%- case block.type -%}
+        {%- when 'content_text' -%}
+
+        #block--{{ block.id }} p {
+            font-size: {{ block.settings.font_size_mobile }}px;
+        }
+
+        @media (min-width: 750px){
+            #block--{{ block.id }} p {
+                font-size: {{ block.settings.font_size_desktop }}px;
+            }
+        }
+        
+        {%- when 'content_text_heading' -%}          
+        #block--{{ block.id }}.text-banner__content-info-row h1 {
+            font-size: {{ block.settings.font_size_mobile }}px;
+        }
+        #block--{{ block.id }}.text-banner__content-info-row img {
+            height: {{ block.settings.image_size_mobile }}px;
+            width: auto;
+        }
+        {%- if block.settings.image != blank -%}
+                #block--{{ block.id }}.text-banner__content-info-row h1{
+                    overflow: visible;
+                    position: relative;
+                }
+                #block--{{ block.id }}.text-banner__content-info-row h1:before {
+                    content: " ";
+                    position: absolute;
+                    width: {{ block.settings.image_width_mobile }}px;
+                    height: {{ block.settings.image_height_mobile }}px;
+                    margin-top: {{ block.settings.image_vertical_position_mobile }}px;
+                    background-image: url("{{ block.settings.image | img_url: 'medium' }}");
+                    background-size: 100% 100%;
+                    
+                    {%- if block.settings.image_position == 'before' -%}
+                        left: 0;
+                        margin-left: {{ block.settings.image_horizontal_position_mobile }}px;
+                    {%- else -%}
+                        right: 0;
+                        margin-right: {{ block.settings.image_horizontal_position_mobile }}px;
+                    {%- endif -%}
+                    
+                }
+            {%- endif -%}
+        @media (min-width: 750px){
+            #block--{{ block.id }}.text-banner__content-info-row h1 {
+                font-size: {{ block.settings.font_size_desktop }}px;
+            }
+            #block--{{ block.id }}.text-banner__content-info-row img {
+                height: {{ block.settings.image_size_desktop }}px;
+                width: auto;
+            }
+            {%- if block.settings.image != blank -%}
+                #block--{{ block.id }}.text-banner__content-info-row h1:before {
+                    width: {{ block.settings.image_width_desktop }}px;
+                    height: {{ block.settings.image_height_desktop }}px;
+                    margin-top: {{ block.settings.image_vertical_position_desktop }}px;
+                    background-image: url("{{ block.settings.image | img_url: 'medium' }}");
+                    background-size: 100% 100%;
+
+                    {%- if block.settings.image_position == 'before' -%}
+                        margin-left: {{ block.settings.image_horizontal_position_desktop }}px;
+                    {%- else -%}
+                        margin-right: {{ block.settings.image_horizontal_position_desktop }}px;
+                    {%- endif -%}
+                }
+            {%- endif -%}
+        }
+        {%- when 'content_button' -%}
+
+        #block--{{ block.id }}.text-banner__content-info-row-button a {
+            font-size: {{ block.settings.font_size_mobile }}px;
+        }
+        @media (min-width: 750px){
+            #block--{{ block.id }}.text-banner__content-info-row-button a {
+                font-size: {{ block.settings.font_size_desktop }}px;
+            }
+        }
+
+        {%- when 'statistics' -%}
+        #block--{{ block.id }}.text-banner__statistics .text-banner__statistic-subheading {
+            font-size: {{ block.settings.subheading_font_size_mobile }}px;
+        }
+        #block--{{ block.id }}.text-banner__statistics .text-banner__statistic-heading {
+            font-size: {{ block.settings.heading_font_size_mobile }}px;
+        }
+        @media (min-width: 750px){
+            #block--{{ block.id }}.text-banner__statistics .text-banner__statistic-subheading {
+                font-size: {{ block.settings.subheading_font_size_desktop }}px;
+            }
+            #block--{{ block.id }}.text-banner__statistics .text-banner__statistic-heading {
+                font-size: {{ block.settings.heading_font_size_desktop }}px;
+            }
+        }
+
+    {%- endcase -%}
+    {%- endfor -%}
+</style>
+
+
+{% schema %}
+{
+  "name": "Text banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "content_text_heading",
+      "name": "Content heading",
+      "settings": [
+          {
+              "type": "textarea",
+              "id": "content_heading_text",
+              "label": "Heading"
+          },
+          {
+            "type": "range",
+            "id": "font_size_mobile",
+            "min": 5,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size - mobile",
+            "default": 42
+        },
+        {
+            "type": "range",
+            "id": "font_size_desktop",
+            "min": 5,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size - desktop",
+            "default": 70
+        },
+        {
+            "type": "select",
+            "id": "top_spacing",
+            "label": "Top spacing",
+            "options": [
+                {
+                    "label": "Reduced",
+                    "value": "reduced"
+                },
+                {
+                    "label": "Normal",
+                    "value": "normal"
+                },
+                {
+                    "label": "Increased",
+                    "value": "increased"
+                }
+            ],
+            "default": "normal"
+        },
+        {
+            "type": "select",
+            "id": "bottom_spacing",
+            "label": "Bottom spacing",
+            "options": [
+                {
+                    "label": "Reduced",
+                    "value": "reduced"
+                },
+                {
+                    "label": "Normal",
+                    "value": "normal"
+                },
+                {
+                    "label": "Increased",
+                    "value": "increased"
+                }
+            ],
+            "default": "normal"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "select",
+            "id": "image_position",
+            "label": "Image position",
+            "options": [
+                {
+                    "label": "Before text",
+                    "value": "before"
+                },
+                {
+                    "label": "After text",
+                    "value": "after"
+                }
+            ],
+            "default": "before"
+        },
+        {
+            "type": "header",
+            "content": "Image width"
+        },
+        {
+            "type": "range",
+            "id": "image_width_desktop",
+            "min": 10,
+            "max": 150,
+            "step": 2,
+            "unit": "px",
+            "label": "Image width - desktop",
+            "default": 100
+        },
+        {
+            "type": "range",
+            "id": "image_width_mobile",
+            "min": 10,
+            "max": 150,
+            "step": 2,
+            "unit": "px",
+            "label": "Image width - Mobile",
+            "default": 60
+        },
+        {
+            "type": "header",
+            "content": "Image height"
+        },
+        {
+            "type": "range",
+            "id": "image_height_desktop",
+            "min": 10,
+            "max": 150,
+            "step": 2,
+            "unit": "px",
+            "label": "Image height - desktop",
+            "default": 100
+        },
+        {
+            "type": "range",
+            "id": "image_height_mobile",
+            "min": 10,
+            "max": 150,
+            "step": 2,
+            "unit": "px",
+            "label": "Image height - Mobile",
+            "default": 60
+        },
+        {
+            "type": "header",
+            "content": "Image vertical positon"
+        },
+        {
+            "type": "range",
+            "id": "image_vertical_position_desktop",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "px",
+            "label": "Image vertical position - Desktop",
+            "default": -20
+        },
+        {
+            "type": "range",
+            "id": "image_vertical_position_mobile",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "px",
+            "label": "Image vertical position - Mobile",
+            "default": -10
+        },
+        {
+            "type": "header",
+            "content": "Image horizontal positon"
+        },
+        {
+            "type": "range",
+            "id": "image_horizontal_position_desktop",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "px",
+            "label": "Image horizontal position - Desktop",
+            "default": -90
+        },
+        {
+            "type": "range",
+            "id": "image_horizontal_position_mobile",
+            "min": -100,
+            "max": 100,
+            "step": 2,
+            "unit": "px",
+            "label": "Image horizontal position - Mobile",
+            "default": -50
+        }
+      ]
+    },
+    {
+      "type": "content_text",
+      "name": "Content text",
+      "settings": [
+          {
+              "type": "textarea",
+              "id": "content_text",
+              "label": "Content text"
+          },
+          {
+            "type": "range",
+            "id": "font_size_mobile",
+            "min": 5,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size - mobile",
+            "default": 14
+        },
+        {
+            "type": "range",
+            "id": "font_size_desktop",
+            "min": 5,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size - desktop",
+            "default": 18
+        },
+        {
+            "type": "checkbox",
+            "id": "add_letter_spacing",
+            "label": "Add letter spacing?",
+            "default": false
+        }
+      ]
+    },
+    {
+      "type": "content_button",
+      "name": "Content button",
+      "settings": [
+          {
+              "type": "text",
+              "id": "content_button_text",
+              "label": "Button text"
+          },
+          {
+              "type": "url",
+              "id": "content_button_link",
+              "label": "Button link"
+          },
+          {
+            "type": "range",
+            "id": "font_size_mobile",
+            "min": 5,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size - mobile",
+            "default": 16
+        },
+        {
+            "type": "range",
+            "id": "font_size_desktop",
+            "min": 5,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size - desktop",
+            "default": 20
+        }
+      ]
+    },
+    {
+        "type": "statistics",
+        "name": "Statistics",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Statistic 1"
+            },
+            {
+                "type": "text",
+                "id": "statistic_1_subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "statistic_1_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "header",
+                "content": "Statistic 2"
+            },
+            {
+                "type": "text",
+                "id": "statistic_2_subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "statistic_2_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "header",
+                "content": "Statistic 3"
+            },
+            {
+                "type": "text",
+                "id": "statistic_3_subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "statistic_3_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "header",
+                "content": "Statistic 4"
+            },
+            {
+                "type": "text",
+                "id": "statistic_4_subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "statistic_4_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "header",
+                "content": "Statistic 5"
+            },
+            {
+                "type": "text",
+                "id": "statistic_5_subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "statistic_5_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "header",
+                "content": "Statistic 6"
+            },
+            {
+                "type": "text",
+                "id": "statistic_6_subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "statistic_6_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "header",
+                "content": "Statistic 7"
+            },
+            {
+                "type": "text",
+                "id": "statistic_7_subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "statistic_7_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "header",
+                "content": "Statistic 8"
+            },
+            {
+                "type": "text",
+                "id": "statistic_8_subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "statistic_8_heading",
+                "label": "Heading"
+            },
+            {
+                "type": "range",
+                "id": "subheading_font_size_mobile",
+                "min": 5,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Subheading font size - mobile",
+                "default": 12
+            },
+            {
+                "type": "range",
+                "id": "subheading_font_size_desktop",
+                "min": 5,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Subheading Font size - desktop",
+                "default": 14
+            },
+            {
+                "type": "range",
+                "id": "heading_font_size_mobile",
+                "min": 5,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Heading font size - mobile",
+                "default": 28
+            },
+            {
+                "type": "range",
+                "id": "heading_font_size_desktop",
+                "min": 5,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Heading Font size - desktop",
+                "default": 68
+            }
+        ]
+    },
+    {
+        "type": "logo-row",
+        "name": "Logo row",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Logo 1"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo1",
+                "label": "Logo - light"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo1_dark",
+                "label": "Logo - dark"
+            },
+            {
+                "type": "header",
+                "content": "Logo 2"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo2",
+                "label": "Logo - light"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo2_dark",
+                "label": "Logo - dark"
+            },
+            {
+                "type": "header",
+                "content": "Logo 3"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo3",
+                "label": "Logo - light"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo3_dark",
+                "label": "Logo - dark"
+            },
+            {
+                "type": "header",
+                "content": "Logo 4"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo4",
+                "label": "Logo - light"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo4_dark",
+                "label": "Logo - dark"
+            },
+            {
+                "type": "header",
+                "content": "Logo 5"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo5",
+                "label": "Logo - light"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo5_dark",
+                "label": "Logo - dark"
+            },
+            {
+                "type": "header",
+                "content": "Logo 6"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo6",
+                "label": "Logo - light"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo6_dark",
+                "label": "Logo - dark"
+            },
+            {
+                "type": "header",
+                "content": "Logo 7"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo7",
+                "label": "Logo - light"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo7_dark",
+                "label": "Logo - dark"
+            }
+        ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text banner",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

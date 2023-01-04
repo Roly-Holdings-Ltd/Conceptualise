@@ -1,0 +1,311 @@
+{{ 'main-image-banner.css' | asset_url | stylesheet_tag }}
+
+<div id="Banner-{{ section.id }}" class="banner">
+  <div class="banner__content page-width">
+    <div class="banner__content-info">
+      {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'content_single_image' -%}
+        <style>
+          #block--{{ block.id }}.banner__content-info-row-single-image img{
+            max-width: {{ block.settings.content_image_max_width_mobile }}%;
+          }
+          @media (min-width: 750px){
+            #block--{{ block.id }}.banner__content-info-row-single-image img{
+              max-width: {{ block.settings.content_image_max_width_desktop }}%;
+            }
+          }
+        </style>
+          <div id="block--{{ block.id }}" class="banner__content-info-row banner__content-info-row-single-image">
+            {{ block.settings.content_image | image_url: width: 480 | image_tag:
+              loading: 'lazy',
+              width: block.settings.content_image.width,
+              height: block.settings.content_image.width.height,
+              sizes: block.settings.content_image.width,
+              widths: '375, 550',
+              alt: block.settings.content_image.alt | escape
+            }}
+          </div>
+
+        {%- when 'content_text' -%}
+        <style>
+          #block--{{ block.id }}.banner__content-info-row p {
+            font-size: {{ block.settings.font_size_mobile }}px;
+          }
+          @media (min-width: 750px){
+            #block--{{ block.id }}.banner__content-info-row p {
+              font-size: {{ block.settings.font_size_desktop }}px;
+            }
+          }
+        </style>
+          <div id="block--{{ block.id }}" class="banner__content-info-row">
+            <p>{{ block.settings.content_text }}</p>
+          </div>
+        
+        {%- when 'content_text_heading' -%}
+          <style>
+            #block--{{ block.id }}.banner__content-info-row h1 {
+              font-size: {{ block.settings.font_size_mobile }}px;
+            }
+            @media (min-width: 750px){
+              #block--{{ block.id }}.banner__content-info-row h1 {
+                font-size: {{ block.settings.font_size_desktop }}px;
+              }
+            }
+          </style>
+          <div id="block--{{ block.id }}" class="banner__content-info-row">
+            <h1>{{ block.settings.content_heading_text }}</h1>
+          </div>
+
+        {%- when 'content_image_row' -%}
+          <div class="banner__content-info-row banner__content-info-image-row">
+            {%- if block.settings.content_image_row_image1 != blank -%}
+              <img src="{{ block.settings.content_image_row_image1 | img_url: '120x' }}" alt="{{ block.settings.content_image_row_image1.alt }}" loading="lazy">
+            {%- endif -%}
+            {%- if block.settings.content_image_row_image2 != blank -%}
+              <img src="{{ block.settings.content_image_row_image2 | img_url: '120x' }}" alt="{{ block.settings.content_image_row_image2.alt }}" loading="lazy">
+            {%- endif -%}
+            {%- if block.settings.content_image_row_image3 != blank -%}
+              <img src="{{ block.settings.content_image_row_image3 | img_url: '120x' }}" alt="{{ block.settings.content_image_row_image3.alt }}" loading="lazy">
+            {%- endif -%}
+            {%- if block.settings.content_image_row_image4 != blank -%}
+              <img src="{{ block.settings.content_image_row_image4 | img_url: '120x' }}" alt="{{ block.settings.content_image_row_image4.alt }}" loading="lazy">
+            {%- endif -%}
+            {%- if block.settings.content_image_row_image5 != blank -%}
+              <img src="{{ block.settings.content_image_row_image5 | img_url: '120x' }}" alt="{{ block.settings.content_image_row_image5.alt }}" loading="lazy">
+            {%- endif -%}
+            {%- if block.settings.content_image_row_image6 != blank -%}
+              <img src="{{ block.settings.content_image_row_image6 | img_url: '120x' }}" alt="{{ block.settings.content_image_row_image6.alt }}" loading="lazy">
+            {%- endif -%}
+          </div>
+
+        {%- when 'content_button' -%}
+          <style>
+            #block--{{ block.id }}.banner__content-info-row a {
+              font-size: {{ block.settings.font_size_mobile }}px;
+            }
+            @media (min-width: 750px){
+              #block--{{ block.id }}.banner__content-info-row a {
+                font-size: {{ block.settings.font_size_desktop }}px;
+              }
+            }
+          </style>
+          <div id="block--{{ block.id }}" class="banner__content-info-row banner__content-info-row-button">
+            <a href="{{ block.settings.content_button_link }}" class="button">{{ block.settings.content_button_text }}</a>
+          </div>
+
+        {%- endcase -%}
+        
+      {%- endfor -%}
+    </div>
+    <div class="banner__content-image">
+      <div class="banner__content-image-wrap">
+        {% if section.settings.image != blank %}  
+        {%-liquid
+          assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+        -%}
+        {{ section.settings.image | image_url: width: 1500 | image_tag:
+          loading: 'lazy',
+          width: section.settings.image.width,
+          height: image_height,
+          class: '',
+          sizes: section.settings.image.width,
+          widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+          alt: section.settings.image.alt | escape
+        }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Image banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.image-banner.settings.image.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content_single_image",
+      "name": "Content single image",
+      "settings": [
+          {
+              "type": "image_picker",
+              "id": "content_image",
+              "label": "Content image"
+          },
+          {
+              "type": "range",
+              "id": "content_image_max_width_mobile",
+              "min": 10,
+              "max": 100,
+              "step": 1,
+              "unit": "%",
+              "label": "Content image max width - mobile",
+              "default": 50
+          },
+          {
+              "type": "range",
+              "id": "content_image_max_width_desktop",
+              "min": 10,
+              "max": 100,
+              "step": 1,
+              "unit": "%",
+              "label": "Content image max width - desktop",
+              "default": 50
+          }
+      ]
+    },
+    {
+      "type": "content_text_heading",
+      "name": "Content heading",
+      "settings": [
+          {
+              "type": "text",
+              "id": "content_heading_text",
+              "label": "Heading"
+          },
+          {
+            "type": "range",
+            "id": "font_size_mobile",
+            "min": 5,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size - mobile",
+            "default": 42
+        },
+        {
+            "type": "range",
+            "id": "font_size_desktop",
+            "min": 5,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size - desktop",
+            "default": 70
+        }
+      ]
+    },
+    {
+      "type": "content_text",
+      "name": "Content text",
+      "settings": [
+          {
+              "type": "textarea",
+              "id": "content_text",
+              "label": "Content text"
+          },
+          {
+            "type": "range",
+            "id": "font_size_mobile",
+            "min": 5,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size - mobile",
+            "default": 14
+        },
+        {
+            "type": "range",
+            "id": "font_size_desktop",
+            "min": 5,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size - desktop",
+            "default": 18
+        }
+      ]
+    },
+    {
+      "type": "content_image_row",
+      "name": "Content image row",
+      "settings": [
+          {
+              "type": "image_picker",
+              "id": "content_image_row_image1",
+              "label": "Image row image"
+          },
+          {
+              "type": "image_picker",
+              "id": "content_image_row_image2",
+              "label": "Image row image"
+          },
+          {
+              "type": "image_picker",
+              "id": "content_image_row_image3",
+              "label": "Image row image"
+          },
+          {
+              "type": "image_picker",
+              "id": "content_image_row_image4",
+              "label": "Image row image"
+          },
+          {
+              "type": "image_picker",
+              "id": "content_image_row_image5",
+              "label": "Image row image"
+          },
+          {
+              "type": "image_picker",
+              "id": "content_image_row_image6",
+              "label": "Image row image"
+          }
+      ]
+    },
+    {
+      "type": "content_button",
+      "name": "Content button",
+      "settings": [
+          {
+              "type": "text",
+              "id": "content_button_text",
+              "label": "Button text"
+          },
+          {
+              "type": "url",
+              "id": "content_button_link",
+              "label": "Button link"
+          },
+          {
+            "type": "range",
+            "id": "font_size_mobile",
+            "min": 5,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size - mobile",
+            "default": 16
+        },
+        {
+            "type": "range",
+            "id": "font_size_desktop",
+            "min": 5,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size - desktop",
+            "default": 20
+        }
+      ]
+    } 
+  ],
+  "presets": [
+    {
+      "name": "Image banner",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,228 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "59d5e528-d7e9-4bc5-871d-5a199081fe32": {
+      "type": "meet-the-team",
+      "blocks": {
+        "f81b1a5b-5043-48b8-844e-8466bec95f20": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screenshot_2022-03-04_at_14.44.png",
+            "name": "Rohan",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Managing Director",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "d8384290-78b1-4b90-ad26-d2602d09f827": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/members_9.png",
+            "name": "Flora",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Creative Director",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "a666e255-0310-4fbe-a2c3-34d6ef7559ff": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/members_8.png",
+            "name": "Carl",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Head of Design",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "eaf85879-60d5-47a9-90e3-9fba013ea109": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/members_5.png",
+            "name": "Sophie",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Senior Growth Hacker",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "5f9cdee4-eb1c-4542-9dd1-2bfbf77fda77": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/members_3.png",
+            "name": "Jack",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Senior Growth Hacker",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "f194f955-fe03-4d67-b60e-55ca6005fb48": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1516305423449_2.png",
+            "name": "John",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Head of E-Commerce",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "9984ebae-9adc-4b99-aa33-ef72f4e2d4ce": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screenshot_2022-03-04_at_14.56_1.png",
+            "name": "Ben",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Senior Developer",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "4e3ec75a-56b3-4fff-983e-967efd9f2220": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/T01HY0ZKGQ4-U01HT126C59-7446580bc2b0-512.png",
+            "name": "Emma",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Graphic Designer",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "e9f4004c-876c-41e8-90d2-fca7afc93ec6": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1543410199974_1.png",
+            "name": "Morgan",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Junior Developer",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "077bc04c-c71d-4264-9ec0-2a965594faed": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/T013NA774EB-U03EL2QARAB-4b1980ea2285-512.jpg",
+            "name": "Elcin",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Junior Graphic Designer",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "46d0544c-7e26-4208-b355-bc32d6ad4fc8": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_1D79CD5AE995-1_1.png",
+            "name": "Reece",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Paid Media Buyer",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "f456c3cd-454f-4c06-acc2-03a83e23c24f": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/T013NA774EB-U03D0ANMC49-1107123c126d-512.jpg",
+            "name": "Angelica",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Junior Growth Hacker",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "4cef5459-246c-4b01-a4df-27e2f1be7909": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/T013NA774EB-U03GNGF8P60-d1726f1ef943-512.png",
+            "name": "Rona",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Paid Media Buyer",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "299020ff-1205-4756-b756-c2f2409c940f": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/members_2.png",
+            "name": "Sam",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Conversion Analyst",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        },
+        "f26952fc-ba61-4e2f-a5c1-193fa9774e83": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_5785.jpg",
+            "name": "Helen",
+            "name_font_size_mobile": 22,
+            "name_font_size_desktop": 34,
+            "role": "Junior Graphic Designer",
+            "role_font_size_mobile": 20,
+            "role_font_size_desktop": 35
+          }
+        }
+      },
+      "block_order": [
+        "f81b1a5b-5043-48b8-844e-8466bec95f20",
+        "d8384290-78b1-4b90-ad26-d2602d09f827",
+        "a666e255-0310-4fbe-a2c3-34d6ef7559ff",
+        "eaf85879-60d5-47a9-90e3-9fba013ea109",
+        "5f9cdee4-eb1c-4542-9dd1-2bfbf77fda77",
+        "f194f955-fe03-4d67-b60e-55ca6005fb48",
+        "9984ebae-9adc-4b99-aa33-ef72f4e2d4ce",
+        "4e3ec75a-56b3-4fff-983e-967efd9f2220",
+        "e9f4004c-876c-41e8-90d2-fca7afc93ec6",
+        "077bc04c-c71d-4264-9ec0-2a965594faed",
+        "46d0544c-7e26-4208-b355-bc32d6ad4fc8",
+        "f456c3cd-454f-4c06-acc2-03a83e23c24f",
+        "4cef5459-246c-4b01-a4df-27e2f1be7909",
+        "299020ff-1205-4756-b756-c2f2409c940f",
+        "f26952fc-ba61-4e2f-a5c1-193fa9774e83"
+      ],
+      "settings": {
+        "section_heading": "",
+        "heading_font_size_mobile": 38,
+        "heading_font_size_desktop": 59,
+        "section_subheading": "",
+        "subheading_font_size_mobile": 14,
+        "subheading_font_size_desktop": 25,
+        "section_subheading_url": "",
+        "per_row_mobile": "50%",
+        "per_row_desktop": "20%"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "59d5e528-d7e9-4bc5-871d-5a199081fe32"
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "16554752122c05f8aa": {
+      "type": "page-hero-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Product_image.jpg",
+        "image_desktop": "shopify:\/\/shop_images\/Product_image.jpg",
+        "remove_spacing": true
+      }
+    },
+    "1655475232696affb2": {
+      "type": "multi-content-grid",
+      "blocks": {
+        "3cf6a0c0-c3d4-4a79-81ee-937df96904f0": {
+          "type": "rich_text",
+          "settings": {
+            "width": 40,
+            "background_colour_light": "#e7bcae",
+            "background_colour_dark": "#e7bcae",
+            "heading": "TwoChicks",
+            "heading_font_size_mobile": 36,
+            "heading_font_size_desktop": 60,
+            "heading_colour_light": "#ffffff",
+            "heading_colour_dark": "#ffffff",
+            "content": "<p>Two Chicks was born out of a love for healthy, tasty food to bring innovative, convenient products to market<\/p><p>The rangs includes an organic liquid egg white, an ambient egg white, a liquid whole egg and a fresh ready-to-use pancake mix.<\/p>",
+            "content_font_size_mobile": 18,
+            "content_font_size_desktop": 26,
+            "content_colour_light": "#ffffff",
+            "content_colour_dark": "#ffffff",
+            "button_label": "",
+            "button_url": "",
+            "button_font_size_mobile": 16,
+            "button_font_size_desktop": 18
+          }
+        },
+        "d3c12550-0a08-498a-a727-391ee1bb8951": {
+          "type": "bullets",
+          "settings": {
+            "width": 60,
+            "background_colour_light": "#ffffff",
+            "background_colour_dark": "#222222",
+            "heading_font_size_mobile": 26,
+            "heading_font_size_desktop": 49,
+            "heading_colour_light": "#ffba03",
+            "heading_colour_dark": "#ffba03",
+            "bullet_font_size_mobile": 24,
+            "bullet_font_size_desktop": 24,
+            "bullet_heading_colour_light": "#000000",
+            "bullet_heading_colour_dark": "#ffffff",
+            "bullet_content_font_size_mobile": 14,
+            "bullet_content_font_size_desktop": 18,
+            "bullet_content_colour_light": "#000000",
+            "bullet_content_colour_dark": "#ffffff",
+            "heading": "Our role",
+            "bullet_icon1": "shopify:\/\/shop_images\/Ellipse_51.png",
+            "bullet_heading1": "Web Dev",
+            "bullet_content1": "<p>We re-platformed and re-built TwoChicks' website in line with their requirements.<\/p>",
+            "bullet_icon2": "shopify:\/\/shop_images\/Ellipse_48.png",
+            "bullet_heading2": "Netherlands",
+            "bullet_content2": "<p>We assisted TwoChicks in re-building their Dutch website, including a full set of translations.<\/p>",
+            "bullet_icon3": "shopify:\/\/shop_images\/Ellipse_49.png",
+            "bullet_heading3": "Launch",
+            "bullet_content3": "<p>We build specific pages for launch events to ensure the website has the latest information, for example, the Empowerment Fund.<\/p>",
+            "bullet_heading4": "",
+            "bullet_content4": "",
+            "bullet_heading5": "",
+            "bullet_content5": ""
+          }
+        },
+        "479fb915-bf66-4274-8a57-52325ea99534": {
+          "type": "statistics",
+          "settings": {
+            "width": 60,
+            "background_colour_light": "#ffffff",
+            "background_colour_dark": "#222222",
+            "heading_colour_light": "#000000",
+            "heading_font_size_mobile": 63,
+            "heading_font_size_desktop": 99,
+            "heading_colour_dark": "#ffffff",
+            "subheading_font_size_mobile": 20,
+            "subheading_font_size_desktop": 30,
+            "subheading_colour_light": "#ffba03",
+            "subheading_colour_dark": "#ffba03",
+            "content_font_size_mobile": 16,
+            "content_font_size_desktop": 24,
+            "content_colour_light": "#000000",
+            "content_colour_dark": "#ffffff",
+            "statistic_heading1": "400%",
+            "statistic_subheading1": "reduction in bounce rate",
+            "statistic_content1": "",
+            "statistic_heading2": "",
+            "statistic_subheading2": "",
+            "statistic_content2": "<p><br\/><\/p>",
+            "button_label": "SIGN ME UP",
+            "button_url": "shopify:\/\/pages\/contact-us",
+            "button_font_size_mobile": 16,
+            "button_font_size_desktop": 18
+          }
+        },
+        "1b65d64f-f4fb-4ed3-a37a-e81ffb361c1f": {
+          "type": "image",
+          "settings": {
+            "width": 40,
+            "image": "shopify:\/\/shop_images\/Sequence_01.gif"
+          }
+        }
+      },
+      "block_order": [
+        "3cf6a0c0-c3d4-4a79-81ee-937df96904f0",
+        "d3c12550-0a08-498a-a727-391ee1bb8951",
+        "479fb915-bf66-4274-8a57-52325ea99534",
+        "1b65d64f-f4fb-4ed3-a37a-e81ffb361c1f"
+      ],
+      "settings": {
+      }
+    },
+    "1657197915d7abdf36": {
+      "type": "rich-text",
+      "blocks": {
+        "1657197915c7882294-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>“Rohan and the team have been great to deal with. They're super responsive and I enjoy working with them.”<\/p>",
+            "heading_font_size_mobile": 22,
+            "heading_font_size_desktop": 26
+          }
+        },
+        "1657197915c7882294-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Rachel - Marketing Manager<\/p>",
+            "text_font_size_mobile": 14,
+            "text_font_size_desktop": 16
+          }
+        },
+        "1657197915c7882294-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "1657197915c7882294-0",
+        "1657197915c7882294-1",
+        "1657197915c7882294-2"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "16571979483a4a86a7": {
+      "type": "page-hero-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Anna-and-Alla-Two-Chicks_1.jpg",
+        "image_desktop": "shopify:\/\/shop_images\/Anna-and-Alla-Two-Chicks_1.jpg",
+        "remove_spacing": false
+      }
+    },
+    "1657197963756d918e": {
+      "type": "image-with-text-alt",
+      "settings": {
+        "content_order_desktop": "image-with-text-alt__content--desktop-text-first",
+        "content_order_mobile": "image-with-text-alt__content--mobile-text-first",
+        "image": "shopify:\/\/shop_images\/Inflatable_aad_Conceptualise.png",
+        "image_heading": "",
+        "image_heading_font_size_mobile": 20,
+        "image_heading_font_size_desktop": 38,
+        "image_subheading": "",
+        "image_subheading_font_size_mobile": 12,
+        "image_subheading_font_size_desktop": 33,
+        "heading": "GROW WITH US",
+        "content_heading_font_size_mobile": 29,
+        "content_heading_font_size_desktop": 50,
+        "subheading": "FEEL FREE TO SAY HELLO",
+        "content_subheading_font_size_mobile": 13,
+        "content_subheading_font_size_desktop": 26,
+        "text": "<p>You can contact us by filling the contact form out below or by dropping us an email:<br\/><br\/><a href=\"mailto:info@conceptualise.com\" title=\"mailto:info@conceptualise.com\"><strong>info@conceptualise.com<\/strong><\/a><\/p>",
+        "content_text_font_size_mobile": 16,
+        "content_text_font_size_desktop": 22,
+        "button_text": "CONTACT FORM",
+        "url": "shopify:\/\/pages\/contact-us",
+        "button_font_size_mobile": 16,
+        "button_font_size_desktop": 26
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16554752122c05f8aa",
+    "1655475232696affb2",
+    "1657197915d7abdf36",
+    "16571979483a4a86a7",
+    "1657197963756d918e"
+  ]
+}

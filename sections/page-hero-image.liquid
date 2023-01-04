@@ -1,0 +1,103 @@
+{{ 'section-page-hero-image.css' | asset_url | stylesheet_tag }}
+
+<div id="PageHeroImage-{{ section.id }}" class="page-hero-image">
+  <div class="page-hero-image__wrap page-width">
+    <div class="page-hero-image__content">
+        {%- if section.settings.image != blank -%}
+            <img
+                srcset="{%- if section.settings.image.width >= 550 -%}{{ section.settings.image | image_url: width: 550 }} 550w,{%- endif -%}
+                {%- if section.settings.image.width >= 720 -%}{{ section.settings.image | image_url: width: 720 }} 720w,{%- endif -%}
+                {%- if section.settings.image.width >= 990 -%}{{ section.settings.image | image_url: width: 990 }} 990w,{%- endif -%}
+                {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                {%- if section.settings.image.width >= 2200 -%}{{ section.settings.image | image_url: width: 2200 }} 2200w,{%- endif -%}
+                {%- if section.settings.image.width >= 3000 -%}{{ section.settings.image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                {{ section.settings.image | image_url }} {{ section.settings.image.width }}w"
+                src="{{ section.settings.image | image_url: width: 1500 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {% if section.blocks.size == 1 %}calc({{ settings.page_width }}px - 100px){% else %}{{ settings.page_width | minus: 100 | times: 0.67 | round }}px{% endif %}, (min-width: 750px){% if section.blocks.size == 1 %} calc(100vw - 100px){% else %} 500px{% endif %}, calc(100vw - 30px)"
+                alt="{{ section.settings.image.alt | escape }}"
+                loading="lazy"
+                width="{{ section.settings.image.width }}"
+                height="{{ section.settings.image.height }}"
+                class="page-hero-image__image page-hero-image__image--mobile"
+            >
+        {%- endif -%}
+        {%- if section.settings.image_desktop != blank -%}
+            <img
+                srcset="{%- if section.settings.image_desktop.width >= 550 -%}{{ section.settings.image_desktop | image_url: width: 550 }} 550w,{%- endif -%}
+                {%- if section.settings.image_desktop.width >= 720 -%}{{ section.settings.image_desktop | image_url: width: 720 }} 720w,{%- endif -%}
+                {%- if section.settings.image_desktop.width >= 990 -%}{{ section.settings.image_desktop | image_url: width: 990 }} 990w,{%- endif -%}
+                {%- if section.settings.image_desktop.width >= 1100 -%}{{ section.settings.image_desktop | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {%- if section.settings.image_desktop.width >= 1500 -%}{{ section.settings.image_desktop | image_url: width: 1500 }} 1500w,{%- endif -%}
+                {%- if section.settings.image_desktop.width >= 2200 -%}{{ section.settings.image_desktop | image_url: width: 2200 }} 2200w,{%- endif -%}
+                {%- if section.settings.image_desktop.width >= 3000 -%}{{ section.settings.image_desktop | image_url: width: 3000 }} 3000w,{%- endif -%}
+                {{ section.settings.image_desktop | image_url }} {{ section.settings.image_desktop.width }}w"
+                src="{{ section.settings.image_desktop | image_url: width: 1500 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {% if section.blocks.size == 1 %}calc({{ settings.page_width }}px - 100px){% else %}{{ settings.page_width | minus: 100 | times: 0.67 | round }}px{% endif %}, (min-width: 750px){% if section.blocks.size == 1 %} calc(100vw - 100px){% else %} 500px{% endif %}, calc(100vw - 30px)"
+                alt="{{ section.settings.image_desktop.alt | escape }}"
+                loading="lazy"
+                width="{{ section.settings.image_desktop.width }}"
+                height="{{ section.settings.image_desktop.height }}"
+                class="page-hero-image__image page-hero-image__image--desktop"
+            >
+        {%- endif -%}
+    </div>  
+  </div>
+</div>
+
+<style>
+#PageHeroImage-{{ section.id }} .page-hero-image__wrap{
+  {%- if section.settings.remove_spacing -%}
+  margin-top: 0;
+  {%- else -%}
+  margin-top: 25px;
+  {%- endif -%}
+  
+}
+@media (min-width: 750px){
+    #PageHeroImage-{{ section.id }} .page-hero-image__wrap{
+      {%- if section.settings.remove_spacing -%}
+      margin-top: 0;
+      {%- else -%}
+      margin-top: 70px;
+      {%- endif -%}
+    }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Page Hero Image",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "Mobile Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "image_desktop",
+        "label": "Image",
+        "info": "Desktop image"
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_spacing",
+      "label": "Remove section spacing",
+      "default": false
+    }
+  ],
+  "blocks": [
+  ],
+  "presets": [
+    {
+      "name": "Page Hero Image",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}
