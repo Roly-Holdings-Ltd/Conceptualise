@@ -1,0 +1,30 @@
+// .scrolling-announcement-bar{
+//     width: min(100vw, 100vw);
+//     height: auto;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     position: relative;
+    
+//     .scrolling-announcement-bar__scroller{
+//         height: 100%;
+//         animation: scroll 30s linear infinite;
+//         animation-fill-mode: forwards;
+//         display: inline-block;
+        
+//         .announcement-bar__message{
+//             height: 100%;
+//             width: auto;
+//             display: inline-block;
+//         }
+
+//     }
+// }
+
+// @keyframes scroll {
+//     0% {
+//       transform: translateX(0);
+//     }
+//     100% {
+//       transform: translateX(-50%);
+//     }
+//   }
