@@ -2,15 +2,597 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
     },
-    "59d5e528-d7e9-4bc5-871d-5a199081fe32": {
+    "d91b513c-78c6-4c80-8d17-c2d5de93205d": {
+      "type": "text-banner",
+      "blocks": {
+        "c70e6706-4a5f-4d36-ae82-1552ea3ca373": {
+          "type": "content_text",
+          "settings": {
+            "content_text": "WE ARE CONCEPTUALISE.",
+            "font_size_mobile": 14,
+            "font_size_desktop": 20,
+            "add_letter_spacing": true
+          }
+        },
+        "a5705210-7484-4f17-89aa-d7636738457d": {
+          "type": "content_text_heading",
+          "settings": {
+            "content_heading_text": "REATIVE",
+            "font_size_mobile": 42,
+            "font_size_desktop": 70,
+            "top_spacing": "increased",
+            "bottom_spacing": "reduced",
+            "image": "shopify:\/\/shop_images\/Group_838.png",
+            "image_position": "before",
+            "image_width_desktop": 100,
+            "image_width_mobile": 60,
+            "image_height_desktop": 100,
+            "image_height_mobile": 60,
+            "image_vertical_position_desktop": -20,
+            "image_vertical_position_mobile": -10,
+            "image_horizontal_position_desktop": -88,
+            "image_horizontal_position_mobile": -50
+          }
+        },
+        "c9a10d1e-33a4-4592-b34b-e9bdcc494233": {
+          "type": "content_text_heading",
+          "settings": {
+            "content_heading_text": "DIGITAL",
+            "font_size_mobile": 42,
+            "font_size_desktop": 70,
+            "top_spacing": "reduced",
+            "bottom_spacing": "reduced",
+            "image_position": "before",
+            "image_width_desktop": 100,
+            "image_width_mobile": 60,
+            "image_height_desktop": 100,
+            "image_height_mobile": 60,
+            "image_vertical_position_desktop": 20,
+            "image_vertical_position_mobile": 10,
+            "image_horizontal_position_desktop": 20,
+            "image_horizontal_position_mobile": 10
+          }
+        },
+        "8a2eebd6-0708-460d-8296-92f0d97452d7": {
+          "type": "content_text_heading",
+          "settings": {
+            "content_heading_text": "OLUTIONS",
+            "font_size_mobile": 42,
+            "font_size_desktop": 70,
+            "top_spacing": "reduced",
+            "bottom_spacing": "reduced",
+            "image": "shopify:\/\/shop_images\/Untitled.png",
+            "image_position": "before",
+            "image_width_desktop": 100,
+            "image_width_mobile": 60,
+            "image_height_desktop": 100,
+            "image_height_mobile": 60,
+            "image_vertical_position_desktop": -14,
+            "image_vertical_position_mobile": -10,
+            "image_horizontal_position_desktop": -80,
+            "image_horizontal_position_mobile": -50
+          }
+        },
+        "4813d0d1-19ae-437c-8ef0-803e6fd2d1d1": {
+          "type": "statistics",
+          "settings": {
+            "statistic_1_subheading": "Annual Revenue",
+            "statistic_1_heading": "20M+",
+            "statistic_2_subheading": "Client Investment",
+            "statistic_2_heading": "30M+",
+            "statistic_3_subheading": "Years In Industry",
+            "statistic_3_heading": "40+",
+            "statistic_4_subheading": "",
+            "statistic_4_heading": "",
+            "statistic_5_subheading": "",
+            "statistic_5_heading": "",
+            "statistic_6_subheading": "",
+            "statistic_6_heading": "",
+            "statistic_7_subheading": "",
+            "statistic_7_heading": "",
+            "statistic_8_subheading": "",
+            "statistic_8_heading": "",
+            "subheading_font_size_mobile": 8,
+            "subheading_font_size_desktop": 14,
+            "heading_font_size_mobile": 28,
+            "heading_font_size_desktop": 68
+          }
+        },
+        "7c076265-ba0b-4e83-a6f4-b54e716b86e5": {
+          "type": "logo-row",
+          "settings": {
+            "logo1": "shopify:\/\/shop_images\/HXTSN_WEB_LOGO_2_410x_1.png",
+            "logo2": "shopify:\/\/shop_images\/main-pura-logo-scaled_1.png",
+            "logo3": "shopify:\/\/shop_images\/Vector_Smart_Object.png",
+            "logo4": "shopify:\/\/shop_images\/website_logo_180x_2x_1.png",
+            "logo5": "shopify:\/\/shop_images\/Group_551.png",
+            "logo6": "shopify:\/\/shop_images\/Bellfield-Logo-Updated_410x_1.png",
+            "logo7": "shopify:\/\/shop_images\/Group_1.png"
+          }
+        },
+        "2958a0a9-0099-4014-9265-efd1b9fc6f93": {
+          "type": "content_button",
+          "settings": {
+            "content_button_text": "CLAIM FREE AUDIT",
+            "content_button_link": "",
+            "font_size_mobile": 12,
+            "font_size_desktop": 16
+          }
+        }
+      },
+      "block_order": [
+        "c70e6706-4a5f-4d36-ae82-1552ea3ca373",
+        "a5705210-7484-4f17-89aa-d7636738457d",
+        "c9a10d1e-33a4-4592-b34b-e9bdcc494233",
+        "8a2eebd6-0708-460d-8296-92f0d97452d7",
+        "4813d0d1-19ae-437c-8ef0-803e6fd2d1d1",
+        "7c076265-ba0b-4e83-a6f4-b54e716b86e5",
+        "2958a0a9-0099-4014-9265-efd1b9fc6f93"
+      ],
+      "settings": {
+      }
+    },
+    "71f574bb-bec1-4491-99e1-9e44066c9ec2": {
+      "type": "image-banner-default",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Group_840.png",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "adapt_height_first_image": true,
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "41b1646f-be35-4ffc-ac6a-e653f75cf2df": {
+      "type": "large-image-rows",
+      "blocks": {
+        "42129987-ea5f-4070-a6db-6b26bd6db101": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_797_6b5de63f-674d-478e-8654-e12b0b18740d.png",
+            "image_url": ""
+          }
+        },
+        "218c53fd-b7f6-4dfa-8110-1501e10ab9c0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_711.png",
+            "image_url": ""
+          }
+        },
+        "1d34accd-4258-4027-b9e5-48bc46235306": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_710.png",
+            "image_url": ""
+          }
+        },
+        "168f4995-449a-45a4-86da-a13606464938": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_712_ce14bd95-5b70-46fd-aeca-e556f8263a2a.png",
+            "image_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "42129987-ea5f-4070-a6db-6b26bd6db101",
+        "218c53fd-b7f6-4dfa-8110-1501e10ab9c0",
+        "1d34accd-4258-4027-b9e5-48bc46235306",
+        "168f4995-449a-45a4-86da-a13606464938"
+      ],
+      "settings": {
+        "full_width_section": true,
+        "no_spacing": true,
+        "section_heading": "",
+        "images_per_row_mobile": "100%",
+        "icons_per_row_desktop": "50%",
+        "button_text": "",
+        "url": ""
+      }
+    },
+    "f412d67e-a973-4e59-b9c2-14f8a31b9e54": {
+      "type": "testimonials-slider",
+      "blocks": {
+        "c7f7cd64-188a-48af-8676-aeffd71ae4df": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_content": "“After speaking with Rohan, I feel I now know less...”",
+            "content_font_size_mobile": 33,
+            "content_font_size_desktop": 50,
+            "testimonial_name": "Annonymous",
+            "name_font_size_mobile": 24,
+            "name_font_size_desktop": 24
+          }
+        },
+        "ff420d8f-820c-436f-86f1-9c5c3a8d0ea6": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_content": "“After speaking with Rohan, I feel I now know less...”",
+            "content_font_size_mobile": 33,
+            "content_font_size_desktop": 50,
+            "testimonial_name": "Annonymous",
+            "name_font_size_mobile": 24,
+            "name_font_size_desktop": 24
+          }
+        },
+        "256f7305-be8b-49dd-b7f7-0b4c61fe134d": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_content": "",
+            "content_font_size_mobile": 33,
+            "content_font_size_desktop": 50,
+            "testimonial_name": "Annonymous",
+            "name_font_size_mobile": 24,
+            "name_font_size_desktop": 24
+          }
+        }
+      },
+      "block_order": [
+        "c7f7cd64-188a-48af-8676-aeffd71ae4df",
+        "ff420d8f-820c-436f-86f1-9c5c3a8d0ea6",
+        "256f7305-be8b-49dd-b7f7-0b4c61fe134d"
+      ],
+      "settings": {
+        "section_heading": "",
+        "heading_font_size_mobile": 38,
+        "heading_font_size_desktop": 59,
+        "show_background": false
+      }
+    },
+    "c89b963e-2f6c-4ca6-902f-e0a9816ad308": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--15664887922897__c89b963e-2f6c-4ca6-902f-e0a9816ad308-167024953721808bc8-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Conceptualise",
+            "heading_size": "h2",
+            "color_light": "#000000",
+            "color_dark": "#ffba03"
+          }
+        },
+        "002275ba-f885-4d06-a0eb-0d2ca41410b5": {
+          "type": "heading",
+          "settings": {
+            "heading": "We will make your business shine brighter!",
+            "heading_size": "h1",
+            "color_light": "#000000",
+            "color_dark": "#ffffff"
+          }
+        },
+        "template--15664887922897__c89b963e-2f6c-4ca6-902f-e0a9816ad308-167024953721808bc8-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact us",
+            "button_link": "shopify:\/\/pages\/contact-us",
+            "background_color_light": "#121212",
+            "background_color_dark": "#ffba03",
+            "color_light": "#ffffff",
+            "color_dark": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "template--15664887922897__c89b963e-2f6c-4ca6-902f-e0a9816ad308-167024953721808bc8-0",
+        "002275ba-f885-4d06-a0eb-0d2ca41410b5",
+        "template--15664887922897__c89b963e-2f6c-4ca6-902f-e0a9816ad308-167024953721808bc8-2"
+      ],
+      "settings": {
+        "full_width_section": true,
+        "stack_columns": false,
+        "image": "shopify:\/\/shop_images\/Frame_785.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "background_color": "#ffffff",
+        "background_color_dark": "#121212",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "7ab49e23-fc9b-4222-b193-9581746ae058": {
+      "type": "icon-image-row",
+      "blocks": {
+        "c68c8be4-b5a5-484e-8f76-9358938ec41a": {
+          "type": "icon_image",
+          "settings": {
+            "icon_light": "shopify:\/\/shop_images\/Service_Icon_1.png",
+            "icon_dark": "shopify:\/\/shop_images\/Service_Icon_1.png",
+            "icon_heading": "Branding"
+          }
+        },
+        "138378f1-530d-494b-8b0c-a9c1fdb4a409": {
+          "type": "icon_image",
+          "settings": {
+            "icon_light": "shopify:\/\/shop_images\/Service_Icon_2.png",
+            "icon_heading": "SEO"
+          }
+        },
+        "ca23eb76-1ce9-42f1-9913-207e780fd242": {
+          "type": "icon_image",
+          "settings": {
+            "icon_light": "shopify:\/\/shop_images\/Service_Icon_3.png",
+            "icon_heading": "Strategy"
+          }
+        },
+        "7a07f4dd-3be3-4a82-a264-f7fbd69b7348": {
+          "type": "icon_image",
+          "settings": {
+            "icon_light": "shopify:\/\/shop_images\/Service_Icon_4.png",
+            "icon_heading": "Web Development"
+          }
+        },
+        "21746b28-b2d7-4657-b98d-326f3e36bd53": {
+          "type": "icon_image",
+          "settings": {
+            "icon_light": "shopify:\/\/shop_images\/Service_Icon_5.png",
+            "icon_heading": "Data Reporting"
+          }
+        },
+        "b00f4503-7e8e-4fef-99ae-4347d05f14ba": {
+          "type": "icon_image",
+          "settings": {
+            "icon_light": "shopify:\/\/shop_images\/Service_Icon_6.png",
+            "icon_heading": "UI\/UX"
+          }
+        },
+        "ad017e2b-7f91-410f-a383-d6c22f1f9d3b": {
+          "type": "icon_image",
+          "settings": {
+            "icon_light": "shopify:\/\/shop_images\/Service_Icon_7.png",
+            "icon_heading": "Email Marketing"
+          }
+        },
+        "b3fda7b4-7b20-44cf-b50c-cb264393211e": {
+          "type": "icon_image",
+          "settings": {
+            "icon_light": "shopify:\/\/shop_images\/Service_Icon_8.png",
+            "icon_heading": "Paid Media"
+          }
+        }
+      },
+      "block_order": [
+        "c68c8be4-b5a5-484e-8f76-9358938ec41a",
+        "138378f1-530d-494b-8b0c-a9c1fdb4a409",
+        "ca23eb76-1ce9-42f1-9913-207e780fd242",
+        "7a07f4dd-3be3-4a82-a264-f7fbd69b7348",
+        "21746b28-b2d7-4657-b98d-326f3e36bd53",
+        "b00f4503-7e8e-4fef-99ae-4347d05f14ba",
+        "ad017e2b-7f91-410f-a383-d6c22f1f9d3b",
+        "b3fda7b4-7b20-44cf-b50c-cb264393211e"
+      ],
+      "settings": {
+        "section_heading": "OUR <span class=\"circle-border\">S<\/span>ERVICES",
+        "icon_width_mobile": 60,
+        "icon_width_desktop": 200,
+        "icons_per_row_mobile": "25%",
+        "icons_per_row_desktop": "25%"
+      }
+    },
+    "41d8e853-c613-4e87-9922-e390e258e068": {
+      "type": "image-with-text-alt",
+      "settings": {
+        "show_background": false,
+        "increase_content_width": true,
+        "content_order_desktop": "image-with-text-alt__content--desktop-image-first",
+        "content_order_mobile": "image-with-text-alt__content--mobile-text-first",
+        "image": "shopify:\/\/shop_images\/Screenshot_2022-03-04_at_14.44_56e982c9-7a79-44f7-ab6d-79fa57af5ff2.png",
+        "round_image": true,
+        "image_heading": "Rohan",
+        "image_heading_font_size_mobile": 20,
+        "image_heading_font_size_desktop": 28,
+        "image_subheading": "Director",
+        "image_subheading_font_size_mobile": 12,
+        "image_subheading_font_size_desktop": 14,
+        "heading": "",
+        "content_heading_font_size_mobile": 36,
+        "content_heading_font_size_desktop": 50,
+        "subheading": "",
+        "content_subheading_font_size_mobile": 13,
+        "content_subheading_font_size_desktop": 26,
+        "text": "<p>\"To grow and stay ahead of the curve you need to push ideas forward as a team.\"<\/p>",
+        "content_text_font_size_mobile": 26,
+        "content_text_font_size_desktop": 44,
+        "button_text": "",
+        "url": "",
+        "button_font_size_mobile": 16,
+        "button_font_size_desktop": 26
+      }
+    },
+    "ffa31b63-8068-4270-841d-70e866a3adca": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--15664887922897__ffa31b63-8068-4270-841d-70e866a3adca-16703207865de33f9b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "TELL US ABOUT THE PROJECT YOU HAVE IN MIND",
+            "heading_size": "h1",
+            "color_light": "#000000",
+            "color_dark": "#ffffff"
+          }
+        },
+        "template--15664887922897__ffa31b63-8068-4270-841d-70e866a3adca-16703207865de33f9b-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>You can message us by filling the contact form out below or by dropping us an email -<strong>info@conceptualise.com<\/strong><\/p>",
+            "text_style": "body",
+            "color_light": "#000000",
+            "color_dark": "#121212"
+          }
+        },
+        "template--15664887922897__ffa31b63-8068-4270-841d-70e866a3adca-16703207865de33f9b-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "CONTACT FORM",
+            "button_link": "shopify:\/\/pages\/contact-us",
+            "background_color_light": "#121212",
+            "background_color_dark": "#121212",
+            "color_light": "#ffffff",
+            "color_dark": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "template--15664887922897__ffa31b63-8068-4270-841d-70e866a3adca-16703207865de33f9b-0",
+        "template--15664887922897__ffa31b63-8068-4270-841d-70e866a3adca-16703207865de33f9b-1",
+        "template--15664887922897__ffa31b63-8068-4270-841d-70e866a3adca-16703207865de33f9b-2"
+      ],
+      "settings": {
+        "full_width_section": true,
+        "stack_columns": true,
+        "image": "shopify:\/\/shop_images\/2021x0409_Batch66_05_billboard_1.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "background_color": "#ffba03",
+        "background_color_dark": "#ffba03",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "e5745a9a-661e-40a2-884f-b35349ab7f26": {
+      "type": "icon-text-rows",
+      "blocks": {
+        "0df61f50-9b2c-4c50-b543-17b3404aae8c": {
+          "type": "icon_text_row",
+          "settings": {
+            "show_background": true,
+            "add_shadow": "none",
+            "icon_light": "shopify:\/\/shop_images\/Group_336_248b8535-f9ca-46bc-b7fd-4ee98c2ad6e8.png",
+            "icon_dark": "shopify:\/\/shop_images\/Group_336_248b8535-f9ca-46bc-b7fd-4ee98c2ad6e8.png",
+            "heading": "Define",
+            "heading_font_size_mobile": 18,
+            "heading_font_size_desktop": 28,
+            "use_alt_color": true,
+            "content": "",
+            "content_font_size_mobile": 15,
+            "content_font_size_desktop": 16,
+            "bullet1": "Research",
+            "bullet2": "Clarify Challenges",
+            "bullet3": "Competitor Analysis",
+            "bullet4": "",
+            "bullet5": "",
+            "bullet_font_size_mobile": 12,
+            "bullet_font_size_desktop": 14
+          }
+        },
+        "4f5fff19-51d7-402f-9034-4f9c30694b73": {
+          "type": "icon_text_row",
+          "settings": {
+            "show_background": true,
+            "add_shadow": "none",
+            "icon_light": "shopify:\/\/shop_images\/Group_337_cb4e4d92-3dc0-4c10-805c-0aa8320a43ff.png",
+            "icon_dark": "shopify:\/\/shop_images\/Group_337_cb4e4d92-3dc0-4c10-805c-0aa8320a43ff.png",
+            "heading": "Ideate",
+            "heading_font_size_mobile": 18,
+            "heading_font_size_desktop": 28,
+            "use_alt_color": true,
+            "content": "",
+            "content_font_size_mobile": 15,
+            "content_font_size_desktop": 16,
+            "bullet1": "Shortlist",
+            "bullet2": "Data Analysis",
+            "bullet3": "User Personas",
+            "bullet4": "",
+            "bullet5": "",
+            "bullet_font_size_mobile": 12,
+            "bullet_font_size_desktop": 14
+          }
+        },
+        "a16665b6-b9b3-4ea4-8c6c-8172120a9eea": {
+          "type": "icon_text_row",
+          "settings": {
+            "show_background": true,
+            "add_shadow": "white",
+            "icon_light": "shopify:\/\/shop_images\/Group_27_531062fb-4383-485c-854f-8ac641bef96f.png",
+            "icon_dark": "shopify:\/\/shop_images\/Group_27_531062fb-4383-485c-854f-8ac641bef96f.png",
+            "heading": "Design",
+            "heading_font_size_mobile": 18,
+            "heading_font_size_desktop": 28,
+            "use_alt_color": true,
+            "content": "",
+            "content_font_size_mobile": 15,
+            "content_font_size_desktop": 16,
+            "bullet1": "Wireframes",
+            "bullet2": "Branding",
+            "bullet3": "Marketing",
+            "bullet4": "",
+            "bullet5": "",
+            "bullet_font_size_mobile": 12,
+            "bullet_font_size_desktop": 14
+          }
+        },
+        "676ab062-2457-4ba9-943d-b62b0c81e680": {
+          "type": "icon_text_row",
+          "settings": {
+            "show_background": true,
+            "add_shadow": "yellow",
+            "icon_light": "shopify:\/\/shop_images\/Group_339_4b8ebce8-d51a-4a6f-a737-5e864cf61d76.png",
+            "icon_dark": "shopify:\/\/shop_images\/Group_339_4b8ebce8-d51a-4a6f-a737-5e864cf61d76.png",
+            "heading": "Publish",
+            "heading_font_size_mobile": 18,
+            "heading_font_size_desktop": 28,
+            "use_alt_color": true,
+            "content": "",
+            "content_font_size_mobile": 15,
+            "content_font_size_desktop": 16,
+            "bullet1": "Develop Design",
+            "bullet2": "Email Segmentation",
+            "bullet3": "Test & Refine",
+            "bullet4": "",
+            "bullet5": "",
+            "bullet_font_size_mobile": 12,
+            "bullet_font_size_desktop": 14
+          }
+        }
+      },
+      "block_order": [
+        "0df61f50-9b2c-4c50-b543-17b3404aae8c",
+        "4f5fff19-51d7-402f-9034-4f9c30694b73",
+        "a16665b6-b9b3-4ea4-8c6c-8172120a9eea",
+        "676ab062-2457-4ba9-943d-b62b0c81e680"
+      ],
+      "settings": {
+        "show_background": false,
+        "show_on_mobile": true,
+        "section_heading": "ALL ABOUT THE <span class=\"circle-border\">P<\/span>ROCESS",
+        "heading_font_size_mobile": 38,
+        "heading_font_size_desktop": 59,
+        "icon_height_mobile": 70,
+        "icon_height_desktop": 110,
+        "icons_per_row_mobile": "50%",
+        "icons_per_row_desktop": "25%",
+        "button_text": "",
+        "url": "",
+        "button_font_size_mobile": 16,
+        "button_font_size_desktop": 24
+      }
+    },
+    "85d782dc-1b0b-4a2d-a9fa-36346d34c633": {
       "type": "meet-the-team",
       "blocks": {
-        "f81b1a5b-5043-48b8-844e-8466bec95f20": {
+        "02664daf-4097-4feb-b05f-1d6aef9260e5": {
           "type": "team_member",
           "settings": {
             "image": "shopify:\/\/shop_images\/Screenshot_2022-03-04_at_14.44.png",
@@ -22,7 +604,7 @@
             "role_font_size_desktop": 35
           }
         },
-        "d8384290-78b1-4b90-ad26-d2602d09f827": {
+        "1f9173bb-87af-4b95-8348-e8b703df01bd": {
           "type": "team_member",
           "settings": {
             "image": "shopify:\/\/shop_images\/members_9.png",
@@ -34,7 +616,7 @@
             "role_font_size_desktop": 35
           }
         },
-        "a666e255-0310-4fbe-a2c3-34d6ef7559ff": {
+        "132f78a6-1f17-4ac8-b59b-1c23ba8e63c9": {
           "type": "team_member",
           "settings": {
             "image": "shopify:\/\/shop_images\/members_8.png",
@@ -46,170 +628,106 @@
             "role_font_size_desktop": 35
           }
         },
-        "eaf85879-60d5-47a9-90e3-9fba013ea109": {
-          "type": "team_member",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/members_5.png",
-            "name": "Sophie",
-            "name_font_size_mobile": 22,
-            "name_font_size_desktop": 34,
-            "role": "Senior Growth Hacker",
-            "role_font_size_mobile": 20,
-            "role_font_size_desktop": 35
-          }
-        },
-        "5f9cdee4-eb1c-4542-9dd1-2bfbf77fda77": {
-          "type": "team_member",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/members_3.png",
-            "name": "Jack",
-            "name_font_size_mobile": 22,
-            "name_font_size_desktop": 34,
-            "role": "Senior Growth Hacker",
-            "role_font_size_mobile": 20,
-            "role_font_size_desktop": 35
-          }
-        },
-        "f194f955-fe03-4d67-b60e-55ca6005fb48": {
-          "type": "team_member",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/1516305423449_2.png",
-            "name": "John",
-            "name_font_size_mobile": 22,
-            "name_font_size_desktop": 34,
-            "role": "Head of E-Commerce",
-            "role_font_size_mobile": 20,
-            "role_font_size_desktop": 35
-          }
-        },
-        "9984ebae-9adc-4b99-aa33-ef72f4e2d4ce": {
+        "4d70acc9-b63d-4ee4-b2d1-3e50d82d0dde": {
           "type": "team_member",
           "settings": {
             "image": "shopify:\/\/shop_images\/Screenshot_2022-03-04_at_14.56_1.png",
             "name": "Ben",
             "name_font_size_mobile": 22,
             "name_font_size_desktop": 34,
-            "role": "Senior Developer",
+            "role": "ShopifyExpert",
             "role_font_size_mobile": 20,
             "role_font_size_desktop": 35
           }
         },
-        "4e3ec75a-56b3-4fff-983e-967efd9f2220": {
-          "type": "team_member",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/T01HY0ZKGQ4-U01HT126C59-7446580bc2b0-512.png",
-            "name": "Emma",
-            "name_font_size_mobile": 22,
-            "name_font_size_desktop": 34,
-            "role": "Graphic Designer",
-            "role_font_size_mobile": 20,
-            "role_font_size_desktop": 35
-          }
-        },
-        "e9f4004c-876c-41e8-90d2-fca7afc93ec6": {
+        "fb4db943-4d87-48c2-a05a-663f4d464edb": {
           "type": "team_member",
           "settings": {
             "image": "shopify:\/\/shop_images\/1543410199974_1.png",
             "name": "Morgan",
             "name_font_size_mobile": 22,
             "name_font_size_desktop": 34,
-            "role": "Junior Developer",
+            "role": "ShopifyExpert",
             "role_font_size_mobile": 20,
             "role_font_size_desktop": 35
           }
         },
-        "077bc04c-c71d-4264-9ec0-2a965594faed": {
+        "32a9d3dc-286e-48f2-abc3-f356fda8d946": {
           "type": "team_member",
           "settings": {
-            "image": "shopify:\/\/shop_images\/T013NA774EB-U03EL2QARAB-4b1980ea2285-512.jpg",
-            "name": "Elcin",
+            "image": "shopify:\/\/shop_images\/members_5.png",
+            "name": "Sophie",
             "name_font_size_mobile": 22,
             "name_font_size_desktop": 34,
-            "role": "Junior Graphic Designer",
+            "role": "",
             "role_font_size_mobile": 20,
             "role_font_size_desktop": 35
           }
         },
-        "46d0544c-7e26-4208-b355-bc32d6ad4fc8": {
+        "cf39cf0a-10be-426a-ae7c-6437bda52ed0": {
           "type": "team_member",
           "settings": {
-            "image": "shopify:\/\/shop_images\/IMG_1D79CD5AE995-1_1.png",
-            "name": "Reece",
+            "image": "shopify:\/\/shop_images\/members_4.png",
+            "name": "John",
             "name_font_size_mobile": 22,
             "name_font_size_desktop": 34,
-            "role": "Paid Media Buyer",
+            "role": "SEO Executive",
             "role_font_size_mobile": 20,
             "role_font_size_desktop": 35
           }
         },
-        "f456c3cd-454f-4c06-acc2-03a83e23c24f": {
+        "35131c50-b1c9-402e-9f42-7d1a31aca735": {
           "type": "team_member",
           "settings": {
-            "image": "shopify:\/\/shop_images\/T013NA774EB-U03D0ANMC49-1107123c126d-512.jpg",
-            "name": "Angelica",
+            "image": "shopify:\/\/shop_images\/members_3.png",
+            "name": "Jack",
             "name_font_size_mobile": 22,
             "name_font_size_desktop": 34,
-            "role": "E-Commerce Assistant",
+            "role": "Project Manager",
             "role_font_size_mobile": 20,
             "role_font_size_desktop": 35
           }
         },
-        "4cef5459-246c-4b01-a4df-27e2f1be7909": {
-          "type": "team_member",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/T013NA774EB-U03GNGF8P60-d1726f1ef943-512.png",
-            "name": "Rona",
-            "name_font_size_mobile": 22,
-            "name_font_size_desktop": 34,
-            "role": "Paid Media Buyer",
-            "role_font_size_mobile": 20,
-            "role_font_size_desktop": 35
-          }
-        },
-        "299020ff-1205-4756-b756-c2f2409c940f": {
+        "bf9ddce0-3e1f-48fc-8bbf-ba3a10f54af2": {
           "type": "team_member",
           "settings": {
             "image": "shopify:\/\/shop_images\/members_2.png",
             "name": "Sam",
             "name_font_size_mobile": 22,
             "name_font_size_desktop": 34,
-            "role": "Conversion Rate Optimisation",
+            "role": "CROExecutive",
             "role_font_size_mobile": 20,
             "role_font_size_desktop": 35
           }
         },
-        "f26952fc-ba61-4e2f-a5c1-193fa9774e83": {
+        "701db1fa-8429-4ab0-9a6c-d0eb500b08a8": {
           "type": "team_member",
           "settings": {
-            "image": "shopify:\/\/shop_images\/IMG_5785.jpg",
-            "name": "Helen",
+            "image": "shopify:\/\/shop_images\/IMG_1D79CD5AE995-1_1.png",
+            "name": "Reece",
             "name_font_size_mobile": 22,
             "name_font_size_desktop": 34,
-            "role": "Junior Graphic Designer",
+            "role": "Paid SocialManager",
             "role_font_size_mobile": 20,
             "role_font_size_desktop": 35
           }
         }
       },
       "block_order": [
-        "f81b1a5b-5043-48b8-844e-8466bec95f20",
-        "d8384290-78b1-4b90-ad26-d2602d09f827",
-        "a666e255-0310-4fbe-a2c3-34d6ef7559ff",
-        "eaf85879-60d5-47a9-90e3-9fba013ea109",
-        "5f9cdee4-eb1c-4542-9dd1-2bfbf77fda77",
-        "f194f955-fe03-4d67-b60e-55ca6005fb48",
-        "9984ebae-9adc-4b99-aa33-ef72f4e2d4ce",
-        "4e3ec75a-56b3-4fff-983e-967efd9f2220",
-        "e9f4004c-876c-41e8-90d2-fca7afc93ec6",
-        "077bc04c-c71d-4264-9ec0-2a965594faed",
-        "46d0544c-7e26-4208-b355-bc32d6ad4fc8",
-        "f456c3cd-454f-4c06-acc2-03a83e23c24f",
-        "4cef5459-246c-4b01-a4df-27e2f1be7909",
-        "299020ff-1205-4756-b756-c2f2409c940f",
-        "f26952fc-ba61-4e2f-a5c1-193fa9774e83"
+        "02664daf-4097-4feb-b05f-1d6aef9260e5",
+        "1f9173bb-87af-4b95-8348-e8b703df01bd",
+        "132f78a6-1f17-4ac8-b59b-1c23ba8e63c9",
+        "4d70acc9-b63d-4ee4-b2d1-3e50d82d0dde",
+        "fb4db943-4d87-48c2-a05a-663f4d464edb",
+        "32a9d3dc-286e-48f2-abc3-f356fda8d946",
+        "cf39cf0a-10be-426a-ae7c-6437bda52ed0",
+        "35131c50-b1c9-402e-9f42-7d1a31aca735",
+        "bf9ddce0-3e1f-48fc-8bbf-ba3a10f54af2",
+        "701db1fa-8429-4ab0-9a6c-d0eb500b08a8"
       ],
       "settings": {
-        "section_heading": "",
+        "show_background": false,
+        "section_heading": "<span class=\"circle-border\">O<\/span>UR TEAM",
         "heading_font_size_mobile": 38,
         "heading_font_size_desktop": 59,
         "section_subheading": "",
@@ -219,10 +737,54 @@
         "per_row_mobile": "50%",
         "per_row_desktop": "20%"
       }
+    },
+    "61f5e8e9-12bd-4c65-8794-80e40b6205dd": {
+      "type": "newsletter",
+      "blocks": {
+        "template--15664887922897__61f5e8e9-12bd-4c65-8794-80e40b6205dd-16703301719f8fcfb5-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Want us to contact you?",
+            "heading_size": "h1"
+          }
+        },
+        "template--15664887922897__61f5e8e9-12bd-4c65-8794-80e40b6205dd-16703301719f8fcfb5-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Add your email and we’ll be in touch....<\/p>"
+          }
+        },
+        "template--15664887922897__61f5e8e9-12bd-4c65-8794-80e40b6205dd-16703301719f8fcfb5-2": {
+          "type": "email_form",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "template--15664887922897__61f5e8e9-12bd-4c65-8794-80e40b6205dd-16703301719f8fcfb5-0",
+        "template--15664887922897__61f5e8e9-12bd-4c65-8794-80e40b6205dd-16703301719f8fcfb5-1",
+        "template--15664887922897__61f5e8e9-12bd-4c65-8794-80e40b6205dd-16703301719f8fcfb5-2"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
-    "59d5e528-d7e9-4bc5-871d-5a199081fe32"
+    "d91b513c-78c6-4c80-8d17-c2d5de93205d",
+    "71f574bb-bec1-4491-99e1-9e44066c9ec2",
+    "41b1646f-be35-4ffc-ac6a-e653f75cf2df",
+    "f412d67e-a973-4e59-b9c2-14f8a31b9e54",
+    "c89b963e-2f6c-4ca6-902f-e0a9816ad308",
+    "7ab49e23-fc9b-4222-b193-9581746ae058",
+    "41d8e853-c613-4e87-9922-e390e258e068",
+    "ffa31b63-8068-4270-841d-70e866a3adca",
+    "e5745a9a-661e-40a2-884f-b35349ab7f26",
+    "85d782dc-1b0b-4a2d-a9fa-36346d34c633",
+    "61f5e8e9-12bd-4c65-8794-80e40b6205dd"
   ]
 }
