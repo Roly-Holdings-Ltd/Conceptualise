@@ -1,8 +1,10 @@
 <link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'section-rich-text.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-slider-v2.css' | asset_url }}" media="print" onload="this.media='all'">
 
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-slider-v2.css' | asset_url | stylesheet_tag }}</noscript>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -16,25 +18,107 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  {%- if section.settings.use_custom_colors -%}
+  .section-{{ section.id }}.rich-text {
+    background-color: {{ section.settings.background_color_light }};
+  }
+  body.theme-dark-mode .section-{{ section.id }}.rich-text {
+    background-color: {{ section.settings.background_color_dark }};
+  }
+    
+  {%- endif -%}
+
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'heading' -%}
+        #block--{{ block.id }}{
+          font-size: {{ block.settings.heading_font_size_mobile }}px;
+          color: {{ block.settings.text_color_light }};
+        }
+        body.theme-dark-mode #block--{{ block.id }}{
+          color: {{ block.settings.text_color_dark }};
+        }
+        @media (min-width: 750px) {
+          #block--{{ block.id }}{
+            font-size: {{ block.settings.heading_font_size_desktop }}px;
+          }
+        }
+        {%- when 'subheading' -%}
+          #subheading--{{ block.id }}{
+            font-size: {{ block.settings.font_size_mobile }}px;
+            color: {{ block.settings.text_color_light }};
+          }
+          body.theme-dark-mode #block--{{ block.id }}{
+            color: {{ block.settings.text_color_dark }};
+          }
+          @media (min-width: 750px){
+            #subheading--{{ block.id }}{
+              font-size: {{ block.settings.font_size_desktop }}px;
+            }
+          }
+        {%- when 'caption' -%}
+          #block--{{ block.id }}{
+            font-size: {{ block.settings.caption_font_size_mobile }}px;
+            color: {{ block.settings.text_color_light }};
+          }
+          body.theme-dark-mode #block--{{ block.id }}{
+            color: {{ block.settings.text_color_dark }}
+          }
+          @media (min-width: 750px) {
+            #block--{{ block.id }}{
+              font-size: {{ block.settings.caption_font_size_desktop }}px;
+            }
+          }
+          {%- when 'text' -%}
+            #block--{{ block.id }} *,
+            #block--{{ block.id }}{
+              font-size: {{ block.settings.font_size_mobile }}px;
+              color: {{ block.settings.text_color_light }};
+            }
+            body.theme-dark-mode #block--{{ block.id }} *,
+            body.theme-dark-mode #block--{{ block.id }} {
+              color: {{ block.settings.text_color_dark }}
+            }
+            @media (min-width: 750px) {
+              #block--{{ block.id }} *,
+              #block--{{ block.id }}{
+                font-size: {{ block.settings.font_size_desktop }}px;
+              }
+            }
+          {%- when 'single_image' -%}
+            #block--{{ block.id }}.rich-text__single-image{
+                max-width: {{ block.settings.image_max_width }}px;
+            }
+
+          {%- when 'image_grid' -%}
+          #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-heading p,
+          #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-content-column-heading {
+            color: {{ block.settings.headings_color_light }};
+          }
+          body.theme-dark-mode #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-heading p,
+          body.theme-dark-mode #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-content-column-heading {
+            color: {{ block.settings.headings_color_dark }};
+          }
+
+          #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-text-content p,
+          #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-content-column-subheading {
+            color: {{ block.settings.subheadings_color_light }};
+          }
+          body.theme-dark-mode #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-text-content p,
+          body.theme-dark-mode #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-content-column-subheading {
+            color: {{ block.settings.subheadings_color_dark }};
+          }
+    {%- endcase -%}
+  {%- endfor -%}
 {%- endstyle -%}
 
 <div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
-  <div class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
+  <div class="section-{{ section.id }} rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
     <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
       <div class="rich-text__blocks {{ section.settings.content_alignment }}">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'heading' -%}
-              <style>
-                #block--{{ block.id }}{
-                  font-size: {{ block.settings.heading_font_size_mobile }}px;
-                }
-                @media (min-width: 750px) {
-                  #block--{{ block.id }}{
-                    font-size: {{ block.settings.heading_font_size_desktop }}px;
-                  }
-                }
-              </style>
               <h2 id="block--{{ block.id }}" class="rich-text__heading rte {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
                 {{ block.settings.heading | replace: 'p>', 'span>' }}
               </h2>
@@ -42,43 +126,11 @@
               <div id="subheading--{{ block.id }}" class="rich-text__subheading rte" {{ block.shopify_attributes }}>
                 {{ block.settings.subheading | replace: 'p>', 'span>' }}
               </div>
-              <style>
-                #subheading--{{ block.id }}{
-                  font-size: {{ block.settings.font_size_mobile }}px;
-                }
-                @media (min-width: 750px){
-                  #subheading--{{ block.id }}{
-                    font-size: {{ block.settings.font_size_desktop }}px;
-                  }
-                }
-              </style>
             {%- when 'caption' -%}
-              <style>
-                #block--{{ block.id }}{
-                  font-size: {{ block.settings.caption_font_size_mobile }}px;
-                }
-                @media (min-width: 750px) {
-                  #block--{{ block.id }}{
-                    font-size: {{ block.settings.caption_font_size_desktop }}px;
-                  }
-                }
-              </style>
               <p id="block--{{ block.id }}" class="rich-text__caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }}" {{ block.shopify_attributes }}>
                 {{ block.settings.caption | escape }}
               </p>
             {%- when 'text' -%}
-            <style>
-                #block--{{ block.id }} *,
-                #block--{{ block.id }}{
-                  font-size: {{ block.settings.font_size_mobile }}px;
-                }
-                @media (min-width: 750px) {
-                  #block--{{ block.id }} *,
-                  #block--{{ block.id }}{
-                    font-size: {{ block.settings.font_size_desktop }}px;
-                  }
-                }
-              </style>
               <div id="block--{{ block.id }}" class="rich-text__text rte" {{ block.shopify_attributes }}>
                 {{ block.settings.text }}
               </div>
@@ -91,12 +143,389 @@
                   <a{% if block.settings.button_link_2 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_2 | escape }}</a>
                 {%- endif -%}
               </div>
+            {%- when 'single_image' -%}
+              <div id="block--{{ block.id }}" class="rich-text__single-image">
+                {%- if block.settings.image_light != blank -%}
+                    <img
+                        srcset="{%- if block.settings.image_light.width >= 165 -%}{{ block.settings.image_light | image_url: width: 165 }} 165w,{%- endif -%}
+                            {%- if block.settings.image_light.width >= 360 -%}{{ block.settings.image_light | image_url: width: 360 }} 360w,{%- endif -%}
+                            {%- if block.settings.image_light.width >= 535 -%}{{ block.settings.image_light | image_url: width: 535 }} 535w,{%- endif -%}
+                            {%- if block.settings.image_light.width >= 750 -%}{{ block.settings.image_light | image_url: width: 750 }} 750w,{%- endif -%}
+                            {{ block.settings.image_light | image_url }} {{ block.settings.image_light.width }}w"
+                        src="{{ block.settings.image_light | image_url: width: 360 }}"
+                        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                        alt="{{ block.settings.image_light.alt | escape }}"
+                        loading="lazy"
+                        width="{{ block.settings.image_light.width }}"
+                        height="{{ block.settings.image_light.height }}"
+                        class="rich-text__single-image--light"
+                    >
+                {%- endif -%}
+                {%- if block.settings.image_dark != blank -%}
+                    <img
+                        srcset="{%- if block.settings.image_dark.width >= 165 -%}{{ block.settings.image_dark | image_url: width: 165 }} 165w,{%- endif -%}
+                            {%- if block.settings.image_dark.width >= 360 -%}{{ block.settings.image_dark | image_url: width: 360 }} 360w,{%- endif -%}
+                            {%- if block.settings.image_dark.width >= 535 -%}{{ block.settings.image_dark | image_url: width: 535 }} 535w,{%- endif -%}
+                            {%- if block.settings.image_dark.width >= 750 -%}{{ block.settings.image_dark | image_url: width: 750 }} 750w,{%- endif -%}
+                            {{ block.settings.image_dark | image_url }} {{ block.settings.image_dark.width }}w"
+                        src="{{ block.settings.image_dark | image_url: width: 360 }}"
+                        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                        alt="{{ block.settings.image_dark.alt | escape }}"
+                        loading="lazy"
+                        width="{{ block.settings.image_dark.width }}"
+                        height="{{ block.settings.image_dark.height }}"
+                        class="rich-text__single-image--dark"
+                    >
+                {%- endif -%}
+            </div>
+            {%- when 'image_grid' -%}
+            <div id="block--{{ block.id }}" class="rich-text__image-grid">
+              <slider-component-v2 id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
+                <ul id="Slider-Gallery-{{ section.id }}" class="rich-text__image-grid-items grid grid--peek list-unstyled slider slider-v2 slider--mobile desktop--{{ block.settings.number_of_cols_desktop }}-cols" role="list">
+                  {%- if block.settings.show_item1 -%}
+                    <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                      {%- if block.settings.item1_image != blank -%}
+                        <div class="rich-text__image-grid-item-image">
+                          <img
+                              srcset="{%- if block.settings.item1_image.width >= 165 -%}{{ block.settings.item1_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                  {%- if block.settings.item1_image.width >= 360 -%}{{ block.settings.item1_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                  {%- if block.settings.item1_image.width >= 535 -%}{{ block.settings.item1_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                  {%- if block.settings.item1_image.width >= 750 -%}{{ block.settings.item1_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                  {{ block.settings.item1_image | image_url }} {{ block.settings.item1_image.width }}w"
+                              src="{{ block.settings.item1_image | image_url: width: 360 }}"
+                              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                              alt="{{ block.settings.item1_image.alt | escape }}"
+                              loading="lazy"
+                              width="{{ block.settings.item1_image.width }}"
+                              height="{{ block.settings.item1_image.height }}"
+                          >
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.item1_heading != blank -%}
+                        <div class="rich-text__image-grid-item-heading">
+                          <p>{{ block.settings.item1_heading }}</p>
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.item1_text_content -%}
+                        <div class="rich-text__image-grid-item-text-content">
+                          <p>{{ block.settings.item1_text_content }}</p>
+                        </div>
+                      {%- endif -%}
+              
+                      {%- if block.settings.show_item1_content_columns -%}
+                        <div class="rich-text__image-grid-item-content-columns">
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item1_content_column1_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item1_content_column1_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item1_content_column2_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item1_content_column2_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item1_content_column3_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item1_content_column3_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item1_content_column4_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item1_content_column4_subheading }}</p>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                    </li>  
+                  {%- endif -%}
+                  {%- if block.settings.show_item2 -%}
+                    <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                      {%- if block.settings.item2_image != blank -%}
+                        <div class="rich-text__image-grid-item-image">
+                          <img
+                              srcset="{%- if block.settings.item2_image.width >= 165 -%}{{ block.settings.item2_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                  {%- if block.settings.item2_image.width >= 360 -%}{{ block.settings.item2_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                  {%- if block.settings.item2_image.width >= 535 -%}{{ block.settings.item2_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                  {%- if block.settings.item2_image.width >= 750 -%}{{ block.settings.item2_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                  {{ block.settings.item2_image | image_url }} {{ block.settings.item2_image.width }}w"
+                              src="{{ block.settings.item2_image | image_url: width: 360 }}"
+                              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                              alt="{{ block.settings.item2_image.alt | escape }}"
+                              loading="lazy"
+                              width="{{ block.settings.item2_image.width }}"
+                              height="{{ block.settings.item2_image.height }}"
+                          >
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.item2_heading != blank -%}
+                        <div class="rich-text__image-grid-item-heading">
+                          <p>{{ block.settings.item2_heading }}</p>
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.item2_text_content -%}
+                        <div class="rich-text__image-grid-item-text-content">
+                          <p>{{ block.settings.item2_text_content }}</p>
+                        </div>
+                      {%- endif -%}
+              
+                      {%- if block.settings.show_item2_content_columns -%}
+                        <div class="rich-text__image-grid-item-content-columns">
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item2_content_column1_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item2_content_column1_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item2_content_column2_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item2_content_column2_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item2_content_column3_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item2_content_column3_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item2_content_column4_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item2_content_column4_subheading }}</p>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                    </li>  
+                  {%- endif -%}
+                  {%- if block.settings.show_item3 -%}
+                    <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                      {%- if block.settings.item3_image != blank -%}
+                        <div class="rich-text__image-grid-item-image">
+                          <img
+                              srcset="{%- if block.settings.item3_image.width >= 165 -%}{{ block.settings.item3_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                  {%- if block.settings.item3_image.width >= 360 -%}{{ block.settings.item3_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                  {%- if block.settings.item3_image.width >= 535 -%}{{ block.settings.item3_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                  {%- if block.settings.item3_image.width >= 750 -%}{{ block.settings.item3_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                  {{ block.settings.item3_image | image_url }} {{ block.settings.item3_image.width }}w"
+                              src="{{ block.settings.item3_image | image_url: width: 360 }}"
+                              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                              alt="{{ block.settings.item3_image.alt | escape }}"
+                              loading="lazy"
+                              width="{{ block.settings.item3_image.width }}"
+                              height="{{ block.settings.item3_image.height }}"
+                          >
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.item3_heading != blank -%}
+                        <div class="rich-text__image-grid-item-heading">
+                          <p>{{ block.settings.item3_heading }}</p>
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.item3_text_content -%}
+                        <div class="rich-text__image-grid-item-text-content">
+                          <p>{{ block.settings.item3_text_content }}</p>
+                        </div>
+                      {%- endif -%}
+              
+                      {%- if block.settings.show_item3_content_columns -%}
+                        <div class="rich-text__image-grid-item-content-columns">
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item3_content_column1_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item3_content_column1_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item3_content_column2_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item3_content_column2_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item3_content_column3_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item3_content_column3_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item3_content_column4_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item3_content_column4_subheading }}</p>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                    </li>  
+                  {%- endif -%}
+                  {%- if block.settings.show_item4 -%}
+                    <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                      {%- if block.settings.item4_image != blank -%}
+                        <div class="rich-text__image-grid-item-image">
+                          <img
+                              srcset="{%- if block.settings.item4_image.width >= 165 -%}{{ block.settings.item4_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                  {%- if block.settings.item4_image.width >= 360 -%}{{ block.settings.item4_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                  {%- if block.settings.item4_image.width >= 535 -%}{{ block.settings.item4_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                  {%- if block.settings.item4_image.width >= 750 -%}{{ block.settings.item4_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                  {{ block.settings.item4_image | image_url }} {{ block.settings.item4_image.width }}w"
+                              src="{{ block.settings.item4_image | image_url: width: 360 }}"
+                              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                              alt="{{ block.settings.item4_image.alt | escape }}"
+                              loading="lazy"
+                              width="{{ block.settings.item4_image.width }}"
+                              height="{{ block.settings.item4_image.height }}"
+                          >
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.item4_heading != blank -%}
+                        <div class="rich-text__image-grid-item-heading">
+                          <p>{{ block.settings.item4_heading }}</p>
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.item4_text_content -%}
+                        <div class="rich-text__image-grid-item-text-content">
+                          <p>{{ block.settings.item4_text_content }}</p>
+                        </div>
+                      {%- endif -%}
+              
+                      {%- if block.settings.show_item4_content_columns -%}
+                        <div class="rich-text__image-grid-item-content-columns">
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item4_content_column1_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item4_content_column1_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item4_content_column2_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item4_content_column2_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item4_content_column3_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item4_content_column3_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item4_content_column4_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item4_content_column4_subheading }}</p>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                    </li>  
+                  {%- endif -%}
+                  {%- if block.settings.show_item5 -%}
+                    <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                      {%- if block.settings.item5_image != blank -%}
+                        <div class="rich-text__image-grid-item-image">
+                          <img
+                              srcset="{%- if block.settings.item5_image.width >= 165 -%}{{ block.settings.item5_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                  {%- if block.settings.item5_image.width >= 360 -%}{{ block.settings.item5_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                  {%- if block.settings.item5_image.width >= 535 -%}{{ block.settings.item5_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                  {%- if block.settings.item5_image.width >= 750 -%}{{ block.settings.item5_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                  {{ block.settings.item5_image | image_url }} {{ block.settings.item5_image.width }}w"
+                              src="{{ block.settings.item5_image | image_url: width: 360 }}"
+                              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                              alt="{{ block.settings.item5_image.alt | escape }}"
+                              loading="lazy"
+                              width="{{ block.settings.item5_image.width }}"
+                              height="{{ block.settings.item5_image.height }}"
+                          >
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.item5_heading != blank -%}
+                        <div class="rich-text__image-grid-item-heading">
+                          <p>{{ block.settings.item5_heading }}</p>
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.item5_text_content -%}
+                        <div class="rich-text__image-grid-item-text-content">
+                          <p>{{ block.settings.item5_text_content }}</p>
+                        </div>
+                      {%- endif -%}
+              
+                      {%- if block.settings.show_item5_content_columns -%}
+                        <div class="rich-text__image-grid-item-content-columns">
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item5_content_column1_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item5_content_column1_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item5_content_column2_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item5_content_column2_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item5_content_column3_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item5_content_column3_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item5_content_column4_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item5_content_column4_subheading }}</p>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                    </li>  
+                  {%- endif -%}
+                  {%- if block.settings.show_item6 -%}
+                    <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                      {%- if block.settings.item6_image != blank -%}
+                        <div class="rich-text__image-grid-item-image">
+                          <img
+                              srcset="{%- if block.settings.item6_image.width >= 165 -%}{{ block.settings.item6_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                  {%- if block.settings.item6_image.width >= 360 -%}{{ block.settings.item6_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                  {%- if block.settings.item6_image.width >= 535 -%}{{ block.settings.item6_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                  {%- if block.settings.item6_image.width >= 750 -%}{{ block.settings.item6_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                  {{ block.settings.item6_image | image_url }} {{ block.settings.item6_image.width }}w"
+                              src="{{ block.settings.item6_image | image_url: width: 360 }}"
+                              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                              alt="{{ block.settings.item6_image.alt | escape }}"
+                              loading="lazy"
+                              width="{{ block.settings.item6_image.width }}"
+                              height="{{ block.settings.item6_image.height }}"
+                          >
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.item6_heading != blank -%}
+                        <div class="rich-text__image-grid-item-heading">
+                          <p>{{ block.settings.item6_heading }}</p>
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.item6_text_content -%}
+                        <div class="rich-text__image-grid-item-text-content">
+                          <p>{{ block.settings.item6_text_content }}</p>
+                        </div>
+                      {%- endif -%}
+              
+                      {%- if block.settings.show_item6_content_columns -%}
+                        <div class="rich-text__image-grid-item-content-columns">
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item6_content_column1_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item6_content_column1_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item6_content_column2_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item6_content_column2_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item6_content_column3_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item6_content_column3_subheading }}</p>
+                          </div>
+                          <div class="rich-text__image-grid-item-content-column">
+                            <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item6_content_column4_heading }}</p>
+                            <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item6_content_column4_subheading }}</p>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                    </li>  
+                  {%- endif -%}
+                  
+                </ul>
+                <div class="slider__dots">
+                    {%- if block.settings.show_item1 -%}
+                      <button class="slider__dot active"></button>
+                    {%- endif -%}
+                    {%- if block.settings.show_item2 -%}
+                      <button class="slider__dot"></button>
+                    {%- endif -%}
+                    {%- if block.settings.show_item3 -%}
+                      <button class="slider__dot"></button>
+                    {%- endif -%}
+                    {%- if block.settings.show_item4 -%}
+                      <button class="slider__dot"></button>
+                    {%- endif -%}
+                    {%- if block.settings.show_item5 -%}
+                      <button class="slider__dot"></button>
+                    {%- endif -%}
+                    {%- if block.settings.show_item6 -%}
+                      <button class="slider__dot"></button>
+                    {%- endif -%}
+                </div>
+              </slider-component-v2>
+            </div>
           {%- endcase -%}
         {%- endfor -%}
       </div>
     </div>
   </div>
 </div>
+
+<script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
@@ -174,6 +603,22 @@
       "label": "t:sections.all.colors.label"
     },
     {
+        "type": "checkbox",
+        "id": "use_custom_colors",
+        "label": "Use custom colors",
+        "default": false
+    },
+    {
+        "type": "color",
+        "id": "background_color_light",
+        "label": "Background colour - light"
+    },
+    {
+        "type": "color",
+        "id": "background_color_dark",
+        "label": "Background colour - dark"
+    },
+    {
       "type": "checkbox",
       "id": "full_width",
       "default": true,
@@ -235,6 +680,18 @@
           "unit": "px",
           "label": "Heading font size - Desktop",
           "default": 26
+        },
+        {
+          "type": "color",
+          "id": "text_color_light",
+          "label": "text colour light",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color_dark",
+          "label": "text colour - dark",
+          "default": "#FFFFFF"
         }
       ]
     },
@@ -268,6 +725,18 @@
           "unit": "px",
           "label": "Font size - Desktop",
           "default": 32
+        },
+        {
+          "type": "color",
+          "id": "text_color_light",
+          "label": "text colour light",
+          "default": "#ffba03"
+        },
+        {
+          "type": "color",
+          "id": "text_color_dark",
+          "label": "text colour - dark",
+          "default": "#ffba03"
         }
       ]
     },
@@ -317,6 +786,18 @@
           "unit": "px",
           "label": "Caption font size - Desktop",
           "default": 26
+        },
+        {
+          "type": "color",
+          "id": "text_color_light",
+          "label": "text colour light",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color_dark",
+          "label": "text colour - dark",
+          "default": "#FFFFFF"
         }
       ]
     },
@@ -350,6 +831,18 @@
           "unit": "px",
           "label": "Font size - Desktop",
           "default": 16
+        },
+        {
+          "type": "color",
+          "id": "text_color_light",
+          "label": "text colour light",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color_dark",
+          "label": "text colour - dark",
+          "default": "#FFFFFF"
         }
       ]
     },
@@ -392,6 +885,544 @@
           "id": "button_style_secondary_2",
           "default": false,
           "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_2.label"
+        }
+      ]
+    },
+    {
+      "type": "single_image",
+      "name": "Single image",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "image_light",
+            "label": "Image - light"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_dark",
+            "label": "Image - dark"
+        },
+        {
+            "type": "range",
+            "id": "image_max_width",
+            "min": 10,
+            "max": 200,
+            "step": 5,
+            "unit": "px",
+            "label": "Image max width",
+            "default": 80
+        }
+      ]
+    },
+    {
+      "type": "image_grid",
+      "name": "Image grid",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Style"
+        },
+        {
+          "type": "select",
+          "id": "number_of_cols_desktop",
+          "label": "Number of columns - desktop",
+          "options": [
+              {
+                  "label": "2",
+                  "value": "two"
+              },
+              {
+                  "label": "3",
+                  "value": "three"
+              },
+              {
+                "label": "4",
+                "value": "four"
+            }
+          ],
+          "default": "two"
+        },
+        {
+            "type": "paragraph",
+            "content": "Headings"
+        },
+        {
+            "type": "color",
+            "id": "headings_color_light",
+            "label": "Headings colour - light",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "headings_color_dark",
+            "label": "Headings colour - dark",
+            "default": "#FFFFFF"
+        },
+        {
+            "type": "paragraph",
+            "content": "Subheadings"
+        },
+        {
+            "type": "color",
+            "id": "subheadings_color_light",
+            "label": "Subheadings colour - light",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "subheadings_color_dark",
+            "label": "Subheadings colour - dark",
+            "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Image grid item"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_item1",
+          "label": "Show grid item",
+          "default": false
+        },
+        {
+            "type": "image_picker",
+            "id": "item1_image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "item1_heading",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "item1_text_content",
+            "label": "Text content"
+        },
+        {
+            "type": "paragraph",
+            "content": "Content columns"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_item1_content_columns",
+          "label": "Show content columns",
+          "default": false
+        },
+        {
+            "type": "text",
+            "id": "item1_content_column1_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item1_content_column1_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item1_content_column2_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item1_content_column2_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item1_content_column3_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item1_content_column3_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item1_content_column4_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item1_content_column4_subheading",
+            "label": "Column subheading"
+        },
+        {
+          "type": "header",
+          "content": "Image grid item"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_item2",
+          "label": "Show grid item",
+          "default": false
+        },
+        {
+            "type": "image_picker",
+            "id": "item2_image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "item2_heading",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "item2_text_content",
+            "label": "Text content"
+        },
+        {
+            "type": "paragraph",
+            "content": "Content columns"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_item2_content_columns",
+          "label": "Show content columns",
+          "default": false
+        },
+        {
+            "type": "text",
+            "id": "item2_content_column1_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item2_content_column1_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item2_content_column2_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item2_content_column2_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item2_content_column3_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item2_content_column3_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item2_content_column4_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item2_content_column4_subheading",
+            "label": "Column subheading"
+        },
+        {
+          "type": "header",
+          "content": "Image grid item"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_item3",
+          "label": "Show grid item",
+          "default": false
+        },
+        {
+            "type": "image_picker",
+            "id": "item3_image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "item3_heading",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "item3_text_content",
+            "label": "Text content"
+        },
+        {
+            "type": "paragraph",
+            "content": "Content columns"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_item3_content_columns",
+          "label": "Show content columns",
+          "default": false
+        },
+        {
+            "type": "text",
+            "id": "item3_content_column1_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item3_content_column1_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item3_content_column2_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item3_content_column2_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item3_content_column3_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item3_content_column3_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item3_content_column4_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item3_content_column4_subheading",
+            "label": "Column subheading"
+        },
+        {
+          "type": "header",
+          "content": "Image grid item"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_item4",
+          "label": "Show grid item",
+          "default": false
+        },
+        {
+            "type": "image_picker",
+            "id": "item4_image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "item4_heading",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "item4_text_content",
+            "label": "Text content"
+        },
+        {
+            "type": "paragraph",
+            "content": "Content columns"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_item4_content_columns",
+          "label": "Show content columns",
+          "default": false
+        },
+        {
+            "type": "text",
+            "id": "item4_content_column1_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item4_content_column1_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item4_content_column2_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item4_content_column2_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item4_content_column3_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item4_content_column3_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item4_content_column4_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item4_content_column4_subheading",
+            "label": "Column subheading"
+        },
+        {
+          "type": "header",
+          "content": "Image grid item"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_item5",
+          "label": "Show grid item",
+          "default": false
+        },
+        {
+            "type": "image_picker",
+            "id": "item5_image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "item5_heading",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "item5_text_content",
+            "label": "Text content"
+        },
+        {
+            "type": "paragraph",
+            "content": "Content columns"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_item5_content_columns",
+          "label": "Show content columns",
+          "default": false
+        },
+        {
+            "type": "text",
+            "id": "item5_content_column1_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item5_content_column1_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item5_content_column2_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item5_content_column2_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item5_content_column3_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item5_content_column3_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item5_content_column4_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item5_content_column4_subheading",
+            "label": "Column subheading"
+        },
+        {
+          "type": "header",
+          "content": "Image grid item"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_item6",
+          "label": "Show grid item",
+          "default": false
+        },
+        {
+            "type": "image_picker",
+            "id": "item6_image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "item6_heading",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "item6_text_content",
+            "label": "Text content"
+        },
+        {
+            "type": "paragraph",
+            "content": "Content columns"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_item6_content_columns",
+          "label": "Show content columns",
+          "default": false
+        },
+        {
+            "type": "text",
+            "id": "item6_content_column1_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item6_content_column1_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item6_content_column2_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item6_content_column2_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item6_content_column3_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item6_content_column3_subheading",
+            "label": "Column subheading"
+        },
+        {
+            "type": "text",
+            "id": "item6_content_column4_heading",
+            "label": "Column heading"
+        },
+        {
+            "type": "text",
+            "id": "item6_content_column4_subheading",
+            "label": "Column subheading"
         }
       ]
     }
