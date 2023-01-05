@@ -3076,7 +3076,7 @@ details-disclosure > details {
 }
 
 .text--color-alt.text--color-alt-yellow{
-  color: #FFBA03;
+  color: #FFBA03 !important;
 }
 .text--color-alt.text--color-alt-gray{
   color: #9A9A9A;
