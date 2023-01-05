@@ -1,0 +1,45 @@
+{
+  "sections": {
+    "1657728872aae5dc77": {
+      "type": "blog-header",
+      "settings": {
+        "title": "[logo] JOURNAL",
+        "title_font_size_mobile": 40,
+        "title_font_size_desktop": 50,
+        "logo_light": "shopify:\/\/shop_images\/Group_813_c623653c-9e79-4048-a4cd-63fdd74b7fe4.png",
+        "logo_dark": "shopify:\/\/shop_images\/Group_813.png",
+        "subtitle": "AT CONCEPTUALISE, WE LOVE TO SHARE OUR STORIES, KNOWLEDGE AND IDEAS...",
+        "subtitle_font_size_mobile": 15,
+        "subtitle_font_size_desktop": 28
+      }
+    },
+    "main": {
+      "type": "case-studies-blog",
+      "settings": {
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "adapt",
+        "show_date": true,
+        "show_author": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "featured_date_font_size_mobile": 14,
+        "featured_date_font_size_desktop": 16,
+        "featured_title_font_size_mobile": 20,
+        "featured_title_font_size_desktop": 26,
+        "featured_excerpt_font_size_mobile": 16,
+        "featured_excerpt_font_size_desktop": 18,
+        "date_font_size_mobile": 14,
+        "date_font_size_desktop": 16,
+        "title_font_size_mobile": 20,
+        "title_font_size_desktop": 26,
+        "excerpt_font_size_mobile": 16,
+        "excerpt_font_size_desktop": 18
+      }
+    }
+  },
+  "order": [
+    "1657728872aae5dc77",
+    "main"
+  ]
+}
