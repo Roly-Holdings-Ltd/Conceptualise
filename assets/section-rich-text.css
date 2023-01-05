@@ -198,6 +198,7 @@ body.theme-dark-mode .rich-text .rich-text__single-image--dark{ display: block; 
     min-width: 50%;
     width: calc(75% - var(--grid-mobile-horizontal-spacing) - 3rem);
     max-width: calc(75% - var(--grid-mobile-horizontal-spacing) / 2);
+    scroll-snap-align: none center;
   }
 }
 @media (min-width:750px) {
