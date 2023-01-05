@@ -11,6 +11,18 @@
     "name": "t:settings_schema.colors.name",
     "settings": [
       {
+        "type": "color",
+        "id": "site_background_color_light",
+        "default": "#F3F5F7",
+        "label": "Site background colour - light"
+      },
+      {
+        "type": "color",
+        "id": "site_background_color_dark",
+        "default": "#1C1C1C",
+        "label": "Site background colour - dark"
+      },
+      {
         "type": "header",
         "content": "t:settings_schema.colors.settings.header__1.content"
       },

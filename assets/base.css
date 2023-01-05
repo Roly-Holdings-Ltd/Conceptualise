@@ -277,7 +277,7 @@ html.no-js .no-js-hidden {
   }
 }
 body {
-  background: #F3F5F7;
+  background: var(--site-background-color-light);
   position: relative;
 }
 body.theme-dark-mode{

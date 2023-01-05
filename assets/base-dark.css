@@ -190,9 +190,8 @@ body.theme-dark-mode .global-media-settings {
 }
 
 /* base */
-
 body.theme-dark-mode{
-  background: #000000;
+  background: var(--site-background-color-dark);
 }
 
 body.theme-dark-mode,

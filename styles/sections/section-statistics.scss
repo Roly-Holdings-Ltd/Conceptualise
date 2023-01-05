@@ -112,7 +112,7 @@ body.theme-dark-mode.template-page{
     .statistics{
         .statistics__wrap{
             .statistics__content{
-                background: linear-gradient(180deg, #2D2D2D 0%, rgba(0, 0, 0, 0) 100%);
+                background: linear-gradient(180deg, #2D2D2D 0%, var(--site-background-color-dark) 100%);
                 border-color: #fff;
             }
         }

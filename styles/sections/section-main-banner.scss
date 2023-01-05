@@ -209,7 +209,7 @@
 
             .main-banner__charts-wrap{
                 display: flex;
-                gap: 35px;
+                gap: 20px;
 
                 @media (min-width: 750px){
                     justify-content: space-evenly;
@@ -219,6 +219,7 @@
     
                 .main-banner__chart{
                     min-width: 60%;
+                    scroll-snap-align: none center;
 
                     @media (min-width: 750px){
                         max-width: 220px;
@@ -325,7 +326,7 @@ body.theme-dark-mode{
     
                 .main-banner__content-image-wrap{
                     &::after{
-                        background: linear-gradient(87.42deg, #000000 34.54%, rgba(0, 0, 0, 0) 98.03%);
+                        background: linear-gradient(87.42deg, var(--site-background-color-dark) 34.54%, rgba(0, 0, 0, 0) 98.03%);
                     }
                 }
                 img{
