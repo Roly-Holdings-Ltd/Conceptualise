@@ -225,7 +225,7 @@
             <div id="block--{{ block.id }}" class="rich-text__image-grid">
               {%- if block.settings.enable_mobile_slider -%}
                 <slider-component-v2 id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
-                  <ul id="Slider-Gallery-{{ section.id }}" class="rich-text__image-grid-items grid grid--peek list-unstyled slider slider-v2 slider--mobile desktop--{{ block.settings.number_of_cols_desktop }}-cols" role="list">
+                  <ul id="Slider-Gallery-{{ section.id }}" class="rich-text__image-grid-items grid grid--peek list-unstyled slider slider-v2 slider--mobile slider--center-slides desktop--{{ block.settings.number_of_cols_desktop }}-cols" role="list">
                     {%- if block.settings.show_item1 -%}
                       <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
                         {%- if block.settings.item1_image != blank -%}
