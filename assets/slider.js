@@ -35,9 +35,19 @@ class SliderComponentV2 extends HTMLElement {
     if (this.prevButton) this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
     if (this.nextButton) this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
 
-    this.slider.scrollTo({
-      left: 0
-    });
+
+    if(this.slider.classList.contains('slider--center-slides')){
+      let sliderLength = this.sliderItems.length
+      let centerElement = Math.ceil(sliderLength / 2);
+      let centerElementWidth = this.sliderItems[centerElement].offsetWidth;
+      this.slider.scrollTo({
+        left: centerElementWidth
+      });
+    } else {
+      this.slider.scrollTo({
+        left: 0
+      });
+    }
   }
 
   updateAll() {
