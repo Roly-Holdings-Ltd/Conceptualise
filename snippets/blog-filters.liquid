@@ -1,21 +1,13 @@
 <div class="blog__filters-wrap">
     {% if blog.all_tags.size > 0 %}
-        <p><a href="{{blog.url}}">All</a></p>
-        {% for tag in blog.all_tags %}
-            {% if current_tags contains tag %}
-                <p class="current-tag">{{ tag }}</p>
-            {% else %}
-                <p>{{ tag | link_to_tag: tag }}</p>
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-
-    <ul>
-        <li>
-          {%- for tag in blog.all_tags -%}
-            <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-          {%- endfor -%}
-        </li>
-      </ul>
+        <p class="blog__filters-tag {% unless current_tags %}blog__filters-tag--active{% endunless %}"><a href="{{blog.url}}">All</a></p>
+        {%- for tag in blog.all_tags -%}
+            {%- if current_tags contains tag -%}
+                <p class="blog__filters-tag blog__filters-tag--active">{{ tag | link_to_remove_tag: tag }}</p>
+            {%- else -%}
+                <p class="blog__filters-tag">{{ tag | link_to_add_tag: tag }}</p>
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
 </div>
 
