@@ -567,7 +567,7 @@
             {%- when 'charts' -%}
             <div id="block--{{ block.id }}" class="main-banner__charts">
                 <slider-component-v2 id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
-                    <ul id="Slider-Gallery-{{ section.id }}" class="main-banner__charts-wrap grid grid--peek list-unstyled slider slider-v2 slider--mobile" role="list">
+                    <ul id="Slider-Gallery-{{ section.id }}" class="main-banner__charts-wrap grid grid--peek list-unstyled slider slider-v2 slider--mobile slider--center-slides" role="list">
                         {%- if block.settings.show_chart1 != blank -%}
                             <li id="Slide-{{ section.id }}-{{ media.id }}" class="main-banner__chart grid__item slider__slide">
                                 <div class="main-banner__chart">
