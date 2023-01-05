@@ -566,143 +566,177 @@
 
             {%- when 'charts' -%}
             <div id="block--{{ block.id }}" class="main-banner__charts">
-                <div class="main-banner__charts-wrap">
-                    <div class="main-banner__chart">
-                        {%- if block.settings.chart1_heading != blank -%}
-                            <div class="main-banner__chart-title">
-                                <p>{{ block.settings.chart1_heading }}</p>
-                            </div>
+                <slider-component-v2 id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
+                    <ul id="Slider-Gallery-{{ section.id }}" class="main-banner__charts-wrap grid grid--peek list-unstyled slider slider-v2 slider--mobile" role="list">
+                        {%- if block.settings.show_chart1 != blank -%}
+                            <li id="Slide-{{ section.id }}-{{ media.id }}" class="main-banner__chart grid__item slider__slide">
+                                <div class="main-banner__chart">
+                                    {%- if block.settings.chart1_heading != blank -%}
+                                        <div class="main-banner__chart-title">
+                                            <p>{{ block.settings.chart1_heading }}</p>
+                                        </div>
+                                    {%- endif -%}
+                                    
+                                    {%- if block.settings.chart1_first_number != blank and block.settings.chart1_second_number != blank -%}
+                                        <div class="main-banner__chart-number-percent">
+                                            <p class="main-banner__chart-number">{{ block.settings.chart1_first_number }}</p>
+                                            <p class="main-banner__chart-percent"><span class="main-banner__chart-arrow {{ block.settings.chart1_arrow }}" >&#8593;</span>{{ block.settings.chart1_second_number }}</p>
+                                        </div>
+                                    {%- endif -%}
+                        
+                                    {%- if block.settings.chart1_graph_image != blank -%}
+                                        <div class="main-banner__chart-line">
+                                            <img
+                                                srcset="{%- if block.settings.chart1_graph_image.width >= 165 -%}{{ block.settings.chart1_graph_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                                    {%- if block.settings.chart1_graph_image.width >= 360 -%}{{ block.settings.chart1_graph_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                                    {%- if block.settings.chart1_graph_image.width >= 535 -%}{{ block.settings.chart1_graph_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                                    {%- if block.settings.chart1_graph_image.width >= 750 -%}{{ block.settings.chart1_graph_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                                    {{ block.settings.chart1_graph_image | image_url }} {{ block.settings.chart1_graph_image.width }}w"
+                                                src="{{ block.settings.chart1_graph_image | image_url: width: 360 }}"
+                                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                                alt="{{ block.settings.chart1_graph_image.alt | escape }}"
+                                                loading="lazy"
+                                                width="{{ block.settings.chart1_graph_image.width }}"
+                                                height="{{ block.settings.chart1_graph_image.height }}"
+                                                class=""
+                                            >
+                                        </div>
+                                    {%- endif -%}
+                                </div>
+                            </li>
                         {%- endif -%}
                         
-                        {%- if block.settings.chart1_first_number != blank and block.settings.chart1_second_number != blank -%}
-                            <div class="main-banner__chart-number-percent">
-                                <p class="main-banner__chart-number">{{ block.settings.chart1_first_number }}</p>
-                                <p class="main-banner__chart-percent"><span class="main-banner__chart-arrow {{ block.settings.chart1_arrow }}" >&#8593;</span>{{ block.settings.chart1_second_number }}</p>
-                            </div>
-                        {%- endif -%}
-
-                        {%- if block.settings.chart1_graph_image != blank -%}
-                            <div class="main-banner__chart-line">
-                                <img
-                                    srcset="{%- if block.settings.chart1_graph_image.width >= 165 -%}{{ block.settings.chart1_graph_image | image_url: width: 165 }} 165w,{%- endif -%}
-                                        {%- if block.settings.chart1_graph_image.width >= 360 -%}{{ block.settings.chart1_graph_image | image_url: width: 360 }} 360w,{%- endif -%}
-                                        {%- if block.settings.chart1_graph_image.width >= 535 -%}{{ block.settings.chart1_graph_image | image_url: width: 535 }} 535w,{%- endif -%}
-                                        {%- if block.settings.chart1_graph_image.width >= 750 -%}{{ block.settings.chart1_graph_image | image_url: width: 750 }} 750w,{%- endif -%}
-                                        {{ block.settings.chart1_graph_image | image_url }} {{ block.settings.chart1_graph_image.width }}w"
-                                    src="{{ block.settings.chart1_graph_image | image_url: width: 360 }}"
-                                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                                    alt="{{ block.settings.chart1_graph_image.alt | escape }}"
-                                    loading="lazy"
-                                    width="{{ block.settings.chart1_graph_image.width }}"
-                                    height="{{ block.settings.chart1_graph_image.height }}"
-                                    class=""
-                                >
-                            </div>
-                        {%- endif -%}
-                    </div>
-
-                    <div class="main-banner__chart">
-                        {%- if block.settings.chart2_heading != blank -%}
-                            <div class="main-banner__chart-title">
-                                <p>{{ block.settings.chart2_heading }}</p>
-                            </div>
-                        {%- endif -%}
+                        {%- if block.settings.show_chart2 -%}
+                            <li id="Slide-{{ section.id }}-{{ media.id }}" class="main-banner__chart grid__item slider__slide">
+                                <div class="main-banner__chart">
+                                    {%- if block.settings.chart2_heading != blank -%}
+                                        <div class="main-banner__chart-title">
+                                            <p>{{ block.settings.chart2_heading }}</p>
+                                        </div>
+                                    {%- endif -%}
+                                    
+                                    {%- if block.settings.chart2_first_number != blank and block.settings.chart2_second_number != blank -%}
+                                        <div class="main-banner__chart-number-percent">
+                                            <p class="main-banner__chart-number">{{ block.settings.chart2_first_number }}</p>
+                                            <p class="main-banner__chart-percent"><span class="main-banner__chart-arrow {{ block.settings.chart2_arrow }}" >&#8593;</span>{{ block.settings.chart2_second_number }}</p>
+                                        </div>
+                                    {%- endif -%}
                         
-                        {%- if block.settings.chart2_first_number != blank and block.settings.chart2_second_number != blank -%}
-                            <div class="main-banner__chart-number-percent">
-                                <p class="main-banner__chart-number">{{ block.settings.chart2_first_number }}</p>
-                                <p class="main-banner__chart-percent"><span class="main-banner__chart-arrow {{ block.settings.chart2_arrow }}" >&#8593;</span>{{ block.settings.chart2_second_number }}</p>
-                            </div>
+                                    {%- if block.settings.chart2_graph_image != blank -%}
+                                        <div class="main-banner__chart-line">
+                                            <img
+                                                srcset="{%- if block.settings.chart2_graph_image.width >= 165 -%}{{ block.settings.chart2_graph_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                                    {%- if block.settings.chart2_graph_image.width >= 360 -%}{{ block.settings.chart2_graph_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                                    {%- if block.settings.chart2_graph_image.width >= 535 -%}{{ block.settings.chart2_graph_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                                    {%- if block.settings.chart2_graph_image.width >= 750 -%}{{ block.settings.chart2_graph_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                                    {{ block.settings.chart2_graph_image | image_url }} {{ block.settings.chart2_graph_image.width }}w"
+                                                src="{{ block.settings.chart2_graph_image | image_url: width: 360 }}"
+                                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                                alt="{{ block.settings.chart2_graph_image.alt | escape }}"
+                                                loading="lazy"
+                                                width="{{ block.settings.chart2_graph_image.width }}"
+                                                height="{{ block.settings.chart2_graph_image.height }}"
+                                                class=""
+                                            >
+                                        </div>
+                                    {%- endif -%}
+                                </div>
+                            </li>
                         {%- endif -%}
 
-                        {%- if block.settings.chart2_graph_image != blank -%}
-                            <div class="main-banner__chart-line">
-                                <img
-                                    srcset="{%- if block.settings.chart2_graph_image.width >= 165 -%}{{ block.settings.chart2_graph_image | image_url: width: 165 }} 165w,{%- endif -%}
-                                        {%- if block.settings.chart2_graph_image.width >= 360 -%}{{ block.settings.chart2_graph_image | image_url: width: 360 }} 360w,{%- endif -%}
-                                        {%- if block.settings.chart2_graph_image.width >= 535 -%}{{ block.settings.chart2_graph_image | image_url: width: 535 }} 535w,{%- endif -%}
-                                        {%- if block.settings.chart2_graph_image.width >= 750 -%}{{ block.settings.chart2_graph_image | image_url: width: 750 }} 750w,{%- endif -%}
-                                        {{ block.settings.chart2_graph_image | image_url }} {{ block.settings.chart2_graph_image.width }}w"
-                                    src="{{ block.settings.chart2_graph_image | image_url: width: 360 }}"
-                                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                                    alt="{{ block.settings.chart2_graph_image.alt | escape }}"
-                                    loading="lazy"
-                                    width="{{ block.settings.chart2_graph_image.width }}"
-                                    height="{{ block.settings.chart2_graph_image.height }}"
-                                    class=""
-                                >
-                            </div>
-                        {%- endif -%}
-                    </div>
-
-                    <div class="main-banner__chart">
-                        {%- if block.settings.chart3_heading != blank -%}
-                            <div class="main-banner__chart-title">
-                                <p>{{ block.settings.chart3_heading }}</p>
-                            </div>
-                        {%- endif -%}
+                        {%- if block.settings.show_chart3 -%}
+                            <li id="Slide-{{ section.id }}-{{ media.id }}" class="main-banner__chart grid__item slider__slide">
+                                <div class="main-banner__chart">
+                                    {%- if block.settings.chart3_heading != blank -%}
+                                        <div class="main-banner__chart-title">
+                                            <p>{{ block.settings.chart3_heading }}</p>
+                                        </div>
+                                    {%- endif -%}
+                                    
+                                    {%- if block.settings.chart3_first_number != blank and block.settings.chart3_second_number != blank -%}
+                                        <div class="main-banner__chart-number-percent">
+                                            <p class="main-banner__chart-number">{{ block.settings.chart3_first_number }}</p>
+                                            <p class="main-banner__chart-percent"><span class="main-banner__chart-arrow {{ block.settings.chart3_arrow }}" >&#8593;</span>{{ block.settings.chart3_second_number }}</p>
+                                        </div>
+                                    {%- endif -%}
                         
-                        {%- if block.settings.chart3_first_number != blank and block.settings.chart3_second_number != blank -%}
-                            <div class="main-banner__chart-number-percent">
-                                <p class="main-banner__chart-number">{{ block.settings.chart3_first_number }}</p>
-                                <p class="main-banner__chart-percent"><span class="main-banner__chart-arrow {{ block.settings.chart3_arrow }}" >&#8593;</span>{{ block.settings.chart3_second_number }}</p>
-                            </div>
+                                    {%- if block.settings.chart3_graph_image != blank -%}
+                                        <div class="main-banner__chart-line">
+                                            <img
+                                                srcset="{%- if block.settings.chart3_graph_image.width >= 165 -%}{{ block.settings.chart3_graph_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                                    {%- if block.settings.chart3_graph_image.width >= 360 -%}{{ block.settings.chart3_graph_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                                    {%- if block.settings.chart3_graph_image.width >= 535 -%}{{ block.settings.chart3_graph_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                                    {%- if block.settings.chart3_graph_image.width >= 750 -%}{{ block.settings.chart3_graph_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                                    {{ block.settings.chart3_graph_image | image_url }} {{ block.settings.chart3_graph_image.width }}w"
+                                                src="{{ block.settings.chart3_graph_image | image_url: width: 360 }}"
+                                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                                alt="{{ block.settings.chart3_graph_image.alt | escape }}"
+                                                loading="lazy"
+                                                width="{{ block.settings.chart3_graph_image.width }}"
+                                                height="{{ block.settings.chart3_graph_image.height }}"
+                                                class=""
+                                            >
+                                        </div>
+                                    {%- endif -%}
+                                </div>
+                            </li>
                         {%- endif -%}
 
-                        {%- if block.settings.chart3_graph_image != blank -%}
-                            <div class="main-banner__chart-line">
-                                <img
-                                    srcset="{%- if block.settings.chart3_graph_image.width >= 165 -%}{{ block.settings.chart3_graph_image | image_url: width: 165 }} 165w,{%- endif -%}
-                                        {%- if block.settings.chart3_graph_image.width >= 360 -%}{{ block.settings.chart3_graph_image | image_url: width: 360 }} 360w,{%- endif -%}
-                                        {%- if block.settings.chart3_graph_image.width >= 535 -%}{{ block.settings.chart3_graph_image | image_url: width: 535 }} 535w,{%- endif -%}
-                                        {%- if block.settings.chart3_graph_image.width >= 750 -%}{{ block.settings.chart3_graph_image | image_url: width: 750 }} 750w,{%- endif -%}
-                                        {{ block.settings.chart3_graph_image | image_url }} {{ block.settings.chart3_graph_image.width }}w"
-                                    src="{{ block.settings.chart3_graph_image | image_url: width: 360 }}"
-                                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                                    alt="{{ block.settings.chart3_graph_image.alt | escape }}"
-                                    loading="lazy"
-                                    width="{{ block.settings.chart3_graph_image.width }}"
-                                    height="{{ block.settings.chart3_graph_image.height }}"
-                                    class=""
-                                >
-                            </div>
-                        {%- endif -%}
-                    </div>
-
-                    <div class="main-banner__chart">
-                        {%- if block.settings.chart4_heading != blank -%}
-                            <div class="main-banner__chart-title">
-                                <p>{{ block.settings.chart4_heading }}</p>
-                            </div>
-                        {%- endif -%}
+                        {%- if block.settings.show_chart4 -%}
+                            <li id="Slide-{{ section.id }}-{{ media.id }}" class="main-banner__chart grid__item slider__slide">
+                                <div class="main-banner__chart">
+                                    {%- if block.settings.chart4_heading != blank -%}
+                                        <div class="main-banner__chart-title">
+                                            <p>{{ block.settings.chart4_heading }}</p>
+                                        </div>
+                                    {%- endif -%}
+                                    
+                                    {%- if block.settings.chart4_first_number != blank and block.settings.chart4_second_number != blank -%}
+                                        <div class="main-banner__chart-number-percent">
+                                            <p class="main-banner__chart-number">{{ block.settings.chart4_first_number }}</p>
+                                            <p class="main-banner__chart-percent"><span class="main-banner__chart-arrow {{ block.settings.chart4_arrow }}" >&#8593;</span>{{ block.settings.chart4_second_number }}</p>
+                                        </div>
+                                    {%- endif -%}
                         
-                        {%- if block.settings.chart4_first_number != blank and block.settings.chart4_second_number != blank -%}
-                            <div class="main-banner__chart-number-percent">
-                                <p class="main-banner__chart-number">{{ block.settings.chart4_first_number }}</p>
-                                <p class="main-banner__chart-percent"><span class="main-banner__chart-arrow {{ block.settings.chart4_arrow }}" >&#8593;</span>{{ block.settings.chart4_second_number }}</p>
-                            </div>
+                                    {%- if block.settings.chart4_graph_image != blank -%}
+                                        <div class="main-banner__chart-line">
+                                            <img
+                                                srcset="{%- if block.settings.chart4_graph_image.width >= 165 -%}{{ block.settings.chart4_graph_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                                    {%- if block.settings.chart4_graph_image.width >= 360 -%}{{ block.settings.chart4_graph_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                                    {%- if block.settings.chart4_graph_image.width >= 535 -%}{{ block.settings.chart4_graph_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                                    {%- if block.settings.chart4_graph_image.width >= 750 -%}{{ block.settings.chart4_graph_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                                    {{ block.settings.chart4_graph_image | image_url }} {{ block.settings.chart4_graph_image.width }}w"
+                                                src="{{ block.settings.chart4_graph_image | image_url: width: 360 }}"
+                                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                                alt="{{ block.settings.chart4_graph_image.alt | escape }}"
+                                                loading="lazy"
+                                                width="{{ block.settings.chart4_graph_image.width }}"
+                                                height="{{ block.settings.chart4_graph_image.height }}"
+                                                class=""
+                                            >
+                                        </div>
+                                    {%- endif -%}
+                                </div>
+                            </li>
                         {%- endif -%}
+                    </ul>
 
-                        {%- if block.settings.chart4_graph_image != blank -%}
-                            <div class="main-banner__chart-line">
-                                <img
-                                    srcset="{%- if block.settings.chart4_graph_image.width >= 165 -%}{{ block.settings.chart4_graph_image | image_url: width: 165 }} 165w,{%- endif -%}
-                                        {%- if block.settings.chart4_graph_image.width >= 360 -%}{{ block.settings.chart4_graph_image | image_url: width: 360 }} 360w,{%- endif -%}
-                                        {%- if block.settings.chart4_graph_image.width >= 535 -%}{{ block.settings.chart4_graph_image | image_url: width: 535 }} 535w,{%- endif -%}
-                                        {%- if block.settings.chart4_graph_image.width >= 750 -%}{{ block.settings.chart4_graph_image | image_url: width: 750 }} 750w,{%- endif -%}
-                                        {{ block.settings.chart4_graph_image | image_url }} {{ block.settings.chart4_graph_image.width }}w"
-                                    src="{{ block.settings.chart4_graph_image | image_url: width: 360 }}"
-                                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                                    alt="{{ block.settings.chart4_graph_image.alt | escape }}"
-                                    loading="lazy"
-                                    width="{{ block.settings.chart4_graph_image.width }}"
-                                    height="{{ block.settings.chart4_graph_image.height }}"
-                                    class=""
-                                >
-                            </div>
-                        {%- endif -%}
+                    <div class="slider__dots">
+                      {%- if block.settings.chart1_graph_image != blank -%}
+                        <button class="slider__dot active"></button>
+                      {%- endif -%}
+                      {%- if block.settings.chart2_graph_image != blank -%}
+                        <button class="slider__dot"></button>
+                      {%- endif -%}
+                      {%- if block.settings.chart3_graph_image != blank -%}
+                        <button class="slider__dot"></button>
+                      {%- endif -%}
+                      {%- if block.settings.chart4_graph_image != blank -%}
+                        <button class="slider__dot"></button>
+                      {%- endif -%}
+                  
                     </div>
-                </div>
+                </slider-component-v2>
             </div>
 
         {%- endcase -%}
@@ -1509,6 +1543,12 @@
                 "content": "Chart 1"
             },
             {
+                "type": "checkbox",
+                "id": "show_chart1",
+                "label": "Show chart",
+                "default": false
+            },
+            {
                 "type": "text",
                 "id": "chart1_heading",
                 "label": "Heading"
@@ -1559,6 +1599,12 @@
             {
                 "type": "header",
                 "content": "Chart 2"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_chart2",
+                "label": "Show chart",
+                "default": false
             },
             {
                 "type": "text",
@@ -1613,6 +1659,12 @@
                 "content": "Chart 3"
             },
             {
+                "type": "checkbox",
+                "id": "show_chart3",
+                "label": "Show chart",
+                "default": false
+            },
+            {
                 "type": "text",
                 "id": "chart3_heading",
                 "label": "Heading"
@@ -1663,6 +1715,12 @@
             {
                 "type": "header",
                 "content": "Chart 4"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_chart4",
+                "label": "Show chart",
+                "default": false
             },
             {
                 "type": "text",

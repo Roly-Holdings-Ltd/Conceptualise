@@ -209,7 +209,6 @@
 
             .main-banner__charts-wrap{
                 display: flex;
-                overflow-x: auto;
                 gap: 35px;
 
                 @media (min-width: 750px){
@@ -228,6 +227,11 @@
                     &:empty{ display: none; }
 
                     .main-banner__chart-title{
+                        text-align: center;
+
+                        @media (min-width: 750px){
+                            text-align: left;
+                        }
                         p{
                             margin-bottom: 0;
                             font-weight: lighter;
@@ -235,14 +239,27 @@
                     }
                     .main-banner__chart-number-percent{
                         margin-bottom: 10px;
+                        text-align: center;
+                        
+                        @media (min-width: 750px){
+                            text-align: left;
+                        }
                         .main-banner__chart-number{
-                            display: inline-block;
+                            display: block;
                             font-weight: bold;
+                            
+                            @media (min-width: 750px){
+                                display: inline-block;
+                            }
                         }
                         .main-banner__chart-percent{
-                            display: inline-block;
+                            display: block;
                             color: #008040;
                             font-weight: lighter;
+
+                            @media (min-width: 750px){
+                                display: inline-block;
+                            }
 
                             .main-banner__chart-arrow{
                                 display: inline-block;
