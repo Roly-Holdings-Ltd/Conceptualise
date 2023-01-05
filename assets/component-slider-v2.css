@@ -35,6 +35,7 @@ slider-component-v2 ul{
     scroll-behavior: smooth;
     scroll-padding-left: 1rem;
     -webkit-overflow-scrolling: touch;
+    gap: 15px;
   }
 
   .slider-v2.slider--mobile .slider__slide {
