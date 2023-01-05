@@ -1,10 +1,8 @@
 <link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'section-rich-text.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-slider-v2.css' | asset_url }}" media="print" onload="this.media='all'">
 
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-slider-v2.css' | asset_url | stylesheet_tag }}</noscript>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -72,7 +70,7 @@
           {%- when 'text' -%}
             #block--{{ block.id }} *,
             #block--{{ block.id }}{
-              font-size: {{ block.settings.font_size_mobile }}px;
+              font-size: {{ block.settings.text_font_size_mobile }}px;
               color: {{ block.settings.text_color_light }};
             }
             body.theme-dark-mode #block--{{ block.id }} *,
@@ -82,32 +80,69 @@
             @media (min-width: 750px) {
               #block--{{ block.id }} *,
               #block--{{ block.id }}{
-                font-size: {{ block.settings.font_size_desktop }}px;
+                font-size: {{ block.settings.text_font_size_desktop }}px;
               }
             }
+
+            {%- if block.settings.custom_text != blank -%}
+              {%- if block.settings.custom_text_bold -%}
+                #block--{{ block.id }} *{ font-weight: bold; }
+              {%- endif -%}
+              {%- if block.settings.custom_text_italic -%}
+                #block--{{ block.id }} *{ font-style: italic; }
+              {%- endif -%}
+            {%- endif -%}
+          {%- when 'button' -%}
+            {%- if block.settings.button1_custom_style -%}
+              #block--{{ block.id }}.rich-text__buttons .rich-text__button1{
+                background-color: {{ block.settings.button1_background_color }} !important;
+                color: {{ block.settings.button1_text_color }};
+                border: 2px solid {{ block.settings.button1_border_color }};
+              }
+            {%- endif -%}
+            {%- if block.settings.button2_custom_style -%}
+              #block--{{ block.id }}.rich-text__buttons .rich-text__button2{
+                background-color: {{ block.settings.button2_background_color }} !important;
+                color: {{ block.settings.button2_text_color }};
+                border: 2px solid {{ block.settings.button2_border_color }};
+              }
+            {%- endif -%}
+
           {%- when 'single_image' -%}
             #block--{{ block.id }}.rich-text__single-image{
                 max-width: {{ block.settings.image_max_width }}px;
             }
 
           {%- when 'image_grid' -%}
-          #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-heading p,
-          #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-content-column-heading {
-            color: {{ block.settings.headings_color_light }};
-          }
-          body.theme-dark-mode #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-heading p,
-          body.theme-dark-mode #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-content-column-heading {
-            color: {{ block.settings.headings_color_dark }};
-          }
+            #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-heading p,
+            #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-content-column-heading {
+              color: {{ block.settings.headings_color_light }};
+            }
+            body.theme-dark-mode #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-heading p,
+            body.theme-dark-mode #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-content-column-heading {
+              color: {{ block.settings.headings_color_dark }};
+            }
 
-          #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-text-content p,
-          #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-content-column-subheading {
-            color: {{ block.settings.subheadings_color_light }};
-          }
-          body.theme-dark-mode #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-text-content p,
-          body.theme-dark-mode #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-content-column-subheading {
-            color: {{ block.settings.subheadings_color_dark }};
-          }
+            #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-text-content p,
+            #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-content-column-subheading {
+              color: {{ block.settings.subheadings_color_light }};
+            }
+            body.theme-dark-mode #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-text-content p,
+            body.theme-dark-mode #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-content-column-subheading {
+              color: {{ block.settings.subheadings_color_dark }};
+            }
+            {%- case block.settings.set_max_height_or_width -%}
+              {%- when 'max-width' -%}
+              #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-image img{
+                max-width: {{ block.settings.image_max_width }}%;
+                height: auto;
+              }
+              {%- when 'max-height' -%}
+                #block--{{ block.id }}.rich-text__image-grid .rich-text__image-grid-item-image img{
+                  height: {{ block.settings.image_max_height }}px;
+                  width: auto;
+                }
+            {%- endcase -%}
     {%- endcase -%}
   {%- endfor -%}
 {%- endstyle -%}
@@ -133,14 +168,22 @@
             {%- when 'text' -%}
               <div id="block--{{ block.id }}" class="rich-text__text rte" {{ block.shopify_attributes }}>
                 {{ block.settings.text }}
+                {%- if block.settings.custom_text != blank -%}
+                  <p>{{ block.settings.custom_text }}</p>
+                {%- endif -%}
               </div>
             {%- when 'button' -%}
-              <div class="rich-text__buttons{% if block.settings.button_label != blank and block.settings.button_label_2 != blank %} rich-text__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
+              <div id="block--{{ block.id }}" class="rich-text__buttons{% if block.settings.button_label != blank and block.settings.button_label_2 != blank %} rich-text__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
                 {%- if block.settings.button_label != blank -%}
-                  <a{% if block.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label | escape }}</a>
+                  <a{% if block.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} class="button rich-text__button1 {% if block.settings.button_label_second_line != blank %}button--multi-line{% endif %} {% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">
+                    <p>{{ block.settings.button_label | escape }}</p>
+                    {%- if block.settings.button_label_second_line != blank -%}
+                      <p>{{ block.settings.button_label_second_line | escape  }}</p>
+                    {%- endif -%}
+                  </a>
                 {%- endif -%}
                 {%- if block.settings.button_label_2 != blank -%}
-                  <a{% if block.settings.button_link_2 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_2 | escape }}</a>
+                  <a{% if block.settings.button_link_2 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button rich-text__button2{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_2 | escape }}</a>
                 {%- endif -%}
               </div>
             {%- when 'single_image' -%}
@@ -180,10 +223,348 @@
             </div>
             {%- when 'image_grid' -%}
             <div id="block--{{ block.id }}" class="rich-text__image-grid">
-              <slider-component-v2 id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
-                <ul id="Slider-Gallery-{{ section.id }}" class="rich-text__image-grid-items grid grid--peek list-unstyled slider slider-v2 slider--mobile desktop--{{ block.settings.number_of_cols_desktop }}-cols" role="list">
+              {%- if block.settings.enable_mobile_slider -%}
+                <slider-component-v2 id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
+                  <ul id="Slider-Gallery-{{ section.id }}" class="rich-text__image-grid-items grid grid--peek list-unstyled slider slider-v2 slider--mobile desktop--{{ block.settings.number_of_cols_desktop }}-cols" role="list">
+                    {%- if block.settings.show_item1 -%}
+                      <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                        {%- if block.settings.item1_image != blank -%}
+                          <div class="rich-text__image-grid-item-image">
+                            <img
+                                srcset="{%- if block.settings.item1_image.width >= 165 -%}{{ block.settings.item1_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                    {%- if block.settings.item1_image.width >= 360 -%}{{ block.settings.item1_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                    {%- if block.settings.item1_image.width >= 535 -%}{{ block.settings.item1_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                    {%- if block.settings.item1_image.width >= 750 -%}{{ block.settings.item1_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                    {{ block.settings.item1_image | image_url }} {{ block.settings.item1_image.width }}w"
+                                src="{{ block.settings.item1_image | image_url: width: 360 }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                alt="{{ block.settings.item1_image.alt | escape }}"
+                                loading="lazy"
+                                width="{{ block.settings.item1_image.width }}"
+                                height="{{ block.settings.item1_image.height }}"
+                            >
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.item1_heading != blank -%}
+                          <div class="rich-text__image-grid-item-heading">
+                            <p>{{ block.settings.item1_heading }}</p>
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.item1_text_content -%}
+                          <div class="rich-text__image-grid-item-text-content">
+                            <p>{{ block.settings.item1_text_content }}</p>
+                          </div>
+                        {%- endif -%}
+                
+                        {%- if block.settings.show_item1_content_columns -%}
+                          <div class="rich-text__image-grid-item-content-columns">
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item1_content_column1_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item1_content_column1_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item1_content_column2_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item1_content_column2_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item1_content_column3_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item1_content_column3_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item1_content_column4_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item1_content_column4_subheading }}</p>
+                            </div>
+                          </div>
+                        {%- endif -%}
+                      </li>  
+                    {%- endif -%}
+                    {%- if block.settings.show_item2 -%}
+                      <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                        {%- if block.settings.item2_image != blank -%}
+                          <div class="rich-text__image-grid-item-image">
+                            <img
+                                srcset="{%- if block.settings.item2_image.width >= 165 -%}{{ block.settings.item2_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                    {%- if block.settings.item2_image.width >= 360 -%}{{ block.settings.item2_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                    {%- if block.settings.item2_image.width >= 535 -%}{{ block.settings.item2_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                    {%- if block.settings.item2_image.width >= 750 -%}{{ block.settings.item2_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                    {{ block.settings.item2_image | image_url }} {{ block.settings.item2_image.width }}w"
+                                src="{{ block.settings.item2_image | image_url: width: 360 }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                alt="{{ block.settings.item2_image.alt | escape }}"
+                                loading="lazy"
+                                width="{{ block.settings.item2_image.width }}"
+                                height="{{ block.settings.item2_image.height }}"
+                            >
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.item2_heading != blank -%}
+                          <div class="rich-text__image-grid-item-heading">
+                            <p>{{ block.settings.item2_heading }}</p>
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.item2_text_content -%}
+                          <div class="rich-text__image-grid-item-text-content">
+                            <p>{{ block.settings.item2_text_content }}</p>
+                          </div>
+                        {%- endif -%}
+                
+                        {%- if block.settings.show_item2_content_columns -%}
+                          <div class="rich-text__image-grid-item-content-columns">
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item2_content_column1_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item2_content_column1_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item2_content_column2_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item2_content_column2_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item2_content_column3_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item2_content_column3_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item2_content_column4_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item2_content_column4_subheading }}</p>
+                            </div>
+                          </div>
+                        {%- endif -%}
+                      </li>  
+                    {%- endif -%}
+                    {%- if block.settings.show_item3 -%}
+                      <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                        {%- if block.settings.item3_image != blank -%}
+                          <div class="rich-text__image-grid-item-image">
+                            <img
+                                srcset="{%- if block.settings.item3_image.width >= 165 -%}{{ block.settings.item3_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                    {%- if block.settings.item3_image.width >= 360 -%}{{ block.settings.item3_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                    {%- if block.settings.item3_image.width >= 535 -%}{{ block.settings.item3_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                    {%- if block.settings.item3_image.width >= 750 -%}{{ block.settings.item3_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                    {{ block.settings.item3_image | image_url }} {{ block.settings.item3_image.width }}w"
+                                src="{{ block.settings.item3_image | image_url: width: 360 }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                alt="{{ block.settings.item3_image.alt | escape }}"
+                                loading="lazy"
+                                width="{{ block.settings.item3_image.width }}"
+                                height="{{ block.settings.item3_image.height }}"
+                            >
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.item3_heading != blank -%}
+                          <div class="rich-text__image-grid-item-heading">
+                            <p>{{ block.settings.item3_heading }}</p>
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.item3_text_content -%}
+                          <div class="rich-text__image-grid-item-text-content">
+                            <p>{{ block.settings.item3_text_content }}</p>
+                          </div>
+                        {%- endif -%}
+                
+                        {%- if block.settings.show_item3_content_columns -%}
+                          <div class="rich-text__image-grid-item-content-columns">
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item3_content_column1_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item3_content_column1_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item3_content_column2_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item3_content_column2_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item3_content_column3_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item3_content_column3_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item3_content_column4_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item3_content_column4_subheading }}</p>
+                            </div>
+                          </div>
+                        {%- endif -%}
+                      </li>  
+                    {%- endif -%}
+                    {%- if block.settings.show_item4 -%}
+                      <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                        {%- if block.settings.item4_image != blank -%}
+                          <div class="rich-text__image-grid-item-image">
+                            <img
+                                srcset="{%- if block.settings.item4_image.width >= 165 -%}{{ block.settings.item4_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                    {%- if block.settings.item4_image.width >= 360 -%}{{ block.settings.item4_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                    {%- if block.settings.item4_image.width >= 535 -%}{{ block.settings.item4_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                    {%- if block.settings.item4_image.width >= 750 -%}{{ block.settings.item4_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                    {{ block.settings.item4_image | image_url }} {{ block.settings.item4_image.width }}w"
+                                src="{{ block.settings.item4_image | image_url: width: 360 }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                alt="{{ block.settings.item4_image.alt | escape }}"
+                                loading="lazy"
+                                width="{{ block.settings.item4_image.width }}"
+                                height="{{ block.settings.item4_image.height }}"
+                            >
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.item4_heading != blank -%}
+                          <div class="rich-text__image-grid-item-heading">
+                            <p>{{ block.settings.item4_heading }}</p>
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.item4_text_content -%}
+                          <div class="rich-text__image-grid-item-text-content">
+                            <p>{{ block.settings.item4_text_content }}</p>
+                          </div>
+                        {%- endif -%}
+                
+                        {%- if block.settings.show_item4_content_columns -%}
+                          <div class="rich-text__image-grid-item-content-columns">
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item4_content_column1_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item4_content_column1_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item4_content_column2_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item4_content_column2_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item4_content_column3_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item4_content_column3_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item4_content_column4_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item4_content_column4_subheading }}</p>
+                            </div>
+                          </div>
+                        {%- endif -%}
+                      </li>  
+                    {%- endif -%}
+                    {%- if block.settings.show_item5 -%}
+                      <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                        {%- if block.settings.item5_image != blank -%}
+                          <div class="rich-text__image-grid-item-image">
+                            <img
+                                srcset="{%- if block.settings.item5_image.width >= 165 -%}{{ block.settings.item5_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                    {%- if block.settings.item5_image.width >= 360 -%}{{ block.settings.item5_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                    {%- if block.settings.item5_image.width >= 535 -%}{{ block.settings.item5_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                    {%- if block.settings.item5_image.width >= 750 -%}{{ block.settings.item5_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                    {{ block.settings.item5_image | image_url }} {{ block.settings.item5_image.width }}w"
+                                src="{{ block.settings.item5_image | image_url: width: 360 }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                alt="{{ block.settings.item5_image.alt | escape }}"
+                                loading="lazy"
+                                width="{{ block.settings.item5_image.width }}"
+                                height="{{ block.settings.item5_image.height }}"
+                            >
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.item5_heading != blank -%}
+                          <div class="rich-text__image-grid-item-heading">
+                            <p>{{ block.settings.item5_heading }}</p>
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.item5_text_content -%}
+                          <div class="rich-text__image-grid-item-text-content">
+                            <p>{{ block.settings.item5_text_content }}</p>
+                          </div>
+                        {%- endif -%}
+                
+                        {%- if block.settings.show_item5_content_columns -%}
+                          <div class="rich-text__image-grid-item-content-columns">
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item5_content_column1_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item5_content_column1_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item5_content_column2_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item5_content_column2_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item5_content_column3_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item5_content_column3_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item5_content_column4_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item5_content_column4_subheading }}</p>
+                            </div>
+                          </div>
+                        {%- endif -%}
+                      </li>  
+                    {%- endif -%}
+                    {%- if block.settings.show_item6 -%}
+                      <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                        {%- if block.settings.item6_image != blank -%}
+                          <div class="rich-text__image-grid-item-image">
+                            <img
+                                srcset="{%- if block.settings.item6_image.width >= 165 -%}{{ block.settings.item6_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                    {%- if block.settings.item6_image.width >= 360 -%}{{ block.settings.item6_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                    {%- if block.settings.item6_image.width >= 535 -%}{{ block.settings.item6_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                    {%- if block.settings.item6_image.width >= 750 -%}{{ block.settings.item6_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                    {{ block.settings.item6_image | image_url }} {{ block.settings.item6_image.width }}w"
+                                src="{{ block.settings.item6_image | image_url: width: 360 }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                alt="{{ block.settings.item6_image.alt | escape }}"
+                                loading="lazy"
+                                width="{{ block.settings.item6_image.width }}"
+                                height="{{ block.settings.item6_image.height }}"
+                            >
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.item6_heading != blank -%}
+                          <div class="rich-text__image-grid-item-heading">
+                            <p>{{ block.settings.item6_heading }}</p>
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.item6_text_content -%}
+                          <div class="rich-text__image-grid-item-text-content">
+                            <p>{{ block.settings.item6_text_content }}</p>
+                          </div>
+                        {%- endif -%}
+                
+                        {%- if block.settings.show_item6_content_columns -%}
+                          <div class="rich-text__image-grid-item-content-columns">
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item6_content_column1_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item6_content_column1_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item6_content_column2_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item6_content_column2_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item6_content_column3_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item6_content_column3_subheading }}</p>
+                            </div>
+                            <div class="rich-text__image-grid-item-content-column">
+                              <p class="rich-text__image-grid-item-content-column-heading">{{ block.settings.item6_content_column4_heading }}</p>
+                              <p class="rich-text__image-grid-item-content-column-subheading">{{ block.settings.item6_content_column4_subheading }}</p>
+                            </div>
+                          </div>
+                        {%- endif -%}
+                      </li>  
+                    {%- endif -%}
+                    
+                  </ul>
+                  <div class="slider__dots">
+                      {%- if block.settings.show_item1 -%}
+                        <button class="slider__dot active"></button>
+                      {%- endif -%}
+                      {%- if block.settings.show_item2 -%}
+                        <button class="slider__dot"></button>
+                      {%- endif -%}
+                      {%- if block.settings.show_item3 -%}
+                        <button class="slider__dot"></button>
+                      {%- endif -%}
+                      {%- if block.settings.show_item4 -%}
+                        <button class="slider__dot"></button>
+                      {%- endif -%}
+                      {%- if block.settings.show_item5 -%}
+                        <button class="slider__dot"></button>
+                      {%- endif -%}
+                      {%- if block.settings.show_item6 -%}
+                        <button class="slider__dot"></button>
+                      {%- endif -%}
+                  </div>
+                </slider-component-v2>
+              {%- else -%}
+                <div class="rich-text__image-grid-items rich-text__image-grid-items--no-slider desktop--{{ block.settings.number_of_cols_desktop }}-cols">
                   {%- if block.settings.show_item1 -%}
-                    <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                    <div class="rich-text__image-grid-item">
                       {%- if block.settings.item1_image != blank -%}
                         <div class="rich-text__image-grid-item-image">
                           <img
@@ -211,7 +592,7 @@
                           <p>{{ block.settings.item1_text_content }}</p>
                         </div>
                       {%- endif -%}
-              
+
                       {%- if block.settings.show_item1_content_columns -%}
                         <div class="rich-text__image-grid-item-content-columns">
                           <div class="rich-text__image-grid-item-content-column">
@@ -232,10 +613,10 @@
                           </div>
                         </div>
                       {%- endif -%}
-                    </li>  
+                      </div>  
                   {%- endif -%}
                   {%- if block.settings.show_item2 -%}
-                    <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                    <div class="rich-text__image-grid-item">
                       {%- if block.settings.item2_image != blank -%}
                         <div class="rich-text__image-grid-item-image">
                           <img
@@ -263,7 +644,7 @@
                           <p>{{ block.settings.item2_text_content }}</p>
                         </div>
                       {%- endif -%}
-              
+
                       {%- if block.settings.show_item2_content_columns -%}
                         <div class="rich-text__image-grid-item-content-columns">
                           <div class="rich-text__image-grid-item-content-column">
@@ -284,10 +665,10 @@
                           </div>
                         </div>
                       {%- endif -%}
-                    </li>  
+                      </div>  
                   {%- endif -%}
                   {%- if block.settings.show_item3 -%}
-                    <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                    <div class="rich-text__image-grid-item">
                       {%- if block.settings.item3_image != blank -%}
                         <div class="rich-text__image-grid-item-image">
                           <img
@@ -315,7 +696,7 @@
                           <p>{{ block.settings.item3_text_content }}</p>
                         </div>
                       {%- endif -%}
-              
+
                       {%- if block.settings.show_item3_content_columns -%}
                         <div class="rich-text__image-grid-item-content-columns">
                           <div class="rich-text__image-grid-item-content-column">
@@ -336,10 +717,10 @@
                           </div>
                         </div>
                       {%- endif -%}
-                    </li>  
+                      </div>  
                   {%- endif -%}
                   {%- if block.settings.show_item4 -%}
-                    <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                    <div class="rich-text__image-grid-item">
                       {%- if block.settings.item4_image != blank -%}
                         <div class="rich-text__image-grid-item-image">
                           <img
@@ -367,7 +748,7 @@
                           <p>{{ block.settings.item4_text_content }}</p>
                         </div>
                       {%- endif -%}
-              
+
                       {%- if block.settings.show_item4_content_columns -%}
                         <div class="rich-text__image-grid-item-content-columns">
                           <div class="rich-text__image-grid-item-content-column">
@@ -388,10 +769,10 @@
                           </div>
                         </div>
                       {%- endif -%}
-                    </li>  
+                      </div>  
                   {%- endif -%}
                   {%- if block.settings.show_item5 -%}
-                    <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                    <div class="rich-text__image-grid-item">
                       {%- if block.settings.item5_image != blank -%}
                         <div class="rich-text__image-grid-item-image">
                           <img
@@ -419,7 +800,7 @@
                           <p>{{ block.settings.item5_text_content }}</p>
                         </div>
                       {%- endif -%}
-              
+
                       {%- if block.settings.show_item5_content_columns -%}
                         <div class="rich-text__image-grid-item-content-columns">
                           <div class="rich-text__image-grid-item-content-column">
@@ -440,10 +821,10 @@
                           </div>
                         </div>
                       {%- endif -%}
-                    </li>  
+                      </div>  
                   {%- endif -%}
                   {%- if block.settings.show_item6 -%}
-                    <li id="Slide-{{ section.id }}-{{ media.id }}" class="rich-text__image-grid-item grid__item slider__slide">
+                    <div class="rich-text__image-grid-item">
                       {%- if block.settings.item6_image != blank -%}
                         <div class="rich-text__image-grid-item-image">
                           <img
@@ -471,7 +852,7 @@
                           <p>{{ block.settings.item6_text_content }}</p>
                         </div>
                       {%- endif -%}
-              
+
                       {%- if block.settings.show_item6_content_columns -%}
                         <div class="rich-text__image-grid-item-content-columns">
                           <div class="rich-text__image-grid-item-content-column">
@@ -492,31 +873,11 @@
                           </div>
                         </div>
                       {%- endif -%}
-                    </li>  
+                      </div>  
                   {%- endif -%}
                   
-                </ul>
-                <div class="slider__dots">
-                    {%- if block.settings.show_item1 -%}
-                      <button class="slider__dot active"></button>
-                    {%- endif -%}
-                    {%- if block.settings.show_item2 -%}
-                      <button class="slider__dot"></button>
-                    {%- endif -%}
-                    {%- if block.settings.show_item3 -%}
-                      <button class="slider__dot"></button>
-                    {%- endif -%}
-                    {%- if block.settings.show_item4 -%}
-                      <button class="slider__dot"></button>
-                    {%- endif -%}
-                    {%- if block.settings.show_item5 -%}
-                      <button class="slider__dot"></button>
-                    {%- endif -%}
-                    {%- if block.settings.show_item6 -%}
-                      <button class="slider__dot"></button>
-                    {%- endif -%}
                 </div>
-              </slider-component-v2>
+              {%- endif -%}
             </div>
           {%- endcase -%}
         {%- endfor -%}
@@ -524,8 +885,6 @@
     </div>
   </div>
 </div>
-
-<script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
@@ -813,6 +1172,24 @@
           "label": "t:sections.rich-text.blocks.text.settings.text.label"
         },
         {
+          "type": "textarea",
+          "id": "custom_text",
+          "label": "Custom text",
+          "info": "This allows you to add custom HTML to your text"
+        },
+        {
+          "type": "checkbox",
+          "id": "custom_text_bold",
+          "default": false,
+          "label": "Make custom text bold?"
+        },
+        {
+          "type": "checkbox",
+          "id": "custom_text_italic",
+          "default": false,
+          "label": "Make custom text italic?"
+        },
+        {
           "type": "range",
           "id": "text_font_size_mobile",
           "min": 10,
@@ -859,15 +1236,37 @@
           "info": "t:sections.rich-text.blocks.buttons.settings.button_label_1.info"
         },
         {
+          "type": "text",
+          "id": "button_label_second_line",
+          "label": "Sectond line of text"
+        },
+        {
           "type": "url",
           "id": "button_link",
           "label": "t:sections.rich-text.blocks.buttons.settings.button_link_1.label"
         },
         {
           "type": "checkbox",
-          "id": "button_style_secondary",
+          "id": "button1_custom_style",
           "default": false,
-          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_1.label"
+          "label": "Use custom styles?"
+        },
+        {
+          "type": "color",
+          "id": "button1_background_color",
+          "label": "Background colour"
+        },
+        {
+          "type": "color",
+          "id": "button1_border_color",
+          "label": "Border colour",
+          "default": "#ffba03"
+        },
+        {
+          "type": "color",
+          "id": "button1_text_color",
+          "label": "Text colour",
+          "default": "#ffba03"
         },
         {
           "type": "text",
@@ -882,9 +1281,26 @@
         },
         {
           "type": "checkbox",
-          "id": "button_style_secondary_2",
+          "id": "button2_custom_style",
           "default": false,
-          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_2.label"
+          "label": "Use custom styles?"
+        },
+        {
+          "type": "color",
+          "id": "button2_background_color",
+          "label": "Background colour"
+        },
+        {
+          "type": "color",
+          "id": "button2_border_color",
+          "label": "Border colour",
+          "default": "#ffba03"
+        },
+        {
+          "type": "color",
+          "id": "button2_text_color",
+          "label": "Text colour",
+          "default": "#ffba03"
         }
       ]
     },
@@ -923,6 +1339,12 @@
           "content": "Style"
         },
         {
+          "type": "checkbox",
+          "id": "enable_mobile_slider",
+          "label": "Enable mobile slider?",
+          "default": false
+        },
+        {
           "type": "select",
           "id": "number_of_cols_desktop",
           "label": "Number of columns - desktop",
@@ -941,6 +1363,46 @@
             }
           ],
           "default": "two"
+        },
+        {
+          "type": "select",
+          "id": "set_max_height_or_width",
+          "label": "Set max image height or width?",
+          "options": [
+              {
+                  "label": "Max width",
+                  "value": "max-width"
+              },
+              {
+                  "label": "Max height",
+                  "value": "max-height"
+              },
+              {
+                  "label": "Original image size",
+                  "value": "original-image-size"
+              }
+          ],
+          "default": "original-image-size"
+        },
+        {
+            "type": "range",
+            "id": "image_max_width",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Image max width",
+            "default": 100
+        },
+        {
+            "type": "range",
+            "id": "image_max_height",
+            "min": 8,
+            "max": 300,
+            "step": 4,
+            "unit": "px",
+            "label": "Image max height",
+            "default": 124
         },
         {
             "type": "paragraph",
