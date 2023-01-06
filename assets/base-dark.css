@@ -664,8 +664,7 @@ body.theme-dark-mode .header__icon {
 }
 
 body.theme-dark-mode .header__icon--menu[aria-expanded="true"]::before {
-
-  background: rgba(var(--color-foreground-dark), 0.5);
+  /* background: rgba(var(--color-foreground-dark), 0.5); */
 }
 
 /* Search */
@@ -690,6 +689,13 @@ body.theme-dark-mode .header__icon--menu .menu-drawer__drawer-close {
   border: 1px solid #FFBA03;
 }
 body.theme-dark-mode .header__icon--menu .menu-drawer__drawer-close .icon{
+  fill:#FFBA03;
+}
+body.theme-dark-mode .menu-drawer__drawer-close {
+  background-color: #000;
+  border: 1px solid #FFBA03;
+}
+body.theme-dark-mode .menu-drawer__drawer-close .icon{
   fill:#FFBA03;
 }
 
