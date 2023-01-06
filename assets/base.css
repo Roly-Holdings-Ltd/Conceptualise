@@ -2181,7 +2181,7 @@ input[type='checkbox'] {
 
 /* section-announcement-bar */
 #shopify-section-announcement-bar {
-  z-index: 4;
+  z-index: 2;
 }
 
 .announcement-bar {
@@ -2438,9 +2438,9 @@ input[type='checkbox'] {
 
 .header__icon--menu[aria-expanded="true"]::before {
   content: "";
-  top: 100%;
+  top: -100%;
   left: 0;
-  height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)));
+  height: calc(var(--viewport-height, 100vh));
   width: 100%;
   display: block;
   position: absolute;
@@ -2594,8 +2594,28 @@ details[open] .modal-overlay::after {
   border-radius: 50%;
   z-index: 9;
 }
-.header__icon--menu .menu-drawer__drawer-close .icon.icon-close {
+@media screen and (min-width:750px){
+  .header__icon--menu .menu-drawer__drawer-close {
+    display: none;
+  }
+}
 
+.menu-drawer .menu-drawer__drawer-close.menu-drawer__drawer-close--desktop {
+  height: 34px;
+  width: 34px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  border: 1px solid #FFBA03;
+  border-radius: 50%;
+  z-index: 9;
+  cursor: pointer;
+}
+@media screen and (min-width:750px){
+  .menu-drawer .menu-drawer__drawer-close.menu-drawer__drawer-close--desktop {
+    display: flex;
+  }
 }
 
 details:not([open]) > .header__icon--menu .icon-close,
@@ -2787,10 +2807,7 @@ details-disclosure > details {
 
 .overflow-hidden-mobile,
 .overflow-hidden-tablet {
-  height: 100%;
-  overflow: hidden !important;
-  width: 100%;
-  position: fixed;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 750px) {
@@ -2798,10 +2815,19 @@ details-disclosure > details {
     overflow: auto;
   }
 }
+@media screen and (max-width: 749px){
+  .overflow-hidden-mobile,
+  .overflow-hidden-tablet {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+  }
+}
 
 @media screen and (min-width: 990px) {
   .overflow-hidden-tablet {
-    overflow: auto;
+    /* overflow: auto; */
   }
 }
 
