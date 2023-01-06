@@ -287,7 +287,7 @@
             </div>
 
             {%- when 'logo-row' -%}
-            <div class="main-banner__logo-row">
+            <div id="block--{{ block.id }}" class="main-banner__logo-row">
                 {%- if block.settings.logo1 != blank -%}
                     <div class="main-banner__logo-row-logo">
                         <img
@@ -861,6 +861,16 @@
             }
         }
 
+        {%- when 'logo-row' -%}
+        #block--{{ block.id }}.main-banner__logo-row img{
+            max-height: {{ block.settings.image_max_height }}px;
+        }
+        @media (max-widt:750px){
+            #block--{{ block.id }}.main-banner__logo-row img{
+                max-height: {{ block.settings.image_max_height_desktop }}px;
+            }
+        }
+
         {%- when 'content_single_image' -%}
         #block--{{ block.id }}.main-banner__single-image{
             max-width: {{ block.settings.image_max_width }}px;
@@ -1402,6 +1412,30 @@
         "type": "logo-row",
         "name": "Logo row",
         "settings": [
+            {
+                "type": "header",
+                "content": "Style"
+            },
+            {
+                "type": "range",
+                "id": "image_max_height",
+                "min": 10,
+                "max": 200,
+                "step": 2,
+                "unit": "px",
+                "label": "Max height - mobile",
+                "default": 30
+            },
+            {
+                "type": "range",
+                "id": "image_max_height_desktop",
+                "min": 10,
+                "max": 200,
+                "step": 2,
+                "unit": "px",
+                "label": "Max height - desktop",
+                "default": 42
+            },
             {
                 "type": "header",
                 "content": "Logo 1"
