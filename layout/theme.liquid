@@ -46,48 +46,7 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/yit1qeu.css">
-
-    <style>
-      @font-face {
-          font-family: 'Aventa Regular';
-          src:url('Aventa-Italic.eot?#iefix') format('embedded-opentype'),
-              url('{{ "Aventa-Regular.woff" | asset_url }}') format('woff2'),
-              url('{{ "Aventa-Regular.woff" | asset_url }}') format('woff'),
-              url('{{ "Aventa-Regular.ttf" | asset_url }}') format('truetype');
-          font-weight: normal;
-          font-style: italic;
-      }
-      @font-face {
-        font-family: 'Aventa Light';
-        font-display: swap;
-        src: url('{{ "Aventa-Light.woff" | asset_url }}') format('woff'),
-            url('{{ "Aventa-Light.woff2" | asset_url }}') format('woff2');
-        font-weight: 400;
-        font-style: normal;
-      }
-      @font-face {
-        font-family: 'Aventa Bold';
-        font-display: swap;
-        src: url('{{ "Aventa-Bold.woff" | asset_url }}') format('woff'),
-            url('{{ "Aventa-Bold.woff2" | asset_url }}') format('woff2');
-        font-weight: bold;
-        font-style: normal;
-      }
-      @font-face {
-        font-family: 'Aventa Bold Italic';
-        font-display: swap;
-        src: url('{{ "Aventa-BoldItalic.woff" | asset_url }}') format('woff'),
-            url('{{ "Aventa-BoldItalic.woff2" | asset_url }}') format('woff2');
-        font-weight: bold;
-        font-style: italic;
-      }
-    </style>
-
-    <!-- {%- liquid
-      assign body_font_bold = 'Aventa Bold'
-      assign body_font_italic = 'Aventa Regular'
-      assign body_font_bold_italic = 'Aventa Bold Italic'
-    %} -->
+    
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
