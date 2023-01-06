@@ -15,22 +15,6 @@
         </div>
       <div class="meet-the-team__rows">
         {%- for block in section.blocks -%}
-        <style>
-          #block--{{ block.id }}.meet-the-team__row .meet-the-team__row-name{
-            font-size: {{ section.settings.name_font_size_mobile }}px;
-          }
-          #block--{{ block.id }}.meet-the-team__row .meet-the-team__row-role{
-            font-size: {{ section.settings.role_font_size_mobile }}px;
-          }
-          @media (min-width: 750px){
-            #block--{{ block.id }}.meet-the-team__row .meet-the-team__row-name{
-              font-size: {{ section.settings.name_font_size_desktop }}px;
-            }
-            #block--{{ block.id }}.meet-the-team__row .meet-the-team__row-role{
-              font-size: {{ section.settings.role_font_size_desktop }}px;
-            }
-          }
-        </style>
           <div id="block--{{ block.id }}" class="meet-the-team__row">
             {%- if block.settings.image != blank -%}
               <img src="{{ block.settings.image | img_url: '240x' }}" class="meet-the-team__image" loading="lazy" alt="{{ block.settings.image.alt }}">
@@ -49,7 +33,7 @@
 </div>
 
 
-<style>
+{%- style -%}
   #MeetTheTeam-{{ section.id }} .meet-the-team__section-heading h2{
     font-size: {{ section.settings.heading_font_size_mobile }}px;
   }
@@ -75,7 +59,24 @@
           max-width: {{ section.settings.per_row_desktop }};
       }
     }
-</style>
+
+  {%- for block in section.blocks -%}
+    #block--{{ block.id }}.meet-the-team__row .meet-the-team__row-name{
+      font-size: {{ block.settings.name_font_size_mobile }}px;
+    }
+    #block--{{ block.id }}.meet-the-team__row .meet-the-team__row-role{
+      font-size: {{ block.settings.role_font_size_mobile }}px;
+    }
+    @media (min-width: 750px){
+      #block--{{ block.id }}.meet-the-team__row .meet-the-team__row-name{
+        font-size: {{ block.settings.name_font_size_desktop }}px;
+      }
+      #block--{{ block.id }}.meet-the-team__row .meet-the-team__row-role{
+        font-size: {{ block.settings.role_font_size_desktop }}px;
+      }
+    }
+  {%- endfor -%}
+{%- endstyle -%}
 
 {% schema %}
 {
@@ -224,7 +225,7 @@
           "step": 1,
           "unit": "px",
           "label": "Name font size - Mobile",
-          "default": 22
+          "default": 18
         },
         {
           "type": "range",
@@ -234,7 +235,7 @@
           "step": 1,
           "unit": "px",
           "label": "Name font size - Desktop",
-          "default": 34
+          "default": 24
         },
         {
           "type": "text",
@@ -249,7 +250,7 @@
           "step": 1,
           "unit": "px",
           "label": "Role font size - Mobile",
-          "default": 20
+          "default": 14
         },
         {
           "type": "range",
@@ -259,7 +260,7 @@
           "step": 1,
           "unit": "px",
           "label": "Role font size - Desktop",
-          "default": 35
+          "default": 18
         }
       ]
     }
