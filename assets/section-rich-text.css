@@ -202,9 +202,11 @@ body.theme-dark-mode .rich-text .rich-text__single-image--dark{ display: block; 
   }
 }
 @media (min-width:750px) {
-  .rich-text .rich-text__image-grid .rich-text__image-grid-items{
-    padding: 15px;
+  .rich-text .rich-text__image-grid .rich-text__image-grid-items {
     gap: 0;
+  }
+  .rich-text .rich-text__image-grid .rich-text__image-grid-items .rich-text__image-grid-item{
+    padding: 15px;
   }
   .rich-text .rich-text__image-grid .rich-text__image-grid-items.desktop--two-cols .rich-text__image-grid-item{
     width: 50%;
