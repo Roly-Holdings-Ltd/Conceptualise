@@ -132,13 +132,14 @@
                     top: 50%;
                     transform: translate(-50%, -50%);
                     border-radius: 50%;
-                    filter: blur(40px);
+                    filter: blur(20px);
                     z-index: -1;
 
                     @media (min-width: 750px){
                         width: 60%;
                         height: 60%;
                         background-size: 60%;
+                        filter: blur(40px);
                     }
                 }
 
