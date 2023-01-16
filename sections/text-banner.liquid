@@ -878,24 +878,24 @@
 
         {%- when 'charts' -%}
         #block--{{ block.id }}.main-banner__charts .main-banner__chart-title p {
-            font-size: {{block.settings.heading_font_size_mobile }}px;
+            font-size: {{ block.settings.heading_font_size_mobile }}px;
         }
         #block--{{ block.id }}.main-banner__charts .main-banner__chart-number-percent .main-banner__chart-number {
-            font-size: {{block.settings.first_number_font_size_mobile }}px;
+            font-size: {{ block.settings.first_number_font_size_mobile }}px;
         }
         #block--{{ block.id }}.main-banner__charts .main-banner__chart-number-percent .main-banner__chart-percent {
-            font-size: {{block.settings.second_number_font_size_mobile }}px;
+            font-size: {{ block.settings.second_number_font_size_mobile }}px;
         }
 
         @media (min-width: 750px){
             #block--{{ block.id }}.main-banner__charts .main-banner__chart-title p {
-                font-size: {{block.settings.heading_font_size_desktop }}px;
+                font-size: {{ block.settings.heading_font_size_desktop }}px;
             }
             #block--{{ block.id }}.main-banner__charts .main-banner__chart-number-percent .main-banner__chart-number {
-                font-size: {{block.settings.first_number_font_size_desktop }}px;
+                font-size: { {block.settings.first_number_font_size_desktop }}px;
             }
             #block--{{ block.id }}.main-banner__charts .main-banner__chart-number-percent .main-banner__chart-percent {
-                font-size: {{block.settings.second_number_font_size_desktop }}px;
+                font-size: {{ block.settings.second_number_font_size_desktop }}px;
             }
         }
 
