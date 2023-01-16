@@ -1,0 +1,329 @@
+{{ 'section-numbered-rich-text-rows.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    #Section--{{ section.id }} {
+        background-color: {{ section.settings.background_color_light }};
+    }
+    body.theme-dark-mode#Section--{{ section.id }}{
+        background-color: {{ section.settings.background_color_dark }};
+    }
+    .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+    #Section--{{ section.id }} .numbered-rich-text-rows__row {
+        border-color: {{ section.settings.section_heading_color_light }};
+    }
+    body.theme-dark-mode #Section--{{ section.id }} .numbered-rich-text-rows__row {
+        border-color: {{ section.settings.section_heading_color_dark }};
+    }
+
+    #Section--{{ section.id }} .section-heading h2 {
+        font-size: {{ section.settings.heading_font_size_mobile }}px;
+        color: {{ section.settings.section_heading_color_light }};
+    }
+    
+    body.theme-dark-mode #Section--{{ section.id }} .section-heading h2 {
+        color: {{ section.settings.section_heading_color_dark }};
+    }
+    
+    #Section--{{ section.id }} .numbered-rich-text-rows__row .numbered-rich-text-rows__row-number{
+        font-size: {{ section.settings.row_number_font_size_mobile }}px;
+        color: {{ section.settings.row_number_color_light }};
+    }
+    body.theme-dark-mode #Section--{{ section.id }} .numbered-rich-text-rows__row .numbered-rich-text-rows__row-number{
+        color: {{ section.settings.row_number_color_dark }};
+    }
+
+    #Section--{{ section.id }} .numbered-rich-text-rows__row .numbered-rich-text-rows__row-heading{
+        font-size: {{ section.settings.row_heading_font_size_mobile }}px;
+        color: {{ section.settings.row_heading_color_light }};
+    }
+    body.theme-dark-mode #Section--{{ section.id }} .numbered-rich-text-rows__row .numbered-rich-text-rows__row-heading{
+        color: {{ section.settings.row_heading_color_dark }};
+    }
+    #Section--{{ section.id }} .numbered-rich-text-rows__row .numbered-rich-text-rows__row-text{
+        font-size: {{ section.settings.row_text_font_size_mobile }}px;
+        color: {{ section.settings.row_text_color_light }};
+    }
+    body.theme-dark-mode #Section--{{ section.id }} .numbered-rich-text-rows__row .numbered-rich-text-rows__row-text{
+        color: {{ section.settings.row_text_color_dark }};
+    }
+
+    @media screen and (min-width: 750px) {
+        .section-{{ section.id }}-padding {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+        
+        #Section--{{ section.id }} .section-heading h2{
+            font-size: {{ section.settings.heading_font_size_desktop }}px;
+        }
+        #Section--{{ section.id }} .numbered-rich-text-rows__row .numbered-rich-text-rows__row-number{
+            font-size: {{ section.settings.row_number_font_size_desktop }}px;
+        }
+        #Section--{{ section.id }} .numbered-rich-text-rows__row .numbered-rich-text-rows__row-heading{
+            font-size: {{ section.settings.row_heading_font_size_desktop }}px;
+        }
+        #Section--{{ section.id }} .numbered-rich-text-rows__row .numbered-rich-text-rows__row-text{
+            font-size: {{ section.settings.row_text_font_size_desktop }}px;
+        }
+    }
+{%- endstyle -%}
+
+<div id="Section--{{ section.id }}" class="numbered-rich-text-rows {% unless section.settings.full_width_section %}page-width{% endunless %} section-{{ section.id }}-padding">
+    
+    {%- if section.settings.section_heading != blank -%}
+    <div class="section-heading">
+        <h2 class="rte">{{ section.settings.section_heading | replace: 'p>', 'span>' }}</h2>
+    </div>
+    {%- endif -%}
+
+    <div class="numbered-rich-text-rows__rows">
+        {%- for block in section.blocks -%}
+            <div class="numbered-rich-text-rows__row">
+                <div class="numbered-rich-text-rows__row-number">
+                    <p>{{ block.settings.row_number }}</p>
+                </div>
+                <div class="numbered-rich-text-rows__row-content">
+                    <h2 class="numbered-rich-text-rows__row-heading rte">
+                        {{ block.settings.row_heading | replace: 'p>', 'span>' }}
+                    </h2>
+                    <div id="block--{{ block.id }}" class="numbered-rich-text-rows__row-text rte">
+                        {{ block.settings.row_text }}
+                    </div>
+                </div>
+            </div>
+        {%- endfor -%}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Numbered rich text rows",
+  "class": "section",
+  "settings": [
+    {
+        "type": "checkbox",
+        "id": "full_width_section",
+        "label": "Make full width?",
+        "default": true
+    },
+    {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Section heading"
+    },
+    {
+        "type": "header",
+        "content": "Section padding"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
+    },
+    {
+        "type": "header",
+        "content": "Styles"
+    },
+    {
+        "type": "color",
+        "id": "background_color_light",
+        "label": "Background colour - light"
+    },
+    {
+        "type": "color",
+        "id": "background_color_dark",
+        "label": "Background colour - dark"
+    },
+    {
+        "type": "header",
+        "content": "Section heading"
+    },
+    {
+        "type": "color",
+        "id": "section_heading_color_light",
+        "label": "Section heading colour - light",
+        "default": "#FFFFFF"
+    },
+    {
+        "type": "color",
+        "id": "section_heading_color_dark",
+        "label": "Section heading colour - dark",
+        "default": "#FFFFFF"
+    },
+    {
+        "type": "range",
+        "id": "heading_font_size_mobile",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading font size - Mobile",
+        "default": 32
+    },
+    {
+        "type": "range",
+        "id": "heading_font_size_desktop",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading font size - Desktop",
+        "default": 42
+    },
+    {
+        "type": "header",
+        "content": "Row number"
+    },
+    {
+        "type": "color",
+        "id": "row_number_color_light",
+        "label": "Row number colour - light",
+        "default": "#1C1C1C"
+    },
+    {
+        "type": "color",
+        "id": "row_number_color_dark",
+        "label": "Row number colour - dark",
+        "default": "#1C1C1C"
+    },
+    {
+        "type": "range",
+        "id": "row_number_font_size_mobile",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Row number font size - Mobile",
+        "default": 60
+      },
+      {
+        "type": "range",
+        "id": "row_number_font_size_desktop",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Row number font size - Desktop",
+        "default": 80
+      },
+      {
+        "type": "header",
+        "content": "Row Heading"
+    },
+    {
+        "type": "color",
+        "id": "row_heading_color_light",
+        "label": "Row heading colour - light",
+        "default": "#1C1C1C"
+    },
+    {
+        "type": "color",
+        "id": "row_heading_color_dark",
+        "label": "Row heading colour - dark",
+        "default": "#1C1C1C"
+    },
+    {
+        "type": "range",
+        "id": "row_heading_font_size_mobile",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Row heading font size - Mobile",
+        "default": 26
+      },
+      {
+        "type": "range",
+        "id": "row_heading_font_size_desktop",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Row heading font size - Desktop",
+        "default": 36
+      },
+      {
+        "type": "header",
+        "content": "Row text"
+    },
+    {
+        "type": "color",
+        "id": "row_text_color_light",
+        "label": "Row text colour - light",
+        "default": "#1C1C1C"
+    },
+    {
+        "type": "color",
+        "id": "row_text_color_dark",
+        "label": "Row text colour - dark",
+        "default": "#1C1C1C"
+    },
+    {
+        "type": "range",
+        "id": "row_text_font_size_mobile",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Row text font size - Mobile",
+        "default": 14
+      },
+      {
+        "type": "range",
+        "id": "row_text_font_size_desktop",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Row text font size - Desktop",
+        "default": 16
+      }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        {
+            "type": "text",
+            "id": "row_number",
+            "label": "Row number"
+        },
+        {
+            "type": "text",
+            "id": "row_heading",
+            "label": "Row heading"
+        },
+        {
+            "type": "richtext",
+            "id": "row_text",
+            "label": "Row text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Numbered rich text rows"
+    }
+  ]
+}
+{% endschema %}
