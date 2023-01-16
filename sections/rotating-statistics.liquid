@@ -1,0 +1,226 @@
+{{ 'section-rotating-statistics.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+{%- endstyle -%}
+
+<div id="Section--{{ section.id }}" class="rotating-statistics {% unless section.settings.full_width_section %}page-width{% endunless %} section-{{ section.id }}-padding">
+    <div class="rotating-statistics__scroller">
+        {%- for block in section.blocks -%}
+            {%- if block.settings.statistic_heading != blank -%}
+                <div class="rotating-statistics__statistic">
+                    {%- if block.settings.statistic_subheading != blank -%}
+                        <p class="rotating-statistics__statistic-subheading">{{ block.settings.statistic_subheading }}</p>
+                    {%- endif -%}
+                    <p class="rotating-statistics__statistic-heading">{{ block.settings.statistic_heading }}</p>
+                </div>
+            {%- endif -%}
+        {%- endfor -%}
+        {%- for block in section.blocks -%}
+            {%- if block.settings.statistic_heading != blank -%}
+                <div class="rotating-statistics__statistic">
+                    {%- if block.settings.statistic_subheading != blank -%}
+                        <p class="rotating-statistics__statistic-subheading">{{ block.settings.statistic_subheading }}</p>
+                    {%- endif -%}
+                    <p class="rotating-statistics__statistic-heading">{{ block.settings.statistic_heading }}</p>
+                </div>
+            {%- endif -%}
+        {%- endfor -%}
+        {%- for block in section.blocks -%}
+            {%- if block.settings.statistic_heading != blank -%}
+                <div class="rotating-statistics__statistic">
+                    {%- if block.settings.statistic_subheading != blank -%}
+                        <p class="rotating-statistics__statistic-subheading">{{ block.settings.statistic_subheading }}</p>
+                    {%- endif -%}
+                    <p class="rotating-statistics__statistic-heading">{{ block.settings.statistic_heading }}</p>
+                </div>
+            {%- endif -%}
+        {%- endfor -%}
+        {%- for block in section.blocks -%}
+            {%- if block.settings.statistic_heading != blank -%}
+                <div class="rotating-statistics__statistic">
+                    {%- if block.settings.statistic_subheading != blank -%}
+                        <p class="rotating-statistics__statistic-subheading">{{ block.settings.statistic_subheading }}</p>
+                    {%- endif -%}
+                    <p class="rotating-statistics__statistic-heading">{{ block.settings.statistic_heading }}</p>
+                </div>
+            {%- endif -%}
+        {%- endfor -%}
+    </div>
+</div>
+
+{%- style -%}
+#Section--{{ section.id }}.rotating-statistics .rotating-statistics__statistic-heading {
+    font-size: {{ section.settings.heading_font_size_mobile }}px;
+    color: {{ block.settings.heading_color_light }};
+}
+#Section--{{ section.id }}.rotating-statistics .rotating-statistics__statistic-subheading {
+    font-size: {{ section.settings.subheading_font_size_mobile }}px;
+    color: {{ block.settings.subheading_color_light }};
+}
+
+body.theme-dark-mode #Section--{{ section.id }}.rotating-statistics .rotating-statistics__statistic-heading {
+    color: {{ block.settings.heading_color_dark }};
+}
+body.theme-dark-mode #Section--{{ section.id }}.rotating-statistics .rotating-statistics__statistic-subheading {
+    color: {{ block.settings.subheading_color_dark }};
+}
+
+@media (min-width: 750px){
+    #Section--{{ section.id }}.rotating-statistics .rotating-statistics__statistic-subheading {
+        font-size: {{ section.settings.heading_font_size_desktop }}px;
+    }
+    #Section--{{ section.id }}.rotating-statistics .rotating-statistics__statistic-subheading {
+        font-size: {{ section.settings.subheading_font_size_desktop }}px;
+    }
+}
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Rotating statistics",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width_section",
+      "label": "Make full width?",
+      "default": true
+    },
+    {
+        "type": "header",
+        "content": "Section padding"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
+    },
+    {
+        "type": "header",
+        "content": "Styles"
+    },
+    {
+        "type": "header",
+        "content": "Heading"
+    },
+    {
+        "type": "range",
+        "id": "heading_font_size_mobile",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading font size - mobile",
+        "default": 28
+    },
+    {
+        "type": "range",
+        "id": "heading_font_size_desktop",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading Font size - desktop",
+        "default": 68
+    },
+    {
+        "type": "color",
+        "id": "heading_color_light",
+        "label": "Heading colour - light",
+        "default": "#000000"
+    },
+    {
+        "type": "color",
+        "id": "heading_color_dark",
+        "label": "Heading colour - dark",
+        "default": "#FFFFFF"
+    },
+    {
+        "type": "header",
+        "content": "Subheading"
+    },
+    {
+        "type": "range",
+        "id": "subheading_font_size_mobile",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Subheading font size - mobile",
+        "default": 12
+    },
+    {
+        "type": "range",
+        "id": "subheading_font_size_desktop",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Subheading Font size - desktop",
+        "default": 14
+    },
+    {
+        "type": "color",
+        "id": "subheading_color_light",
+        "label": "Subheading colour - light",
+        "default": "#000000"
+    },
+    {
+        "type": "color",
+        "id": "subheading_color_dark",
+        "label": "Subheading colour - dark",
+        "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "statistic",
+      "name": "Statistic",
+      "settings": [
+        {
+            "type": "text",
+            "id": "statistic_subheading",
+            "label": "Subheading"
+        },
+        {
+            "type": "text",
+            "id": "statistic_heading",
+            "label": "Heading"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rotating statistics"
+    }
+  ]
+}
+{% endschema %}
