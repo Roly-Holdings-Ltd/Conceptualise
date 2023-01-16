@@ -1,0 +1,76 @@
+.rich-text-row {
+    @media (max-width: 749px) {
+    max-width: unset;        
+    padding-right: 0;
+    padding-left: 0;
+    }
+    .rich-text-row__slider {
+
+        @media (max-width: 1023px){
+            padding-top: 3rem;
+        }
+        
+        @media (min-width:750px) {
+            row-gap: calc(var(--grid-desktop-vertical-spacing) * 3);
+            column-gap: calc(var(--grid-desktop-vertical-spacing) * 3);
+        }
+        
+        &.desktop--2-cols{
+            .grid__item{
+                @media (min-width: 750px){
+                    width: calc(50% - (var(--grid-desktop-vertical-spacing) * 3) / 2);
+                    max-width: calc(50% - (var(--grid-desktop-vertical-spacing) * 3) / 2);
+                }
+            }
+        }
+        &.desktop--3-cols{
+            .grid__item{
+                @media (min-width: 750px){
+                    width: calc(33.33% - (var(--grid-desktop-vertical-spacing) * 3) * 2 / 3);
+                    max-width: calc(33.33% - (var(--grid-desktop-vertical-spacing) * 3) * 2 / 3);
+                }
+            }
+        }
+        &.desktop--4-cols{
+            .grid__item{
+                @media (min-width: 750px){
+                    width: calc(25% - (var(--grid-desktop-vertical-spacing) * 3) * 3 / 4);
+                    max-width: calc(50% - (var(--grid-desktop-vertical-spacing) * 3) / 2);
+                }
+            }
+        }
+        &.desktop--5-cols{
+            .grid__item{
+                @media (min-width: 750px){
+                    width: calc(20% - (var(--grid-desktop-vertical-spacing) * 3) * 4 / 5);
+                    max-width: calc(20% - (var(--grid-desktop-vertical-spacing) * 3) * 4 / 5);
+                }
+            }
+        }
+        .rich-text-row__slide {
+            padding: 20px 15px;
+            text-align: center;
+            border-radius: 3rem;
+            box-shadow: 0 0 10px 0px #ffba03;
+
+            @media (min-width:750px){
+                padding: 30px 20px;
+            }
+
+            @media (max-width: 749px){
+                width: calc(40% - var(--grid-mobile-horizontal-spacing) - 3rem);
+                min-width: 30%;
+            }
+            .rich-text-row__heading{
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+            
+            .rich-text-row__content{
+                p{
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
