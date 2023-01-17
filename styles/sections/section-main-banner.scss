@@ -23,22 +23,48 @@
                 &.main-banner__content-info-row--top-reduced{ margin-top: 0;}
                 &.main-banner__content-info-row--top-normal{ margin-top: 8px;}
                 &.main-banner__content-info-row--top-increased{ margin-top: 25px;}
+                &.main-banner__content-info-row--top-increased-extra{ margin-top: 35px;}
                 &.main-banner__content-info-row--bottom-reduced{ margin-bottom: 0;}
                 &.main-banner__content-info-row--bottom-normal{ margin-bottom: 8px;}
                 &.main-banner__content-info-row--bottom-increased{ margin-bottom: 25px;}
+                &.main-banner__content-info-row--bottom-increased-extra{ margin-bottom: 35px;}
 
                 @media (min-width: 990px){
                     // text-align: left;
                     
                 }
             }
-            h1{
-                margin: 0;
-                font-weight: 700;
-                line-height: 117%;
+            .main-banner__heading{
 
-                @media (min-width: 750px){
-                    line-height: 111%
+
+                &.main-banner__heading--background-glow{
+                    position: relative;
+
+                    &:after{
+                        content: '';
+                        // background: linear-gradient(180deg, #000000 0%, #FFBA03 100%);
+                        background: #FFBA03;
+                        width: 10%;
+                        height: 75%;
+                        background-repeat: no-repeat;
+                        background-size: 100%;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        border-radius: 50%;
+                        filter: blur(20px);
+                        z-index: -1;
+                    }
+                }
+                h1{
+                    margin: 0;
+                    font-weight: 700;
+                    line-height: 117%;
+    
+                    @media (min-width: 750px){
+                        line-height: 111%
+                    }
                 }
             }
             p{
