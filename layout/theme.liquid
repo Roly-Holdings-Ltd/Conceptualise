@@ -46,6 +46,17 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/yit1qeu.css">
+
+    <style>
+      @font-face {
+          font-family: 'BadaBoom';
+          font-display: swap;
+          src: url('{{ "BadaBoom_BB.woff" | asset_url }}') format('woff'),
+          url('{{ "BadaBoom_BB.ttf" | asset_url }}') format('ttf');
+          font-weight: normal;
+          font-style: normal;
+      }
+    </style>
     
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
