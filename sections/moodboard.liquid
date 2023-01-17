@@ -1,0 +1,392 @@
+{{ 'section-moodboard.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  .section-{{ section.id }}-padding .moodboard__wrap{
+    margin-top: -{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    margin-bottom: -{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .section-{{ section.id }}-padding .moodboard__wrap{
+      margin-top: -{{ section.settings.padding_top }}px;
+      margin-bottom: -{{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #Section--{{ section.id }} .section-heading h2{
+    font-size: {{ section.settings.heading_font_size_mobile }}px;
+    color: {{ section.settings.section_heading_color_light }};
+    background-color: {{ section.settings.section_heading_background_color_light }};
+    box-shadow: -15px -15px 0px {{ section.settings.section_heading_background_color_light }};
+    border-color: {{ section.settings.section_heading_color_light }};
+  }
+
+  body.theme-dark-mode #Section--{{ section.id }} .section-heading h2{
+      color: {{ section.settings.section_heading_color_dark }};
+      background-color: {{ section.settings.section_heading_background_color_dark }};
+      box-shadow: -15px -15px 0px {{ section.settings.section_heading_background_color_dark }};
+      border-color: {{ section.settings.section_heading_color_dark }};
+  }
+
+  @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+      
+      #Section--{{ section.id }} .section-heading h2{
+          font-size: {{ section.settings.heading_font_size_desktop }}px;
+      }
+  }
+
+  #Section--{{ section.id }} .moodboard__wrap {
+    background-color: {{ section.settings.section_background_color }}
+  }
+  {%- if section.settings.section_background_image != blank -%}
+    #Section--{{ section.id }} .moodboard--background-image {
+      background-image: url("{{ section.settings.section_background_image | img_url: '1200x' }}");
+    }
+  {%- endif -%}
+
+
+  {% if section.settings.enable_image_max_height %}
+  #Section--{{ section.id }} .moodboard__gird-item{
+    max-height: {{ section.settings.image_max_height_mobile }}px;
+  }
+  @media (min-width:750px){
+    #Section--{{ section.id }} .moodboard__gird-item{
+      max-height: {{ section.settings.image_max_height_desktop }}px;
+    }
+  }
+  {% endif %}
+  #Section--{{ section.id }} .moodboard__gird-item img{
+    object-fit: {{ section.settings.image_fit }};
+    {% unless section.settings.image_fit == 'unset' %}
+    height:100%;
+    {% endunless %}
+  }
+  {%- for block in section.blocks -%}
+    #Block--{{ block.id }}.moodboard__gird-item{
+      width: calc({{ block.settings.image_width_mobile }}% - 20px);
+      max-width: {{ block.settings.image_width_mobile }}%;
+    }
+    @media (min-width:750px){
+      #Block--{{ block.id }}.moodboard__gird-item{
+        width: calc({{ block.settings.image_width_desktop }}% - 30px);
+        max-width: {{ block.settings.image_width_desktop }}%;
+      }
+    }
+  {%- endfor -%}
+{%- endstyle -%}
+
+<div id="Section--{{ section.id }}" class="moodboard {% unless section.settings.full_width_section %}page-width{% endunless %} section-{{ section.id }}-padding">
+  <div class="moodboard__wrap{% if section.settings.section_background_image != blank %} moodboard--background-image{% endif %}">
+    {%- if section.settings.section_heading != blank -%}
+      <div class="section-heading {% if section.settings.section_heading_alt_font %}section-heading--alt-font{% endif %}">
+          <h2 class="rte">{{ section.settings.section_heading | replace: 'p>', 'span>' }}</h2>
+      </div>
+    {%- endif -%}
+  
+      <div class="moodboard__grid grid">
+        {%- for block in section.blocks -%}
+          <div id="Block--{{ block.id }}" class="moodboard__gird-item grid__item">
+            {%- if block.settings.moodboard_image_url != blank -%}
+              <a href="{{ block.settings.moodboard_image_url }}">
+            {%- endif -%}
+                {%- if block.settings.moodboard_image != blank -%}
+                  <img
+                  srcset="{%- if block.settings.moodboard_image.width >= 550 -%}{{ block.settings.moodboard_image | image_url: width: 550 }} 550w,{%- endif -%}
+                  {%- if block.settings.moodboard_image.width >= 720 -%}{{ block.settings.moodboard_image | image_url: width: 720 }} 720w,{%- endif -%}
+                  {%- if block.settings.moodboard_image.width >= 990 -%}{{ block.settings.moodboard_image | image_url: width: 990 }} 990w,{%- endif -%}
+                  {%- if block.settings.moodboard_image.width >= 1100 -%}{{ block.settings.moodboard_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                  {{ block.settings.moodboard_image | image_url }} {{ block.settings.moodboard_image.width }}w"
+                  src="{{ block.settings.moodboard_image | image_url: width: 1500 }}"
+                  sizes="(min-width: {{ settings.page_width }}px) {% if section.blocks.size == 1 %}calc({{ settings.page_width }}px - 100px){% else %}{{ settings.page_width | minus: 100 | times: 0.67 | round }}px{% endif %}, (min-width: 750px){% if section.blocks.size == 1 %} calc(100vw - 100px){% else %} 500px{% endif %}, calc(100vw - 30px)"
+                  alt="{{ block.settings.moodboard_image.alt | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.moodboard_image.width }}"
+                  height="{{ block.settings.moodboard_image.height }}"
+                  class="moodboard__image"
+                >    
+              {%- endif -%}
+            {%- if block.settings.moodboard_image_url != blank -%}
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Moodboard",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width_section",
+      "label": "Make full width?",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "section_background_image",
+      "label": "Section background image"
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Section background colour"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_heading_alt_font",
+      "label": "Use alt font family?",
+      "default": true
+    },
+    {
+        "type": "header",
+        "content": "Section padding"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
+    },
+    {
+        "type": "header",
+        "content": "Styles"
+    },
+    {
+      "type": "color",
+      "id": "section_heading_color_light",
+      "label": "Section heading colour - light",
+      "default": "#000000"
+  },
+  {
+      "type": "color",
+      "id": "section_heading_color_dark",
+      "label": "Section heading colour - dark",
+      "default": "#000000"
+  },
+  {
+    "type": "color",
+    "id": "section_heading_background_color_light",
+    "label": "Section heading background colour - light",
+    "default": "#FFFFFF"
+  },
+  {
+    "type": "color",
+    "id": "section_heading_background_color_dark",
+    "label": "Section heading background colour - dark",
+    "default": "#FFFFFF"
+  },
+  {
+      "type": "range",
+      "id": "heading_font_size_mobile",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading font size - Mobile",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_desktop",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading font size - Desktop",
+      "default": 42
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_image_max_height",
+      "label": "Set a max image height?",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "image_max_height_mobile",
+      "min": 100,
+      "max": 400,
+      "step": 5,
+      "unit": "px",
+      "label": "Image max height - mobile",
+      "default": 180
+    },
+    {
+      "type": "range",
+      "id": "image_max_height_desktop",
+      "min": 100,
+      "max": 400,
+      "step": 5,
+      "unit": "px",
+      "label": "Image max height - desktop",
+      "default": 240
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+          {
+              "label": "Contain",
+              "value": "contain"
+          },
+          {
+              "label": "Cover",
+              "value": "cover"
+          },
+          {
+              "label": "None",
+              "value": "unset"
+          }
+      ],
+      "default": "cover"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "moodboard_image",
+          "label": "moodboard image"
+        },
+        {
+            "type": "url",
+            "id": "moodboard_image_url",
+            "label": "moodboard image URL"
+        },
+        {
+          "type": "select",
+          "id": "image_width_mobile",
+          "label": "Image width - mobile",
+          "options": [
+              {
+                  "label": "20%",
+                  "value": "20"
+              },
+              {
+                  "label": "25%",
+                  "value": "25"
+              },
+              {
+                  "label": "33.3334%",
+                  "value": "33.3334"
+              },
+              {
+                  "label": "50%",
+                  "value": "50"
+              },
+              {
+                  "label": "66.6667%",
+                  "value": "66.6667"
+              },
+              {
+                  "label": "75%",
+                  "value": "75"
+              },
+              {
+                  "label": "80%",
+                  "value": "80"
+              },
+              {
+                  "label": "100%",
+                  "value": "100"
+              }
+          ],
+          "default": "50"
+        },
+        {
+          "type": "select",
+          "id": "image_width_desktop",
+          "label": "Image width - desktop",
+          "options": [
+              {
+                  "label": "20%",
+                  "value": "20"
+              },
+              {
+                  "label": "25%",
+                  "value": "25"
+              },
+              {
+                  "label": "33.3334%",
+                  "value": "33.3334"
+              },
+              {
+                  "label": "50%",
+                  "value": "50"
+              },
+              {
+                  "label": "66.6667%",
+                  "value": "66.6667"
+              },
+              {
+                  "label": "75%",
+                  "value": "75"
+              },
+              {
+                  "label": "80%",
+                  "value": "80"
+              },
+              {
+                  "label": "100%",
+                  "value": "100"
+              }
+          ],
+          "default": "33.3334"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Moodboard"
+    }
+  ]
+}
+{% endschema %}
