@@ -10,7 +10,7 @@
                 <p>{{ block.settings.content_text }}</p>
             </div>
             {%- when 'content_text_heading' -%}          
-            <div id="block--{{ block.id }}" class="main-banner__content-info-row main-banner__content-info-row--top-{{block.settings.top_spacing}} main-banner__content-info-row--bottom-{{block.settings.bottom_spacing}}">
+            <div id="block--{{ block.id }}" class="main-banner__heading main-banner__content-info-row main-banner__content-info-row--top-{{ block.settings.top_spacing }} main-banner__content-info-row--bottom-{{ block.settings.bottom_spacing }} {% if block.settings.add_background_glow %}main-banner__heading--background-glow{% endif %}">
                 {%- if block.settings.image != blank and block.settings.image_position == 'before' -%}
                     <!-- <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.image.alt }}"> -->
                 {%- endif -%}
@@ -944,6 +944,12 @@
         },
         {
             "type": "checkbox",
+            "id": "add_background_glow",
+            "label": "Add background glow to the heading?",
+            "default": false
+        },
+        {
+            "type": "checkbox",
             "id": "use_custom_text_color",
             "label": "Use custom text colours",
             "default": false
@@ -976,6 +982,10 @@
                 {
                     "label": "Increased",
                     "value": "increased"
+                },
+                {
+                    "label": "Increased extra",
+                    "value": "increased-extra"
                 }
             ],
             "default": "normal"
@@ -996,6 +1006,10 @@
                 {
                     "label": "Increased",
                     "value": "increased"
+                },
+                {
+                    "label": "Increased extra",
+                    "value": "increased-extra"
                 }
             ],
             "default": "normal"
