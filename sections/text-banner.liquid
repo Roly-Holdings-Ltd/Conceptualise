@@ -10,7 +10,7 @@
                 <p>{{ block.settings.content_text }}</p>
             </div>
             {%- when 'content_text_heading' -%}          
-            <div id="block--{{ block.id }}" class="main-banner__heading main-banner__content-info-row main-banner__content-info-row--top-{{ block.settings.top_spacing }} main-banner__content-info-row--bottom-{{ block.settings.bottom_spacing }} {% if block.settings.add_background_glow %}main-banner__heading--background-glow{% endif %}">
+            <div id="block--{{ block.id }}" class="main-banner__heading main-banner__content-info-row main-banner__content-info-row--top-{{ block.settings.top_spacing }} main-banner__content-info-row--bottom-{{ block.settings.bottom_spacing }} {% if block.settings.add_background_glow %}main-banner__heading--background-glow{% endif %} {% unless block.settings.on_load_animation == 'none' %} js-animate {{ block.settings.on_load_animation }}{% endunless %}">
                 {%- if block.settings.image != blank and block.settings.image_position == 'before' -%}
                     <!-- <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.image.alt }}"> -->
                 {%- endif -%}
@@ -25,7 +25,7 @@
             </div>
 
             {%- when 'statistics' -%}
-            <div id="block--{{ block.id }}" class="main-banner__statistics">
+            <div id="block--{{ block.id }}" class="main-banner__statistics {% if block.settings.enable_scrolling_statistics %}main-banner__statistics-scroll-enabled {% else %}main-banner__statistics-no-scroll{% endif %}">
                 <div id="block--{{ block.id }}" class="main-banner__statistics-scroller">
                     {%- if block.settings.statistic_1_heading != blank -%}
                         <div class="main-banner__statistic">
@@ -91,197 +91,200 @@
                             <p class="main-banner__statistic-heading">{{ block.settings.statistic_8_heading }}</p>
                         </div>
                     {%- endif -%}
-                    {%- if block.settings.statistic_1_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_1_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_1_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_1_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_2_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_2_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_2_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_2_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_3_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_3_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_3_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_3_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_4_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_4_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_4_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_4_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_5_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_5_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_5_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_5_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_6_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_6_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_6_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_6_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_7_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_7_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_7_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_7_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_8_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_8_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_8_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_8_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_1_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_1_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_1_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_1_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_2_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_2_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_2_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_2_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_3_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_3_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_3_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_3_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_4_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_4_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_4_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_4_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_5_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_5_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_5_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_5_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_6_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_6_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_6_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_6_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_7_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_7_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_7_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_7_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_8_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_8_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_8_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_8_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_1_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_1_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_1_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_1_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_2_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_2_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_2_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_2_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_3_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_3_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_3_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_3_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_4_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_4_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_4_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_4_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_5_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_5_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_5_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_5_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_6_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_6_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_6_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_6_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_7_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_7_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_7_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_7_heading }}</p>
-                        </div>
-                    {%- endif -%}
-                    {%- if block.settings.statistic_8_heading != blank -%}
-                        <div class="main-banner__statistic">
-                            {%- if block.settings.statistic_8_subheading != blank -%}
-                                <p class="main-banner__statistic-subheading">{{ block.settings.statistic_8_subheading }}</p>
-                            {%- endif -%}
-                            <p class="main-banner__statistic-heading">{{ block.settings.statistic_8_heading }}</p>
-                        </div>
+
+                    {%- if block.settings.enable_scrolling_statistics -%}
+                        {%- if block.settings.statistic_1_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_1_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_1_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_1_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_2_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_2_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_2_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_2_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_3_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_3_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_3_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_3_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_4_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_4_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_4_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_4_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_5_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_5_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_5_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_5_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_6_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_6_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_6_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_6_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_7_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_7_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_7_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_7_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_8_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_8_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_8_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_8_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_1_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_1_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_1_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_1_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_2_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_2_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_2_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_2_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_3_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_3_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_3_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_3_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_4_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_4_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_4_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_4_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_5_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_5_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_5_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_5_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_6_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_6_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_6_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_6_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_7_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_7_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_7_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_7_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_8_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_8_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_8_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_8_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_1_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_1_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_1_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_1_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_2_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_2_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_2_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_2_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_3_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_3_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_3_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_3_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_4_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_4_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_4_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_4_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_5_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_5_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_5_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_5_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_6_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_6_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_6_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_6_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_7_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_7_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_7_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_7_heading }}</p>
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.statistic_8_heading != blank -%}
+                            <div class="main-banner__statistic">
+                                {%- if block.settings.statistic_8_subheading != blank -%}
+                                    <p class="main-banner__statistic-subheading">{{ block.settings.statistic_8_subheading }}</p>
+                                {%- endif -%}
+                                <p class="main-banner__statistic-heading">{{ block.settings.statistic_8_heading }}</p>
+                            </div>
+                        {%- endif -%}
                     {%- endif -%}
                 </div>
             </div>
@@ -1015,6 +1018,139 @@
             "default": "normal"
         },
         {
+            "type": "select",
+            "id": "on_load_animation",
+            "label": "Add an animation",
+            "info": "This will animate the content on load or when the element comes into view",
+            "options": [
+                {
+                    "label": "None",
+                    "value": "none"
+                },
+                {
+                    "label": "Fade top",
+                    "value": "js-animate__fade--top"
+                },
+                {
+                    "label": "Fade bottom",
+                    "value": "js-animate__fade--bottom"
+                },
+                {
+                    "label": "Fade left",
+                    "value": "js-animate__fade--left"
+                },
+                {
+                    "label": "Fade right",
+                    "value": "js-animate__fade--right"
+                },
+                {
+                    "label": "Scale forward",
+                    "value": "js-animate__scale--forward"
+                },
+                {
+                    "label": "Scale backwards",
+                    "value": "js-animate__scale--backwards"
+                },
+                {
+                    "label": "Swirl forward centre",
+                    "value": "js-animate__swirl-forward--center"
+                },
+                {
+                    "label": "Swirl forward top",
+                    "value": "js-animate__swirl-forward--top"
+                },
+                {
+                    "label": "Swirl forward bottom",
+                    "value": "js-animate__swirl-forward--bottom"
+                },
+                {
+                    "label": "Swirl forward left",
+                    "value": "js-animate__swirl-forward--left"
+                },
+                {
+                    "label": "Swirl forward right",
+                    "value": "js-animate__swirl-forward--right"
+                },
+                {
+                    "label": "Swirl backwards centre",
+                    "value": "js-animate__swirl-backwards--center"
+                },
+                {
+                    "label": "Swirl backwards top",
+                    "value": "js-animate__swirl-backwards--top"
+                },
+                {
+                    "label": "Swirl backwards bottom",
+                    "value": "js-animate__swirl-backwards--bottom"
+                },
+                {
+                    "label": "Swirl backwards left",
+                    "value": "js-animate__swirl-backwards--left"
+                },
+                {
+                    "label": "Swirl backwards right",
+                    "value": "js-animate__swirl-backwards--right"
+                },
+                {
+                    "label": "Slide top",
+                    "value": "js-animate__slide--top"
+                },
+                {
+                    "label": "Slide bottom",
+                    "value": "js-animate__slide--bottom"
+                },
+                {
+                    "label": "Slide left",
+                    "value": "js-animate__slide--left"
+                },
+                {
+                    "label": "Slide right",
+                    "value": "js-animate__slide--right"
+                },
+                {
+                    "label": "Bounce top",
+                    "value": "js-animate__bounce--top"
+                },
+                {
+                    "label": "Bounce bottom",
+                    "value": "js-animate__bounce--bottom"
+                },
+                {
+                    "label": "Bounce left",
+                    "value": "js-animate__bounce--left"
+                },
+                {
+                    "label": "Bounce right",
+                    "value": "js-animate__bounce--right"
+                },
+                {
+                    "label": "Bounce backward",
+                    "value": "js-animate__bounce--backward"
+                },
+                {
+                    "label": "Bounce forward",
+                    "value": "js-animate__bounce--forward"
+                },
+                {
+                    "label": "Roll top",
+                    "value": "js-animate__roll--top"
+                },
+                {
+                    "label": "Roll bottom",
+                    "value": "js-animate__roll--bottom"
+                },
+                {
+                    "label": "Roll left",
+                    "value": "js-animate__roll--left"
+                },
+                {
+                    "label": "Roll right",
+                    "value": "js-animate__roll--right"
+                }
+            ],
+            "default": "none"
+        },
+        {
             "type": "image_picker",
             "id": "image",
             "label": "Image"
@@ -1268,6 +1404,12 @@
         "type": "statistics",
         "name": "Statistics",
         "settings": [
+            {
+                "type": "checkbox",
+                "id": "enable_scrolling_statistics",
+                "label": "Scoll statistics across the page?",
+                "default": false
+            },
             {
                 "type": "header",
                 "content": "Statistic 1"
