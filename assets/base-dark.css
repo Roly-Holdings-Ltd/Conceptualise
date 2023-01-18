@@ -813,3 +813,7 @@ body.theme-dark-mode  .modal__close-button .icon{
 body.theme-dark-mode a{
   color: var(--text-links-color-dark);
 }
+
+body.theme-dark-mode .footer {
+  border-top: 0.1rem solid rgba(var(--color-foreground-dark), 0.08);
+}
