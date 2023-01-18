@@ -34,7 +34,8 @@ gulp.task('sass-compile', function() {
 gulp.task('sass-compile-standalone', function() {
     return gulp
     .src(['./styles/sections/*.scss',
-    './styles/components/*.scss'])
+    './styles/components/*.scss',
+    './styles/standalone/*.scss'])
     .pipe(
         sass({
         // Values: nested, expanded, compact, compressed
