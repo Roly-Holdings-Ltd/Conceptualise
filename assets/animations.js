@@ -3,7 +3,6 @@ const animateElements = document.querySelectorAll(".js-animate");
 let observer = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach((entry) => {
-        console.log(entry.boundingClientRect)
         if(entry.isIntersecting){
             entry.target.classList.add('js-animate--active');
         }else{
