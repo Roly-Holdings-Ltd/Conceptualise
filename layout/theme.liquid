@@ -233,6 +233,7 @@
     {{ 'base-dark.css' | asset_url | stylesheet_tag }}
     {{ 'section-header.css' | asset_url | stylesheet_tag }}
     {{ 'component-slider-v2.css' | asset_url | stylesheet_tag }}
+    {{ 'animations.css' | asset_url | stylesheet_tag }}
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -314,5 +315,7 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    {%- render 'footer-scripts' -%}
   </body>
 </html>
