@@ -16,26 +16,83 @@
 {%- endstyle -%}
 
 <div id="Section--{{ section.id }}" class="rich-text-row {% unless section.settings.full_width_section %}page-width{% endunless %} section-{{ section.id }}-padding">
-    <slider-component-v2 id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
-        <ul id="Slider-Gallery-{{ section.id }}" class="rich-text-row__slider grid grid--peek list-unstyled slider slider-v2 slider--mobile desktop--{{ section.settings.items_per_row_desktop }}-cols" role="list">
-          {%- for block in section.blocks -%}
-            <li id="Slide-{{ section.id }}-{{ media.id }}" class="grid__item slider__slide rich-text-row__slide">
-                <p class="rich-text-row__heading">{{ block.settings.heading }}</p>
-                <div class="rich-text-row__content">
-                    {{ block.settings.content }}
-                </div>
-            </li>  
-          {%- endfor -%}
-          
-        </ul>
-        {%- if section.settings.show_slider_dots -%}
-        <div class="slider__dots">
+    {%- if section.settings.enable_mobile_slider -%}
+        <slider-component-v2 id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
+            <ul id="Slider-Gallery-{{ section.id }}" class="rich-text-row__slider grid grid--peek list-unstyled slider slider-v2 slider--mobile desktop--{{ section.settings.items_per_row_desktop }}-cols" role="list">
             {%- for block in section.blocks -%}
-            <button class="slider__dot {% if forloop.first %}active{% endif %}"></button>
+                <li id="Slide-{{ section.id }}" class="grid__item slider__slide rich-text-row__slide {% if section.settings.enable_item_border %}rich-text-row__item--bordered{% endif %}">
+                    {%- if block.settings.single_image != blank -%}
+                    {%- endif -%}
+                    {%- if block.settings.heading != blank -%}
+                        <p class="rich-text-row__heading">{{ block.settings.heading }}</p>
+                    {%- endif -%}
+                    {%- if block.settings.content -%}
+                        <div class="rich-text-row__content">
+                            {{ block.settings.content }}
+                        </div>
+                    {%- endif -%}
+                </li>  
             {%- endfor -%}
+            
+            </ul>
+            {%- if section.settings.show_slider_dots -%}
+            <div class="slider__dots">
+                {%- for block in section.blocks -%}
+                <button class="slider__dot {% if forloop.first %}active{% endif %}"></button>
+                {%- endfor -%}
+            </div>
+            {%- endif -%}
+        </slider-component-v2>
+    {%- else -%}    
+    <div class="rich-text-row__grid">
+        <div id="Slider-Gallery-{{ section.id }}" class="rich-text-row__slider grid grid--peek desktop--{{ section.settings.items_per_row_desktop }}-cols mobile--{{ section.settings.items_per_row_mobile }}-cols">
+        {%- for block in section.blocks -%}
+            <div id="Slide-{{ section.id }}" class="grid__item rich-text-row__item {% if section.settings.enable_item_border %}rich-text-row__item--bordered{% endif %}">
+                {%- if block.settings.single_image_light != blank -%}
+                    {%- capture sizes -%}
+                        (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px)
+                        calc(100vw - 10rem), 100vw
+                    {%- endcapture -%}
+                    {{
+                    block.settings.single_image_light
+                    | image_url: width: 420
+                    | image_tag:
+                        loading: 'lazy',
+                        sizes: sizes,
+                        widths: '375, 750, 1100',
+                        alt: block.settings.single_image_light.alt,
+                        class: 'rich-text-row__image rich-text-row__image--light'
+                    }}
+                {%- endif -%}
+                {%- if block.settings.single_image_dark != blank -%}
+                    {%- capture sizes -%}
+                        (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px)
+                        calc(100vw - 10rem), 100vw
+                    {%- endcapture -%}
+                    {{
+                    block.settings.single_image_dark
+                    | image_url: width: 420
+                    | image_tag:
+                        loading: 'lazy',
+                        sizes: sizes,
+                        widths: '375, 750, 1100',
+                        alt: block.settings.single_image_dark.alt,
+                        class: 'rich-text-row__image rich-text-row__image--dark'
+                    }}
+                {%- endif -%}
+                {%- if block.settings.heading != blank -%}
+                    <p class="rich-text-row__heading">{{ block.settings.heading }}</p>
+                {%- endif -%}
+                {%- if block.settings.content -%}
+                    <div class="rich-text-row__content">
+                        {{ block.settings.content }}
+                    </div>
+                {%- endif -%}
+            </div>  
+        {%- endfor -%}
         </div>
-        {%- endif -%}
-    </slider-component-v2>
+    </div>
+    {%- endif -%}
 </div>
 
 {%- style -%}
@@ -69,6 +126,19 @@ body.theme-dark-mode #Section--{{ section.id }}.rich-text-row .rich-text-row__sl
         font-size: {{ section.settings.content_font_size_desktop }}px;
     }
 }
+
+#Section--{{ section.id }}.rich-text-row img{
+    max-height: {{ section.settings.image_max_height_mobile }}px;
+}
+
+@media (min-width: 750px){
+    #Section--{{ section.id }}.rich-text-row img{
+        max-height: {{ section.settings.image_max_height_desktop }}px;
+    }   
+}
+
+
+
 {%- endstyle -%}
 
 {% schema %}
@@ -84,9 +154,33 @@ body.theme-dark-mode #Section--{{ section.id }}.rich-text-row .rich-text-row__sl
     },
     {
         "type": "checkbox",
+        "id": "enable_mobile_slider",
+        "label": "Enable mobile slider?",
+        "default": true
+    },
+    {
+        "type": "checkbox",
         "id": "show_slider_dots",
         "label": "Shows the slider dots?",
         "default": true
+    },
+    {
+        "type": "range",
+        "id": "items_per_row_mobile",
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "label": "Items per row - mobile",
+        "default": 3
+    },
+    {
+        "type": "range",
+        "id": "items_per_row_desktop",
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "label": "Items per row - desktop",
+        "default": 3
     },
     {
         "type": "header",
@@ -117,13 +211,10 @@ body.theme-dark-mode #Section--{{ section.id }}.rich-text-row .rich-text-row__sl
         "content": "Styles"
     },
     {
-        "type": "range",
-        "id": "items_per_row_desktop",
-        "min": 2,
-        "max": 5,
-        "step": 1,
-        "label": "Items per row",
-        "default": 3
+        "type": "checkbox",
+        "id": "enable_item_border",
+        "label": "Show bordered items",
+        "default": true
     },
     {
         "type": "color",
@@ -208,6 +299,30 @@ body.theme-dark-mode #Section--{{ section.id }}.rich-text-row .rich-text-row__sl
         "id": "content_color_dark",
         "label": "Content colour - dark",
         "default": "#FFFFFF"
+    },
+    {
+        "type": "header",
+        "content": "Image"
+    },
+    {
+        "type": "range",
+        "id": "image_max_height_mobile",
+        "min": 20,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Max image height - mobile",
+        "default": 60
+    },
+    {
+        "type": "range",
+        "id": "image_max_height_desktop",
+        "min": 20,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Max image height - desktop",
+        "default": 80
     }
   ],
   "blocks": [
@@ -215,6 +330,16 @@ body.theme-dark-mode #Section--{{ section.id }}.rich-text-row .rich-text-row__sl
       "type": "rich_text",
       "name": "Rich text",
       "settings": [
+        {
+            "type": "image_picker",
+            "id": "single_image_light",
+            "label": "Image - light"
+        },
+        {
+            "type": "image_picker",
+            "id": "single_image_dark",
+            "label": "Image - dark"
+        },
         {
             "type": "text",
             "id": "heading",
