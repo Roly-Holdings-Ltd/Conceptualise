@@ -1,4 +1,66 @@
 $animationTime: 2s;
+.template-index{
+    
+    #MainContent{
+        .shopify-section{
+            &:not(:first-of-type){
+                opacity: 0;
+
+                &.js-animate--active{
+                    opacity: 1;
+                        animation: fadeUpShort $animationTime ease;
+                        @keyframes fadeUpShort {
+                            0% {
+                                opacity: 0;
+                                transform: translateY(100px);
+                            }
+                        
+                            100% {
+                                opacity: 1;
+                                transform: translateX(0);
+                            }
+                        }
+                }
+
+                // &:nth-child(even){
+                //     &.js-animate--active{
+                //         opacity: 1;
+                //         animation: fadeLeftShort $animationTime ease;
+                //         @keyframes fadeLeftShort {
+                //             0% {
+                //                 opacity: 0;
+                //                 transform: translateX(100px);
+                //             }
+                        
+                //             100% {
+                //                 opacity: 1;
+                //                 transform: translateX(0);
+                //             }
+                //         }
+                //     }
+                // }
+                // &:nth-child(odd){
+                //     &.js-animate--active{
+                //         opacity: 1;
+                //         animation: fadeRightShort $animationTime ease;
+                //         @keyframes fadeRightShort {
+                //             0% {
+                //                 opacity: 0;
+                //                 transform: translateX(-100px);
+                //             }
+                        
+                //             100% {
+                //                 opacity: 1;
+                //                 transform: translateX(0);
+                //             }
+                //         }
+                //     }
+                // }
+            }
+        }   
+    }
+}
+
 .js-animate {
     // Fade
     &.js-animate__fade--top {
