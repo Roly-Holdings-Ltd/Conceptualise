@@ -15,7 +15,7 @@
     "gradient_background_2": "",
     "links_color": "#1b1b1b",
     "links_color_dark": "#f3f3f3",
-    "type_header_font": "itc_avant_garde_gothic_n4",
+    "type_header_font": "sans-serif",
     "heading_scale": 100,
     "type_body_font": "open_sans_n4",
     "body_scale": 100,
@@ -113,14 +113,15 @@
               "background_color_light": "",
               "background_color_dark": "",
               "text_color_light": "#000000",
-              "text_color_dark": "#FFFFFF"
+              "text_color_dark": "#ffffff"
             }
           }
         },
         "block_order": [
           "announcement-bar-0"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "header": {
         "type": "header",
@@ -283,7 +284,9 @@
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [
+
+    ]
   },
   "presets": {
     "Default": {
@@ -391,15 +394,17 @@
               "type": "announcement",
               "settings": {
                 "text": "Welcome to our store",
-                "color_scheme": "background-1",
-                "link": ""
+                "link": "",
+                "text_color_light": "#000000",
+                "text_color_dark": "#FFFFFF"
               }
             }
           },
           "block_order": [
             "announcement-bar-0"
           ],
-          "settings": {}
+          "settings": {
+          }
         },
         "header": {
           "type": "header",
