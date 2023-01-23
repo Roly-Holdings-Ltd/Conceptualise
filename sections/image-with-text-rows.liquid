@@ -1,0 +1,206 @@
+{{ 'section-image-with-text-rows.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  .section-{{ section.id }}-padding .image-grid__wrap{
+    margin-top: -{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    margin-bottom: -{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #Section--{{ section.id }} .section-heading h2{
+    font-size: {{ section.settings.heading_font_size_mobile }}px;
+    color: {{ section.settings.section_heading_color_light }};
+  }
+
+  body.theme-dark-mode #Section--{{ section.id }} .section-heading h2{
+      color: {{ section.settings.section_heading_color_dark }};
+  }
+
+  @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+      
+      #Section--{{ section.id }} .section-heading h2{
+          font-size: {{ section.settings.heading_font_size_desktop }}px;
+      }
+  }
+
+  #Section--{{ section.id }} {
+    background-color: {{ section.settings.section_background_color }}
+  }
+{%- endstyle -%}
+
+<div id="Section--{{ section.id }}" class="image-with-text-rows {% unless section.settings.full_width_section %}page-width{% endunless %} section-{{ section.id }}-padding">
+    <div class="image-with-text-rows__wrap">
+        {%- if section.settings.section_heading != blank -%}
+        <div class="section-heading">
+            <h2 class="rte">{{ section.settings.section_heading | replace: 'p>', 'span>' }}</h2>
+        </div>
+        {%- endif -%}
+
+        <div class="image-with-text-rows__grid">
+            {%- for block in section.blocks -%}
+            
+            <div id="block--{{ block.id }}" class="image-with-text-rows__grid-item"  {{ block.shopify_attributes }}>
+                <div class="image-with-text-rows__grid-image">
+                    <!-- <h1>image</h1> -->
+                </div>
+                <div class="image-with-text-rows__grid-content">
+                    <h2 class="rich-text__heading rte {{ block.settings.heading_size }}">
+                        {{ block.settings.heading | replace: 'p>', 'span>' }}
+                    </h2>
+                    <div id="block--{{ block.id }}" class="rich-text__text rte" {{ block.shopify_attributes }}>
+                        {{ block.settings.text }}
+                        {%- if block.settings.custom_text != blank -%}
+                          <p>{{ block.settings.custom_text }}</p>
+                        {%- endif -%}
+                    </div>
+                </div>
+            </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</div>
+
+{%- style -%}
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Image with text rows",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width_section",
+      "label": "Make full width?",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Section background colour"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_heading_alt_style",
+      "label": "Use alt heading style?",
+      "default": true
+    },
+    {
+        "type": "header",
+        "content": "Section padding"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
+    },
+    {
+        "type": "header",
+        "content": "Styles"
+    },
+    {
+      "type": "color",
+      "id": "section_heading_color_light",
+      "label": "Section heading colour - light",
+      "default": "#000000"
+  },
+  {
+      "type": "color",
+      "id": "section_heading_color_dark",
+      "label": "Section heading colour - dark",
+      "default": "#000000"
+  },
+  {
+    "type": "color",
+    "id": "section_heading_background_color_light",
+    "label": "Section heading background colour - light",
+    "default": "#FFFFFF"
+  },
+  {
+    "type": "color",
+    "id": "section_heading_background_color_dark",
+    "label": "Section heading background colour - dark",
+    "default": "#FFFFFF"
+  },
+  {
+      "type": "range",
+      "id": "heading_font_size_mobile",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading font size - Mobile",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_desktop",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading font size - Desktop",
+      "default": 42
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image-with-text",
+      "name": "Image with text row",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image-grid_image",
+          "label": "image-grid image"
+        },
+        {
+            "type": "url",
+            "id": "image-grid_image_url",
+            "label": "image-grid image URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with text rows"
+    }
+  ]
+}
+{% endschema %}
