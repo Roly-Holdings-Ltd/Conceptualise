@@ -294,6 +294,14 @@ class MenuDrawer extends HTMLElement {
     this.addEventListener('keyup', this.onKeyUp.bind(this));
     this.addEventListener('focusout', this.onFocusOut.bind(this));
     this.bindEvents();
+
+    this.menuClose = this.querySelector('.menu-drawer__drawer-close--desktop');
+    this.menuClose.addEventListener('click', () =>{
+      this.closeMenuDrawer(event);
+      let summaryElement = document.querySelector('.header__icon--menu.header__icon--summary ')
+      summaryElement.setAttribute('aria-expanded', false);
+      
+    })
   }
 
   bindEvents() {

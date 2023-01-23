@@ -80,3 +80,9 @@ a.pagination__item:hover::after {
 .pagination__item-arrow:hover::after {
   display: none;
 }
+
+
+/* Dark */
+body.theme-dark-mode .pagination__item{
+  color: var(--text-links-color-dark);
+}

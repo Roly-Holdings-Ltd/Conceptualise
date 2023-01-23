@@ -38,6 +38,7 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
 
     <!-- Tracking codes -->
@@ -48,45 +49,15 @@
 
     <style>
       @font-face {
-          font-family: 'Aventa Regular';
-          src:url('Aventa-Italic.eot?#iefix') format('embedded-opentype'),
-              url('{{ "Aventa-Regular.woff" | asset_url }}') format('woff2'),
-              url('{{ "Aventa-Regular.woff" | asset_url }}') format('woff'),
-              url('{{ "Aventa-Regular.ttf" | asset_url }}') format('truetype');
+          font-family: 'BadaBoom';
+          font-display: swap;
+          src: url('{{ "BadaBoom_BB.woff" | asset_url }}') format('woff'),
+          url('{{ "BadaBoom_BB.ttf" | asset_url }}') format('ttf');
           font-weight: normal;
-          font-style: italic;
-      }
-      @font-face {
-        font-family: 'Aventa Light';
-        font-display: swap;
-        src: url('{{ "Aventa-Light.woff" | asset_url }}') format('woff'),
-            url('{{ "Aventa-Light.woff2" | asset_url }}') format('woff2');
-        font-weight: 400;
-        font-style: normal;
-      }
-      @font-face {
-        font-family: 'Aventa Bold';
-        font-display: swap;
-        src: url('{{ "Aventa-Bold.woff" | asset_url }}') format('woff'),
-            url('{{ "Aventa-Bold.woff2" | asset_url }}') format('woff2');
-        font-weight: bold;
-        font-style: normal;
-      }
-      @font-face {
-        font-family: 'Aventa Bold Italic';
-        font-display: swap;
-        src: url('{{ "Aventa-BoldItalic.woff" | asset_url }}') format('woff'),
-            url('{{ "Aventa-BoldItalic.woff2" | asset_url }}') format('woff2');
-        font-weight: bold;
-        font-style: italic;
+          font-style: normal;
       }
     </style>
-
-    <!-- {%- liquid
-      assign body_font_bold = 'Aventa Bold'
-      assign body_font_italic = 'Aventa Regular'
-      assign body_font_bold_italic = 'Aventa Bold Italic'
-    %} -->
+    
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
@@ -102,16 +73,20 @@
     {{ settings.type_header_font | font_face: font_display: 'swap' }}
 
     :root {
-      --font-body-family: itc-avant-garde-gothic-pro, sans-serif;
-      --font-body-style: normal;
-      --font-body-weight: 300;
+        --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+        --font-body-style: {{ settings.type_body_font.style }};
+        --font-body-weight: 300;
+        --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
 
-      --font-heading-family: itc-avant-garde-gothic-pro, sans-serif;
-      --font-heading-style: normal;
-      --font-heading-weight: 700;
+        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+        --font-heading-style: {{ settings.type_header_font.style }};
+        --font-heading-weight: 600;
 
         --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+
+        --site-background-color-light: {{ settings.site_background_color_light }};
+        --site-background-color-dark: {{ settings.site_background_color_dark }};
 
         --color-base-text: {{ settings.colors_text.red }}, {{ settings.colors_text.green }}, {{ settings.colors_text.blue }};
         --color-base-text-dark: {{ settings.colors_text_dark.red }}, {{ settings.colors_text_dark.green }}, {{ settings.colors_text_dark.blue }};
@@ -244,6 +219,8 @@
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);
         font-weight: var(--font-body-weight);
+
+        align-content: flex-start;
       }
 
       @media screen and (min-width: 750px) {
@@ -256,6 +233,8 @@
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'base-dark.css' | asset_url | stylesheet_tag }}
     {{ 'section-header.css' | asset_url | stylesheet_tag }}
+    {{ 'component-slider-v2.css' | asset_url | stylesheet_tag }}
+    {{ 'animations.css' | asset_url | stylesheet_tag }}
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -337,5 +316,7 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    {%- render 'footer-scripts' -%}
   </body>
 </html>

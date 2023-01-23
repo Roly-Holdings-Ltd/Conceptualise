@@ -1,5 +1,5 @@
 /* Light */
-.banner{}
+/* .banner{} */
 .banner .banner__content{
     margin-top: 40px;
     position: relative;
@@ -36,7 +36,7 @@
     display: none;
     position: absolute;
     content: "";
-    background: linear-gradient(87.42deg, #F3F5F7 34.54%, rgba(243, 245, 247, 0) 98.03%);
+    background: linear-gradient(87.42deg, var(--site-background-color-light) 34.54%, rgba(243, 245, 247, 0) 98.03%);
     left: -180px;
     top: 0;
     width: 750px;

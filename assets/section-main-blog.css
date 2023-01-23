@@ -72,7 +72,30 @@
   }
 }
 
+/* Blogs tag filter */
+.blog__filters{
+  margin: 30px 0;
+}
+.blog__filters .blog__filters-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  justify-content: center;
+}
+
+.blog__filters .blog__filters-wrap .blog__filters-tag a{
+  text-decoration: none;
+  font-weight: normal;
+  color: #000;
+}
+.blog__filters .blog__filters-wrap .blog__filters-tag.blog__filters-tag--active a{
+  color: #FFBA03 !important;
+}
+
 /* Dark */
 body.theme-dark-mode .main-blog__wrap {
   background: linear-gradient(180deg, #1F1F1F 0%, rgba(36, 36, 36, 0) 100%);
+}
+body.theme-dark-mode .blog__filters .blog__filters-wrap .blog__filters-tag a{
+  color: #fff;
 }

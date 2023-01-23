@@ -119,7 +119,7 @@
                     display: none;
                     position: absolute;
                     content: "";
-                    background: linear-gradient(87.42deg, #F3F5F7 34.54%, rgba(243, 245, 247, 0) 98.03%);
+                    background: linear-gradient(87.42deg, var(--site-background-color-light) 34.54%, rgba(243, 245, 247, 0) 98.03%);
                     left: -180px;
                     top: 0;
                     width: 750px;
@@ -177,10 +177,11 @@ body.theme-dark-mode{
     
                 .banner__content-image-wrap{
                     &::after{
-                        background: linear-gradient(87.42deg, #000000 34.54%, rgba(0, 0, 0, 0) 98.03%);
+                        background: linear-gradient(87.42deg, var(--site-background-color-dark) 34.54%, rgba(0, 0, 0, 0) 98.03%);
                     }
                 }
                 img{
+                    
                 }
             }
         }

@@ -23,7 +23,7 @@
                     &::before{
                         position: absolute;
                         content: "";
-                        background: linear-gradient(0deg, #f3f5f7 25%, rgba(243, 245, 247, 0) 40%);
+                        background: linear-gradient(0deg, var(--site-background-color-light) 25%, rgba(243, 245, 247, 0) 40%);
                         width: 100%;
                         bottom: -2%;
                         height: 750px;
@@ -68,7 +68,7 @@
                 position: relative;
                 text-align: center;
                 border-radius: 5rem;
-                background: linear-gradient(180deg, #f3f5f7 8%, #fff 68.03%);
+                background: linear-gradient(180deg, var(--site-background-color-light) 8%, #fff 68.03%);
                 z-index: 1;
 
                 @media (min-width: 750px){
@@ -156,7 +156,7 @@ body.theme-dark-mode{
                     }
                 }
                 .service__content{
-                    background: linear-gradient(180deg, #171717 8%, #000 68.03%);
+                    background: linear-gradient(180deg, #171717 8%, var(--site-background-color-dark) 68.03%);
 
                     .service__content-subtitle{
                     }

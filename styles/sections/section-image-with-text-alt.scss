@@ -3,6 +3,29 @@
     margin-top: 15px;
     margin-bottom: 15px;
 
+
+    &.image-with-text-alt--with-background{
+        .image-with-text-alt__wrap{
+            .image-with-text-alt__content{
+                background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+                border-radius: 5rem;
+            }
+        }
+    }
+
+    &.image-with-text-alt--increased-content{
+        .image-with-text-alt__content-image{
+            @media (min-width: 750px){
+                flex: 0 0 30% !important;
+            }
+        }
+        .image-with-text-alt__content-text{
+            @media (min-width: 750px){
+                flex: 0 0 70% !important;
+            }
+        }
+    }
+
     @media (min-width: 750px){
         margin-top: 35px;
         margin-bottom: 35px;
@@ -11,8 +34,6 @@
 
         .image-with-text-alt__content{
             padding: 20px 20px 30px 20px;
-            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-            border-radius: 5rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -40,6 +61,15 @@
             .image-with-text-alt__content-image{
                 padding: 10px 30px;
                 flex: 0 0 100%;
+
+                &.image-with-text-alt__content-image--round {
+                    img{
+                        border-radius: 50%;
+                        border: 2px solid #fff;
+                        max-width: 240px;
+                        margin: 0 auto;
+                    }
+                }
 
                 @media (min-width: 750px){
                     padding: 30px;
@@ -78,9 +108,8 @@
                 .image-with-text-alt__subheading{
                     p{
                         margin: 0;
-                        // font-size: 13px;
                         color: #FFBA03;
-                        font-weight: 700;
+                        // font-weight: 700;
                         line-height: normal;
                         text-align: center;
     
@@ -132,7 +161,7 @@
                         min-height: 45px;
                         height: auto;
                         // font-size: 16px;
-                        font-weight: 700;
+                        // font-weight: 700;
                         color: #FFBA03;
                         border-radius: 5rem;
         
@@ -156,10 +185,16 @@
 // Dark
 body.theme-dark-mode{
     .image-with-text-alt{
+        &.image-with-text-alt--with-background{
+            .image-with-text-alt__wrap{
+                .image-with-text-alt__content{
+                    background: linear-gradient(180deg, #1F1F1F 0%, rgba(36, 36, 36, 0) 100%);
+                    border-radius: 5rem;
+                }
+            }
+        }
         .image-with-text-alt__wrap{
             .image-with-text-alt__content{
-                background: linear-gradient(180deg, #1F1F1F 0%, rgba(36, 36, 36, 0) 100%);
-
                 .image-with-text-alt__content-text{
                     .image-with-text-alt__button{
                         .button{

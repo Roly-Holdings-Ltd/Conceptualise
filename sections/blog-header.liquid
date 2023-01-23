@@ -2,7 +2,7 @@
 
 <div id="BlogHead-{{ section.id }}" class="blog-head">
   <div class="blog-head__wrap page-width">
-    <div class="blog-head__content">
+    <div class="blog-head__content {% if section.settings.enable_background_color %}blog-head__content--with-background{% endif %}">
         <div class="blog-head__title">
             {%- capture logo -%}
                 {%- if section.settings.logo_light != blank -%}
@@ -32,7 +32,7 @@
   </div>
 </div>
 
-<style>
+{%- style -%}
 #BlogHead-{{ section.id }} .blog-head__title h1{
     font-size: {{ section.settings.title_font_size_mobile }}px;
 }
@@ -53,7 +53,7 @@
         max-height: {{ section.settings.subtitle_font_size_desktop }}px;
     }
 }
-</style>
+{%- endstyle -%}
 
 
 {% schema %}
@@ -122,6 +122,12 @@
         "unit": "px",
         "label": "Subtitle font size - desktop",
         "default": 28
+    },
+    {
+        "type": "checkbox",
+        "id": "enable_background_color",
+        "default": false,
+        "label": "Enable background colour"
     }
   ],
   "presets": [

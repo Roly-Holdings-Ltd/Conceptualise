@@ -30,7 +30,7 @@ menu-drawer > details[open] > summary::before {
 
 .menu-drawer {
   padding-bottom: 50px;
-  position: absolute;
+  position: fixed;
   transform: translateX(-100%);
   visibility: hidden;
   z-index: 3;
@@ -329,7 +329,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 /* Dark */
 body.theme-dark-mode .menu-drawer {
   background: #FFBA03;
-  background: linear-gradient(315deg, #FFBA03 10%, #000000 70%);
+  background: linear-gradient(315deg, #FFBA03 10%, var(--site-background-color-dark) 70%);
 }
 body.theme-dark-mode .menu-drawer__inner-container .menu-drawer__audit .menu-drawer__audit-button .button{
   background-color: #FFBA03;

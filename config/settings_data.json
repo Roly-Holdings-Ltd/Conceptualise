@@ -1,17 +1,21 @@
 {
   "current": {
+    "site_background_color_light": "#F3F5F7",
+    "site_background_color_dark": "#1C1C1C",
     "colors_solid_button_labels": "#ffffff",
-    "colors_accent_1": "#121212",
+    "colors_accent_1": "#1b1b1b",
     "gradient_accent_1": "",
     "colors_accent_2": "#ffba03",
     "gradient_accent_2": "",
-    "colors_text": "#121212",
-    "colors_outline_button_labels": "#121212",
+    "colors_text": "#1b1b1b",
+    "colors_outline_button_labels": "#1b1b1b",
     "colors_background_1": "#ffffff",
     "gradient_background_1": "",
     "colors_background_2": "#f3f3f3",
     "gradient_background_2": "",
-    "type_header_font": "open_sans_n4",
+    "links_color": "#1b1b1b",
+    "links_color_dark": "#f3f3f3",
+    "type_header_font": "itc_avant_garde_gothic_n4",
     "heading_scale": 100,
     "type_body_font": "open_sans_n4",
     "body_scale": 100,
@@ -105,16 +109,18 @@
             "type": "announcement",
             "settings": {
               "text": "Website is currently undergoing maintenance",
-              "color_scheme": "accent-2",
-              "link": ""
+              "link": "",
+              "background_color_light": "",
+              "background_color_dark": "",
+              "text_color_light": "#000000",
+              "text_color_dark": "#FFFFFF"
             }
           }
         },
         "block_order": [
           "announcement-bar-0"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "header": {
         "type": "header",
@@ -277,9 +283,7 @@
         }
       }
     },
-    "content_for_index": [
-
-    ]
+    "content_for_index": []
   },
   "presets": {
     "Default": {
@@ -395,8 +399,7 @@
           "block_order": [
             "announcement-bar-0"
           ],
-          "settings": {
-          }
+          "settings": {}
         },
         "header": {
           "type": "header",

@@ -8,11 +8,11 @@
     <span class="dot"></span>
     {%- endfor -%}
     {%- for block in section.blocks -%}
-    <p class="announcement-bar__message h5">{{ block.settings.text | escape }}</p>
+    <p aria-hidden="true" class="announcement-bar__message h5">{{ block.settings.text | escape }}</p>
     <span class="dot"></span>
     {%- endfor -%}
     {%- for block in section.blocks -%}
-    <p class="announcement-bar__message h5">{{ block.settings.text | escape }}</p>
+    <p aria-hidden="true" class="announcement-bar__message h5">{{ block.settings.text | escape }}</p>
     <span class="dot"></span>
     {%- endfor -%}
   </div>
@@ -107,12 +107,12 @@
       ]
     }
   ],
-  "default": {
-    "blocks": [
-      {
-        "type": "announcement"
-      }
-    ]
-  }
+  "presets": [
+    {
+      "name": "Scrolling announcement",
+      "blocks": [
+      ]
+    }
+  ]
 }
 {% endschema %}

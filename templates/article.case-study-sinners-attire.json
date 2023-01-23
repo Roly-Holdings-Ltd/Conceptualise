@@ -1,0 +1,915 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "disabled": true
+    },
+    "ca7f7000-c954-4a12-9222-37ba3df7707b": {
+      "type": "text-banner",
+      "blocks": {
+        "7622ea96-0cb5-4dbe-9139-3ad5f68456f9": {
+          "type": "content_text",
+          "settings": {
+            "content_text": "CASE STUDIES",
+            "font_size_mobile": 14,
+            "font_size_desktop": 18,
+            "add_letter_spacing": true,
+            "font_weight": "normal",
+            "font_style": "normal",
+            "use_custom_text_color": false,
+            "text_color_light": "#000000",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "cc9d8395-052f-4562-9122-3b3e420ab133": {
+          "type": "content_single_image",
+          "settings": {
+            "image_light": "shopify:\/\/shop_images\/Vector.png",
+            "image_dark": "shopify:\/\/shop_images\/Vector.png",
+            "image_max_width": 60,
+            "enable_background": true
+          }
+        },
+        "114553c9-bec0-49ae-a4f8-ff3eba44a9a1": {
+          "type": "content_text_heading",
+          "settings": {
+            "content_heading_text": "Sinners Attire:",
+            "font_size_mobile": 21,
+            "font_size_desktop": 40,
+            "use_custom_text_color": false,
+            "text_color_light": "#000000",
+            "text_color_dark": "#ffffff",
+            "top_spacing": "normal",
+            "bottom_spacing": "reduced",
+            "image_position": "before",
+            "image_width_desktop": 100,
+            "image_width_mobile": 60,
+            "image_height_desktop": 100,
+            "image_height_mobile": 60,
+            "image_vertical_position_desktop": -20,
+            "image_vertical_position_mobile": -10,
+            "image_horizontal_position_desktop": -90,
+            "image_horizontal_position_mobile": -50
+          }
+        },
+        "a5bba883-1cf3-426d-aa13-577a9a57dd5d": {
+          "type": "content_text_heading",
+          "settings": {
+            "content_heading_text": "1227% return on investment",
+            "font_size_mobile": 30,
+            "font_size_desktop": 40,
+            "use_custom_text_color": true,
+            "text_color_light": "#ffba03",
+            "text_color_dark": "#ffba03",
+            "top_spacing": "reduced",
+            "bottom_spacing": "increased",
+            "image_position": "before",
+            "image_width_desktop": 100,
+            "image_width_mobile": 60,
+            "image_height_desktop": 100,
+            "image_height_mobile": 60,
+            "image_vertical_position_desktop": -20,
+            "image_vertical_position_mobile": -10,
+            "image_horizontal_position_desktop": -90,
+            "image_horizontal_position_mobile": -50
+          }
+        },
+        "9f77e52c-ac48-4380-8e0c-5eb668141722": {
+          "type": "content_text",
+          "settings": {
+            "content_text": "“We are the trawlermen! Conceptualise always cast the net far & wide, and boy do they bring back the trout.”",
+            "font_size_mobile": 14,
+            "font_size_desktop": 18,
+            "add_letter_spacing": false,
+            "font_weight": "normal",
+            "font_style": "italic",
+            "use_custom_text_color": false,
+            "text_color_light": "#000000",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "bd043ce3-2a57-4077-a969-d8e3fb5e16a9": {
+          "type": "content_text",
+          "settings": {
+            "content_text": "Richard Dean, Sinners Attire",
+            "font_size_mobile": 10,
+            "font_size_desktop": 13,
+            "add_letter_spacing": false,
+            "font_weight": "lighter",
+            "font_style": "normal",
+            "use_custom_text_color": false,
+            "text_color_light": "#000000",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "dd42181a-8016-40db-b090-a0f72b6164ec": {
+          "type": "charts",
+          "settings": {
+            "show_chart1": true,
+            "chart1_heading": "ROAS",
+            "chart1_first_number": "12.27",
+            "chart1_second_number": "0.82%",
+            "chart1_arrow": "arrow_down_green",
+            "chart1_graph_image": "shopify:\/\/shop_images\/Vector_42.png",
+            "show_chart2": true,
+            "chart2_heading": "CAC",
+            "chart2_first_number": "£5",
+            "chart2_second_number": "21.2%",
+            "chart2_arrow": "arrow_up_green",
+            "chart2_graph_image": "shopify:\/\/shop_images\/Vector_45.png",
+            "show_chart3": true,
+            "chart3_heading": "LTV",
+            "chart3_first_number": "£76.03",
+            "chart3_second_number": "26.26%",
+            "chart3_arrow": "arrow_up_green",
+            "chart3_graph_image": "shopify:\/\/shop_images\/Vector_46.png",
+            "show_chart4": false,
+            "chart4_heading": "",
+            "chart4_first_number": "",
+            "chart4_second_number": "",
+            "chart4_arrow": "arrow_up_green",
+            "heading_font_size_mobile": 22,
+            "heading_font_size_desktop": 30,
+            "first_number_font_size_mobile": 23,
+            "first_number_font_size_desktop": 30,
+            "second_number_font_size_mobile": 12,
+            "second_number_font_size_desktop": 14
+          }
+        }
+      },
+      "block_order": [
+        "7622ea96-0cb5-4dbe-9139-3ad5f68456f9",
+        "cc9d8395-052f-4562-9122-3b3e420ab133",
+        "114553c9-bec0-49ae-a4f8-ff3eba44a9a1",
+        "a5bba883-1cf3-426d-aa13-577a9a57dd5d",
+        "9f77e52c-ac48-4380-8e0c-5eb668141722",
+        "bd043ce3-2a57-4077-a969-d8e3fb5e16a9",
+        "dd42181a-8016-40db-b090-a0f72b6164ec"
+      ],
+      "settings": {}
+    },
+    "cbd84123-9967-4617-a0a7-08dc38749b62": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15678261231825__cbd84123-9967-4617-a0a7-08dc38749b62-1672840824a8777619-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>The Client<\/p>",
+            "heading_font_size_mobile": 32,
+            "heading_font_size_desktop": 42,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "template--15678261231825__cbd84123-9967-4617-a0a7-08dc38749b62-1672840824a8777619-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sinners Attire (SNRS) is a leading denim & streetwear brand, intent on transforming the industry on a global scale.<\/p>",
+            "custom_text": "",
+            "custom_text_bold": false,
+            "custom_text_italic": false,
+            "text_font_size_mobile": 14,
+            "text_font_size_desktop": 16,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "59bf1061-052a-4077-b958-afa55448b3e3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Denim, unique styles & stand out prints are key collections in the brand’s signature style. They’ve attracted a loyal following across the UK, Spain, Ireland & Portugal.<\/p>",
+            "custom_text": "",
+            "custom_text_bold": false,
+            "custom_text_italic": false,
+            "text_font_size_mobile": 14,
+            "text_font_size_desktop": 16,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "template--15678261231825__cbd84123-9967-4617-a0a7-08dc38749b62-1672840824a8777619-0",
+        "template--15678261231825__cbd84123-9967-4617-a0a7-08dc38749b62-1672840824a8777619-1",
+        "59bf1061-052a-4077-b958-afa55448b3e3"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "inverse",
+        "use_custom_colors": true,
+        "background_color_light": "#2d2d2d",
+        "background_color_dark": "#2d2d2d",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "465ef80a-ae25-449e-aa89-87058e1f9383": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15678261231825__465ef80a-ae25-449e-aa89-87058e1f9383-1672842860b205c291-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>The Challenge<\/p>",
+            "heading_font_size_mobile": 32,
+            "heading_font_size_desktop": 42,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "template--15678261231825__465ef80a-ae25-449e-aa89-87058e1f9383-1672842860b205c291-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sinners fell into the agency cycle, starting off well but inevitably ending due to poor performance. They needed stability and a team who could help them enter into new markets, namely: Australia, Germany, USA & Japan; whilst also maintaining current geo-specific business.<\/p>",
+            "custom_text": "",
+            "custom_text_bold": false,
+            "custom_text_italic": false,
+            "text_font_size_mobile": 14,
+            "text_font_size_desktop": 16,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "template--15678261231825__465ef80a-ae25-449e-aa89-87058e1f9383-1672842860b205c291-0",
+        "template--15678261231825__465ef80a-ae25-449e-aa89-87058e1f9383-1672842860b205c291-1"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "use_custom_colors": true,
+        "background_color_light": "#000000",
+        "background_color_dark": "#000000",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "417a1ee1-2527-450e-9f38-2722c7b19292": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15678261231825__417a1ee1-2527-450e-9f38-2722c7b19292-16728429420f55f5e4-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>The Solution<\/p>",
+            "heading_font_size_mobile": 32,
+            "heading_font_size_desktop": 42,
+            "text_color_light": "#ffba03",
+            "text_color_dark": "#ffba03"
+          }
+        },
+        "template--15678261231825__417a1ee1-2527-450e-9f38-2722c7b19292-16728429420f55f5e4-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>With a laser focus on geography, we began researching popular products & testing localised language. We tested across email, paid media and conversion rate tested the website; each small increase in performance leading to a reduced CAC:LTV ratio. Streamlining processes has been critical to their success, we can’t wait to see what 2023 has in store for us!<\/p>",
+            "custom_text": "",
+            "custom_text_bold": false,
+            "custom_text_italic": false,
+            "text_font_size_mobile": 14,
+            "text_font_size_desktop": 16,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "template--15678261231825__417a1ee1-2527-450e-9f38-2722c7b19292-16728429420f55f5e4-0",
+        "template--15678261231825__417a1ee1-2527-450e-9f38-2722c7b19292-16728429420f55f5e4-1"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "use_custom_colors": true,
+        "background_color_light": "#1c1c1c",
+        "background_color_dark": "#1c1c1c",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "f9a83fa2-18a3-4262-9b07-02e812cf17be": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15678261231825__f9a83fa2-18a3-4262-9b07-02e812cf17be-16728443322b364c27-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Conversion Rate Optimisation <\/p>",
+            "heading_font_size_mobile": 32,
+            "heading_font_size_desktop": 42,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "65ddccf2-0bcf-44e9-954b-e5fb411b629e": {
+          "type": "single_image",
+          "settings": {
+            "image_light": "shopify:\/\/shop_images\/Group_879.png",
+            "image_dark": "shopify:\/\/shop_images\/Group_879.png",
+            "image_max_width": 140
+          }
+        },
+        "d58876a5-b936-439a-8b29-4b8aa0105489": {
+          "type": "image_grid",
+          "settings": {
+            "enable_mobile_slider": false,
+            "number_of_cols_desktop": "two",
+            "set_max_height_or_width": "original-image-size",
+            "image_max_width": 100,
+            "image_max_height": 100,
+            "headings_color_light": "#ffffff",
+            "headings_color_dark": "#ffffff",
+            "subheadings_color_light": "#ffffff",
+            "subheadings_color_dark": "#ffffff",
+            "show_item1": true,
+            "item1_image": "shopify:\/\/shop_images\/Group_34.png",
+            "item1_heading": "Sticky add to cart button",
+            "item1_text_content": "This increases sales and reduces the abandonment rate.",
+            "show_item1_content_columns": false,
+            "item1_content_column1_heading": "",
+            "item1_content_column1_subheading": "",
+            "item1_content_column2_heading": "",
+            "item1_content_column2_subheading": "",
+            "item1_content_column3_heading": "",
+            "item1_content_column3_subheading": "",
+            "item1_content_column4_heading": "",
+            "item1_content_column4_subheading": "",
+            "show_item2": true,
+            "item2_image": "shopify:\/\/shop_images\/Group_849.png",
+            "item2_heading": "Popular product banners",
+            "item2_text_content": "Adding urgency can build engagement and boost conversion rates.",
+            "show_item2_content_columns": false,
+            "item2_content_column1_heading": "",
+            "item2_content_column1_subheading": "",
+            "item2_content_column2_heading": "",
+            "item2_content_column2_subheading": "",
+            "item2_content_column3_heading": "",
+            "item2_content_column3_subheading": "",
+            "item2_content_column4_heading": "",
+            "item2_content_column4_subheading": "",
+            "show_item3": false,
+            "item3_heading": "",
+            "item3_text_content": "",
+            "show_item3_content_columns": false,
+            "item3_content_column1_heading": "",
+            "item3_content_column1_subheading": "",
+            "item3_content_column2_heading": "",
+            "item3_content_column2_subheading": "",
+            "item3_content_column3_heading": "",
+            "item3_content_column3_subheading": "",
+            "item3_content_column4_heading": "",
+            "item3_content_column4_subheading": "",
+            "show_item4": false,
+            "item4_heading": "",
+            "item4_text_content": "",
+            "show_item4_content_columns": false,
+            "item4_content_column1_heading": "",
+            "item4_content_column1_subheading": "",
+            "item4_content_column2_heading": "",
+            "item4_content_column2_subheading": "",
+            "item4_content_column3_heading": "",
+            "item4_content_column3_subheading": "",
+            "item4_content_column4_heading": "",
+            "item4_content_column4_subheading": "",
+            "show_item5": false,
+            "item5_heading": "",
+            "item5_text_content": "",
+            "show_item5_content_columns": false,
+            "item5_content_column1_heading": "",
+            "item5_content_column1_subheading": "",
+            "item5_content_column2_heading": "",
+            "item5_content_column2_subheading": "",
+            "item5_content_column3_heading": "",
+            "item5_content_column3_subheading": "",
+            "item5_content_column4_heading": "",
+            "item5_content_column4_subheading": "",
+            "show_item6": false,
+            "item6_heading": "",
+            "item6_text_content": "",
+            "show_item6_content_columns": false,
+            "item6_content_column1_heading": "",
+            "item6_content_column1_subheading": "",
+            "item6_content_column2_heading": "",
+            "item6_content_column2_subheading": "",
+            "item6_content_column3_heading": "",
+            "item6_content_column3_subheading": "",
+            "item6_content_column4_heading": "",
+            "item6_content_column4_subheading": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15678261231825__f9a83fa2-18a3-4262-9b07-02e812cf17be-16728443322b364c27-0",
+        "65ddccf2-0bcf-44e9-954b-e5fb411b629e",
+        "d58876a5-b936-439a-8b29-4b8aa0105489"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "use_custom_colors": true,
+        "background_color_light": "#2d2d2d",
+        "background_color_dark": "#2d2d2d",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "3fbcff79-9f6c-47dd-a0ba-7d275c0634d0": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15678261231825__3fbcff79-9f6c-47dd-a0ba-7d275c0634d0-1672911697d803794b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Email Marketing<\/p>",
+            "heading_font_size_mobile": 32,
+            "heading_font_size_desktop": 42,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "464ee6dd-04ea-492f-b091-b3de17f0782c": {
+          "type": "image_grid",
+          "settings": {
+            "enable_mobile_slider": false,
+            "number_of_cols_desktop": "two",
+            "set_max_height_or_width": "original-image-size",
+            "image_max_width": 100,
+            "image_max_height": 100,
+            "headings_color_light": "#ffffff",
+            "headings_color_dark": "#ffffff",
+            "subheadings_color_light": "#000000",
+            "subheadings_color_dark": "#000000",
+            "show_item1": true,
+            "item1_image": "shopify:\/\/shop_images\/Group_855.png",
+            "item1_heading": "English",
+            "item1_text_content": "",
+            "show_item1_content_columns": false,
+            "item1_content_column1_heading": "",
+            "item1_content_column1_subheading": "",
+            "item1_content_column2_heading": "",
+            "item1_content_column2_subheading": "",
+            "item1_content_column3_heading": "",
+            "item1_content_column3_subheading": "",
+            "item1_content_column4_heading": "",
+            "item1_content_column4_subheading": "",
+            "show_item2": true,
+            "item2_image": "shopify:\/\/shop_images\/Group_854.png",
+            "item2_heading": "Spanish",
+            "item2_text_content": "",
+            "show_item2_content_columns": false,
+            "item2_content_column1_heading": "",
+            "item2_content_column1_subheading": "",
+            "item2_content_column2_heading": "",
+            "item2_content_column2_subheading": "",
+            "item2_content_column3_heading": "",
+            "item2_content_column3_subheading": "",
+            "item2_content_column4_heading": "",
+            "item2_content_column4_subheading": "",
+            "show_item3": false,
+            "item3_heading": "",
+            "item3_text_content": "",
+            "show_item3_content_columns": false,
+            "item3_content_column1_heading": "",
+            "item3_content_column1_subheading": "",
+            "item3_content_column2_heading": "",
+            "item3_content_column2_subheading": "",
+            "item3_content_column3_heading": "",
+            "item3_content_column3_subheading": "",
+            "item3_content_column4_heading": "",
+            "item3_content_column4_subheading": "",
+            "show_item4": false,
+            "item4_heading": "",
+            "item4_text_content": "",
+            "show_item4_content_columns": false,
+            "item4_content_column1_heading": "",
+            "item4_content_column1_subheading": "",
+            "item4_content_column2_heading": "",
+            "item4_content_column2_subheading": "",
+            "item4_content_column3_heading": "",
+            "item4_content_column3_subheading": "",
+            "item4_content_column4_heading": "",
+            "item4_content_column4_subheading": "",
+            "show_item5": false,
+            "item5_heading": "",
+            "item5_text_content": "",
+            "show_item5_content_columns": false,
+            "item5_content_column1_heading": "",
+            "item5_content_column1_subheading": "",
+            "item5_content_column2_heading": "",
+            "item5_content_column2_subheading": "",
+            "item5_content_column3_heading": "",
+            "item5_content_column3_subheading": "",
+            "item5_content_column4_heading": "",
+            "item5_content_column4_subheading": "",
+            "show_item6": false,
+            "item6_heading": "",
+            "item6_text_content": "",
+            "show_item6_content_columns": false,
+            "item6_content_column1_heading": "",
+            "item6_content_column1_subheading": "",
+            "item6_content_column2_heading": "",
+            "item6_content_column2_subheading": "",
+            "item6_content_column3_heading": "",
+            "item6_content_column3_subheading": "",
+            "item6_content_column4_heading": "",
+            "item6_content_column4_subheading": ""
+          }
+        },
+        "template--15678261231825__3fbcff79-9f6c-47dd-a0ba-7d275c0634d0-1672911697d803794b-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sinners have attracted a loyal following across the UK, Spain, Ireland & Portugal.  <\/p>",
+            "custom_text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
+            "custom_text_bold": false,
+            "custom_text_italic": false,
+            "text_font_size_mobile": 14,
+            "text_font_size_desktop": 16,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "template--15678261231825__3fbcff79-9f6c-47dd-a0ba-7d275c0634d0-1672911697d803794b-0",
+        "464ee6dd-04ea-492f-b091-b3de17f0782c",
+        "template--15678261231825__3fbcff79-9f6c-47dd-a0ba-7d275c0634d0-1672911697d803794b-1"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "use_custom_colors": true,
+        "background_color_light": "#1c1c1c",
+        "background_color_dark": "#1c1c1c",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "1b302a50-65a5-4ee3-850b-5b98d521029d": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15678261231825__1b302a50-65a5-4ee3-850b-5b98d521029d-1672911697d803794b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Paid Media<\/p>",
+            "heading_font_size_mobile": 32,
+            "heading_font_size_desktop": 42,
+            "text_color_light": "#ffba03",
+            "text_color_dark": "#ffba03"
+          }
+        },
+        "template--15678261231825__1b302a50-65a5-4ee3-850b-5b98d521029d-1672911697d803794b-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We use the AIDA funnel to track performance<\/p><p><strong>A = Awareness<\/strong> (impressions)<br\/><strong>I = Intent<\/strong> (thumb-stopping rate)<br\/><strong>D = Desire<\/strong> (unique click-through-rate)<br\/><strong>A = Action<\/strong> (return on ad spend)<\/p>",
+            "custom_text": "",
+            "custom_text_bold": false,
+            "custom_text_italic": false,
+            "text_font_size_mobile": 14,
+            "text_font_size_desktop": 16,
+            "text_color_light": "#000000",
+            "text_color_dark": "#1c1c1c"
+          }
+        },
+        "718645ad-4282-4989-8cea-96f2851b298d": {
+          "type": "image_grid",
+          "settings": {
+            "enable_mobile_slider": true,
+            "number_of_cols_desktop": "two",
+            "set_max_height_or_width": "max-height",
+            "image_max_width": 100,
+            "image_max_height": 120,
+            "headings_color_light": "#000000",
+            "headings_color_dark": "#1c1c1c",
+            "subheadings_color_light": "#000000",
+            "subheadings_color_dark": "#000000",
+            "show_item1": true,
+            "item1_image": "shopify:\/\/shop_images\/Group_866.png",
+            "item1_heading": "",
+            "item1_text_content": "",
+            "show_item1_content_columns": true,
+            "item1_content_column1_heading": "20K",
+            "item1_content_column1_subheading": "A",
+            "item1_content_column2_heading": "6.2%",
+            "item1_content_column2_subheading": "I",
+            "item1_content_column3_heading": "1.2%",
+            "item1_content_column3_subheading": "D",
+            "item1_content_column4_heading": "7.6",
+            "item1_content_column4_subheading": "A",
+            "show_item2": true,
+            "item2_image": "shopify:\/\/shop_images\/Group_865.png",
+            "item2_heading": "",
+            "item2_text_content": "",
+            "show_item2_content_columns": true,
+            "item2_content_column1_heading": "20K",
+            "item2_content_column1_subheading": "A",
+            "item2_content_column2_heading": "6.2%",
+            "item2_content_column2_subheading": "I",
+            "item2_content_column3_heading": "1.2%",
+            "item2_content_column3_subheading": "D",
+            "item2_content_column4_heading": "7.6",
+            "item2_content_column4_subheading": "A",
+            "show_item3": true,
+            "item3_image": "shopify:\/\/shop_images\/Group_863.png",
+            "item3_heading": "",
+            "item3_text_content": "",
+            "show_item3_content_columns": true,
+            "item3_content_column1_heading": "20K",
+            "item3_content_column1_subheading": "A",
+            "item3_content_column2_heading": "6.2%",
+            "item3_content_column2_subheading": "I",
+            "item3_content_column3_heading": "1.2%",
+            "item3_content_column3_subheading": "D",
+            "item3_content_column4_heading": "7.6",
+            "item3_content_column4_subheading": "A",
+            "show_item4": true,
+            "item4_image": "shopify:\/\/shop_images\/Group_864.png",
+            "item4_heading": "",
+            "item4_text_content": "",
+            "show_item4_content_columns": true,
+            "item4_content_column1_heading": "20K",
+            "item4_content_column1_subheading": "A",
+            "item4_content_column2_heading": "6.2%",
+            "item4_content_column2_subheading": "I",
+            "item4_content_column3_heading": "1.2%",
+            "item4_content_column3_subheading": "D",
+            "item4_content_column4_heading": "7.6",
+            "item4_content_column4_subheading": "A",
+            "show_item5": false,
+            "item5_heading": "",
+            "item5_text_content": "",
+            "show_item5_content_columns": false,
+            "item5_content_column1_heading": "",
+            "item5_content_column1_subheading": "",
+            "item5_content_column2_heading": "",
+            "item5_content_column2_subheading": "",
+            "item5_content_column3_heading": "",
+            "item5_content_column3_subheading": "",
+            "item5_content_column4_heading": "",
+            "item5_content_column4_subheading": "",
+            "show_item6": false,
+            "item6_heading": "",
+            "item6_text_content": "",
+            "show_item6_content_columns": false,
+            "item6_content_column1_heading": "",
+            "item6_content_column1_subheading": "",
+            "item6_content_column2_heading": "",
+            "item6_content_column2_subheading": "",
+            "item6_content_column3_heading": "",
+            "item6_content_column3_subheading": "",
+            "item6_content_column4_heading": "",
+            "item6_content_column4_subheading": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15678261231825__1b302a50-65a5-4ee3-850b-5b98d521029d-1672911697d803794b-0",
+        "template--15678261231825__1b302a50-65a5-4ee3-850b-5b98d521029d-1672911697d803794b-1",
+        "718645ad-4282-4989-8cea-96f2851b298d"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "use_custom_colors": true,
+        "background_color_light": "#ffffff",
+        "background_color_dark": "#ffffff",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "0770c37b-f500-4333-8400-3a0c91dfb07c": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15678261231825__0770c37b-f500-4333-8400-3a0c91dfb07c-167291356567c45577-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Art Direction & Design<\/p>",
+            "heading_font_size_mobile": 32,
+            "heading_font_size_desktop": 42,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "e8bc98a6-1bbe-4674-8a1b-4e6819bd08a1": {
+          "type": "single_image",
+          "settings": {
+            "image_light": "shopify:\/\/shop_images\/Group_877.png",
+            "image_dark": "shopify:\/\/shop_images\/Group_877.png",
+            "image_max_width": 140
+          }
+        },
+        "5b91c620-a2b7-4780-99be-586327193890": {
+          "type": "image_grid",
+          "settings": {
+            "enable_mobile_slider": true,
+            "number_of_cols_desktop": "three",
+            "set_max_height_or_width": "original-image-size",
+            "image_max_width": 100,
+            "image_max_height": 124,
+            "headings_color_light": "#ffffff",
+            "headings_color_dark": "#ffffff",
+            "subheadings_color_light": "#000000",
+            "subheadings_color_dark": "#000000",
+            "show_item1": true,
+            "item1_image": "shopify:\/\/shop_images\/Frame_2386.png",
+            "item1_heading": "Email campaign to US customers",
+            "item1_text_content": "",
+            "show_item1_content_columns": false,
+            "item1_content_column1_heading": "",
+            "item1_content_column1_subheading": "",
+            "item1_content_column2_heading": "",
+            "item1_content_column2_subheading": "",
+            "item1_content_column3_heading": "",
+            "item1_content_column3_subheading": "",
+            "item1_content_column4_heading": "",
+            "item1_content_column4_subheading": "",
+            "show_item2": true,
+            "item2_image": "shopify:\/\/shop_images\/Frame_2386_1.jpg",
+            "item2_heading": "Product focus designs",
+            "item2_text_content": "",
+            "show_item2_content_columns": false,
+            "item2_content_column1_heading": "",
+            "item2_content_column1_subheading": "",
+            "item2_content_column2_heading": "",
+            "item2_content_column2_subheading": "",
+            "item2_content_column3_heading": "",
+            "item2_content_column3_subheading": "",
+            "item2_content_column4_heading": "",
+            "item2_content_column4_subheading": "",
+            "show_item3": true,
+            "item3_image": "shopify:\/\/shop_images\/Frame_2386_2.jpg",
+            "item3_heading": "Black Friday web banner",
+            "item3_text_content": "",
+            "show_item3_content_columns": false,
+            "item3_content_column1_heading": "",
+            "item3_content_column1_subheading": "",
+            "item3_content_column2_heading": "",
+            "item3_content_column2_subheading": "",
+            "item3_content_column3_heading": "",
+            "item3_content_column3_subheading": "",
+            "item3_content_column4_heading": "",
+            "item3_content_column4_subheading": "",
+            "show_item4": false,
+            "item4_heading": "",
+            "item4_text_content": "",
+            "show_item4_content_columns": false,
+            "item4_content_column1_heading": "",
+            "item4_content_column1_subheading": "",
+            "item4_content_column2_heading": "",
+            "item4_content_column2_subheading": "",
+            "item4_content_column3_heading": "",
+            "item4_content_column3_subheading": "",
+            "item4_content_column4_heading": "",
+            "item4_content_column4_subheading": "",
+            "show_item5": false,
+            "item5_heading": "",
+            "item5_text_content": "",
+            "show_item5_content_columns": false,
+            "item5_content_column1_heading": "",
+            "item5_content_column1_subheading": "",
+            "item5_content_column2_heading": "",
+            "item5_content_column2_subheading": "",
+            "item5_content_column3_heading": "",
+            "item5_content_column3_subheading": "",
+            "item5_content_column4_heading": "",
+            "item5_content_column4_subheading": "",
+            "show_item6": false,
+            "item6_heading": "",
+            "item6_text_content": "",
+            "show_item6_content_columns": false,
+            "item6_content_column1_heading": "",
+            "item6_content_column1_subheading": "",
+            "item6_content_column2_heading": "",
+            "item6_content_column2_subheading": "",
+            "item6_content_column3_heading": "",
+            "item6_content_column3_subheading": "",
+            "item6_content_column4_heading": "",
+            "item6_content_column4_subheading": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15678261231825__0770c37b-f500-4333-8400-3a0c91dfb07c-167291356567c45577-0",
+        "e8bc98a6-1bbe-4674-8a1b-4e6819bd08a1",
+        "5b91c620-a2b7-4780-99be-586327193890"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "use_custom_colors": true,
+        "background_color_light": "#1c1c1c",
+        "background_color_dark": "#1c1c1c",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "f2a296f8-416c-44a9-80eb-38039bd87ae4": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15678261231825__f2a296f8-416c-44a9-80eb-38039bd87ae4-167291356567c45577-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Bright Ideas Brought to Life<\/p>",
+            "heading_font_size_mobile": 32,
+            "heading_font_size_desktop": 42,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "template--15678261231825__f2a296f8-416c-44a9-80eb-38039bd87ae4-167291356567c45577-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "custom_text": "“Our <span class=\"text--color-alt text--color-alt-yellow\">concept<\/span> is that there are no silver bullets, growth hacking internationally is a mindset. We threw out the playbook and replaced it with something testable, traceable and scaleable. Some people dream about playing for England, mine was working with Sinners. I’m so happy I have achieved my dream.”",
+            "custom_text_bold": false,
+            "custom_text_italic": true,
+            "text_font_size_mobile": 14,
+            "text_font_size_desktop": 16,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "271fbcad-00a4-412c-8dbe-05288e9a9a47": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Jack Pollard, Senior Growth Hacker<\/p>",
+            "custom_text": "",
+            "custom_text_bold": false,
+            "custom_text_italic": false,
+            "text_font_size_mobile": 12,
+            "text_font_size_desktop": 14,
+            "text_color_light": "#ffffff",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "02f0ae0c-6846-4bba-b898-7700cc436dc8": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Conceptualise<\/p>",
+            "heading_font_size_mobile": 18,
+            "heading_font_size_desktop": 24,
+            "text_color_light": "#ffba03",
+            "text_color_dark": "#ffba03"
+          }
+        },
+        "template--15678261231825__f2a296f8-416c-44a9-80eb-38039bd87ae4-167291356567c45577-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "CLAIM FREE AUDIT",
+            "button_label_second_line": "Usually £750 + VAT",
+            "button_link": "shopify:\/\/pages\/contact-us",
+            "button1_custom_style": true,
+            "button1_background_color": "#2d2d2d",
+            "button1_border_color": "#ffba03",
+            "button1_text_color": "#ffffff",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button2_custom_style": false,
+            "button2_background_color": "",
+            "button2_border_color": "#ffba03",
+            "button2_text_color": "#ffba03"
+          }
+        }
+      },
+      "block_order": [
+        "template--15678261231825__f2a296f8-416c-44a9-80eb-38039bd87ae4-167291356567c45577-0",
+        "template--15678261231825__f2a296f8-416c-44a9-80eb-38039bd87ae4-167291356567c45577-1",
+        "271fbcad-00a4-412c-8dbe-05288e9a9a47",
+        "02f0ae0c-6846-4bba-b898-7700cc436dc8",
+        "template--15678261231825__f2a296f8-416c-44a9-80eb-38039bd87ae4-167291356567c45577-2"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "use_custom_colors": true,
+        "background_color_light": "#2d2d2d",
+        "background_color_dark": "#2d2d2d",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ca7f7000-c954-4a12-9222-37ba3df7707b",
+    "cbd84123-9967-4617-a0a7-08dc38749b62",
+    "465ef80a-ae25-449e-aa89-87058e1f9383",
+    "417a1ee1-2527-450e-9f38-2722c7b19292",
+    "f9a83fa2-18a3-4262-9b07-02e812cf17be",
+    "3fbcff79-9f6c-47dd-a0ba-7d275c0634d0",
+    "1b302a50-65a5-4ee3-850b-5b98d521029d",
+    "0770c37b-f500-4333-8400-3a0c91dfb07c",
+    "f2a296f8-416c-44a9-80eb-38039bd87ae4"
+  ]
+}

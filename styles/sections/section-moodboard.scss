@@ -1,0 +1,50 @@
+.moodboard {
+
+    .moodboard__wrap {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        &.moodboard--background-image {
+            background-position: center;
+            background-repeat: repeat;
+            background-size: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            h2 {
+                margin: 0 auto;
+                width: fit-content;
+                padding: 5px 25px;
+                border: 10px solid;
+                // box-shadow: -15px -15px 0px black;
+            }
+
+            &.section-heading--alt-font {
+                h2 {
+                    font-family: 'BadaBoom';
+                    letter-spacing: 2px;
+                }
+            }
+        }
+
+        .moodboard__grid {
+            margin-top: 30px;
+            padding-right: 20px;
+            padding-left: 20px;
+            gap: 10px;
+
+            @media (min-width:750px) {
+                gap: 30px;
+                padding-right: 40px;
+                padding-left: 40px;
+            }
+
+            // .moodboard__image {
+                
+            // }
+        }
+    }
+}

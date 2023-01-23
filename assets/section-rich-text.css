@@ -85,6 +85,14 @@
   justify-content: flex-end;
 }
 
+.rich-text__buttons .button--multi-line{
+  flex-direction: column;
+}
+.rich-text__buttons .button--multi-line p:last-of-type{
+  font-size: 75%;
+  font-weight: normal;
+}
+
 
 .rich-text .rich-text__subheading{
   margin: 0;
@@ -98,4 +106,130 @@
     font-size: 32px;
   }
   
+}
+
+/* Single image */
+
+.rich-text .rich-text__single-image--light{ display: block; }
+.rich-text .rich-text__single-image--dark{ display: none; }
+
+.rich-text .rich-text__wrapper .rich-text__single-image,
+.rich-text .rich-text__blocks.center .rich-text__single-image {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.rich-text .rich-text__wrapper--left .rich-text__single-image,
+.rich-text .rich-text__blocks.left .rich-text__single-image {
+  margin-right: auto;
+  margin-left: unset;
+}
+
+.rich-text .rich-text__wrapper--right .rich-text__single-image,
+.rich-text .rich-text__blocks.right .rich-text__single-image {
+  margin-right: unset;
+  margin-left: auto;
+}
+
+/* Dark */
+body.theme-dark-mode .rich-text .rich-text__single-image--light{ display: none; }
+body.theme-dark-mode .rich-text .rich-text__single-image--dark{ display: block; }
+
+
+
+/* Image grid */
+.rich-text .rich-text__image-grid{
+  margin-top: 4rem;
+}
+.rich-text .rich-text__image-grid-items--no-slider{
+  display: flex;
+  flex-wrap: wrap;
+}
+.rich-text .rich-text__image-grid .rich-text__image-grid-items--no-slider{
+  gap: 0;
+}
+.rich-text .rich-text__image-grid .rich-text__image-grid-items--no-slider .rich-text__image-grid-item{
+  padding: 15px 10px;
+}
+.rich-text .rich-text__image-grid .rich-text__image-grid-items--no-slider.desktop--two-cols .rich-text__image-grid-item{
+  width: 50%;
+  max-width: 50%;
+}
+.rich-text .rich-text__image-grid .rich-text__image-grid-items--no-slider.desktop--three-cols .rich-text__image-grid-item{
+  width: 33.33%;
+  max-width: 33.33%;
+}
+.rich-text .rich-text__image-grid .rich-text__image-grid-items--no-slider.desktop--four-cols .rich-text__image-grid-item{
+  width: 25%;
+  max-width: 25%;
+}
+.rich-text .rich-text__image-grid .rich-text__image-grid-item-image img{
+  margin: 0 auto 15px auto;
+}
+
+.rich-text .rich-text__image-grid-item-heading p{
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.rich-text .rich-text__image-grid-item-text-content p{
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.rich-text .rich-text__image-grid-item-content-columns{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.rich-text .rich-text__image-grid-item-content-columns .rich-text__image-grid-item-content-column-heading{
+  font-size: 12px;
+  font-weight: bold;
+}
+.rich-text .rich-text__image-grid-item-content-columns .rich-text__image-grid-item-content-column-subheading{
+  font-size: 10px;
+  font-weight: normal;
+}
+
+
+@media screen and (max-width: 749px){
+  .rich-text .rich-text__image-grid .rich-text__image-grid-items .rich-text__image-grid-item{
+    min-width: 50%;
+    width: calc(75% - var(--grid-mobile-horizontal-spacing) - 3rem);
+    max-width: calc(75% - var(--grid-mobile-horizontal-spacing) / 2);
+    scroll-snap-align: none center;
+  }
+}
+@media (min-width:750px) {
+  .rich-text .rich-text__image-grid .rich-text__image-grid-items {
+    gap: 0;
+  }
+  .rich-text .rich-text__image-grid .rich-text__image-grid-items .rich-text__image-grid-item{
+    padding: 15px;
+  }
+  .rich-text .rich-text__image-grid .rich-text__image-grid-items.desktop--two-cols .rich-text__image-grid-item{
+    width: 50%;
+    max-width: 50%;
+  }
+  .rich-text .rich-text__image-grid .rich-text__image-grid-items.desktop--three-cols .rich-text__image-grid-item{
+    width: 33.33%;
+    max-width: 33.33%;
+  }
+  .rich-text .rich-text__image-grid .rich-text__image-grid-items.desktop--four-cols .rich-text__image-grid-item{
+    width: 25%;
+    max-width: 25%;
+  }
+  .rich-text .rich-text__image-grid-item-heading p{
+    font-size: 20px;
+  }
+  .rich-text .rich-text__image-grid-item-text-content p{
+    font-size: 14px;
+  }
+  .rich-text .rich-text__image-grid-item-content-columns .rich-text__image-grid-item-content-column-heading{
+    font-size: 14px;
+  }
+  .rich-text .rich-text__image-grid-item-content-columns .rich-text__image-grid-item-content-column-subheading{
+    font-size: 12px;
+  }
 }
