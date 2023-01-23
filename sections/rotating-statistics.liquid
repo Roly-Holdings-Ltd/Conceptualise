@@ -29,7 +29,7 @@
         {%- endfor -%}
         {%- for block in section.blocks -%}
             {%- if block.settings.statistic_heading != blank -%}
-                <div class="rotating-statistics__statistic">
+                <div aria-hidden="true" class="rotating-statistics__statistic">
                     {%- if block.settings.statistic_subheading != blank -%}
                         <p class="rotating-statistics__statistic-subheading">{{ block.settings.statistic_subheading }}</p>
                     {%- endif -%}
@@ -39,7 +39,7 @@
         {%- endfor -%}
         {%- for block in section.blocks -%}
             {%- if block.settings.statistic_heading != blank -%}
-                <div class="rotating-statistics__statistic">
+                <div aria-hidden="true" class="rotating-statistics__statistic">
                     {%- if block.settings.statistic_subheading != blank -%}
                         <p class="rotating-statistics__statistic-subheading">{{ block.settings.statistic_subheading }}</p>
                     {%- endif -%}
@@ -49,7 +49,7 @@
         {%- endfor -%}
         {%- for block in section.blocks -%}
             {%- if block.settings.statistic_heading != blank -%}
-                <div class="rotating-statistics__statistic">
+                <div aria-hidden="true" class="rotating-statistics__statistic">
                     {%- if block.settings.statistic_subheading != blank -%}
                         <p class="rotating-statistics__statistic-subheading">{{ block.settings.statistic_subheading }}</p>
                     {%- endif -%}
