@@ -28,7 +28,7 @@
 {%- endif -%}
 
 {%- style -%}
-  {%- if section.settings.full_width -%}
+  {%- if section.settings.full_width == false -%}
     #shopify-section-{{ section.id }} {
       max-width: var(--page-width);
       margin: 0 auto;
@@ -186,10 +186,10 @@
           {%- when 'buttons' -%}
             <div class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
               {%- if block.settings.button_label_1 != blank -%}
-                <a{% if block.settings.button_link_1 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_1 | escape }}</a>
+                <a{% if block.settings.button_link_1 == blank and block.settings.button1_open_autdit_modal == false %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}" {% if block.settings.button1_open_autdit_modal %}data-open-audit-modal{% endif %}>{{ block.settings.button_label_1 | escape }}</a>
               {%- endif -%}
               {%- if block.settings.button_label_2 != blank -%}
-                <a{% if block.settings.button_link_2 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_2 | escape }}</a>
+                <a{% if block.settings.button_link_2 == blank and block.settings.button2_open_autdit_modal == false %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}" {% if block.settings.button2_open_autdit_modal %}data-open-audit-modal{% endif %}>{{ block.settings.button_label_2 | escape }}</a>
               {%- endif -%}
             </div>
             {%- when 'image' -%}
@@ -542,6 +542,12 @@
           "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label"
         },
         {
+          "type": "checkbox",
+          "id": "button1_open_autdit_modal",
+          "label": "Open audit modal on click?",
+          "default": false
+        },
+        {
           "type": "text",
           "id": "button_label_2",
           "default": "Button label",
@@ -558,6 +564,12 @@
           "id": "button_style_secondary_2",
           "default": false,
           "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_2.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "button2_open_autdit_modal",
+          "label": "Open audit modal on click?",
+          "default": false
         }
       ]
     },

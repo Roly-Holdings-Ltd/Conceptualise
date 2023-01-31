@@ -21,7 +21,7 @@
             </div>
             {%- when 'content_button' -%}
             <div id="block--{{ block.id }}" class="main-banner__content-info-row main-banner__content-info-row-button">
-                <a href="{{ block.settings.content_button_link }}" class="button">{{ block.settings.content_button_text }}</a>
+                <a href="{{ block.settings.content_button_link }}" class="button" {% if block.settings.button_open_autdit_modal %}data-open-audit-modal{% endif %}>{{ block.settings.content_button_text }}</a>
             </div>
 
             {%- when 'statistics' -%}
@@ -1377,6 +1377,12 @@
               "type": "url",
               "id": "content_button_link",
               "label": "Button link"
+          },
+          {
+            "type": "checkbox",
+            "id": "button_open_autdit_modal",
+            "label": "Open audit modal on click?",
+            "default": false
           },
           {
             "type": "range",
