@@ -11,6 +11,40 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
+  #Section--{{ section.id }} .section-heading h2{
+    font-size: {{ section.settings.heading_font_size_mobile }}px;
+    color: {{ section.settings.section_heading_color_light }};
+  }
+  #Section--{{ section.id }} .section-heading.section-heading--alt-font-style h2 {
+    background-color: {{ section.settings.section_heading_background_color_light }};
+    box-shadow: -15px -15px 0px {{ section.settings.section_heading_background_color_light }};
+    border-color: {{ section.settings.section_heading_color_light }};
+  }
+  body.theme-dark-mode #Section--{{ section.id }} .section-heading h2{
+      color: {{ section.settings.section_heading_color_dark }};
+  }
+  body.theme-dark-mode #Section--{{ section.id }} .section-heading.section-heading--alt-font-style h2{
+    background-color: {{ section.settings.section_heading_background_color_dark }};
+    box-shadow: -15px -15px 0px {{ section.settings.section_heading_background_color_dark }};
+    border-color: {{ section.settings.section_heading_color_dark }};
+  }
+  #Section--{{ section.id }} .image-grid__grid-item-heading{
+    color: {{ section.settings.item_heading_color_light }};
+    font-size: {{ section.settings.item_heading_font_size_mobile }}px;
+  }
+  
+  body.theme-dark-mode #Section--{{ section.id }} .image-grid__grid-item-heading{
+    color: {{ section.settings.item_heading_color_dark }};
+  }
+
+  #Section--{{ section.id }} .image-grid__wrap {
+    background-color: {{ section.settings.section_background_color }}
+  }
+  {%- if section.settings.section_background_image != blank -%}
+    #Section--{{ section.id }} .image-grid--background-image{
+      background-image: url("{{ section.settings.section_background_image | image_url: '1200x' }}");
+    }
+  {%- endif -%}
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
@@ -23,47 +57,18 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-  }
-
-  #Section--{{ section.id }} .section-heading h2{
-    font-size: {{ section.settings.heading_font_size_mobile }}px;
-    color: {{ section.settings.section_heading_color_light }};
-  }
-  #Section--{{ section.id }} .section-heading.section-heading--alt-font-style h2{
-    background-color: {{ section.settings.section_heading_background_color_light }};
-    box-shadow: -15px -15px 0px {{ section.settings.section_heading_background_color_light }};
-    border-color: {{ section.settings.section_heading_color_light }};
-  }
-
-  body.theme-dark-mode #Section--{{ section.id }} .section-heading h2{
-      color: {{ section.settings.section_heading_color_dark }};
-  }
-  body.theme-dark-mode #Section--{{ section.id }} .section-heading.section-heading--alt-font-style h2{
-    background-color: {{ section.settings.section_heading_background_color_dark }};
-    box-shadow: -15px -15px 0px {{ section.settings.section_heading_background_color_dark }};
-    border-color: {{ section.settings.section_heading_color_dark }};
-  }
-
-  @media screen and (min-width: 750px) {
-      .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
-      }
-      
-      #Section--{{ section.id }} .section-heading h2{
-          font-size: {{ section.settings.heading_font_size_desktop }}px;
-      }
-  }
-
-  #Section--{{ section.id }} .image-grid__wrap {
-    background-color: {{ section.settings.section_background_color }}
-  }
-  {%- if section.settings.section_background_image != blank -%}
-    #Section--{{ section.id }} .image-grid--background-image{
-      background-image: url("{{ section.settings.section_background_image | img_url: '1200x' }}");
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    #Section--{{ section.id }} .section-heading h2{
+        font-size: {{ section.settings.heading_font_size_desktop }}px;
     }
 
-  {%- endif -%}
+    #Section--{{ section.id }} .image-grid__grid-item-heading{
+      font-size: {{ section.settings.item_heading_font_size_desktop }}px;
+    }
+  }
 {%- endstyle -%}
 
 <div id="Section--{{ section.id }}" class="image-grid {% unless section.settings.full_width_section %}page-width{% endunless %} section-{{ section.id }}-padding">
@@ -76,7 +81,7 @@
   
       <div class="image-grid__grid grid image-grid__grid--{{ section.settings.items_per_row_mobile }}-mobile-cols image-grid__grid--{{ section.settings.items_per_row_desktop }}-desktop-cols {% if section.settings.remove_gap_between_images %}image-grid__grid--no-gap{% endif %}">
         {%- for block in section.blocks -%}
-          <div class="image-grid__gird-item grid__item">
+          <div class="image-grid__grid-item grid__item">
             {%- if block.settings.image-grid_image_url != blank -%}
               <a href="{{ block.settings.image-grid_image_url }}">
             {%- endif -%}
@@ -96,8 +101,11 @@
                   class="image-grid__image"
                 >    
               {%- endif -%}
-            {%- if block.settings.image-grid_image_url != blank -%}
-              </a>
+                {%- if block.settings.image_grid_heading != blank -%}
+                  <h2 class="image-grid__grid-item-heading">{{ block.settings.image_grid_heading }}</h2>
+                {%- endif -%}
+              {%- if block.settings.image-grid_image_url != blank -%}
+            </a>
             {%- endif -%}
           </div>
         {%- endfor -%}
@@ -235,6 +243,38 @@
       "unit": "px",
       "label": "Heading font size - Desktop",
       "default": 42
+    },
+    {
+      "type": "color",
+      "id": "item_heading_color_light",
+      "label": "Item heading colour - light",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "item_heading_color_dark",
+      "label": "Item heading colour - dark",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "item_heading_font_size_mobile",
+      "min": 6,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Item heading font size - Mobile",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "item_heading_font_size_desktop",
+      "min": 6,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Item heading font size - Desktop",
+      "default": 16
     }
   ],
   "blocks": [
@@ -245,12 +285,17 @@
         {
           "type": "image_picker",
           "id": "image-grid_image",
-          "label": "image-grid image"
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_grid_heading",
+          "label": "Heading"
         },
         {
             "type": "url",
             "id": "image-grid_image_url",
-            "label": "image-grid image URL"
+            "label": "Image URL"
         }
       ]
     }
