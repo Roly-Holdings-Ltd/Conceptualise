@@ -1225,5 +1225,32 @@
         "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
       }
     ]
+  },
+  {
+    "name": "Audit modal",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_audit_modal",
+        "label": "Show the audit modal?",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "audit_modal_heading",
+        "label": "Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "audit_modal_subheading",
+        "label": "Subeading"
+      },
+      {
+        "type": "textarea",
+        "id": "audit_modal_form",
+        "label": "Form",
+        "info": "Paste the form code above"
+      }
+    ]
   }
 ]
