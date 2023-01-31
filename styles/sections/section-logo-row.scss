@@ -1,0 +1,32 @@
+.logo-row{
+
+    .section-heading {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .logo-row__grid{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        @media (min-width: 750px){
+            gap: 50px;
+        }
+
+        .logo-row__grid-item{
+            max-width: 120px;
+            aspect-ratio: 16/9;
+            .logo-row__grid-item-logo {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+
+                &.logo-row__grid-item-logo--light{ display: block; }
+                &.logo-row__grid-item-logo--dark{ display: none; }
+            }
+        }
+    }
+}
