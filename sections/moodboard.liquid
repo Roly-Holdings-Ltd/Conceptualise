@@ -62,28 +62,28 @@
 
 
   {% if section.settings.enable_image_max_height %}
-  #Section--{{ section.id }} .moodboard__gird-item{
+  #Section--{{ section.id }} .moodboard__grid-item{
     max-height: {{ section.settings.image_max_height_mobile }}px;
   }
   @media (min-width:750px){
-    #Section--{{ section.id }} .moodboard__gird-item{
+    #Section--{{ section.id }} .moodboard__grid-item{
       max-height: {{ section.settings.image_max_height_desktop }}px;
     }
   }
   {% endif %}
-  #Section--{{ section.id }} .moodboard__gird-item img{
+  #Section--{{ section.id }} .moodboard__grid-item img{
     object-fit: {{ section.settings.image_fit }};
     {% unless section.settings.image_fit == 'unset' %}
     height:100%;
     {% endunless %}
   }
   {%- for block in section.blocks -%}
-    #Block--{{ block.id }}.moodboard__gird-item{
+    #Block--{{ block.id }}.moodboard__grid-item{
       width: calc({{ block.settings.image_width_mobile }}% - 10px);
       max-width: {{ block.settings.image_width_mobile }}%;
     }
     @media (min-width:750px){
-      #Block--{{ block.id }}.moodboard__gird-item{
+      #Block--{{ block.id }}.moodboard__grid-item{
         width: calc({{ block.settings.image_width_desktop }}% - 30px);
         max-width: {{ block.settings.image_width_desktop }}%;
       }
@@ -101,7 +101,7 @@
   
       <div class="moodboard__grid grid">
         {%- for block in section.blocks -%}
-          <div id="Block--{{ block.id }}" class="moodboard__gird-item grid__item">
+          <div id="Block--{{ block.id }}" class="moodboard__grid-item grid__item">
             {%- if block.settings.moodboard_image_url != blank -%}
               <a href="{{ block.settings.moodboard_image_url }}">
             {%- endif -%}
