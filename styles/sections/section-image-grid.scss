@@ -38,27 +38,27 @@
             }
 
             &.image-grid__grid--1-mobile-cols {
-                .image-grid__gird-item {
+                .image-grid__grid-item {
                     width: 100%;
                 }
             }
 
             &.image-grid__grid--2-mobile-cols {
-                .image-grid__gird-item {
+                .image-grid__grid-item {
                     width: calc(50% - 20px);
                     max-width: 50%;
                 }
             }
 
             &.image-grid__grid--3-mobile-cols {
-                .image-grid__gird-item {
+                .image-grid__grid-item {
                     width: calc(33.333334% - 20px);
                     max-width: 33.333334%;
                 }
             }
 
             &.image-grid__grid--4-mobile-cols {
-                .image-grid__gird-item {
+                .image-grid__grid-item {
                     width: calc(25% - 20px);
                     max-width: 25%;
                 }
@@ -74,39 +74,47 @@
                 }
 
                 &.image-grid__grid--2-desktop-cols {
-                    .image-grid__gird-item {
+                    .image-grid__grid-item {
                         width: calc(50% - 30px);
                         max-width: 50%;
                     }
                 }
 
                 &.image-grid__grid--3-desktop-cols {
-                    .image-grid__gird-item {
+                    .image-grid__grid-item {
                         width: calc(33.333334% - 30px);
                         max-width: 33.333334%;
                     }
                 }
 
                 &.image-grid__grid--4-desktop-cols {
-                    .image-grid__gird-item {
+                    .image-grid__grid-item {
                         width: calc(25% - 30px);
                         max-width: 25%;
                     }
                 }
 
                 &.image-grid__grid--5-desktop-cols {
-                    .image-grid__gird-item {
+                    .image-grid__grid-item {
                         width: calc(20% - 30px);
                         max-width: 20%;
                     }
                 }
 
                 &.image-grid__grid--6-desktop-cols {
-                    .image-grid__gird-item {
+                    .image-grid__grid-item {
                         width: calc((100% / 6) - 30px);
                         max-width: calc(100% / 6);
                     }
                 }
+            }
+
+            .image-grid__grid-item {
+
+                .image-grid__grid-item-heading{
+                    margin-top: 5px;
+                }
+
             }
         }
     }
