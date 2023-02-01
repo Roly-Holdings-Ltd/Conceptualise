@@ -12,6 +12,12 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  {%- if section.settings.increase_space_around_image -%}
+  #Section--{{ section.id }}.image-with-text .image-with-text__media-item{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  {%- endif -%}
 
   #Section--{{ section.id }}.image-with-text .image-with-text__media,
   #Section--{{ section.id }}.image-with-text .image-with-text__media-item,
@@ -24,10 +30,60 @@
   body.theme-dark-mode #Section--{{ section.id }}.image-with-text .image-with-text__content {
     background-color: {{ section.settings.background_color_dark }};
   }
+
+  {%- if section.settings.mobile_reduce_content_padding -%}
+  @media (max-width: 749px){
+    #Section--{{ section.id }} .image-with-text--mobile-inline .image-with-text__text-item .image-with-text__content {
+      padding: 10px;
+    }
+  } 
+  {%- endif -%}
+
+  {%- if section.settings.mobile_content_inline -%}
+  @media (max-width:749px){
+    #Section--{{ section.id }} .image-with-text--mobile-inline .image-with-text__media-item{
+      {%- case section.settings.mobile_image_width -%}
+        {%- when 'small' -%}
+          width: 33.33%;
+          max-width: 33.33%;
+        {%- when 'medium' -%}
+          width: 50%;
+          max-width: 50%;
+        {%- when 'large' -%}
+          width: 66.666%;
+          max-width: 66.666%;
+      {%- endcase -%}
+    }
+    #Section--{{ section.id }} .image-with-text--mobile-inline .image-with-text__text-item{
+      {%- case section.settings.mobile_image_width -%}
+        {%- when 'small' -%}
+          width: 66.666%;
+          max-width: 66.666%;
+        {%- when 'medium' -%}
+          width: 50%;
+          max-width: 50%;
+        {%- when 'large' -%}
+          width: 33.33%;
+          max-width: 33.33%;
+      {%- endcase -%}
+    }
+  }
+  {%- endif -%}
+  @media (max-width: 749px){
+    #Section--{{ section.id }} .image-with-text--mobile-inline.image-with-text__grid{
+      
+      {%- case section.settings.mobile_layout -%}
+        {%- when 'image_first' -%}
+        flex-direction: row;
+        {%- when 'text_first' -%}
+        flex-direction: row-reverse;
+      {%- endcase -%}
+    }
+  }
 {%- endstyle -%}
 
 <div id="Section--{{ section.id }}" class="image-with-text image-with-text--{{ section.settings.content_layout }} {% unless section.settings.full_width_section %}page-width{% endunless %} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == 'background-1' and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %} section-{{ section.id }}-padding">
-  <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %} {% if section.settings.stack_columns %}image-with-text--stacked{% endif %}">
+  <div class="image-with-text__grid grid grid--gapless {% if section.settings.mobile_content_inline %}image-with-text--mobile-inline grid--2-col {% else %} grid--1-col{% endif %} grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %} {% if section.settings.stack_columns %}image-with-text--stacked{% endif %}">
     <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
       <div class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings {% if section.settings.image != blank %}media{% else %}image-with-text__media--placeholder placeholder{% endif %}"
         {% if section.settings.height == 'adapt' and section.settings.image != blank %} style="padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;"{% endif %}
@@ -114,7 +170,7 @@
 </div>
 
 
-<style>
+{%- style -%}
   {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'image' -%}
@@ -142,7 +198,7 @@
 
       {%- endcase -%}
     {%- endfor -%}
-  </style>
+  {%- endstyle -%}
 
 {% schema %}
 {
@@ -159,6 +215,12 @@
       "type": "checkbox",
       "id": "stack_columns",
       "label": "Stack columns?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "increase_space_around_image",
+      "label": "Increase the space around the image?",
       "default": false
     },
     {
@@ -315,6 +377,54 @@
       ],
       "default": "left",
       "label": "t:sections.image-with-text.settings.mobile_content_alignment.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_content_inline",
+      "label": "Keep the content and image inline?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_reduce_content_padding",
+      "label": "Reduce content padding?",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_width",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.image-with-text.settings.desktop_image_width.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.image-with-text.settings.desktop_image_width.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.image-with-text.settings.desktop_image_width.options__3.label"
+        }
+      ],
+      "default": "medium",
+      "label": "Mobile image width"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "t:sections.image-with-text.settings.layout.options__1.label"
+        },
+        {
+          "value": "text_first",
+          "label": "t:sections.image-with-text.settings.layout.options__2.label"
+        }
+      ],
+      "default": "image_first",
+      "label": "Mobile image placement"
     },
     {
       "type": "header",
