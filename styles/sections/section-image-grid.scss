@@ -27,9 +27,7 @@
         }
 
         .image-grid__grid {
-            margin-top: 30px;
-            padding-right: 20px;
-            padding-left: 20px;
+            // margin-top: 30px;
             gap: 20px;
             justify-content: center;
 
@@ -66,8 +64,6 @@
 
             @media (min-width:750px) {
                 gap: 30px;
-                padding-right: 40px;
-                padding-left: 40px;
 
                 &.image-grid__grid--no-gap{
                     gap: 0;
