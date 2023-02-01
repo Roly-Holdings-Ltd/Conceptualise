@@ -5,24 +5,28 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
+  {%- if section.settings.section_heading_alt_style -%}
   .section-{{ section.id }}-padding .moodboard__wrap{
     margin-top: -{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     margin-bottom: -{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
+  {%- endif -%}
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+    {%- if section.settings.section_heading_alt_style -%}
     .section-{{ section.id }}-padding .moodboard__wrap{
       margin-top: -{{ section.settings.padding_top }}px;
       margin-bottom: -{{ section.settings.padding_bottom }}px;
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+    {%- endif -%}
   }
 
   #Section--{{ section.id }} .section-heading h2{
@@ -40,6 +44,14 @@
       border-color: {{ section.settings.section_heading_color_dark }};
   }
 
+  {%- if section.settings.set_content_max_width -%}
+  #Section--{{ section.id }} .moodboard__grid{
+    margin-right: auto;
+    margin-left: auto;
+    max-width: {{ section.settings.content_max_width_mobile }}px;
+  }
+  {%- endif -%}
+
   @media screen and (min-width: 750px) {
       .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -49,14 +61,27 @@
       #Section--{{ section.id }} .section-heading h2{
           font-size: {{ section.settings.heading_font_size_desktop }}px;
       }
+      {%- if section.settings.set_content_max_width -%}
+      #Section--{{ section.id }} .moodboard__grid{
+        margin-right: auto;
+        margin-left: auto;
+        max-width: {{ section.settings.content_max_width_desktop }}px;
+      }
+      {%- endif -%}
   }
 
-  #Section--{{ section.id }} .moodboard__wrap {
-    background-color: {{ section.settings.section_background_color }}
+  {%- if section.settings.section_background_color != blank -%}
+  #Section--{{ section.id }} .moodboard__wrap{
+    background-color: {{ section.settings.section_background_color }};
+    padding: 15px;
   }
+  {%- endif -%}
   {%- if section.settings.section_background_image != blank -%}
     #Section--{{ section.id }} .moodboard--background-image {
       background-image: url("{{ section.settings.section_background_image | img_url: '1200x' }}");
+    }
+    #Section--{{ section.id }} .moodboard__wrap{
+      padding: 15px;
     }
   {%- endif -%}
 
@@ -94,7 +119,7 @@
 <div id="Section--{{ section.id }}" class="moodboard {% unless section.settings.full_width_section %}page-width{% endunless %} section-{{ section.id }}-padding">
   <div class="moodboard__wrap{% if section.settings.section_background_image != blank %} moodboard--background-image{% endif %}">
     {%- if section.settings.section_heading != blank -%}
-      <div class="section-heading {% if section.settings.section_heading_alt_font %}section-heading--alt-font{% endif %}">
+      <div class="section-heading {% if section.settings.section_heading_alt_style %}section-heading--alt-font{% endif %}">
           <h2 class="rte">{{ section.settings.section_heading | replace: 'p>', 'span>' }}</h2>
       </div>
     {%- endif -%}
@@ -158,7 +183,7 @@
     },
     {
       "type": "checkbox",
-      "id": "section_heading_alt_font",
+      "id": "section_heading_alt_style",
       "label": "Use alt font family?",
       "default": true
     },
@@ -185,6 +210,36 @@
         "unit": "px",
         "label": "Padding bottom",
         "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Content max width"
+    },
+    {
+      "type": "checkbox",
+      "id": "set_content_max_width",
+      "label": "Set a max width on the content?",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "content_max_width_mobile",
+      "min": 120,
+      "max": 520,
+      "step": 4,
+      "unit": "px",
+      "label": "Content max width - mobile",
+      "default": 180
+    },
+    {
+      "type": "range",
+      "id": "content_max_width_desktop",
+      "min": 600,
+      "max": 1200,
+      "step": 6,
+      "unit": "px",
+      "label": "Content max width - desktop",
+      "default": 768
     },
     {
         "type": "header",
