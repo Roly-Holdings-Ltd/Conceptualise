@@ -792,7 +792,8 @@
                     height: {{ block.settings.image_height_mobile }}px;
                     margin-top: {{ block.settings.image_vertical_position_mobile }}px;
                     background-image: url("{{ block.settings.image | img_url: 'medium' }}");
-                    background-size: 100% 100%;
+                    background-size: contain;
+                    background-repeat: no-repeat;
                     
                     {%- if block.settings.image_position == 'before' -%}
                         left: 0;
@@ -827,7 +828,8 @@
                     height: {{ block.settings.image_height_desktop }}px;
                     margin-top: {{ block.settings.image_vertical_position_desktop }}px;
                     background-image: url("{{ block.settings.image | img_url: 'medium' }}");
-                    background-size: 100% 100%;
+                    background-size: contain;
+                    background-repeat: no-repeat;
 
                     {%- if block.settings.image_position == 'before' -%}
                         margin-left: {{ block.settings.image_horizontal_position_desktop }}px;
@@ -1182,7 +1184,7 @@
             "max": 150,
             "step": 2,
             "unit": "px",
-            "label": "Image width - desktop",
+            "label": "Max image width - desktop",
             "default": 100
         },
         {
@@ -1192,7 +1194,7 @@
             "max": 150,
             "step": 2,
             "unit": "px",
-            "label": "Image width - Mobile",
+            "label": "Max image width - Mobile",
             "default": 60
         },
         {
@@ -1206,7 +1208,7 @@
             "max": 150,
             "step": 2,
             "unit": "px",
-            "label": "Image height - desktop",
+            "label": "Max 0mage height - desktop",
             "default": 100
         },
         {
@@ -1216,7 +1218,7 @@
             "max": 150,
             "step": 2,
             "unit": "px",
-            "label": "Image height - Mobile",
+            "label": "Max 0mage height - Mobile",
             "default": 60
         },
         {
