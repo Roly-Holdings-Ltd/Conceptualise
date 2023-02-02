@@ -1,6 +1,8 @@
 <div class="blog__filters-wrap">
     {% if blog.all_tags.size > 0 %}
-        <p class="blog__filters-tag {% unless current_tags %}blog__filters-tag--active{% endunless %}"><a href="{{blog.url}}">All</a></p>
+        <p class="blog__filters-tag {% unless current_tags %}blog__filters-tag--active{% endunless %}">
+            <a href="{{ blog.url }}">Show All</a>
+        </p>
         {%- for tag in blog.all_tags -%}
             {%- if current_tags contains tag -%}
                 <p class="blog__filters-tag blog__filters-tag--active">{{ tag | link_to_remove_tag: tag }}</p>
