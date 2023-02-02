@@ -158,7 +158,7 @@
                 {%- render 'icon-play' -%}
               </span>
             </button>
-            <video class="video">
+            <video class="video" controlsList="nodownload">
               {% for source in section.settings.custom_video.sources %}
               <source src="{{ source.url }}" type="{{ source.type }}">
               {% endfor %}
