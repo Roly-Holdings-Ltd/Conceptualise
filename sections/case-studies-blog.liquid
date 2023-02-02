@@ -17,17 +17,14 @@
   }
 {%- endstyle -%}
 
-{%- paginate blog.articles by 6 -%}
+{%- paginate blog.articles by 4 -%}
   <div class="main-blog case-studies-blog page-width section-{{ section.id }}-padding">
     <div class="main-blog__wrap">
-      <!-- <div class="blog__search">
-        {%- render 'blog-search' -%}
-      </div> -->
       <div class="blog__filters">
         {%- render 'blog-filters' -%}
       </div>
 
-      <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+      <div id="BlogArticlesContainer" class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
         {%- for article in blog.articles -%}
           <div class="blog-articles__article article">
             {%- render 'case-study-article-card',
@@ -39,21 +36,30 @@
               show_author: section.settings.show_author,
               show_excerpt: section.settings.show_excerpt,
               show_heading: section.settings.show_heading
+              show_tags: section.settings.show_tags
             -%}
           </div>
         {%- endfor -%}
       </div>
-
-      {%- if paginate.pages > 1 -%}
-        {%- render 'pagination', paginate: paginate -%}
-      {%- endif -%}
-    </div>
+      <div id="BlogArticlesPagination" class="blog-articles__paginate-button">
+        {% if paginate.next %}
+          <a href="{{ paginate.next.url }}">
+            <span>Show more</span>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" height="12" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+              
+            </span>
+          </a>
+        {% endif %}
+      </div>
   </div>
+</div>
 {%- endpaginate -%}
 
 
-<style>
-
+{%- style -%}
 .article .card__content time{
   font-size: {{ section.settings.date_font_size_mobile }}px;
 }
@@ -95,11 +101,23 @@
     font-size: {{ section.settings.featured_excerpt_font_size_desktop }}px;
   }
 }
-</style>
+{%- endstyle -%}
+
+<script src="{{ 'ajaxinate.js' | asset_url }}" defer></script>
+<script defer>
+  document.addEventListener("DOMContentLoaded", function() {
+  var endlessScroll = new Ajaxinate({
+    container: '#BlogArticlesContainer',
+    pagination: '#BlogArticlesPagination',
+    method: 'click',
+  });
+});
+</script>
+
 
 {% schema %}
 {
-  "name": "t:sections.main-blog.name",
+  "name": "Case study blog posts",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -160,6 +178,12 @@
       "id": "show_heading",
       "default": true,
       "label": "Show heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "default": true,
+      "label": "Show tags"
     },
     {
       "type": "checkbox",

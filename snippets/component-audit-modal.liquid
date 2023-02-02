@@ -1,0 +1,23 @@
+{%- if settings.show_audit_modal -%}
+{{ 'component-audit-modal.css' | asset_url | stylesheet_tag }}
+
+<audit-modal class="audit-modal modal-hidden">
+    <div class="audit-modal__modal">
+        <div class="audit-modal__modal-head">
+            <span class="btn-close">{%- render 'icon-close' -%}</span>
+        </div>
+        <div class="audit-modal__modal-body">
+            <h2 class="audit-modal__modal-heading">{{ settings.audit_modal_heading }}</h2>
+            <p class="audit-modal__modal-subheading">{{ settings.audit_modal_subheading }}</p>
+
+            <div class="audit-modal__modal-form">
+                {{ settings.audit_modal_form }}
+                <input type="email" id="email" placeholder="email@email.com" />
+                <button class="btn">Submit</button>
+            </div>
+        </div>
+    </div>
+</audit-modal>
+
+<script src="{{ 'component-audit-modal.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}

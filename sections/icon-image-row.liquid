@@ -1,24 +1,25 @@
 {{ 'section-icon-image-row.css' | asset_url | stylesheet_tag }}
-<style>
+{%- style -%}
   #icon-image-row-{{ section.id }} .icon-image-row__row{
-    flex: 0 0 {{ section.settings.icons_per_row_mobile }};
-    max-width: {{ section.settings.icons_per_row_mobile }};
+    flex: 0 0 calc({{ section.settings.icons_per_row_mobile }} -  (var(--grid-desktop-horizontal-spacing) * 2));
+    max-width: calc({{ section.settings.icons_per_row_mobile }} -  (var(--grid-desktop-horizontal-spacing) * 2));
   }
   #icon-image-row-{{ section.id }} .icon-image-row__row img{
-    width: {{ section.settings.icon_width_mobile }}px;
-    max-width: 100%;
+    height: {{ section.settings.icon_height_mobile }}px;
+    width: auto;
   }
   @media (min-width:750px){
     #icon-image-row-{{ section.id }} .icon-image-row__row img{
-      width: {{ section.settings.icon_width_desktop }}px;
-      max-width: 100%;
+      height: {{ section.settings.icon_height_desktop }}px;
+      width: auto;
     }
     #icon-image-row-{{ section.id }} .icon-image-row__row{
-      flex: 0 0 {{ section.settings.icons_per_row_desktop }};
-      max-width: {{ section.settings.icons_per_row_desktop }};
+      flex: 0 0 calc({{ section.settings.icons_per_row_desktop }} -  (var(--grid-desktop-horizontal-spacing) * 2));
+      max-width: calc({{ section.settings.icons_per_row_desktop }} -  (var(--grid-desktop-horizontal-spacing) * 2));
     }
   }
-</style>
+{%- endstyle -%}
+
 <div id="icon-image-row-{{ section.id }}" class="icon-image-row">
   <div class="icon-image-row__wrap page-width">
     <div class="icon-image-row__content">
@@ -87,22 +88,22 @@
     },
     {
       "type": "range",
-      "id": "icon_width_mobile",
+      "id": "icon_height_mobile",
       "min": 20,
       "max": 160,
       "step": 2,
       "unit": "px",
-      "label": "Icon max width - mobile",
+      "label": "Icon max height - mobile",
       "default": 60
     },
     {
       "type": "range",
-      "id": "icon_width_desktop",
+      "id": "icon_height_desktop",
       "min": 50,
       "max": 200,
       "step": 2,
       "unit": "px",
-      "label": "Icon max width - desktop",
+      "label": "Icon max height - desktop",
       "default": 90
     },
     {

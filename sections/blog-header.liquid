@@ -2,57 +2,80 @@
 
 <div id="BlogHead-{{ section.id }}" class="blog-head">
   <div class="blog-head__wrap page-width">
-    <div class="blog-head__content {% if section.settings.enable_background_color %}blog-head__content--with-background{% endif %}">
-        <div class="blog-head__title">
-            {%- capture logo -%}
-                {%- if section.settings.logo_light != blank -%}
-                    {{ section.settings.logo_light | image_url: width: section.settings.width | image_tag:
-                        widths: '50, 100, 150, 200, 250, 300, 400, 500',
-                        alt: section.settings.logo_light.alt,
-                        class: "blog-head__logo blog-head__logo--light"
-                    }}
-                {%- endif -%}
-                {%- if section.settings.logo_dark != blank -%}
-                    {{ section.settings.logo_dark | image_url: width: section.settings.width | image_tag:
-                        widths: '50, 100, 150, 200, 250, 300, 400, 500',
-                        alt: section.settings.logo_dark.alt,
-                        class: "blog-head__logo blog-head__logo--dark"
-                    }}
-                {%- endif -%}
-            {%- endcapture -%}
-            <h1>
-                <span>{{ section.settings.title | replace: '[logo]', logo }}</span>
-            </h1>
-        </div>
-        <div class="blog-head__subtitle">
-            <p>{{ section.settings.subtitle }}</p>
-        </div>
-
+    <div class="blog-head__content">
+        {%- for block in section.blocks -%}
+            {%- case block.type -%}
+                {%- when 'title' -%}
+                <div id="Block--{{ block.id }}" class="blog-head__title">
+                    <h1>{{ block.settings.title }}</h1>
+                </div>
+                {%- when 'subtitle' -%}
+                <div id="Block--{{ block.id }}" class="blog-head__subtitle">
+                    <p>{{ block.settings.subtitle }}</p>
+                </div>
+            {%- endcase -%}
+        {%- endfor -%}
     </div>
   </div>
 </div>
 
 {%- style -%}
-#BlogHead-{{ section.id }} .blog-head__title h1{
-    font-size: {{ section.settings.title_font_size_mobile }}px;
-}
-#BlogHead-{{ section.id }} .blog-head__title h1 img{
-    max-height: {{ section.settings.title_font_size_mobile }}px;
-}
-#BlogHead-{{ section.id }} .blog-head__subtitle p{
-    max-height: {{ section.settings.subtitle_font_size_mobile }}px;
-}
-@media (min-width:750px) {
-    #BlogHead-{{ section.id }} .blog-head__title h1{
-        font-size: {{ section.settings.title_font_size_desktop }}px;
-    }
-    #BlogHead-{{ section.id }} .blog-head__title h1 img{
-        max-height: {{ section.settings.title_font_size_desktop }}px;
-    }
-    #BlogHead-{{ section.id }} .blog-head__subtitle p{
-        max-height: {{ section.settings.subtitle_font_size_desktop }}px;
-    }
-}
+{%- for block in section.blocks -%}
+    {%- case block.type -%}
+        {%- when 'title' -%}
+            #BlogHead-{{ section.id }} #Block--{{ block.id }}.blog-head__title {
+                padding-top: {{ block.settings.padding_top | times: 0.75 | round: 0 }}px;
+                padding-bottom: {{ block.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+            }
+            
+            #BlogHead-{{ section.id }} #Block--{{ block.id }}.blog-head__title h1{
+                color: {{ block.settings.title_color_light }};
+                font-size: {{ block.settings.title_font_size_mobile }}px;
+                font-weight: {{ block.settings.font_weight }};
+            }
+            body.theme-dark-mode #BlogHead-{{ section.id }} #Block--{{ block.id }}.blog-head__title h1{
+                color: {{ block.settings.title_color_dark }};
+            }
+
+            @media (min-width:750px) {
+                #BlogHead-{{ section.id }} #Block--{{ block.id }}.blog-head__title {
+                    padding-top: {{ block.settings.padding_top }}px;
+                    padding-bottom: {{ block.settings.padding_bottom }}px;
+                }
+                #BlogHead-{{ section.id }} #Block--{{ block.id }}.blog-head__title h1{
+                    font-size: {{ block.settings.title_font_size_desktop }}px;
+                }
+            }
+
+        {%- when 'subtitle' -%}
+        #BlogHead-{{ section.id }} #Block--{{ block.id }}.blog-head__subtitle {
+            padding-top: {{ block.settings.padding_top | times: 0.75 | round: 0 }}px;
+            padding-bottom: {{ block.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        }
+        
+        #BlogHead-{{ section.id }} #Block--{{ block.id }}.blog-head__subtitle p{
+            color: {{ block.settings.subtitle_color_light }};
+            font-size: {{ block.settings.subtitle_font_size_mobile }}px;
+            font-weight: {{ block.settings.font_weight }};
+        }
+        body.theme-dark-mode #BlogHead-{{ section.id }} #Block--{{ block.id }}.blog-head__subtitle p{
+            color: {{ block.settings.subtitle_color_dark }};
+        }
+
+        @media (min-width:750px) {
+            #BlogHead-{{ section.id }} #Block--{{ block.id }}.blog-head__subtitle {
+                padding-top: {{ block.settings.padding_top }}px;
+                padding-bottom: {{ block.settings.padding_bottom }}px;
+            }
+            #BlogHead-{{ section.id }} #Block--{{ block.id }}.blog-head__subtitle p{
+                font-size: {{ block.settings.subtitle_font_size_desktop }}px;
+            }
+        }
+    {%- endcase -%}
+{%- endfor -%}
+
+
+
 {%- endstyle -%}
 
 
@@ -62,74 +85,191 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    {
-        "type": "text",
-        "id": "title",
-        "label": "Title",
-        "info": "Add [logo] where you want the logo to go in the title. Make sure an image is selected in the below setting."
-    },
-    {
-        "type": "range",
-        "id": "title_font_size_mobile",
-        "min": 5,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Title font size - mobile",
-        "default": 77
-    },
-    {
-        "type": "range",
-        "id": "title_font_size_desktop",
-        "min": 5,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Title font size - desktop",
-        "default": 100
-    },
-    {
-        "type": "image_picker",
-        "id": "logo_light",
-        "label": "logo - light"
-    },
-    {
-        "type": "image_picker",
-        "id": "logo_dark",
-        "label": "logo - dark"
-    },
-    {
-        "type": "text",
-        "id": "subtitle",
-        "label": "Subtitle"
-    },
-    {
-        "type": "range",
-        "id": "subtitle_font_size_mobile",
-        "min": 5,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Subtitle font size - mobile",
-        "default": 15
-    },
-    {
-        "type": "range",
-        "id": "subtitle_font_size_desktop",
-        "min": 5,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Subtitle font size - desktop",
-        "default": 28
-    },
-    {
-        "type": "checkbox",
-        "id": "enable_background_color",
-        "default": false,
-        "label": "Enable background colour"
-    }
   ],
+  "blocks": [
+        {
+            "type": "title",
+            "name": "Title",
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "header",
+                    "content": "Style"
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_mobile",
+                    "min": 5,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Title font size - mobile",
+                    "default": 28
+                },
+                {
+                    "type": "range",
+                    "id": "title_font_size_desktop",
+                    "min": 5,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Title font size - desktop",
+                    "default": 52
+                },
+                {
+                    "type": "select",
+                    "id": "font_weight",
+                    "label": "Font weight",
+                    "options": [
+                        {
+                            "label": "Light",
+                            "value": "lighter"
+                        },
+                        {
+                            "label": "Regular",
+                            "value": "normal"
+                        },
+                        {
+                            "label": "Bold",
+                            "value": "bold"
+                        }
+                    ],
+                    "default": "normal"
+                },
+                {
+                    "type": "color",
+                    "id": "title_color_light",
+                    "label": "Title colour - light",
+                    "default": "#1B1B1B"
+                },
+                {
+                    "type": "color",
+                    "id": "title_color_dark",
+                    "label": "Title colour - dark",
+                    "default": "#FFFFFF"
+                },
+                {
+                    "type": "header",
+                    "content": "Padding"
+                },
+                {
+                    "type": "range",
+                    "id": "padding_top",
+                    "min": 0,
+                    "max": 50,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Padding top",
+                    "default": 5
+                },
+                {
+                    "type": "range",
+                    "id": "padding_bottom",
+                    "min": 0,
+                    "max": 50,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Padding bottom",
+                    "default": 5
+                }
+            ]
+        },
+        {
+            "type": "subtitle",
+            "name": "Subitle",
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "subtitle",
+                    "label": "Subitle"
+                },
+                {
+                    "type": "header",
+                    "content": "Style"
+                },
+                {
+                    "type": "range",
+                    "id": "subtitle_font_size_mobile",
+                    "min": 5,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Subtitle font size - mobile",
+                    "default": 18
+                },
+                {
+                    "type": "range",
+                    "id": "subtitle_font_size_desktop",
+                    "min": 5,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Subtitle font size - desktop",
+                    "default": 28
+                },
+                {
+                    "type": "select",
+                    "id": "font_weight",
+                    "label": "Font weight",
+                    "options": [
+                        {
+                            "label": "Light",
+                            "value": "lighter"
+                        },
+                        {
+                            "label": "Regular",
+                            "value": "normal"
+                        },
+                        {
+                            "label": "Bold",
+                            "value": "bold"
+                        }
+                    ],
+                    "default": "normal"
+                },
+                {
+                    "type": "color",
+                    "id": "subtitle_color_light",
+                    "label": "Subtitle colour - light",
+                    "default": "#1B1B1B"
+                },
+                {
+                    "type": "color",
+                    "id": "subtitle_color_dark",
+                    "label": "Subtitle colour - dark",
+                    "default": "#FFFFFF"
+                },
+                {
+                    "type": "header",
+                    "content": "Padding"
+                },
+                {
+                    "type": "range",
+                    "id": "padding_top",
+                    "min": 0,
+                    "max": 50,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Padding top",
+                    "default": 5
+                },
+                {
+                    "type": "range",
+                    "id": "padding_bottom",
+                    "min": 0,
+                    "max": 50,
+                    "step": 1,
+                    "unit": "px",
+                    "label": "Padding bottom",
+                    "default": 5
+                }
+            ]
+        }
+    ],
   "presets": [
     {
       "name": "Blog Head",

@@ -21,7 +21,7 @@
             </div>
             {%- when 'content_button' -%}
             <div id="block--{{ block.id }}" class="main-banner__content-info-row main-banner__content-info-row-button">
-                <a href="{{ block.settings.content_button_link }}" class="button">{{ block.settings.content_button_text }}</a>
+                <a href="{{ block.settings.content_button_link }}" class="button" {% if block.settings.button_open_autdit_modal %}data-open-audit-modal{% endif %}>{{ block.settings.content_button_text }}</a>
             </div>
 
             {%- when 'statistics' -%}
@@ -792,7 +792,8 @@
                     height: {{ block.settings.image_height_mobile }}px;
                     margin-top: {{ block.settings.image_vertical_position_mobile }}px;
                     background-image: url("{{ block.settings.image | img_url: 'medium' }}");
-                    background-size: 100% 100%;
+                    background-size: contain;
+                    background-repeat: no-repeat;
                     
                     {%- if block.settings.image_position == 'before' -%}
                         left: 0;
@@ -827,7 +828,8 @@
                     height: {{ block.settings.image_height_desktop }}px;
                     margin-top: {{ block.settings.image_vertical_position_desktop }}px;
                     background-image: url("{{ block.settings.image | img_url: 'medium' }}");
-                    background-size: 100% 100%;
+                    background-size: contain;
+                    background-repeat: no-repeat;
 
                     {%- if block.settings.image_position == 'before' -%}
                         margin-left: {{ block.settings.image_horizontal_position_desktop }}px;
@@ -865,14 +867,6 @@
         }
 
         {%- when 'logo-row' -%}
-        #block--{{ block.id }}.main-banner__logo-row img{
-            <!-- max-height: {{ block.settings.image_max_height }}px; -->
-        }
-        @media (max-widt:750px){
-            #block--{{ block.id }}.main-banner__logo-row img{
-                <!-- max-height: {{ block.settings.image_max_height_desktop }}px; -->
-            }
-        }
 
         {%- when 'content_single_image' -%}
         #block--{{ block.id }}.main-banner__single-image{
@@ -1182,7 +1176,7 @@
             "max": 150,
             "step": 2,
             "unit": "px",
-            "label": "Image width - desktop",
+            "label": "Max image width - desktop",
             "default": 100
         },
         {
@@ -1192,7 +1186,7 @@
             "max": 150,
             "step": 2,
             "unit": "px",
-            "label": "Image width - Mobile",
+            "label": "Max image width - Mobile",
             "default": 60
         },
         {
@@ -1206,7 +1200,7 @@
             "max": 150,
             "step": 2,
             "unit": "px",
-            "label": "Image height - desktop",
+            "label": "Max 0mage height - desktop",
             "default": 100
         },
         {
@@ -1216,7 +1210,7 @@
             "max": 150,
             "step": 2,
             "unit": "px",
-            "label": "Image height - Mobile",
+            "label": "Max 0mage height - Mobile",
             "default": 60
         },
         {
@@ -1377,6 +1371,12 @@
               "type": "url",
               "id": "content_button_link",
               "label": "Button link"
+          },
+          {
+            "type": "checkbox",
+            "id": "button_open_autdit_modal",
+            "label": "Open audit modal on click?",
+            "default": false
           },
           {
             "type": "range",

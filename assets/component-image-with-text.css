@@ -234,7 +234,7 @@
 
   .image-with-text__media-item--small,
   .image-with-text__media-item--large + .image-with-text__text-item {
-    flex-grow: 0;
+    flex-grow: 1;
   }
 
   .image-with-text.collapse-corners:not(.image-with-text--overlap) .grid:not(.image-with-text__grid--reverse) .image-with-text__media-item:after,

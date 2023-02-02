@@ -9,88 +9,34 @@
     }
     .blog-head__wrap{
         .blog-head__content{
-            padding: 20px 20px 30px 20px;
-
-            &.blog-head__content--with-background{
-                background-color: #ffffff;
-                border-radius: 5rem;
-            }
+            // padding: 20px 20px 30px 20px;
 
             @media (min-width: 750px){
-                padding: 40px 40px 55px 40px;
+                // padding: 40px 40px 55px 40px;
             }
 
             .blog-head__title{
                 h1{
                     margin: 0;
                     text-align: center;
-                    span{
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        flex-wrap: wrap;
-                        flex-direction: column;
-
-                        @media (min-width: 750px) {
-                            flex-direction: row;
-                        }
-
-                        img.blog-head__logo {
-                            max-width: 100%;
-                            width: auto;
-                            height: auto;
-                            
-                            @media (min-width: 750px) {
-                                margin: 0 10px;
-                            }
-    
-                            &.blog-head__logo--light{
-                                display: block;
-                            }
-                            &.blog-head__logo--dark{
-                                display: none;
-                            }
-                        }
-                    }
                 }
             }
             .blog-head__subtitle{
                 p{
-                    font-weight: 600;
                     text-align: center;
-                    color: #FFBA03;
                 }
             }
         }
     }
 }
 // Dark
-body.theme-dark-mode{
-    .blog-head{
-        .blog-head__wrap{
-            .blog-head__content{
+// body.theme-dark-mode{
+//     .blog-head{
+//         .blog-head__wrap{
+//             .blog-head__content{
 
-                &.blog-head__content--with-background{
-                    background-color: #2F2F2F;
-                }
 
-                .blog-head__title{
-                    h1{
-                        span{
-    
-                            img.blog-head__logo {        
-                                &.blog-head__logo--light{
-                                    display: none;
-                                }
-                                &.blog-head__logo--dark{
-                                    display: block;
-                                }
-                            }
-                        }
-                    }
-                }
-                
-            }
-        }
-    }
-}
+//             }
+//         }
+//     }
+// }

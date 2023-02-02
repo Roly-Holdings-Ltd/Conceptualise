@@ -84,8 +84,8 @@ $animationTime: 2s;
     &.js-animate__fade--bottom {
         opacity: 0;
         &.js-animate--active {
-            opacity: 1;
             animation: fadeBottom $animationTime ease;
+            opacity: 1;
             @keyframes fadeBottom {
                 0% {
                     opacity: 0;

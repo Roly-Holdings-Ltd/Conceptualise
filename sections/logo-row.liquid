@@ -1,0 +1,203 @@
+{{ 'section-logo-row.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  #Section--{{ section.id }} .section-heading h2{
+    font-size: {{ section.settings.heading_font_size_mobile }}px;
+    color: {{ section.settings.section_heading_color_light }};
+  }
+  
+  body.theme-dark-mode #Section--{{ section.id }} .section-heading h2{
+      color: {{ section.settings.section_heading_color_dark }};
+  }
+  #Section--{{ section.id }} {
+    background-color: {{ section.settings.section_background_color }}
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    #Section--{{ section.id }} .section-heading h2{
+        font-size: {{ section.settings.heading_font_size_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div id="Section--{{ section.id }}" class="logo-row {% unless section.settings.full_width_section %}page-width{% endunless %} section-{{ section.id }}-padding">
+    {%- if section.settings.section_heading != blank -%}
+      <div class="section-heading {% if section.settings.section_heading_alt_style %}section-heading--alt-font-style{% endif %}">
+          <h2 class="rte">{{ section.settings.section_heading | replace: 'p>', 'span>' }}</h2>
+      </div>
+    {%- endif -%}
+
+    <div class="logo-row__grid">
+        {%- for block in section.blocks -%}
+            <div class="logo-row__grid-item">
+                {%- if block.settings.logo_url != blank -%}
+                <a href="{{ block.settings.logo_url }}">
+                {%- endif -%}
+                        {%- if block.settings.logo_light != blank -%}
+                        <img
+                            srcset="{%- if block.settings.logo_light.width >= 165 -%}{{ block.settings.logo_light | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo_light.width >= 360 -%}{{ block.settings.logo_light | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo_light.width >= 535 -%}{{ block.settings.logo_light | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo_light.width >= 750 -%}{{ block.settings.logo_light | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo_light | image_url }} {{ block.settings.logo_light.width }}w"
+                            src="{{ block.settings.logo_light | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo_light.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo_light.width }}"
+                            height="{{ block.settings.logo_light.height }}"
+                            class="logo-row__grid-item-logo logo-row__grid-item-logo--light"
+                        >
+                        {%- endif -%}
+                        {%- if block.settings.logo_dark != blank -%}
+                        <img
+                            srcset="{%- if block.settings.logo_dark.width >= 165 -%}{{ block.settings.logo_dark | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if block.settings.logo_dark.width >= 360 -%}{{ block.settings.logo_dark | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if block.settings.logo_dark.width >= 535 -%}{{ block.settings.logo_dark | image_url: width: 535 }} 535w,{%- endif -%}
+                                {%- if block.settings.logo_dark.width >= 750 -%}{{ block.settings.logo_dark | image_url: width: 750 }} 750w,{%- endif -%}
+                                {{ block.settings.logo_dark | image_url }} {{ block.settings.logo_dark.width }}w"
+                            src="{{ block.settings.logo_dark | image_url: width: 360 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ block.settings.logo_dark.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.logo_dark.width }}"
+                            height="{{ block.settings.logo_dark.height }}"
+                            class="logo-row__grid-item-logo logo-row__grid-item-logo--dark"
+                        >
+                        {%- endif -%}
+                {%- if block.settings.logo_url != blank -%}
+                </a>
+                {%- endif -%}
+
+            </div>
+        {%- endfor -%}
+    </div>
+</div>
+
+{%- style -%}
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Logo row",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width_section",
+      "label": "Make full width?",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Section background colour"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section heading"
+    },
+    {
+        "type": "header",
+        "content": "Section padding"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
+    },
+    {
+        "type": "header",
+        "content": "Styles"
+    },
+    {
+      "type": "color",
+      "id": "section_heading_color_light",
+      "label": "Section heading colour - light",
+      "default": "#000000"
+  },
+  {
+      "type": "color",
+      "id": "section_heading_color_dark",
+      "label": "Section heading colour - dark",
+      "default": "#000000"
+  },
+  {
+      "type": "range",
+      "id": "heading_font_size_mobile",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading font size - Mobile",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_desktop",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading font size - Desktop",
+      "default": 42
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo_light",
+          "label": "Logo - light"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_dark",
+          "label": "Logo - dark"
+        },
+        {
+            "type": "url",
+            "id": "logo_url",
+            "label": "Image URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo row"
+    }
+  ]
+}
+{% endschema %}

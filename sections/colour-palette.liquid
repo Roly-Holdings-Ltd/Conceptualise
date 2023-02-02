@@ -1,0 +1,273 @@
+{{ 'section-color-palette.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  #Section--{{ section.id }} .section-heading h2{
+    font-size: {{ section.settings.heading_font_size_mobile }}px;
+    color: {{ section.settings.section_heading_color_light }};
+  }
+  body.theme-dark-mode #Section--{{ section.id }} .section-heading h2{
+      color: {{ section.settings.section_heading_color_dark }};
+  }
+
+  {%- if section.settings.section_background_color != blank -%}
+  #Section--{{ section.id }} .color-palette__wrap{
+    background-color: {{ section.settings.section_background_color }};
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  {%- endif -%}
+
+  {%- if section.settings.set_fixed_item_height -%}
+  #Section--{{ section.id }} .color-palette__grid-item {
+    height: {{ section.settings.fixed_item_height_mobile }}px;
+  }
+  {%- endif -%}
+  #Section--{{ section.id }} .color-palette__grid-item-heading{
+    font-size: {{ section.settings.item_heading_font_size_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    #Section--{{ section.id }} .section-heading h2{
+        font-size: {{ section.settings.heading_font_size_desktop }}px;
+    }
+    {%- if section.settings.set_fixed_item_height -%}
+    #Section--{{ section.id }} .color-palette__grid-item {
+      height: {{ section.settings.fixed_item_height_desktop }}px;
+    }
+    {%- endif -%}
+    #Section--{{ section.id }} .color-palette__grid-item-heading{
+      font-size: {{ section.settings.item_heading_font_size_desktop }}px;
+    }
+}
+
+{%- for block in section.blocks -%}
+  #Block--{{ block.id }}{
+    background-color: {{ block.settings.item_background_color }};
+  }
+  #Block--{{ block.id }} .color-palette__grid-item-heading{
+    color: {{ block.settings.item_heading_color }};
+  }
+{%- endfor -%}
+
+
+{%- endstyle -%}
+
+<div id="Section--{{ section.id }}" class="color-palette {% unless section.settings.full_width_section %}page-width{% endunless %} section-{{ section.id }}-padding">
+  <div class="color-palette__wrap">
+    {%- if section.settings.section_heading != blank -%}
+      <div class="section-heading">
+          <h2 class="rte">{{ section.settings.section_heading | replace: 'p>', 'span>' }}</h2>
+      </div>
+    {%- endif -%}
+  
+      <div class="color-palette__grid grid color-palette__grid--{{ section.settings.items_per_row_mobile }}-mobile-cols color-palette__grid--{{ section.settings.items_per_row_desktop }}-desktop-cols {% if section.settings.remove_gap_between_items %}color-palette__grid--no-gap{% endif %}">
+        {%- for block in section.blocks -%}
+          <div id="Block--{{ block.id }}" class="color-palette__grid-item grid__item">
+            {%- if block.settings.color_heading != blank -%}
+              <h2 class="color-palette__grid-item-heading">{{ block.settings.color_heading }}</h2>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Colour palette",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width_section",
+      "label": "Make full width?",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "items_per_row_mobile",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Items per row - mobile",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "items_per_row_desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "label": "Items per row - desktop",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_gap_between_items",
+      "label": "Remove the gap between the items?",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Section background colour"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section heading"
+    },
+    {
+        "type": "header",
+        "content": "Section padding"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
+    },
+    {
+        "type": "header",
+        "content": "Styles"
+    },
+    {
+      "type": "color",
+      "id": "section_heading_color_light",
+      "label": "Section heading colour - light",
+      "default": "#000000"
+  },
+  {
+      "type": "color",
+      "id": "section_heading_color_dark",
+      "label": "Section heading colour - dark",
+      "default": "#000000"
+  },
+  {
+      "type": "range",
+      "id": "heading_font_size_mobile",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading font size - Mobile",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_desktop",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading font size - Desktop",
+      "default": 42
+    },
+    {
+      "type": "header",
+      "content": "Item styles"
+    },
+    {
+      "type": "range",
+      "id": "item_heading_font_size_mobile",
+      "min": 6,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Item heading font size - Mobile",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "item_heading_font_size_desktop",
+      "min": 6,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Item heading font size - Desktop",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "set_fixed_item_height",
+      "label": "Set fixed item height?",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "fixed_item_height_mobile",
+      "min": 50,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "label": "Fixed item height - Mobile",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "fixed_item_height_desktop",
+      "min": 50,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "label": "Fixed item height - Desktop",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "color",
+      "name": "Colour",
+      "settings": [
+        {
+          "type": "text",
+          "id": "color_heading",
+          "label": "Heading"
+        },
+        {
+          "type": "header",
+          "content": "Style"
+        },
+        {
+          "type": "color",
+          "id": "item_heading_color",
+          "label": "Item heading colour",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "item_background_color",
+          "label": "Item background colour"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Colour palette"
+    }
+  ]
+}
+{% endschema %}
