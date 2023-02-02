@@ -1,11 +1,6 @@
-{%- comment %}<locksmith:7007>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:7007>{% endcomment -%}
-
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
-    {{ locksmith_initializations }}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -29,10 +24,7 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:e8f1>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:e8f1>{% endcomment -%}
+        <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
     {% render 'meta-tags' %}
@@ -209,7 +201,7 @@
 
       body {
         display: grid;
-        grid-template-rows: auto auto 1fr auto;
+        grid-template-rows: auto;
         grid-template-columns: 100%;
         min-height: 100%;
         margin: 0;
@@ -254,7 +246,7 @@
     </script>
   </head>
 
-  <body class="gradient template-{{ template.name | handle }}">
+  <body class="gradient template-{{ template.name | handle }} theme-dark-mode">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
@@ -274,7 +266,7 @@
     {% section 'announcement-bar' %}
     {% section 'header' %}
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-      {{ content_for_layout }}{{ locksmith_content_for_layout_addenda }}
+      {{ content_for_layout }}
     </main>
 
     {% section 'footer' %}

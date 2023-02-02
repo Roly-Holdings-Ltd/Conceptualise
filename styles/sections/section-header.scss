@@ -14,50 +14,15 @@
                 width: auto;
             }
         }
-        site-mode-option{
+        site-mode-toggle{
             grid-area: left-icon;
-            .site-mode-option{
+            .site-mode-toggle{
                 margin-top: 0;
             }
         }
         .header__inline-menu,
         .header__search{
             display: none;
-        }
-
-        .site-mode-option{
-            .label{
-                @media (max-width: 750px){
-                    width: 36px;
-                    height: 20px;
-                }
-
-                &:after{
-                    @media (max-width: 750px){
-                        height: 20px;
-                    }
-                }
-            }
-            .ball{
-                @media (max-width: 750px){
-                    width: 18px;
-                    height: 18px;
-                    top: .5px;
-                    left: 2px;
-                }
-            }
-
-            .checkbox:checked+.label .ball{
-                @media (max-width: 750px){
-                    transform: translate(14px);
-                }
-            }
-            span{
-                @media (max-width: 750px){
-                    font-size: 12px;
-                    margin-left: 35px;
-                }
-            }
         }
     }
 }

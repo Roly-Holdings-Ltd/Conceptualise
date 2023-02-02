@@ -1,8 +1,8 @@
-class SiteModeOption extends HTMLElement {
+class SiteModeToggle extends HTMLElement {
     constructor() {
       super();
 
-      this.checkbox = this.querySelector('#checkbox');
+      this.checkbox = this.querySelector('#SiteModeToggleCheckbox');
       this.checkboxToggle();
 
       // setInterval(() => {
@@ -13,7 +13,6 @@ class SiteModeOption extends HTMLElement {
     checkboxToggle(){
       let self = this;
 
-      let cookieName = 'theme';
       const d = new Date();
       d.setTime(d.getTime() + (1*24*60*60*1000));
       let expires = "expires="+ d.toUTCString();
@@ -23,12 +22,14 @@ class SiteModeOption extends HTMLElement {
 
         if (self.checkbox.checked == true){
           document.cookie = 'site-theme' + "=" + 'dark' + ";" + expires + ";path=/";
+          self.classList.add('dm');
         } else {
           document.cookie = 'site-theme' + "=" + 'light' + ";" + expires + ";path=/";
+          self.classList.remove('dm');
         }
       })
     }
   }
   
-  customElements.define('site-mode-option', SiteModeOption);
+  customElements.define('site-mode-toggle', SiteModeToggle);
   

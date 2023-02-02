@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="{{ 'component-site-mode-toggle.css' | asset_url }}" media="print" onload="this.media='all'">
+<site-mode-toggle class="site-mode-toggle dm">
+    <div class="site-mode-toggle__wrap">
+        <label class="site-mode-toggle__switch">
+            <input id="SiteModeToggleCheckbox" type="checkbox">
+            <span class="site-mode-toggle__slider"></span>
+        </label>
+    </div>
+    <span class="lm-text">Light</span>
+    <span class="dm-text">Dark</span>
+
+</site-mode-toggle>
+<script src="{{ 'component-site-mode-toggle.js' | asset_url }}" defer="defer"></script>
