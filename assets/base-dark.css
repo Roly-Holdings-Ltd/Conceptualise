@@ -768,26 +768,6 @@ body.theme-dark-mode .global-media-settings:after {
 
 /* check for flexbox gap in older Safari versions */
 
-
-
-/* Site mode toggle  */
-
-/* Dark mode */
-body.theme-dark-mode .site-mode-option.dm .label::after{
-    background-image: url(https://cdn.shopify.com/s/files/1/0552/7699/4769/t/8/assets/dark.png);
-}
-body.theme-dark-mode .site-mode-option.dm .ball{
-    background:linear-gradient(180deg, #171717 0%, #635E5E 100%);
-    border: 1.05138px solid #555353;
-}
-body.theme-dark-mode .site-mode-option span.dm{
-    color:#ffffff;  
-    display: block;
-}
-body.theme-dark-mode .site-mode-option span.lm{
-    display:none;
-}
-
 body.theme-dark-mode .header__menu-item {
   color: rgba(var(--color-base-text-dark-dark), 0.75);
 }
