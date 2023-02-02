@@ -39,6 +39,38 @@
   } 
   {%- endif -%}
 
+  {%- case section.settings.desktop_image_width -%}
+  @media (min-width:750px){
+    {%- when 'small' -%}
+    #Section--{{ section.id }} .image-with-text--mobile-inline .image-with-text__media-item{
+      width: 33.33%;
+      max-width: 33.33%;
+    }
+    #Section--{{ section.id }} .image-with-text--mobile-inline .image-with-text__text-item{
+      width: 66.666%;
+      max-width: 66.666%;
+    }
+    {%- when 'medium' -%}
+    #Section--{{ section.id }} .image-with-text--mobile-inline .image-with-text__media-item{
+      width: 50%;
+      max-width: 50%;
+    }
+    #Section--{{ section.id }} .image-with-text--mobile-inline .image-with-text__text-item{
+      width: 50%%;
+      max-width: 50%%;
+    }
+    {%- when 'large' -%}
+    #Section--{{ section.id }} .image-with-text--mobile-inline .image-with-text__media-item{
+      width: 66.666%;
+      max-width: 66.666%;
+    }
+    #Section--{{ section.id }} .image-with-text--mobile-inline .image-with-text__text-item{
+      width: 33.33%;
+      max-width: 33.33%;
+    }
+  }   
+  {%- endcase -%}
+
   {%- if section.settings.mobile_content_inline -%}
   @media (max-width:749px){
     #Section--{{ section.id }} .image-with-text--mobile-inline .image-with-text__media-item{
