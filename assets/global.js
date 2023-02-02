@@ -926,9 +926,9 @@ function getCookie(cname) {
 
 if (getCookie('site-theme') == 'light') {
   document.body.classList.remove('theme-dark-mode');
-  document.querySelector('.site-mode-option #checkbox').checked = false;
+  document.querySelector('.site-mode-toggle #SiteModeToggleCheckbox').checked = false;
 
 } else{
   document.body.classList.add('theme-dark-mode');
-  document.querySelector('.site-mode-option #checkbox').checked = true;
+  document.querySelector('.site-mode-toggle #SiteModeToggleCheckbox').checked = true;
 }
