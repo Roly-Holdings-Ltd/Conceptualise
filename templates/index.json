@@ -23,11 +23,13 @@
             "content_heading_text": "REATIVE",
             "font_size_mobile": 42,
             "font_size_desktop": 70,
+            "add_background_glow": false,
             "use_custom_text_color": false,
             "text_color_light": "#000000",
             "text_color_dark": "#ffffff",
             "top_spacing": "increased",
             "bottom_spacing": "reduced",
+            "on_load_animation": "none",
             "image": "shopify:\/\/shop_images\/Group_838.png",
             "image_position": "before",
             "image_width_desktop": 100,
@@ -46,11 +48,13 @@
             "content_heading_text": "DIGITAL",
             "font_size_mobile": 42,
             "font_size_desktop": 70,
+            "add_background_glow": false,
             "use_custom_text_color": false,
             "text_color_light": "#000000",
             "text_color_dark": "#ffffff",
             "top_spacing": "reduced",
             "bottom_spacing": "reduced",
+            "on_load_animation": "none",
             "image_position": "before",
             "image_width_desktop": 100,
             "image_width_mobile": 60,
@@ -68,11 +72,13 @@
             "content_heading_text": "OLUTIONS",
             "font_size_mobile": 42,
             "font_size_desktop": 70,
+            "add_background_glow": false,
             "use_custom_text_color": false,
             "text_color_light": "#000000",
             "text_color_dark": "#ffffff",
             "top_spacing": "reduced",
             "bottom_spacing": "reduced",
+            "on_load_animation": "none",
             "image": "shopify:\/\/shop_images\/Untitled.png",
             "image_position": "before",
             "image_width_desktop": 100,
@@ -88,6 +94,7 @@
         "b1cd946f-6b38-4046-8f8f-02449b931e30": {
           "type": "statistics",
           "settings": {
+            "enable_scrolling_statistics": false,
             "statistic_1_subheading": "Annual Revenue",
             "statistic_1_heading": "20M+",
             "statistic_2_subheading": "Client Investment",
@@ -113,8 +120,6 @@
         "f1df84bf-4df7-4c79-aa84-5c9ea9941a76": {
           "type": "logo-row",
           "settings": {
-            "image_max_height": 40,
-            "image_max_height_desktop": 42,
             "logo1": "shopify:\/\/shop_images\/HXTSN_WEB_LOGO_2_410x_1.png",
             "logo2": "shopify:\/\/shop_images\/main-pura-logo-scaled_1.png",
             "logo3": "shopify:\/\/shop_images\/Vector_Smart_Object.png",
@@ -129,6 +134,7 @@
           "settings": {
             "content_button_text": "CLAIM FREE AUDIT",
             "content_button_link": "",
+            "button_open_autdit_modal": false,
             "font_size_mobile": 12,
             "font_size_desktop": 16
           }
@@ -143,7 +149,8 @@
         "f1df84bf-4df7-4c79-aa84-5c9ea9941a76",
         "2d7a51c8-59b7-425a-bd07-017ee91ef261"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "14e9789f-9b26-4214-885b-f1c4595ae1dd": {
       "type": "large-image-rows",
@@ -243,7 +250,7 @@
       "settings": {
         "show_section": true,
         "background_color": "#ffba03",
-        "text_color": "#fff"
+        "text_color": "#ffffff"
       }
     },
     "77d8da01-566a-4f17-9f67-78c0ef2e453e": {
@@ -309,6 +316,7 @@
           "settings": {
             "button_label": "Contact us",
             "button_link": "shopify:\/\/pages\/contact-us",
+            "button_open_autdit_modal": false,
             "background_color_light": "#121212",
             "background_color_dark": "#ffba03",
             "color_light": "#ffffff",
@@ -324,6 +332,7 @@
       "settings": {
         "full_width_section": true,
         "stack_columns": false,
+        "increase_space_around_image": false,
         "image": "shopify:\/\/shop_images\/Sequence_01_cac8bd7e-9a0c-4e93-9d71-632298b34a39.gif",
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -334,6 +343,10 @@
         "background_color": "#1c1c1c",
         "background_color_dark": "#ffffff",
         "mobile_content_alignment": "center",
+        "mobile_content_inline": false,
+        "mobile_reduce_content_padding": false,
+        "mobile_image_width": "medium",
+        "mobile_layout": "image_first",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -418,8 +431,8 @@
       ],
       "settings": {
         "section_heading": "OUR <span class=\"circle-border\">S<\/span>ERVICES",
-        "icon_width_mobile": 60,
-        "icon_width_desktop": 200,
+        "icon_height_mobile": 60,
+        "icon_height_desktop": 90,
         "icons_per_row_mobile": "25%",
         "icons_per_row_desktop": "25%"
       }
@@ -469,7 +482,7 @@
         "template--15678261690577__6a27453e-4f54-4f5d-894e-93836ee41645-1673009487deadd426-1": {
           "type": "text",
           "settings": {
-            "text": "<p>You can message us by filling the contact form out below or by dropping us an email -<strong>info@conceptualise.com<\/strong><\/p>",
+            "text": "<p>You can message us by filling the contact form out below or by dropping us an email -<a href=\"mailto:hello@conceptualise.com\" title=\"mailto:hello@conceptualise.com\"><strong>hello@conceptualise.com<\/strong><\/a><\/p>",
             "text_style": "body",
             "color_light": "#000000",
             "color_dark": "#121212"
@@ -480,6 +493,7 @@
           "settings": {
             "button_label": "Contact us",
             "button_link": "shopify:\/\/pages\/contact-us",
+            "button_open_autdit_modal": false,
             "background_color_light": "#121212",
             "background_color_dark": "#121212",
             "color_light": "#ffffff",
@@ -495,6 +509,7 @@
       "settings": {
         "full_width_section": true,
         "stack_columns": true,
+        "increase_space_around_image": false,
         "image": "shopify:\/\/shop_images\/2021x0409_Batch66_05_billboard_1.png",
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -505,6 +520,10 @@
         "background_color": "#ffba03",
         "background_color_dark": "#ffba03",
         "mobile_content_alignment": "center",
+        "mobile_content_inline": false,
+        "mobile_reduce_content_padding": false,
+        "mobile_image_width": "medium",
+        "mobile_layout": "image_first",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -781,7 +800,8 @@
         },
         "template--15678261690577__e4c333d9-be59-49f5-b272-57bc9c1cff7a-1673010656e32fc131-2": {
           "type": "email_form",
-          "settings": {}
+          "settings": {
+          }
         }
       },
       "block_order": [
