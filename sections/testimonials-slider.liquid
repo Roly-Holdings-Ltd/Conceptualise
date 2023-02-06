@@ -9,7 +9,7 @@
             <h2>{{ section.settings.section_heading }}</h2>
         </div>
       {%- endif -%}
-      <div class="testimonials-slider__swiper swiper">
+      <div class="testimonials-slider__swiper swiper {% if section.blocks.size > 1 %} swiper--with-dots{% endif %}">
           <div class="swiper-wrapper">
             {%- for block in section.blocks -%}
               <div id="block--{{ block.id }}" class="testimonials-slider__slide swiper-slide">
