@@ -62,3 +62,4 @@ secrets.json
 config.yml
 locales/*
 
+.vscode/settings.json
