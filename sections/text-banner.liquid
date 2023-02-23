@@ -12,11 +12,9 @@
             {%- when 'content_text_heading' -%}          
             <div id="block--{{ block.id }}" class="main-banner__heading main-banner__content-info-row main-banner__content-info-row--top-{{ block.settings.top_spacing }} main-banner__content-info-row--bottom-{{ block.settings.bottom_spacing }} {% if block.settings.add_background_glow %}main-banner__heading--background-glow{% endif %} {% unless block.settings.on_load_animation == 'none' %} js-animate {{ block.settings.on_load_animation }}{% endunless %}">
                 {%- if block.settings.image != blank and block.settings.image_position == 'before' -%}
-                    <!-- <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.image.alt }}"> -->
                 {%- endif -%}
                 <h1>{{ block.settings.content_heading_text }}</h1>
                 {%- if block.settings.image != blank and block.settings.image_position == 'after' -%}
-                    <!-- <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.image.alt }}"> -->
                 {%- endif -%}
             </div>
             {%- when 'content_button' -%}
