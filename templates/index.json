@@ -141,7 +141,7 @@
           "settings": {
             "content_button_text": "Contact us",
             "content_button_link": "shopify:\/\/pages\/contact-us",
-            "button_open_autdit_modal": true,
+            "button_open_autdit_modal": false,
             "font_size_mobile": 12,
             "font_size_desktop": 16
           }
