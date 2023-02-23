@@ -20,6 +20,11 @@
       border: 7px solid {{ section.settings.video_border_color }};
     }
   {%- endif -%}
+
+  #shopify-section-{{ section.id }} ..deferred-media__poster-button{
+    color:{{ section.settings.video_play_button_icon_color }};
+    background-color:{{ section.settings.video_play_button_background_color }};
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
