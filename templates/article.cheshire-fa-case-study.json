@@ -1,0 +1,456 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "disabled": true,
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "adapt"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "title",
+        "share",
+        "content"
+      ],
+      "settings": {
+      }
+    },
+    "b0104930-cada-48b9-b788-00698d301dcf": {
+      "type": "image-banner-alt",
+      "blocks": {
+        "3ec5b2c5-23ac-4bb9-9eb5-5a4d49fca295": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cheshirefa-2_2.png",
+            "image_max_width_mobile": 60,
+            "image_max_width_desktop": 72
+          }
+        },
+        "template--15683876421841__b0104930-cada-48b9-b788-00698d301dcf-1673950991089fbbcc-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Video Animation<br\/>for the Respect Campaign<\/p>",
+            "font_weight": "500",
+            "text_color": "#005d99",
+            "font_size_mobile": 20,
+            "font_size_desktop": 32
+          }
+        }
+      },
+      "block_order": [
+        "3ec5b2c5-23ac-4bb9-9eb5-5a4d49fca295",
+        "template--15683876421841__b0104930-cada-48b9-b788-00698d301dcf-1673950991089fbbcc-0"
+      ],
+      "settings": {
+        "full_width": false,
+        "image": "shopify:\/\/shop_images\/Rectangle_424_1.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/Untitled_design_2.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "adapt_height_first_image": true,
+        "desktop_content_position": "top-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false,
+        "content_background_color": "#99d3fa"
+      }
+    },
+    "ce460a1b-7382-49a1-b32c-7f63d57e4932": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "cover_image": "shopify:\/\/shop_images\/image_9.png",
+        "video_type": "custom-video",
+        "video_url": "",
+        "custom_video": "shopify:\/\/files\/videos\/cheshire-fa.mp4",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "background-1",
+        "enable_video_border": false,
+        "video_border_color": "#ffba03",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "a16357b5-2806-4a09-b29d-4b24b79357d0": {
+      "type": "image-grid",
+      "blocks": {
+        "9b585430-f133-4527-a135-ea9477a56439": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/Mask_group_87d25c0a-f139-47d1-afad-4f26fb8bfe87.png",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        },
+        "6eadcc6e-67fd-4562-9aad-12ce809fa80a": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/Mask_group_1_9a88ffe6-f110-4e63-8043-56423564a676.png",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        },
+        "8adc010e-d7b9-4573-9c75-315bb4516877": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/Mask_group_2_654e2cf7-110b-4795-a233-7db172eef8f0.png",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        },
+        "d1fe3244-2287-4389-9845-baef4d3c9418": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/Mask_group_3_f00f2596-0958-4442-bab0-1256153bc191.png",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        },
+        "fa9e07a2-de3a-4744-9b37-6b59d6db5366": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/Mask_group_4_2c190980-d6a6-4223-af3f-f9b6943f162c.png",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        },
+        "f44972fc-e569-4cce-950d-a8582078c5ea": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/Mask_group_5_f355d08d-5e9f-40e9-9fe7-c62b2d4c8ac4.png",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        },
+        "468030f5-9e62-4630-b1f6-459565f1df81": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/Mask_group_6_55438dbb-65ed-4f68-89fd-74f96b85af62.png",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        },
+        "95a9fc28-e0db-4b4d-a3aa-1531bc462262": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/Mask_group_7_a5b026c9-5d37-4caa-a75a-d9224f73d15e.png",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        },
+        "d443d0c9-8464-4093-925c-3a78ca454958": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/image_11.png",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "9b585430-f133-4527-a135-ea9477a56439",
+        "6eadcc6e-67fd-4562-9aad-12ce809fa80a",
+        "8adc010e-d7b9-4573-9c75-315bb4516877",
+        "d1fe3244-2287-4389-9845-baef4d3c9418",
+        "fa9e07a2-de3a-4744-9b37-6b59d6db5366",
+        "f44972fc-e569-4cce-950d-a8582078c5ea",
+        "468030f5-9e62-4630-b1f6-459565f1df81",
+        "95a9fc28-e0db-4b4d-a3aa-1531bc462262",
+        "d443d0c9-8464-4093-925c-3a78ca454958"
+      ],
+      "settings": {
+        "full_width_section": false,
+        "items_per_row_mobile": 2,
+        "items_per_row_desktop": 3,
+        "remove_gap_between_images": false,
+        "section_background_image": "shopify:\/\/shop_images\/top-view-stripe-grass-soccer-field-green-lawn-pat-2022-11-04-04-11-23-utc_1_1.png",
+        "section_background_color": "",
+        "section_heading": "STORYBOARD",
+        "section_heading_alt_style": true,
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "set_content_max_width": false,
+        "content_max_width_mobile": 180,
+        "content_max_width_desktop": 768,
+        "grid_padding_top": 32,
+        "grid_padding_bottom": 32,
+        "section_heading_color_light": "#000000",
+        "section_heading_color_dark": "#000000",
+        "section_heading_background_color_light": "#ffffff",
+        "section_heading_background_color_dark": "#ffffff",
+        "heading_font_size_mobile": 26,
+        "heading_font_size_desktop": 42,
+        "item_heading_color_light": "#ffffff",
+        "item_heading_color_dark": "#ffffff",
+        "item_heading_font_size_mobile": 14,
+        "item_heading_font_size_desktop": 16
+      }
+    },
+    "a13fabb6-4a88-4075-a3ef-198451926036": {
+      "type": "moodboard",
+      "blocks": {
+        "3e209c1d-b9b9-4c40-a181-2c2995060ea3": {
+          "type": "image",
+          "settings": {
+            "moodboard_image": "shopify:\/\/shop_images\/111020-800-take-a-stand_1.png",
+            "moodboard_image_url": "",
+            "image_width_mobile": "66.6667",
+            "image_width_desktop": "66.6667"
+          }
+        },
+        "e5f39f84-da07-42dc-9605-28a4b035359f": {
+          "type": "image",
+          "settings": {
+            "moodboard_image": "shopify:\/\/shop_images\/Screenshot_2022-09-01_at_11.49_1.png",
+            "moodboard_image_url": "",
+            "image_width_mobile": "33.3334",
+            "image_width_desktop": "33.3334"
+          }
+        },
+        "c59ad52d-9e0f-4747-8833-c6549a1ee899": {
+          "type": "image",
+          "settings": {
+            "moodboard_image": "shopify:\/\/shop_images\/image_13.png",
+            "moodboard_image_url": "",
+            "image_width_mobile": "25",
+            "image_width_desktop": "33.3334"
+          }
+        },
+        "f983fa02-59cf-49ff-943a-0a3f6958c346": {
+          "type": "image",
+          "settings": {
+            "moodboard_image": "shopify:\/\/shop_images\/image_5.png",
+            "moodboard_image_url": "",
+            "image_width_mobile": "50",
+            "image_width_desktop": "33.3334"
+          }
+        },
+        "a82a6a3c-826d-4531-b135-73137ab8343d": {
+          "type": "image",
+          "settings": {
+            "moodboard_image": "shopify:\/\/shop_images\/referee-whistling-holds-yellow-card-close-up-soccer-holding-football-field-spectators-area-background-caution-player-117849037.png",
+            "moodboard_image_url": "",
+            "image_width_mobile": "25",
+            "image_width_desktop": "33.3334"
+          }
+        },
+        "62f5aecb-1ce3-4a86-8e81-ec6ce87e7212": {
+          "type": "image",
+          "settings": {
+            "moodboard_image": "shopify:\/\/shop_images\/image_6.png",
+            "moodboard_image_url": "",
+            "image_width_mobile": "33.3334",
+            "image_width_desktop": "33.3334"
+          }
+        },
+        "e9dedecb-c7c4-40b1-b7bf-0ebd0aba6547": {
+          "type": "image",
+          "settings": {
+            "moodboard_image": "shopify:\/\/shop_images\/Screenshot_2023-01-17_at_3.13.47_pm.png",
+            "moodboard_image_url": "",
+            "image_width_mobile": "66.6667",
+            "image_width_desktop": "66.6667"
+          }
+        }
+      },
+      "block_order": [
+        "3e209c1d-b9b9-4c40-a181-2c2995060ea3",
+        "e5f39f84-da07-42dc-9605-28a4b035359f",
+        "c59ad52d-9e0f-4747-8833-c6549a1ee899",
+        "f983fa02-59cf-49ff-943a-0a3f6958c346",
+        "a82a6a3c-826d-4531-b135-73137ab8343d",
+        "62f5aecb-1ce3-4a86-8e81-ec6ce87e7212",
+        "e9dedecb-c7c4-40b1-b7bf-0ebd0aba6547"
+      ],
+      "settings": {
+        "full_width_section": false,
+        "section_background_color": "#005d99",
+        "section_heading": "MOODBOARD",
+        "section_heading_alt_style": true,
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "set_content_max_width": false,
+        "content_max_width_mobile": 180,
+        "content_max_width_desktop": 768,
+        "section_heading_color_light": "#000000",
+        "section_heading_color_dark": "#000000",
+        "section_heading_background_color_light": "#ffffff",
+        "section_heading_background_color_dark": "#ffffff",
+        "heading_font_size_mobile": 26,
+        "heading_font_size_desktop": 42,
+        "enable_image_max_height": false,
+        "image_max_height_mobile": 400,
+        "image_max_height_desktop": 220,
+        "image_fit": "cover"
+      }
+    },
+    "72a2ed81-b6d7-4966-8531-b7d6c886bc22": {
+      "type": "image-grid",
+      "blocks": {
+        "836c0bf4-328f-4a09-bad2-980ac3c91b63": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/Untitled_design_3.jpg",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        },
+        "df3fa472-6f67-44b3-9245-8096fa98d572": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/image_11_2.png",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        },
+        "b0840b7d-3c08-4be4-8d1a-22d8fe9f5d58": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/Untitled_design_4.jpg",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        },
+        "da21f49e-8367-4f22-a6ea-4363f3e84994": {
+          "type": "image",
+          "settings": {
+            "image-grid_image": "shopify:\/\/shop_images\/image_12.png",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "836c0bf4-328f-4a09-bad2-980ac3c91b63",
+        "df3fa472-6f67-44b3-9245-8096fa98d572",
+        "b0840b7d-3c08-4be4-8d1a-22d8fe9f5d58",
+        "da21f49e-8367-4f22-a6ea-4363f3e84994"
+      ],
+      "settings": {
+        "full_width_section": false,
+        "items_per_row_mobile": 2,
+        "items_per_row_desktop": 2,
+        "remove_gap_between_images": true,
+        "section_background_color": "#9bd3fb",
+        "section_heading": "STYLE DEVELOPMENT",
+        "section_heading_alt_style": true,
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "set_content_max_width": false,
+        "content_max_width_mobile": 180,
+        "content_max_width_desktop": 768,
+        "grid_padding_top": 32,
+        "grid_padding_bottom": 32,
+        "section_heading_color_light": "#000000",
+        "section_heading_color_dark": "#000000",
+        "section_heading_background_color_light": "#ffffff",
+        "section_heading_background_color_dark": "#ffffff",
+        "heading_font_size_mobile": 26,
+        "heading_font_size_desktop": 42,
+        "item_heading_color_light": "#ffffff",
+        "item_heading_color_dark": "#ffffff",
+        "item_heading_font_size_mobile": 14,
+        "item_heading_font_size_desktop": 16
+      }
+    },
+    "86cea495-49ca-4f76-bb29-19b29c640a13": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15683876421841__86cea495-49ca-4f76-bb29-19b29c640a13-167397022986d83a59-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>TELL US ABOUT THE PROJECT YOU HAVE IN MIND<\/p>",
+            "heading_font_size_mobile": 32,
+            "heading_font_size_desktop": 42,
+            "text_color_light": "#000000",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "template--15683876421841__86cea495-49ca-4f76-bb29-19b29c640a13-167397022986d83a59-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>",
+            "custom_text": "",
+            "custom_text_bold": false,
+            "custom_text_italic": false,
+            "text_font_size_mobile": 14,
+            "text_font_size_desktop": 16,
+            "text_color_light": "#000000",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "template--15683876421841__86cea495-49ca-4f76-bb29-19b29c640a13-167397022986d83a59-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Claim Free AUdit",
+            "button_label_second_line": "",
+            "button_link": "shopify:\/\/pages\/contact-us",
+            "button1_custom_style": false,
+            "button1_background_color": "",
+            "button1_border_color": "#ffba03",
+            "button1_text_color": "#ffba03",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button2_custom_style": false,
+            "button2_background_color": "",
+            "button2_border_color": "#ffba03",
+            "button2_text_color": "#ffba03"
+          }
+        }
+      },
+      "block_order": [
+        "template--15683876421841__86cea495-49ca-4f76-bb29-19b29c640a13-167397022986d83a59-0",
+        "template--15683876421841__86cea495-49ca-4f76-bb29-19b29c640a13-167397022986d83a59-1",
+        "template--15683876421841__86cea495-49ca-4f76-bb29-19b29c640a13-167397022986d83a59-2"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "use_custom_colors": false,
+        "background_color_light": "",
+        "background_color_dark": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "b0104930-cada-48b9-b788-00698d301dcf",
+    "ce460a1b-7382-49a1-b32c-7f63d57e4932",
+    "a16357b5-2806-4a09-b29d-4b24b79357d0",
+    "a13fabb6-4a88-4075-a3ef-198451926036",
+    "72a2ed81-b6d7-4966-8531-b7d6c886bc22",
+    "86cea495-49ca-4f76-bb29-19b29c640a13"
+  ]
+}

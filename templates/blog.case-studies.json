@@ -2,16 +2,53 @@
   "sections": {
     "1657728872aae5dc77": {
       "type": "blog-header",
+      "blocks": {
+        "06d11dd0-341c-4c3b-b805-ad6c0a878926": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "OUR WORK",
+            "subtitle_font_size_mobile": 15,
+            "subtitle_font_size_desktop": 20,
+            "font_weight": "bold",
+            "subtitle_color_light": "#1b1b1b",
+            "subtitle_color_dark": "#ffffff",
+            "padding_top": 5,
+            "padding_bottom": 20
+          }
+        },
+        "87424f6c-9df3-4699-b1f4-5e7d669dcaf5": {
+          "type": "title",
+          "settings": {
+            "title": "WHAT WE DO AND",
+            "title_font_size_mobile": 28,
+            "title_font_size_desktop": 52,
+            "font_weight": "bold",
+            "title_color_light": "#1b1b1b",
+            "title_color_dark": "#ffffff",
+            "padding_top": 20,
+            "padding_bottom": 0
+          }
+        },
+        "c3255ea9-6bbe-4a5c-a39b-7096001075b2": {
+          "type": "title",
+          "settings": {
+            "title": "HOW WE DO IT",
+            "title_font_size_mobile": 28,
+            "title_font_size_desktop": 52,
+            "font_weight": "bold",
+            "title_color_light": "#ffba03",
+            "title_color_dark": "#ffba03",
+            "padding_top": 0,
+            "padding_bottom": 5
+          }
+        }
+      },
+      "block_order": [
+        "06d11dd0-341c-4c3b-b805-ad6c0a878926",
+        "87424f6c-9df3-4699-b1f4-5e7d669dcaf5",
+        "c3255ea9-6bbe-4a5c-a39b-7096001075b2"
+      ],
       "settings": {
-        "title": "Case studies",
-        "title_font_size_mobile": 40,
-        "title_font_size_desktop": 50,
-        "logo_light": "shopify:\/\/shop_images\/Group_813_c623653c-9e79-4048-a4cd-63fdd74b7fe4.png",
-        "logo_dark": "shopify:\/\/shop_images\/Group_813.png",
-        "subtitle": "Bright ideas brought to life!",
-        "subtitle_font_size_mobile": 15,
-        "subtitle_font_size_desktop": 28,
-        "enable_background_color": false
       }
     },
     "main": {
@@ -19,7 +56,7 @@
       "settings": {
         "layout": "grid",
         "show_image": true,
-        "image_height": "large",
+        "image_height": "adapt",
         "show_heading": false,
         "show_excerpt": false,
         "show_date": false,
