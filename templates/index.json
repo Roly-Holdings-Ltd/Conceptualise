@@ -431,8 +431,8 @@
       ],
       "settings": {
         "section_heading": "OUR <span class=\"circle-border\">S<\/span>ERVICES",
-        "icon_height_mobile": 60,
-        "icon_height_desktop": 90,
+        "icon_height_mobile": 80,
+        "icon_height_desktop": 150,
         "icons_per_row_mobile": "25%",
         "icons_per_row_desktop": "25%"
       }
