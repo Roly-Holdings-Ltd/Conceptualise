@@ -151,7 +151,7 @@
             "type": "link_list",
             "settings": {
               "heading": "Useful links",
-              "menu": "main-menu"
+              "menu": "nav-menu"
             }
           },
           "footer-1": {
