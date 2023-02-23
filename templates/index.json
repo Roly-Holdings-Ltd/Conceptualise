@@ -535,7 +535,7 @@
         "template--15678261690577__6a27453e-4f54-4f5d-894e-93836ee41645-1673009487deadd426-1": {
           "type": "text",
           "settings": {
-            "text": "<p>You can message us by filling the contact form out below or by dropping us an email -<strong>info@conceptualise.com<\/strong><\/p>",
+            "text": "<p>You can message us by filling the contact form out below or by dropping us an email -<a href=\"mailto:hello@conceptualise.com\" title=\"mailto:hello@conceptualise.com\"><strong>hello@conceptualise.com<\/strong><\/a><\/p>",
             "text_style": "body",
             "color_light": "#000000",
             "color_dark": "#121212"
