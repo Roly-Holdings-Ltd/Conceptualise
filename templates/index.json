@@ -686,7 +686,7 @@
       "settings": {
         "show_background": false,
         "show_on_mobile": true,
-        "section_heading": "ALL ABOUT THE <span class=\"circle-border\">P<\/span>ROCESS",
+        "section_heading": "ALL ABOUT THE <p><span class=\"circle-border\">P<\/span>ROCESS<\/p><p><\/p>",
         "heading_font_size_mobile": 36,
         "heading_font_size_desktop": 48,
         "icon_height_mobile": 70,
