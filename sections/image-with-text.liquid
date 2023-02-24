@@ -153,11 +153,11 @@
               <p id="Block--{{ block.id }}" class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} {{ block.settings.text_style }}" {{ block.shopify_attributes }}>{{ block.settings.caption | escape }}</p>
             {%- when 'text' -%}
               <div id="Block--{{ block.id }}" class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
                 {%- if block.setting.text != blank -%}
-                  {{ block.settings.text }}
                 {%- endif -%}
+                {{ block.settings.custom_text }}
                 {%- if block.setting.custom_text != blank -%}
-                  {{ block.settings.custom_text }}
                 {%- endif -%}
                 </div>
             {%- when 'button' -%}
