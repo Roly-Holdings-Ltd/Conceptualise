@@ -324,10 +324,24 @@
             "text_color_light": "#ffffff",
             "text_color_dark": "#1c1c1c"
           }
+        },
+        "16dbf5a7-7db8-4278-9f4d-dc5ee6ce7067": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "custom_text": "We <span class=\"text--color-alt text--color-alt-yellow\">shine a light<\/span> on blind spots to make your next step a <span class=\"text--color-alt text--color-alt-yellow\">bright one<\/span>",
+            "custom_text_bold": false,
+            "custom_text_italic": false,
+            "text_font_size_mobile": 18,
+            "text_font_size_desktop": 22,
+            "text_color_light": "#bebebe",
+            "text_color_dark": "#bebebe"
+          }
         }
       },
       "block_order": [
-        "template--15704089428177__a8de51b7-70f8-4b75-be12-d37980d39a80-16772345554e567485-1"
+        "template--15704089428177__a8de51b7-70f8-4b75-be12-d37980d39a80-16772345554e567485-1",
+        "16dbf5a7-7db8-4278-9f4d-dc5ee6ce7067"
       ],
       "settings": {
         "desktop_content_position": "center",
@@ -339,35 +353,6 @@
         "full_width": false,
         "padding_top": 80,
         "padding_bottom": 80
-      }
-    },
-    "fabac1ae-89fc-4343-bae0-7f4e7ad08e74": {
-      "type": "rich-text",
-      "blocks": {
-        "template--15691162681553__fabac1ae-89fc-4343-bae0-7f4e7ad08e74-16752459393174d343-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p>Wireframes<\/p>",
-            "heading_font_size_mobile": 32,
-            "heading_font_size_desktop": 42,
-            "text_color_light": "#000000",
-            "text_color_dark": "#ffffff"
-          }
-        }
-      },
-      "block_order": [
-        "template--15691162681553__fabac1ae-89fc-4343-bae0-7f4e7ad08e74-16752459393174d343-0"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "background-1",
-        "use_custom_colors": false,
-        "background_color_light": "",
-        "background_color_dark": "",
-        "full_width": true,
-        "padding_top": 44,
-        "padding_bottom": 44
       }
     },
     "72c1a959-cfcc-4a3a-84ad-3ae937a3244d": {
@@ -414,6 +399,35 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "fabac1ae-89fc-4343-bae0-7f4e7ad08e74": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15691162681553__fabac1ae-89fc-4343-bae0-7f4e7ad08e74-16752459393174d343-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Wireframes<\/p>",
+            "heading_font_size_mobile": 32,
+            "heading_font_size_desktop": 42,
+            "text_color_light": "#000000",
+            "text_color_dark": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "template--15691162681553__fabac1ae-89fc-4343-bae0-7f4e7ad08e74-16752459393174d343-0"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "use_custom_colors": false,
+        "background_color_light": "",
+        "background_color_dark": "",
+        "full_width": true,
+        "padding_top": 44,
+        "padding_bottom": 44
+      }
     }
   },
   "order": [
@@ -425,7 +439,7 @@
     "bce10291-00cc-434e-a369-bfde6d847946",
     "c9cc29e4-e02b-44af-9353-d4394ed9068a",
     "a8de51b7-70f8-4b75-be12-d37980d39a80",
-    "fabac1ae-89fc-4343-bae0-7f4e7ad08e74",
-    "72c1a959-cfcc-4a3a-84ad-3ae937a3244d"
+    "72c1a959-cfcc-4a3a-84ad-3ae937a3244d",
+    "fabac1ae-89fc-4343-bae0-7f4e7ad08e74"
   ]
 }
