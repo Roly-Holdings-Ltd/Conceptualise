@@ -154,11 +154,7 @@
             {%- when 'text' -%}
               <div id="Block--{{ block.id }}" class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
                 {{ block.settings.text }}
-                {%- if block.setting.text != blank -%}
-                {%- endif -%}
                 {{ block.settings.custom_text }}
-                {%- if block.setting.custom_text != blank -%}
-                {%- endif -%}
                 </div>
             {%- when 'button' -%}
               {%- if block.settings.button_label != blank -%}
