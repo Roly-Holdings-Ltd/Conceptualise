@@ -218,6 +218,7 @@
         {%- when 'text' -%}
           #Block--{{ block.id }} * { color: {{ block.settings.color_light }}; }
           body.theme-dark-mode #Block--{{ block.id }} * { color: {{ block.settings.color_dark }}; }
+
         {%- when 'button' -%}
           #Block--{{ block.id }} {
             color: {{ block.settings.color_light }} !important;
@@ -628,6 +629,32 @@
           "id": "color_dark",
           "label": "Colour - dark",
           "default": "#FFF"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_custom_font_size",
+          "label": "Use custom font size?",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "text_font_size_mobile",
+          "min": 5,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Text font size - Mobile",
+          "default": 12
+        },
+        {
+          "type": "range",
+          "id": "text_font_size_desktop",
+          "min": 5,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Text font size - Desktop",
+          "default": 14
         }
       ]
     },
