@@ -324,24 +324,10 @@
             "text_color_light": "#ffffff",
             "text_color_dark": "#1c1c1c"
           }
-        },
-        "5a67cea7-1bf9-43c6-9e72-88fcc4a74381": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "custom_text": "We <span class=\"text--color-alt text--color-alt-yellow\">shine a light<\/span> on blind spots to make your next step a <span class=\"text--color-alt text--color-alt-yellow\">bright one<\/span>",
-            "custom_text_bold": false,
-            "custom_text_italic": false,
-            "text_font_size_mobile": 18,
-            "text_font_size_desktop": 22,
-            "text_color_light": "#bebebe",
-            "text_color_dark": "#bebebe"
-          }
         }
       },
       "block_order": [
-        "template--15704089428177__a8de51b7-70f8-4b75-be12-d37980d39a80-16772345554e567485-1",
-        "5a67cea7-1bf9-43c6-9e72-88fcc4a74381"
+        "template--15704089428177__a8de51b7-70f8-4b75-be12-d37980d39a80-16772345554e567485-1"
       ],
       "settings": {
         "desktop_content_position": "center",
@@ -353,24 +339,6 @@
         "full_width": false,
         "padding_top": 80,
         "padding_bottom": 80
-      }
-    },
-    "b6d77ca8-8e9e-441d-8297-933056f8a7bd": {
-      "type": "image-banner-alt",
-      "settings": {
-        "full_width": false,
-        "image": "shopify:\/\/shop_images\/Screenshot_2023-01-30_at_10.04_1.png",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "adapt_height_first_image": true,
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true,
-        "content_background_color": "#99d3fa"
       }
     },
     "fabac1ae-89fc-4343-bae0-7f4e7ad08e74": {
@@ -402,55 +370,49 @@
         "padding_bottom": 44
       }
     },
-    "c14790cc-889f-4005-9ee0-a384384d5170": {
-      "type": "image-grid",
+    "72c1a959-cfcc-4a3a-84ad-3ae937a3244d": {
+      "type": "image-with-text",
       "blocks": {
-        "18e930dc-7552-4e38-9f48-12cbce75db39": {
-          "type": "image",
+        "template--15704089428177__72c1a959-cfcc-4a3a-84ad-3ae937a3244d-1677235463502cc60f-1": {
+          "type": "text",
           "settings": {
-            "image-grid_image": "shopify:\/\/shop_images\/MacBook_Pro_16__-_3.png",
-            "image_grid_heading": "",
-            "image-grid_image_url": ""
+            "text": "<p>Conceptualise shine a light on the blind spots to make your next step the bright one<\/p>",
+            "text_style": "subtitle",
+            "color_light": "#000",
+            "color_dark": "#FFF"
           }
         },
-        "44db5f34-9e28-4fce-b02b-46199c7fa20c": {
+        "423b7d07-0598-446f-adea-21957bddeed3": {
           "type": "image",
           "settings": {
-            "image-grid_image": "shopify:\/\/shop_images\/MacBook_Pro_16__-_3_1.png",
-            "image_grid_heading": "",
-            "image-grid_image_url": ""
+            "image_max_width": 200
           }
         }
       },
       "block_order": [
-        "18e930dc-7552-4e38-9f48-12cbce75db39",
-        "44db5f34-9e28-4fce-b02b-46199c7fa20c"
+        "template--15704089428177__72c1a959-cfcc-4a3a-84ad-3ae937a3244d-1677235463502cc60f-1",
+        "423b7d07-0598-446f-adea-21957bddeed3"
       ],
       "settings": {
         "full_width_section": false,
-        "items_per_row_mobile": 2,
-        "items_per_row_desktop": 2,
-        "remove_gap_between_images": false,
-        "section_background_color": "",
-        "section_heading": "",
-        "section_heading_alt_style": false,
-        "padding_top": 0,
-        "padding_bottom": 36,
-        "set_content_max_width": false,
-        "content_max_width_mobile": 180,
-        "content_max_width_desktop": 768,
-        "grid_padding_top": 0,
-        "grid_padding_bottom": 16,
-        "section_heading_color_light": "#000000",
-        "section_heading_color_dark": "#000000",
-        "section_heading_background_color_light": "#ffffff",
-        "section_heading_background_color_dark": "#ffffff",
-        "heading_font_size_mobile": 32,
-        "heading_font_size_desktop": 42,
-        "item_heading_color_light": "#ffffff",
-        "item_heading_color_dark": "#ffffff",
-        "item_heading_font_size_mobile": 14,
-        "item_heading_font_size_desktop": 16
+        "stack_columns": false,
+        "increase_space_around_image": false,
+        "image": "shopify:\/\/shop_images\/Group_320.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "background_color": "#1b1b1b",
+        "background_color_dark": "#1b1b1b",
+        "mobile_content_alignment": "left",
+        "mobile_content_inline": false,
+        "mobile_reduce_content_padding": false,
+        "mobile_image_width": "medium",
+        "mobile_layout": "image_first",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
@@ -463,8 +425,7 @@
     "bce10291-00cc-434e-a369-bfde6d847946",
     "c9cc29e4-e02b-44af-9353-d4394ed9068a",
     "a8de51b7-70f8-4b75-be12-d37980d39a80",
-    "b6d77ca8-8e9e-441d-8297-933056f8a7bd",
     "fabac1ae-89fc-4343-bae0-7f4e7ad08e74",
-    "c14790cc-889f-4005-9ee0-a384384d5170"
+    "72c1a959-cfcc-4a3a-84ad-3ae937a3244d"
   ]
 }
