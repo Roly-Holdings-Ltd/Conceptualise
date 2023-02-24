@@ -434,7 +434,7 @@
         "padding_top": 16,
         "padding_bottom": 16,
         "set_content_max_width": true,
-        "content_max_width_mobile": 180,
+        "content_max_width_mobile": 260,
         "content_max_width_desktop": 768,
         "grid_padding_top": 80,
         "grid_padding_bottom": 80,
