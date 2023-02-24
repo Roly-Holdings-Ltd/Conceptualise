@@ -1,0 +1,308 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ece477bb-8ca0-4529-8ca0-78ee99e6db86": {
+      "type": "text-banner",
+      "blocks": {
+        "e9f75dd0-6b0b-48e3-af12-91148289c83e": {
+          "type": "content_text",
+          "settings": {
+            "content_text": "OUR SERVICES",
+            "font_size_mobile": 14,
+            "font_size_desktop": 18,
+            "add_letter_spacing": true,
+            "font_weight": "normal",
+            "font_style": "normal",
+            "use_custom_text_color": false,
+            "text_color_light": "#000000",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "3f1a1dea-9ef3-4a21-bff8-2f0a3feff6c4": {
+          "type": "content_text_heading",
+          "settings": {
+            "content_heading_text": "<span class=\"circle-border\">B<\/span>RANDING",
+            "font_size_mobile": 42,
+            "font_size_desktop": 60,
+            "add_background_glow": true,
+            "use_custom_text_color": false,
+            "text_color_light": "#000000",
+            "text_color_dark": "#ffffff",
+            "top_spacing": "increased-extra",
+            "bottom_spacing": "increased-extra",
+            "image_position": "before",
+            "image_width_desktop": 100,
+            "image_width_mobile": 60,
+            "image_height_desktop": 100,
+            "image_height_mobile": 60,
+            "image_vertical_position_desktop": -20,
+            "image_vertical_position_mobile": -10,
+            "image_horizontal_position_desktop": -90,
+            "image_horizontal_position_mobile": -50
+          }
+        },
+        "3ea59866-e40d-4fef-a944-99882a51ef6d": {
+          "type": "content_text",
+          "settings": {
+            "content_text": "Lorem ipsum dolor sit amet, consectetur <span class=\"text--color-alt text--color-alt-yellow\">adipiscing<\/span> elit, sed do eiusmod tempor <span class=\"text--color-alt text--color-alt-yellow\">incididunt<\/span> ut labore et dolore magna aliqua.",
+            "font_size_mobile": 14,
+            "font_size_desktop": 18,
+            "add_letter_spacing": false,
+            "font_weight": "normal",
+            "font_style": "normal",
+            "use_custom_text_color": false,
+            "text_color_light": "#000000",
+            "text_color_dark": "#ffffff"
+          }
+        },
+        "3d9bc869-2a4d-4cf0-ae2d-f0cfd5351ac4": {
+          "type": "content_button",
+          "settings": {
+            "content_button_text": "GET IN TOUCH",
+            "content_button_link": "shopify:\/\/pages\/contact-us",
+            "font_size_mobile": 16,
+            "font_size_desktop": 20
+          }
+        }
+      },
+      "block_order": [
+        "e9f75dd0-6b0b-48e3-af12-91148289c83e",
+        "3f1a1dea-9ef3-4a21-bff8-2f0a3feff6c4",
+        "3ea59866-e40d-4fef-a944-99882a51ef6d",
+        "3d9bc869-2a4d-4cf0-ae2d-f0cfd5351ac4"
+      ],
+      "settings": {}
+    },
+    "fa9114d8-acf8-4dd9-aa60-c7cb0fcfa89d": {
+      "type": "rich-text-row",
+      "blocks": {
+        "9002ae1e-fa51-4976-b75d-1765e1f5620e": {
+          "type": "rich_text",
+          "settings": {
+            "heading": "Brand Strategy",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+          }
+        },
+        "af791dae-5d0a-48b0-bc0c-cdd6b0513e5b": {
+          "type": "rich_text",
+          "settings": {
+            "heading": "Visual Identity",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+          }
+        },
+        "c91bd9b8-169d-4175-8bf6-09fe19cb3ca0": {
+          "type": "rich_text",
+          "settings": {
+            "heading": "Rebranding",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "9002ae1e-fa51-4976-b75d-1765e1f5620e",
+        "af791dae-5d0a-48b0-bc0c-cdd6b0513e5b",
+        "c91bd9b8-169d-4175-8bf6-09fe19cb3ca0"
+      ],
+      "settings": {
+        "full_width_section": false,
+        "show_slider_dots": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "items_per_row_desktop": 3,
+        "item_background_color_light": "#1c1c1c",
+        "item_background_color_dark": "#1c1c1c",
+        "heading_font_size_mobile": 16,
+        "heading_font_size_desktop": 26,
+        "heading_color_light": "#ffba03",
+        "heading_color_dark": "#ffba03",
+        "content_font_size_mobile": 12,
+        "content_font_size_desktop": 14,
+        "content_color_light": "#fff",
+        "content_color_dark": "#ffffff"
+      }
+    },
+    "24890542-9890-4275-abcb-5d7f1a32c7af": {
+      "type": "large-image-slider",
+      "blocks": {
+        "1bd8c3cc-15d7-4199-88e2-364a1f5ec600": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_797_6b5de63f-674d-478e-8654-e12b0b18740d.png",
+            "image_link": "#"
+          }
+        },
+        "273c8296-63bb-4d23-9abc-79645fc0e430": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_711.png",
+            "image_link": "#"
+          }
+        },
+        "a2270fd3-7c2e-4015-82ee-44018a1fcb9c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_712_ce14bd95-5b70-46fd-aeca-e556f8263a2a.png",
+            "image_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "1bd8c3cc-15d7-4199-88e2-364a1f5ec600",
+        "273c8296-63bb-4d23-9abc-79645fc0e430",
+        "a2270fd3-7c2e-4015-82ee-44018a1fcb9c"
+      ],
+      "settings": {
+        "full_width_section": true,
+        "section_heading": "OUR WORK",
+        "show_slider_dots": true,
+        "show_slider_arrows": true,
+        "show_view_all_button": true,
+        "view_all_button_text": "View all",
+        "view_all_button_link": "shopify:\/\/blogs\/case-studies",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "background_color_light": "#1c1c1c",
+        "background_color_dark": "#1c1c1c",
+        "section_heading_color_light": "#ffffff",
+        "section_heading_color_dark": "#ffffff",
+        "heading_font_size_mobile": 32,
+        "heading_font_size_desktop": 42
+      }
+    },
+    "598afa55-9aa1-421c-9d79-6b8e81082c13": {
+      "type": "numbered-rich-text-rows",
+      "blocks": {
+        "09974f22-e16d-4efb-8d6f-868acca9f5be": {
+          "type": "row",
+          "settings": {
+            "row_number": "01",
+            "row_heading": "Title 1",
+            "row_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+          }
+        },
+        "7115ce58-6b57-44c0-a637-fd9923c2aad8": {
+          "type": "row",
+          "settings": {
+            "row_number": "02",
+            "row_heading": "Title 2",
+            "row_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+          }
+        },
+        "35c7a002-25b1-4f23-bc14-c4cb73dfc35b": {
+          "type": "row",
+          "settings": {
+            "row_number": "03",
+            "row_heading": "Title 3",
+            "row_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "09974f22-e16d-4efb-8d6f-868acca9f5be",
+        "7115ce58-6b57-44c0-a637-fd9923c2aad8",
+        "35c7a002-25b1-4f23-bc14-c4cb73dfc35b"
+      ],
+      "settings": {
+        "full_width_section": false,
+        "section_heading": "OUR PROCESS",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "background_color_light": "#ffba03",
+        "background_color_dark": "#ffba03",
+        "section_heading_color_light": "#1c1c1c",
+        "section_heading_color_dark": "#000000",
+        "heading_font_size_mobile": 32,
+        "heading_font_size_desktop": 42,
+        "row_number_color_light": "#1c1c1c",
+        "row_number_color_dark": "#1c1c1c",
+        "row_number_font_size_mobile": 65,
+        "row_number_font_size_desktop": 100,
+        "row_heading_color_light": "#1c1c1c",
+        "row_heading_color_dark": "#1c1c1c",
+        "row_heading_font_size_mobile": 20,
+        "row_heading_font_size_desktop": 32,
+        "row_text_color_light": "#1c1c1c",
+        "row_text_color_dark": "#1c1c1c",
+        "row_text_font_size_mobile": 12,
+        "row_text_font_size_desktop": 14
+      }
+    },
+    "66dde467-4033-4f2e-9408-a9d1b3ee472e": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15683603595473__66dde467-4033-4f2e-9408-a9d1b3ee472e-167397283474da8730-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>TELL US ABOUT THE PROJECT YOU HAVE IN MIND<\/p>",
+            "heading_font_size_mobile": 32,
+            "heading_font_size_desktop": 42,
+            "text_color_light": "#000000",
+            "text_color_dark": "#FFFFFF"
+          }
+        },
+        "template--15683603595473__66dde467-4033-4f2e-9408-a9d1b3ee472e-167397283474da8730-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>",
+            "custom_text": "",
+            "custom_text_bold": false,
+            "custom_text_italic": false,
+            "text_font_size_mobile": 14,
+            "text_font_size_desktop": 16,
+            "text_color_light": "#000000",
+            "text_color_dark": "#FFFFFF"
+          }
+        },
+        "template--15683603595473__66dde467-4033-4f2e-9408-a9d1b3ee472e-167397283474da8730-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Claim free audit",
+            "button_label_second_line": "",
+            "button_link": "shopify:\/\/pages\/contact-us",
+            "button1_custom_style": false,
+            "button1_background_color": "",
+            "button1_border_color": "#ffba03",
+            "button1_text_color": "#ffba03",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button2_custom_style": false,
+            "button2_background_color": "",
+            "button2_border_color": "#ffba03",
+            "button2_text_color": "#ffba03"
+          }
+        }
+      },
+      "block_order": [
+        "template--15683603595473__66dde467-4033-4f2e-9408-a9d1b3ee472e-167397283474da8730-0",
+        "template--15683603595473__66dde467-4033-4f2e-9408-a9d1b3ee472e-167397283474da8730-1",
+        "template--15683603595473__66dde467-4033-4f2e-9408-a9d1b3ee472e-167397283474da8730-2"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "use_custom_colors": false,
+        "background_color_light": "",
+        "background_color_dark": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ece477bb-8ca0-4529-8ca0-78ee99e6db86",
+    "fa9114d8-acf8-4dd9-aa60-c7cb0fcfa89d",
+    "24890542-9890-4275-abcb-5d7f1a32c7af",
+    "598afa55-9aa1-421c-9d79-6b8e81082c13",
+    "66dde467-4033-4f2e-9408-a9d1b3ee472e"
+  ]
+}
