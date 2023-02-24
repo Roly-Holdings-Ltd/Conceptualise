@@ -93,6 +93,8 @@
         "color_scheme": "background-1",
         "enable_video_border": false,
         "video_border_color": "#ffba03",
+        "video_play_button_icon_color": "#f3f5f7",
+        "video_play_button_background_color": "#ffba03",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -411,12 +413,14 @@
             "button_label": "Claim Free AUdit",
             "button_label_second_line": "",
             "button_link": "shopify:\/\/pages\/contact-us",
+            "button1_open_autdit_modal": false,
             "button1_custom_style": false,
             "button1_background_color": "",
             "button1_border_color": "#ffba03",
             "button1_text_color": "#ffba03",
             "button_label_2": "",
             "button_link_2": "",
+            "button2_open_autdit_modal": false,
             "button2_custom_style": false,
             "button2_background_color": "",
             "button2_border_color": "#ffba03",

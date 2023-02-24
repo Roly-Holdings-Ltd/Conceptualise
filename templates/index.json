@@ -29,7 +29,7 @@
             "text_color_dark": "#ffffff",
             "top_spacing": "increased",
             "bottom_spacing": "reduced",
-            "on_load_animation": "js-animate__slide--right",
+            "on_load_animation": "none",
             "image": "shopify:\/\/shop_images\/Group_838.png",
             "image_position": "before",
             "image_width_desktop": 100,
@@ -54,7 +54,7 @@
             "text_color_dark": "#ffffff",
             "top_spacing": "reduced",
             "bottom_spacing": "reduced",
-            "on_load_animation": "js-animate__slide--left",
+            "on_load_animation": "none",
             "image_position": "before",
             "image_width_desktop": 100,
             "image_width_mobile": 60,
@@ -78,7 +78,7 @@
             "text_color_dark": "#ffffff",
             "top_spacing": "reduced",
             "bottom_spacing": "reduced",
-            "on_load_animation": "js-animate__slide--right",
+            "on_load_animation": "none",
             "image": "shopify:\/\/shop_images\/Untitled.png",
             "image_position": "before",
             "image_width_desktop": 100,
@@ -141,7 +141,7 @@
           "settings": {
             "content_button_text": "Contact us",
             "content_button_link": "shopify:\/\/pages\/contact-us",
-            "button_open_autdit_modal": true,
+            "button_open_autdit_modal": false,
             "font_size_mobile": 12,
             "font_size_desktop": 16
           }
@@ -156,7 +156,8 @@
         "f1df84bf-4df7-4c79-aa84-5c9ea9941a76",
         "2d7a51c8-59b7-425a-bd07-017ee91ef261"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "74acbc9a-416b-43c0-8686-91b70546714b": {
       "type": "rotating-statistics",
@@ -534,7 +535,7 @@
         "template--15678261690577__6a27453e-4f54-4f5d-894e-93836ee41645-1673009487deadd426-1": {
           "type": "text",
           "settings": {
-            "text": "<p>You can message us by filling the contact form out below or by dropping us an email -<strong>info@conceptualise.com<\/strong><\/p>",
+            "text": "<p>You can message us by filling the contact form out below or by dropping us an email -<a href=\"mailto:hello@conceptualise.com\" title=\"mailto:hello@conceptualise.com\"><strong>hello@conceptualise.com<\/strong><\/a><\/p>",
             "text_style": "body",
             "color_light": "#000000",
             "color_dark": "#121212"
@@ -685,7 +686,7 @@
       "settings": {
         "show_background": false,
         "show_on_mobile": true,
-        "section_heading": "ALL ABOUT THE <span class=\"circle-border\">P<\/span>ROCESS",
+        "section_heading": "ALL ABOUT THE <p><span class=\"circle-border\">P<\/span>ROCESS<\/p><p><\/p>",
         "heading_font_size_mobile": 36,
         "heading_font_size_desktop": 48,
         "icon_height_mobile": 70,
@@ -852,7 +853,8 @@
         },
         "template--15678261690577__e4c333d9-be59-49f5-b272-57bc9c1cff7a-1673010656e32fc131-2": {
           "type": "email_form",
-          "settings": {}
+          "settings": {
+          }
         }
       },
       "block_order": [

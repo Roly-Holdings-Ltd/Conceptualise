@@ -130,9 +130,9 @@
           "padding_bottom": 20,
           "mobile_drawer_top_image": "shopify:\/\/shop_images\/Group_836_283d22fa-cb35-4c1c-9002-b4a8936418e9.png",
           "mobile_drawer_top_image_dark": "shopify:\/\/shop_images\/Group_723_35a6df35-a20c-4e22-ad3a-1f8722c6953b.png",
-          "menu_drawer_audit_button_text": "FREE AUDIT",
+          "menu_drawer_audit_button_text": "Contact us",
           "menu_drawer_audit_button_link": "shopify:\/\/pages\/contact-us",
-          "menu_drawer_audit_text": "Worth £1,750 + VAT."
+          "menu_drawer_audit_text": ""
         }
       },
       "footer": {
@@ -150,7 +150,7 @@
             "type": "link_list",
             "settings": {
               "heading": "Useful links",
-              "menu": "main-menu"
+              "menu": "nav-menu"
             }
           },
           "footer-1": {
@@ -279,7 +279,9 @@
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [
+
+    ]
   },
   "presets": {
     "Default": {
@@ -387,15 +389,17 @@
               "type": "announcement",
               "settings": {
                 "text": "Welcome to our store",
-                "color_scheme": "background-1",
-                "link": ""
+                "link": "",
+                "text_color_light": "#000000",
+                "text_color_dark": "#FFFFFF"
               }
             }
           },
           "block_order": [
             "announcement-bar-0"
           ],
-          "settings": {}
+          "settings": {
+          }
         },
         "header": {
           "type": "header",

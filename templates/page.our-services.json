@@ -113,9 +113,9 @@
       "settings": {
         "full_width_section": false,
         "show_slider_dots": false,
+        "items_per_row_desktop": 3,
         "padding_top": 20,
         "padding_bottom": 20,
-        "items_per_row_desktop": 3,
         "item_background_color_light": "#1c1c1c",
         "item_background_color_dark": "#1c1c1c",
         "heading_font_size_mobile": 16,
