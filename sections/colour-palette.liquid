@@ -51,6 +51,9 @@
 {%- for block in section.blocks -%}
   #Block--{{ block.id }}{
     background-color: {{ block.settings.item_background_color }};
+    {%- if block.settings.enable_border -%}
+    border: 2px solid {{ block.settings.border_color }}
+    {%- endif -%}
   }
   #Block--{{ block.id }} .color-palette__grid-item-heading{
     color: {{ block.settings.item_heading_color }};
@@ -260,6 +263,18 @@
           "type": "color",
           "id": "item_background_color",
           "label": "Item background colour"
+        },
+        {
+        "type": "checkbox",
+        "id": "enable_border",
+        "label": "Enable border?",
+        "default": false
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Border colour",
+          "default": "#FFFFFF"
         }
       ]
     }
