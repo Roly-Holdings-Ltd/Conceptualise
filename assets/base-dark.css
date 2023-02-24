@@ -751,10 +751,10 @@ body.theme-dark-mode .content-container {
 }
 
 body.theme-dark-mode .content-container:after {
-  box-shadow: var(--text-boxes-shadow-horizontal-offset)
+  /* box-shadow: var(--text-boxes-shadow-horizontal-offset)
     var(--text-boxes-shadow-vertical-offset)
     var(--text-boxes-shadow-blur-radius)
-    rgba(var(--color-shadow), var(--text-boxes-shadow-opacity));
+    rgba(var(--color-shadow), var(--text-boxes-shadow-opacity)); */
 }
 
 body.theme-dark-mode .global-media-settings {
