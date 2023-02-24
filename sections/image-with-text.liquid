@@ -152,7 +152,14 @@
             {%- when 'caption' -%}
               <p id="Block--{{ block.id }}" class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} {{ block.settings.text_style }}" {{ block.shopify_attributes }}>{{ block.settings.caption | escape }}</p>
             {%- when 'text' -%}
-              <div id="Block--{{ block.id }}" class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+              <div id="Block--{{ block.id }}" class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+                {%- if block.setting.text != blank -%}
+                  {{ block.settings.text }}
+                {%- endif -%}
+                {%- if block.setting.custom_text != blank -%}
+                  {{ block.settings.custom_text }}
+                {%- endif -%}
+                </div>
             {%- when 'button' -%}
               {%- if block.settings.button_label != blank -%}
                 <a id="Block--{{ block.id }}" {% if block.settings.button_link == blank and block.settings.button_open_autdit_modal == false %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}" {% if block.settings.button_open_autdit_modal %}data-open-audit-modal{% endif %} {{ block.shopify_attributes }}>
