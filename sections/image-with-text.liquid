@@ -216,8 +216,21 @@
           #Block--{{ block.id }} { color: {{ block.settings.color_light }}; }
           body.theme-dark-mode #Block--{{ block.id }} { color: {{ block.settings.color_dark }}; }
         {%- when 'text' -%}
-          #Block--{{ block.id }} * { color: {{ block.settings.color_light }}; }
+          #Block--{{ block.id }} * {
+            color: {{ block.settings.color_light }};
+            {%- if block.settings.use_custom_font_size -%}
+            font-size: {{ block.settings.text_font_size_mobile }}px;
+            {%- endif -%}
+          }
           body.theme-dark-mode #Block--{{ block.id }} * { color: {{ block.settings.color_dark }}; }
+
+          {%- if block.settings.use_custom_font_size -%}
+            @media (min-width:750px){
+              #Block--{{ block.id }} * {
+                font-size: {{ block.settings.text_font_size_desktop }}px;
+              }
+            }
+          {%- endif -%}
 
         {%- when 'button' -%}
           #Block--{{ block.id }} {
