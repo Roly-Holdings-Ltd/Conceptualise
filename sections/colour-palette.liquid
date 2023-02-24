@@ -51,6 +51,9 @@
 {%- for block in section.blocks -%}
   #Block--{{ block.id }}{
     background-color: {{ block.settings.item_background_color }};
+    {%- if block.settings.enable_border -%}
+    border: 1px solid {{ block.settings.border_color }}
+    {%- endif -%}
   }
   #Block--{{ block.id }} .color-palette__grid-item-heading{
     color: {{ block.settings.item_heading_color }};

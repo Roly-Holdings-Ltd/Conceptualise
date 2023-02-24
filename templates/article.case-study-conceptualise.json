@@ -404,37 +404,103 @@
         "mobile_reduce_content_padding": true,
         "mobile_image_width": "medium",
         "mobile_layout": "image_first",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 16,
+        "padding_bottom": 16
       }
     },
-    "fabac1ae-89fc-4343-bae0-7f4e7ad08e74": {
-      "type": "rich-text",
+    "a2680d54-1ef2-40d5-b415-6d8ae3b30267": {
+      "type": "image-grid",
       "blocks": {
-        "template--15691162681553__fabac1ae-89fc-4343-bae0-7f4e7ad08e74-16752459393174d343-0": {
-          "type": "heading",
+        "45ee1fe4-7bcd-4134-88d9-81f6a64e567a": {
+          "type": "image",
           "settings": {
-            "heading": "<p>Wireframes<\/p>",
-            "heading_font_size_mobile": 32,
-            "heading_font_size_desktop": 42,
-            "text_color_light": "#000000",
-            "text_color_dark": "#ffffff"
+            "image-grid_image": "shopify:\/\/shop_images\/Frame_790.png",
+            "image_grid_heading": "",
+            "image-grid_image_url": ""
           }
         }
       },
       "block_order": [
-        "template--15691162681553__fabac1ae-89fc-4343-bae0-7f4e7ad08e74-16752459393174d343-0"
+        "45ee1fe4-7bcd-4134-88d9-81f6a64e567a"
       ],
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "background-1",
-        "use_custom_colors": false,
-        "background_color_light": "",
-        "background_color_dark": "",
-        "full_width": true,
-        "padding_top": 44,
-        "padding_bottom": 44
+        "full_width_section": false,
+        "items_per_row_mobile": 1,
+        "items_per_row_desktop": 1,
+        "remove_gap_between_images": false,
+        "section_background_color": "#ffba03",
+        "section_heading": "",
+        "section_heading_alt_style": false,
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "set_content_max_width": true,
+        "content_max_width_mobile": 180,
+        "content_max_width_desktop": 768,
+        "grid_padding_top": 80,
+        "grid_padding_bottom": 80,
+        "section_heading_color_light": "#000000",
+        "section_heading_color_dark": "#000000",
+        "section_heading_background_color_light": "#FFFFFF",
+        "section_heading_background_color_dark": "#FFFFFF",
+        "heading_font_size_mobile": 32,
+        "heading_font_size_desktop": 42,
+        "item_heading_color_light": "#FFFFFF",
+        "item_heading_color_dark": "#FFFFFF",
+        "item_heading_font_size_mobile": 14,
+        "item_heading_font_size_desktop": 16
+      }
+    },
+    "190eef57-6a8d-4132-8e96-32dac73f6dc8": {
+      "type": "colour-palette",
+      "blocks": {
+        "1e792c7c-d8ed-4cec-99d6-7ffe0b00be7a": {
+          "type": "color",
+          "settings": {
+            "color_heading": "#FFBA03",
+            "item_heading_color": "#1c1c1c",
+            "item_background_color": "#ffba03"
+          }
+        },
+        "ce748fef-f224-4a6d-90ec-e5bf3aa0a057": {
+          "type": "color",
+          "settings": {
+            "color_heading": "#1B1B1B",
+            "item_heading_color": "#FFFFFF",
+            "item_background_color": "#1b1b1b"
+          }
+        },
+        "bc027574-92c5-4a55-b0d6-168f9b9ee397": {
+          "type": "color",
+          "settings": {
+            "color_heading": "#FFFFFF",
+            "item_heading_color": "#1c1c1c",
+            "item_background_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "1e792c7c-d8ed-4cec-99d6-7ffe0b00be7a",
+        "ce748fef-f224-4a6d-90ec-e5bf3aa0a057",
+        "bc027574-92c5-4a55-b0d6-168f9b9ee397"
+      ],
+      "settings": {
+        "full_width_section": false,
+        "items_per_row_mobile": 3,
+        "items_per_row_desktop": 3,
+        "remove_gap_between_items": true,
+        "section_background_color": "",
+        "section_heading": "Primary",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "section_heading_color_light": "#000000",
+        "section_heading_color_dark": "#fff",
+        "heading_font_size_mobile": 26,
+        "heading_font_size_desktop": 33,
+        "item_heading_font_size_mobile": 19,
+        "item_heading_font_size_desktop": 28,
+        "set_fixed_item_height": true,
+        "fixed_item_height_mobile": 150,
+        "fixed_item_height_desktop": 260
       }
     }
   },
@@ -448,6 +514,7 @@
     "c9cc29e4-e02b-44af-9353-d4394ed9068a",
     "a8de51b7-70f8-4b75-be12-d37980d39a80",
     "72c1a959-cfcc-4a3a-84ad-3ae937a3244d",
-    "fabac1ae-89fc-4343-bae0-7f4e7ad08e74"
+    "a2680d54-1ef2-40d5-b415-6d8ae3b30267",
+    "190eef57-6a8d-4132-8e96-32dac73f6dc8"
   ]
 }
