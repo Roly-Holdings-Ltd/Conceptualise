@@ -15,14 +15,14 @@
     "gradient_background_2": "",
     "links_color": "#1b1b1b",
     "links_color_dark": "#f3f3f3",
-    "type_header_font": "itc_avant_garde_gothic_n4",
+    "type_header_font": "sans-serif",
     "heading_scale": 100,
-    "type_body_font": "open_sans_n4",
+    "type_body_font": "sans-serif",
     "body_scale": 100,
-    "page_width": 1600,
+    "page_width": 1200,
     "spacing_sections": 0,
-    "spacing_grid_horizontal": 8,
-    "spacing_grid_vertical": 8,
+    "spacing_grid_horizontal": 12,
+    "spacing_grid_vertical": 12,
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
     "buttons_radius": 0,
@@ -101,25 +101,13 @@
     "predictive_search_show_price": false,
     "favicon": "shopify:\/\/shop_images\/Group_566_1.png",
     "currency_code_enabled": true,
+    "show_audit_modal": true,
+    "audit_modal_heading": "CLAIM YOUR <span class=\"text--color-alt text--color-alt-yellow\">FREE<\/span> AUDIT",
+    "audit_modal_subheading": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus aspernatur inventore",
+    "audit_modal_form": "",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
-        "blocks": {
-          "announcement-bar-0": {
-            "type": "announcement",
-            "settings": {
-              "text": "Website is currently undergoing maintenance",
-              "link": "",
-              "background_color_light": "",
-              "background_color_dark": "",
-              "text_color_light": "#000000",
-              "text_color_dark": "#FFFFFF"
-            }
-          }
-        },
-        "block_order": [
-          "announcement-bar-0"
-        ],
         "settings": {}
       },
       "header": {
@@ -150,12 +138,19 @@
       "footer": {
         "type": "footer",
         "blocks": {
+          "86dd9baf-913c-4e4a-9911-0f58b49f7fb1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Group_813_c623653c-9e79-4048-a4cd-63fdd74b7fe4.png",
+              "image_width": 200,
+              "alignment": ""
+            }
+          },
           "footer-0": {
             "type": "link_list",
-            "disabled": true,
             "settings": {
-              "heading": "Quick links",
-              "menu": "footer"
+              "heading": "Useful links",
+              "menu": "main-menu"
             }
           },
           "footer-1": {
@@ -176,6 +171,7 @@
           }
         },
         "block_order": [
+          "86dd9baf-913c-4e4a-9911-0f58b49f7fb1",
           "footer-0",
           "footer-1",
           "footer-2"
@@ -183,14 +179,14 @@
         "settings": {
           "color_scheme": "background-1",
           "newsletter_enable": false,
-          "newsletter_heading": "Subscribe to our emails",
-          "show_social": false,
+          "newsletter_heading": "Want us to contact you?",
+          "show_social": true,
           "enable_country_selector": false,
           "enable_language_selector": false,
           "payment_enable": false,
-          "margin_top": 0,
-          "padding_top": 0,
-          "padding_bottom": 0
+          "margin_top": 28,
+          "padding_top": 32,
+          "padding_bottom": 40
         }
       },
       "main-password-header": {
