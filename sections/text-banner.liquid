@@ -864,7 +864,11 @@
 
         {%- when 'content_single_image' -%}
         #block--{{ block.id }}.main-banner__single-image{
+            {%- if block.settings.enable_full_width -%}
+            width: 100%
+            {%- else -%}
             max-width: {{ block.settings.image_max_width }}px;
+            {%- endif -%}
         }
 
         {%- when 'charts' -%}
@@ -1689,6 +1693,12 @@
                 "unit": "px",
                 "label": "Image max width",
                 "default": 80
+            },
+            {
+                "type": "checkbox",
+                "id": "enable_full_width",
+                "label": "Make image full width?",
+                "default": false
             },
             {
                 "type": "checkbox",
