@@ -24,6 +24,15 @@
   #Section--{{ section.id }}.image-with-text .image-with-text__content{
     background-color: {{ section.settings.background_color }};
   }
+
+  {%- if section.settings.enable_section_border -%}
+  #Section--{{ section.id }} .image-with-text--mobile-inline.image-with-text__grid{
+    border: 2px solid {{ section.settings.section_border_color_light }};
+  }
+  body.theme-dark-mode #Section--{{ section.id }} .image-with-text--mobile-inline.image-with-text__grid{
+    border: 2px solid {{ section.settings.section_border_color_dark }};
+  }
+  {%- endif -%}
   
   body.theme-dark-mode #Section--{{ section.id }}.image-with-text .image-with-text__media,
   body.theme-dark-mode #Section--{{ section.id }}.image-with-text .image-with-text__media-item,
@@ -152,7 +161,10 @@
             {%- when 'caption' -%}
               <p id="Block--{{ block.id }}" class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} {{ block.settings.text_style }}" {{ block.shopify_attributes }}>{{ block.settings.caption | escape }}</p>
             {%- when 'text' -%}
-              <div id="Block--{{ block.id }}" class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+              <div id="Block--{{ block.id }}" class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+                {{ block.settings.custom_text }}
+                </div>
             {%- when 'button' -%}
               {%- if block.settings.button_label != blank -%}
                 <a id="Block--{{ block.id }}" {% if block.settings.button_link == blank and block.settings.button_open_autdit_modal == false %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}" {% if block.settings.button_open_autdit_modal %}data-open-audit-modal{% endif %} {{ block.shopify_attributes }}>
@@ -216,8 +228,25 @@
           #Block--{{ block.id }} { color: {{ block.settings.color_light }}; }
           body.theme-dark-mode #Block--{{ block.id }} { color: {{ block.settings.color_dark }}; }
         {%- when 'text' -%}
-          #Block--{{ block.id }} * { color: {{ block.settings.color_light }}; }
+          #Block--{{ block.id }} * {
+            color: {{ block.settings.color_light }};
+            {%- if block.settings.use_custom_font_size -%}
+            font-size: {{ block.settings.text_font_size_mobile }}px;
+            {%- endif -%}
+            {%- if block.settings.make_text_bold -%}
+            font-weight: bold;
+            {%- endif -%}
+          }
           body.theme-dark-mode #Block--{{ block.id }} * { color: {{ block.settings.color_dark }}; }
+
+          {%- if block.settings.use_custom_font_size -%}
+            @media (min-width:750px){
+              #Block--{{ block.id }} * {
+                font-size: {{ block.settings.text_font_size_desktop }}px;
+              }
+            }
+          {%- endif -%}
+
         {%- when 'button' -%}
           #Block--{{ block.id }} {
             color: {{ block.settings.color_light }} !important;
@@ -384,6 +413,24 @@
       "type": "color",
       "id": "background_color_dark",
       "label": "Background colour - dark",
+      "default": "#fff"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_section_border",
+      "label": "Enable a border around the section?",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "section_border_color_light",
+      "label": "Border colour - light",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "section_border_color_dark",
+      "label": "Border colour - dark",
       "default": "#fff"
     },
     {
@@ -602,6 +649,11 @@
           "label": "t:sections.image-with-text.blocks.text.settings.text.label"
         },
         {
+          "type": "textarea",
+          "id": "custom_text",
+          "label": "Custom text"
+        },
+        {
           "type": "select",
           "id": "text_style",
           "options": [
@@ -628,6 +680,38 @@
           "id": "color_dark",
           "label": "Colour - dark",
           "default": "#FFF"
+        },
+        {
+          "type": "checkbox",
+          "id": "make_text_bold",
+          "label": "Make text bold?",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "use_custom_font_size",
+          "label": "Use custom font size?",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "text_font_size_mobile",
+          "min": 5,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Text font size - Mobile",
+          "default": 12
+        },
+        {
+          "type": "range",
+          "id": "text_font_size_desktop",
+          "min": 5,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Text font size - Desktop",
+          "default": 14
         }
       ]
     },
