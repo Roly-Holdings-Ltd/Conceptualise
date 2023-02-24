@@ -864,7 +864,11 @@
 
         {%- when 'content_single_image' -%}
         #block--{{ block.id }}.main-banner__single-image{
+            {%- if block.settings.enable_full_width -%}
+            width: 100%
+            {%- else -%}
             max-width: {{ block.settings.image_max_width }}px;
+            {%- endif -%}
         }
 
         {%- when 'charts' -%}
