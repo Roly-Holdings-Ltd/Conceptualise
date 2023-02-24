@@ -20,6 +20,11 @@
       border: 7px solid {{ section.settings.video_border_color }};
     }
   {%- endif -%}
+
+  #shopify-section-{{ section.id }} .deferred-media__poster-button{
+    color:{{ section.settings.video_play_button_icon_color }};
+    background-color:{{ section.settings.video_play_button_background_color }};
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
@@ -291,6 +296,22 @@
       "id": "video_border_color",
       "label": "Video border colour",
       "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Video play button"
+    },
+    {
+      "type": "color",
+      "id": "video_play_button_icon_color",
+      "label": "Video Play button icon colour",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "video_play_button_background_color",
+      "label": "Video Play button background colour",
+      "default": "#fff"
     },
     {
       "type": "header",
