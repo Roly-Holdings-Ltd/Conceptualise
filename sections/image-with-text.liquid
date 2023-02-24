@@ -224,6 +224,9 @@
             {%- if block.settings.use_custom_font_size -%}
             font-size: {{ block.settings.text_font_size_mobile }}px;
             {%- endif -%}
+            {%- if block.settings.make_text_bold -%}
+            font-weight: bold;
+            {%- endif -%}
           }
           body.theme-dark-mode #Block--{{ block.id }} * { color: {{ block.settings.color_dark }}; }
 
