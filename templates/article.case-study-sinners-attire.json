@@ -3,7 +3,8 @@
     "main": {
       "type": "main-article",
       "disabled": true,
-      "settings": {}
+      "settings": {
+      }
     },
     "ca7f7000-c954-4a12-9222-37ba3df7707b": {
       "type": "text-banner",
@@ -151,7 +152,8 @@
         "bd043ce3-2a57-4077-a969-d8e3fb5e16a9",
         "dd42181a-8016-40db-b090-a0f72b6164ec"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "cbd84123-9967-4617-a0a7-08dc38749b62": {
       "type": "rich-text",
@@ -528,7 +530,7 @@
           "type": "text",
           "settings": {
             "text": "<p>Sinners have attracted a loyal following across the UK, Spain, Ireland & Portugal.  <\/p>",
-            "custom_text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
+            "custom_text": "",
             "custom_text_bold": false,
             "custom_text_italic": false,
             "text_font_size_mobile": 14,
@@ -872,12 +874,14 @@
             "button_label": "Get an audit",
             "button_label_second_line": "",
             "button_link": "shopify:\/\/pages\/contact-us",
-            "button1_custom_style": true,
+            "button1_open_autdit_modal": false,
+            "button1_custom_style": false,
             "button1_background_color": "#2d2d2d",
             "button1_border_color": "#ffba03",
             "button1_text_color": "#ffffff",
             "button_label_2": "",
             "button_link_2": "",
+            "button2_open_autdit_modal": false,
             "button2_custom_style": false,
             "button2_background_color": "",
             "button2_border_color": "#ffba03",
