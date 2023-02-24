@@ -27,9 +27,11 @@
 
   {%- if section.settings.enable_section_border -%}
   #Section--{{ section.id }} .image-with-text--mobile-inline.image-with-text__grid{
-
+    border: 2px solid {{ section.settings.section_border_color_light }};
   }
-
+  body.theme-dark-mode #Section--{{ section.id }} .image-with-text--mobile-inline.image-with-text__grid{
+    border: 2px solid {{ section.settings.section_border_color_dark }};
+  }
   {%- endif -%}
   
   body.theme-dark-mode #Section--{{ section.id }}.image-with-text .image-with-text__media,
