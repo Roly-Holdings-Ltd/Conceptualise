@@ -361,10 +361,14 @@
         "template--15704089428177__72c1a959-cfcc-4a3a-84ad-3ae937a3244d-1677235463502cc60f-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Conceptualise shine a light on the blind spots to make your next step the bright one<\/p>",
+            "text": "",
+            "custom_text": "<p><span class=\"text--color-alt text--color-alt-yellow\">Conceptualise<\/span> shine a light on the blind spots to make your next step the bright one<\/p>",
             "text_style": "subtitle",
-            "color_light": "#000",
-            "color_dark": "#FFF"
+            "color_light": "#000000",
+            "color_dark": "#ffffff",
+            "use_custom_font_size": true,
+            "text_font_size_mobile": 18,
+            "text_font_size_desktop": 29
           }
         },
         "423b7d07-0598-446f-adea-21957bddeed3": {
@@ -384,7 +388,7 @@
         "increase_space_around_image": false,
         "image": "shopify:\/\/shop_images\/Group_320.png",
         "height": "adapt",
-        "desktop_image_width": "medium",
+        "desktop_image_width": "small",
         "layout": "image_first",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
