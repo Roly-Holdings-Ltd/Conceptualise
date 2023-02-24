@@ -450,6 +450,35 @@
         "item_heading_font_size_desktop": 16
       }
     },
+    "2129b28f-59da-448d-a8e7-6c6ceba4df7e": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15704089428177__2129b28f-59da-448d-a8e7-6c6ceba4df7e-16772391049c44f8a8-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Colour Palette<\/p>",
+            "heading_font_size_mobile": 32,
+            "heading_font_size_desktop": 42,
+            "text_color_light": "#000000",
+            "text_color_dark": "#FFFFFF"
+          }
+        }
+      },
+      "block_order": [
+        "template--15704089428177__2129b28f-59da-448d-a8e7-6c6ceba4df7e-16772391049c44f8a8-0"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "use_custom_colors": false,
+        "background_color_light": "",
+        "background_color_dark": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
     "190eef57-6a8d-4132-8e96-32dac73f6dc8": {
       "type": "colour-palette",
       "blocks": {
@@ -496,13 +525,61 @@
         "remove_gap_between_items": true,
         "section_background_color": "",
         "section_heading": "Primary",
-        "padding_top": 36,
+        "padding_top": 16,
+        "padding_bottom": 0,
+        "section_heading_color_light": "#000000",
+        "section_heading_color_dark": "#ffffff",
+        "heading_font_size_mobile": 26,
+        "heading_font_size_desktop": 32,
+        "item_heading_font_size_mobile": 18,
+        "item_heading_font_size_desktop": 28,
+        "set_fixed_item_height": true,
+        "fixed_item_height_mobile": 150,
+        "fixed_item_height_desktop": 260
+      }
+    },
+    "256d86c7-7653-4131-8f28-572168ab2b20": {
+      "type": "colour-palette",
+      "blocks": {
+        "b009a865-4fc9-4054-8c00-c504d9bd0e34": {
+          "type": "color",
+          "settings": {
+            "color_heading": "#18A9A0",
+            "item_heading_color": "#1c1c1c",
+            "item_background_color": "#18a9a0",
+            "enable_border": false,
+            "border_color": "#FFFFFF"
+          }
+        },
+        "09f7732f-c3a1-4435-9b87-60b3b52ef38d": {
+          "type": "color",
+          "settings": {
+            "color_heading": "#EC695B",
+            "item_heading_color": "#1c1c1c",
+            "item_background_color": "#ec695b",
+            "enable_border": false,
+            "border_color": "#FFFFFF"
+          }
+        }
+      },
+      "block_order": [
+        "b009a865-4fc9-4054-8c00-c504d9bd0e34",
+        "09f7732f-c3a1-4435-9b87-60b3b52ef38d"
+      ],
+      "settings": {
+        "full_width_section": false,
+        "items_per_row_mobile": 2,
+        "items_per_row_desktop": 2,
+        "remove_gap_between_items": true,
+        "section_background_color": "",
+        "section_heading": "Secondary",
+        "padding_top": 24,
         "padding_bottom": 36,
         "section_heading_color_light": "#000000",
         "section_heading_color_dark": "#ffffff",
         "heading_font_size_mobile": 26,
-        "heading_font_size_desktop": 33,
-        "item_heading_font_size_mobile": 19,
+        "heading_font_size_desktop": 32,
+        "item_heading_font_size_mobile": 18,
         "item_heading_font_size_desktop": 28,
         "set_fixed_item_height": true,
         "fixed_item_height_mobile": 150,
@@ -521,6 +598,8 @@
     "a8de51b7-70f8-4b75-be12-d37980d39a80",
     "72c1a959-cfcc-4a3a-84ad-3ae937a3244d",
     "a2680d54-1ef2-40d5-b415-6d8ae3b30267",
-    "190eef57-6a8d-4132-8e96-32dac73f6dc8"
+    "2129b28f-59da-448d-a8e7-6c6ceba4df7e",
+    "190eef57-6a8d-4132-8e96-32dac73f6dc8",
+    "256d86c7-7653-4131-8f28-572168ab2b20"
   ]
 }
