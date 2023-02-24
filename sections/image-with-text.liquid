@@ -24,6 +24,13 @@
   #Section--{{ section.id }}.image-with-text .image-with-text__content{
     background-color: {{ section.settings.background_color }};
   }
+
+  {%- if section.settings.enable_section_border -%}
+  #Section--{{ section.id }} .image-with-text--mobile-inline.image-with-text__grid{
+
+  }
+
+  {%- endif -%}
   
   body.theme-dark-mode #Section--{{ section.id }}.image-with-text .image-with-text__media,
   body.theme-dark-mode #Section--{{ section.id }}.image-with-text .image-with-text__media-item,
@@ -405,6 +412,24 @@
       "id": "background_color_dark",
       "label": "Background colour - dark",
       "default": "#fff"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_section_border",
+      "label": "Enable a border around the section?",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "section_border_color_light",
+      "label": "Border colour - light",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "section_border_color_dark",
+      "label": "Border colour - dark",
+      "default": "#000"
     },
     {
       "type": "header",
