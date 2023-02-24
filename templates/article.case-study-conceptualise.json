@@ -366,6 +366,7 @@
             "text_style": "subtitle",
             "color_light": "#000000",
             "color_dark": "#ffffff",
+            "make_text_bold": true,
             "use_custom_font_size": true,
             "text_font_size_mobile": 18,
             "text_font_size_desktop": 29
