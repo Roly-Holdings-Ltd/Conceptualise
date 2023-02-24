@@ -758,7 +758,7 @@ body.theme-dark-mode .content-container:after {
 }
 
 body.theme-dark-mode .global-media-settings {
-  border: var(--media-border-width) solid rgba(var(--color-foreground-dark), var(--media-border-opacity));
+  /* border: var(--media-border-width) solid rgba(var(--color-foreground-dark), var(--media-border-opacity)); */
   background-color: rgb(var(--color-background-dark));
 }
 
