@@ -40,6 +40,9 @@
                 <nav class="menu-drawer__navigation">
                   <ul class="menu-drawer__menu has-submenu list-menu" role="list">
                     {%- for link in section.settings.menu.links -%}
+                      {%- comment %}<locksmith:24fc>{% endcomment -%}
+                        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: section.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                      {%- comment %}</locksmith:24fc>{% endcomment -%}
                       <li>
                         {%- if link.links != blank -%}
                           <details id="Details-menu-drawer-menu-item">
@@ -56,6 +59,9 @@
                                 </button>
                                 <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                                   {%- for childlink in link.links -%}
+                                    {%- comment %}<locksmith:8144>{% endcomment -%}
+                                      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childlink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                                    {%- comment %}</locksmith:8144>{% endcomment -%}
                                     <li>
                                       {%- if childlink.links == blank -%}
                                         <a href="{{ childlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
@@ -75,6 +81,9 @@
                                             </button>
                                             <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                                               {%- for grandchildlink in childlink.links -%}
+                                                {%- comment %}<locksmith:472c>{% endcomment -%}
+                                                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandchildlink, subject_parent: childlink, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                                                {%- comment %}</locksmith:472c>{% endcomment -%}
                                                 <li>
                                                   <a href="{{ grandchildlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
                                                     {{ grandchildlink.title | escape }}
@@ -307,6 +316,9 @@
         <nav class="header__inline-menu">
           <ul class="list-menu list-menu--inline" role="list">
             {%- for link in section.settings.menu.links -%}
+              {%- comment %}<locksmith:c6e3>{% endcomment -%}
+                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: section.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+              {%- comment %}</locksmith:c6e3>{% endcomment -%}
               <li>
                 {%- if link.links != blank -%}
                   <header-menu>
@@ -317,6 +329,9 @@
                       </summary>
                       <ul id="HeaderMenu-MenuList" class="header__submenu list-menu list-menu--disclosure gradient caption-large motion-reduce global-settings-popup" role="list" tabindex="-1">
                         {%- for childlink in link.links -%}
+                          {%- comment %}<locksmith:31fb>{% endcomment -%}
+                            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childlink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                          {%- comment %}</locksmith:31fb>{% endcomment -%}
                           <li>
                             {%- if childlink.links == blank -%}
                               <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large {% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
@@ -330,6 +345,9 @@
                                 </summary>
                                 <ul id="HeaderMenu-SubMenuList" class="header__submenu list-menu motion-reduce">
                                   {%- for grandchildlink in childlink.links -%}
+                                    {%- comment %}<locksmith:9472>{% endcomment -%}
+                                      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandchildlink, subject_parent: childlink, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                                    {%- comment %}</locksmith:9472>{% endcomment -%}
                                     <li>
                                       <a href="{{ grandchildlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
                                         {{ grandchildlink.title | escape }}
@@ -357,6 +375,9 @@
         <nav class="header__inline-menu">
           <ul class="list-menu list-menu--inline" role="list">
             {%- for link in section.settings.menu.links -%}
+              {%- comment %}<locksmith:25ea>{% endcomment -%}
+                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: section.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+              {%- comment %}</locksmith:25ea>{% endcomment -%}
               <li>
                 {%- if link.links != blank -%}
                   <header-menu>
@@ -368,6 +389,9 @@
                       <div id="MegaMenu-Content" class="mega-menu__content gradient motion-reduce global-settings-popup" tabindex="-1">
                         <ul class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}" role="list">
                           {%- for childlink in link.links -%}
+                            {%- comment %}<locksmith:7d33>{% endcomment -%}
+                              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childlink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                            {%- comment %}</locksmith:7d33>{% endcomment -%}
                             <li>
                               <a href="{{ childlink.url }}" class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
                                 {{ childlink.title | escape }}
@@ -375,6 +399,9 @@
                               {%- if childlink.links != blank -%}
                                 <ul class="list-unstyled" role="list">
                                   {%- for grandchildlink in childlink.links -%}
+                                    {%- comment %}<locksmith:8e5b>{% endcomment -%}
+                                      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandchildlink, subject_parent: childlink, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                                    {%- comment %}</locksmith:8e5b>{% endcomment -%}
                                     <li>
                                       <a href="{{ grandchildlink.url }}" class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
                                         {{ grandchildlink.title | escape }}
